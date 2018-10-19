@@ -1,0 +1,99 @@
+@import '../../lib/style/cur.scss';
+.dateTop{
+    height:100rpx;
+    padding:50rpx 20rpx;
+    display: flex;
+    .cell,.xie{
+        flex: 1;
+        flex-direction: row;
+        
+    }
+    .cell{
+        font-size: 26rpx;
+        .t{
+            font-size: 48rpx;
+            display: block;
+        }
+        .b{
+            display: block;
+            margin-top: 20rpx;
+        }
+    }
+    .xie{
+        color: #EDEDED;
+        font-size: 80rpx;
+        text-align: center;
+    }
+}
+.canlendarTopView{
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    color: #999999;
+    display: flex;
+    .leftBgView,.centerView,.rightBgView{
+        flex: 1;
+        flex-direction: row;
+        text-align: center;
+    }
+}
+.weekBgView{
+    display: flex;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 26rpx;
+    .weekView{
+        flex: 1;
+        text-align: center;
+    }
+}
+.dateBgView{
+    height: auto;
+    overflow: hidden;
+    .cyt{
+        width: 107rpx;
+        height: 107rpx;
+        float: left;
+        text-align: center;
+        line-height: 107rpx;
+        
+    }
+    .dateEmptyView{
+        color: #999999;
+    }
+    .datesView{
+        
+    }
+    .noselect{
+        color: #CCCCCC;
+    }
+    .select{
+        margin:24rpx auto;
+        width: 60rpx;
+        height: 60rpx;
+        text-align: center;
+        line-height: 60rpx;
+        background: $colormain;
+        color: #FFFFFF;
+        border-radius: 50%;
+    }
+    .zj{
+        margin:24rpx auto;
+        width: 60rpx;
+        height: 60rpx;
+        text-align: center;
+        line-height: 60rpx;
+        background: #f4c4a7;
+        color: #FFFFFF;
+        border-radius: 50%;
+    }
+}
+.btn{
+    width: 680rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+    margin: 50rpx auto 0;
+    line-height: 100rpx;
+    color: #FFFFFF;
+    background: #999999;
+}

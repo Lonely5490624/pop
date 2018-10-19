@@ -1,0 +1,96 @@
+<view class='page'>
+  <!-- 搜索条 -->
+  <view class="search">
+    <view class="locate">
+      <text class='iconfont icon-didian' style='font-size: 30rpx;'></text>
+      <text class='locate-text'>上海</text>
+      <text class='iconfont icon-up-copy' style='vertical-align: -4rpx;'></text>
+    </view>
+    <view class='search-input' bindtap='toSearch'>
+      <text>输入您想要的城市、商圈</text>
+      <text class='iconfont icon-sousuo search-icon'></text>
+    </view>
+  </view>
+  <!-- 热门商圈 -->
+  <view class="section shangq">
+    <text class='title'>热门商圈</text>
+    <scroll-view class='shangq-scroll' scroll-x>
+      <view class='shangq-scroll-item' wx:for='{{shangq}}'>
+        <text class='shangq-text-cn'>{{item.textCn}}</text>
+        <text class='shangq-text-en'>{{item.textEn}}</text>
+        <image class='shangq-img' src='{{item.img}}'></image>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 热门推荐 -->
+  <view class='section recommend'>
+    <text class='title'>热门推荐</text>
+    <view class='recommend-list'>
+      <view class='recommend-item' wx:for='{{recommendData}}'>
+        <view class='recommend-box'>
+          <image class='recommend-img' src='{{item.imgUrl}}'></image>
+          <text class='recommend-official' wx:if='{{item.official}}'>官方认证</text>
+          <text class='iconfont icon-wujiaoxing1 recommend-collect collect'></text>
+        </view>
+        <view class='recommend-info'>
+          <text class='recommend-tip'>{{item.tip}}</text>
+          <text class='recommend-title'>{{item.title}}</text>
+          <text class='recommend-bottom'>
+            <text class='recommend-price'>￥{{item.price}}/天</text>
+            <text class='recommend-score'>评分: {{item.score}}</text>
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class='recommend-more'>
+      <navigator class='recommend-more-btn' url="/pages/fk/list/list">展开查看更多空间</navigator>
+    </view>
+  </view>
+  <!-- 故事 -->
+  <view class='section story'>
+    <view class='title'>故事</view>
+    <scroll-view class='story-scroll' scroll-x>
+      <view class='story-scroll-item' wx:for='{{storyData}}'>
+        <image class='story-img' src='{{item.imgUrl}}'></image>
+        <text class='story-title'>{{item.title}}</text>
+        <text class='story-info'>{{item.info}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view class='index-adv'>
+  <image src='{{locateUrl}}'></image>
+</view>
+
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+	<view class="footer-li select">
+		<text class="iconfont icon-zhuye"></text>
+		<text>搜索</text>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-dingdan"></text>
+			<text>消息</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-zhuye"></text>
+			<text>行程</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-dingdan"></text>
+			<text>收藏</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/mine/mine">
+		<text class="iconfont icon-geren"></text>
+		<text>我的</text>
+		</navigator>
+	</view>
+</view>

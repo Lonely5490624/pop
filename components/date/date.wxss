@@ -1,0 +1,187 @@
+.color9 {
+  color: #999999;
+}
+
+.colormain {
+  color: #ec6517;
+}
+
+.mgl2 {
+  margin-left: 20rpx;
+}
+
+.mgt2 {
+  margin-top: 20rpx;
+}
+
+.bb {
+  border-bottom: 1rpx solid #EEEEEE;
+}
+
+.translateX0 {
+  transform: translate3d(-100%, 0, 0) !important;
+}
+
+.fl {
+  float: left !important;
+}
+
+.fr {
+  float: right !important;
+}
+
+.divcenter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.suolue {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fs36 {
+  font-size: 36rpx;
+}
+
+.fs28 {
+  font-size: 28rpx;
+}
+
+.fs48 {
+  font-size: 48rpx;
+}
+
+.clear {
+  clear: both;
+}
+
+.btn-mainred {
+  border: 1px solid #ec6517;
+  color: #ec6517;
+}
+
+.btn-main {
+  background: #ec6517 !important;
+  color: #FFFFFF !important;
+}
+
+.dateTop {
+  height: 100rpx;
+  padding: 50rpx 20rpx;
+  display: flex;
+}
+
+.dateTop .cell, .dateTop .xie {
+  flex: 1;
+  flex-direction: row;
+}
+
+.dateTop .cell {
+  font-size: 26rpx;
+}
+
+.dateTop .cell .t {
+  font-size: 48rpx;
+  display: block;
+}
+
+.dateTop .cell .b {
+  display: block;
+  margin-top: 20rpx;
+}
+
+.dateTop .xie {
+  color: #EDEDED;
+  font-size: 80rpx;
+  text-align: center;
+}
+
+.canlendarTopView {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  color: #999999;
+  display: flex;
+}
+
+.canlendarTopView .leftBgView, .canlendarTopView .centerView, .canlendarTopView .rightBgView {
+  flex: 1;
+  flex-direction: row;
+  text-align: center;
+}
+
+.weekBgView {
+  display: flex;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 26rpx;
+}
+
+.weekBgView .weekView {
+  flex: 1;
+  text-align: center;
+}
+
+.dateBgView {
+  height: auto;
+  overflow: hidden;
+}
+
+.dateBgView .cyt {
+  width: 107rpx;
+  height: 107rpx;
+  float: left;
+  text-align: center;
+  line-height: 107rpx;
+}
+
+.dateBgView .dateEmptyView {
+  color: #999999;
+}
+
+.dateBgView .noselect {
+  color: #CCCCCC;
+}
+
+.dateBgView .select {
+  margin: 24rpx auto;
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #ec6517;
+  color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.dateBgView .zj {
+  margin: 24rpx auto;
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #f4c4a7;
+  color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.btn {
+  width: 680rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin: 50rpx auto 0;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background: #999999;
+}

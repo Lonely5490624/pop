@@ -1,0 +1,76 @@
+/**app.wxss**/
+@import 'lib/style/font.wxss';
+
+
+.page{
+  padding: 0 32rpx;
+}
+.search{
+  display: flex;
+  justify-content: space-between;
+}
+.locate{
+  line-height: 80rpx;
+}
+.locate-img{
+  width: 24rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.locate-text{
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.search-input{
+  width: 520rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+  color: #E0E0E0;
+  padding: 28rpx 0;
+  background-size: 30rpx;
+  position: relative;
+}
+.search-icon{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30rpx;
+}
+
+.footer-h {
+	height: 100rpx;
+}
+
+.footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	height: 100rpx;
+	text-align: center;
+	display: flex;
+	z-index: 500000;
+	background: #ffffff;
+  border-top: 2rpx solid #dddddd;
+}
+
+.footer-li {
+	flex: 1;
+	color: #212121;
+}
+
+.footer .select {
+	color: #ff5555;
+}
+
+.footer-li text {
+	display: block;
+	width: 100%;
+	font-size: 20rpx;
+}
+
+.footer-li .iconfont {
+	margin-top: 26rpx;
+	font-size: 32rpx;
+}

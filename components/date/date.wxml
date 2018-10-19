@@ -1,0 +1,43 @@
+
+<view class="dateTop">
+	<view class="cell">
+		<text class="t">入住时间</text>
+		<text class="b">{{start.daystr||"请选择"}}{{inDate}}</text>
+	</view>
+	<view class="xie">/</view>
+	<view class="cell">
+		<text class="t">离店时间</text>
+		<text class="b">{{end.daystr||"请选择"}}</text>
+	</view>
+</view>
+<view class="canlendarBgView">
+  <view class="canlendarView">
+    <view class="canlendarTopView">
+      <view class="leftBgView" bindtap="handleCalendar" data-handle="prev">
+        <view class="leftView">《</view>
+      </view>
+      <view class="centerView">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+      <view class="rightBgView" bindtap="handleCalendar" data-handle="next">
+        <view class="rightView">》</view>
+      </view>
+    </view>
+    <view class="weekBgView">
+      <view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}" >
+      	 <view>{{item}}</view>
+      </view>
+    </view>
+    <view class="dateBgView">
+      <view  class="dateEmptyView cyt" wx:for="{{empytGrids}}" data-obj="{{item}}"  data-s="{{item.status}}"  data-idx="{{item.daystr}}"  data-type="pre" bindtap="dateSelectAction"> 
+             <view class="datesView {{item.status==0?'noselect':''}} {{item.status==3?'select':''}} {{item.status==2?'zj':''}}">{{item.str}}</view>
+      </view>
+      <view class="dateView cyt" wx:for="{{days}}"  data-obj="{{item}}"  data-s="{{item.status}}"  data-idx="{{item.str}}" bindtap="dateSelectAction">
+        <view class="datesView {{item.status==0?'noselect':''}} {{item.status==3?'select':''}} {{item.status==2?'zj':''}}">{{item.str}}</view>
+      </view>
+      <view  class="dateEmptyView cyt" wx:for="{{nextDays}}" data-obj="{{item}}"  data-s="{{item.status}}"  data-idx="{{item.daystr}}"   data-type="next" bindtap="dateSelectAction"> 
+      <view class="datesView {{item.status==0?'noselect':''}} {{item.status==3?'select':''}} {{item.status==2?'zj':''}}">{{item.str}}</view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+<button class="{{starttime&&endtime?'btn-main':''}} btn" bindtap="_close">确定</button>

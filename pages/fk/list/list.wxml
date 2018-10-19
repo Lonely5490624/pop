@@ -1,0 +1,77 @@
+<view class='page'>
+  <!-- 搜索条 -->
+  <view class="search">
+    <view class="locate">
+      <text class='iconfont icon-didian' style='font-size: 30rpx;'></text>
+      <text class='locate-text'>上海</text>
+      <text class='iconfont icon-up-copy' style='vertical-align: -4rpx;'></text>
+    </view>
+    <view class='search-input' bindtap='toSearch'>
+      <text>输入您想要的城市、商圈</text>
+      <text class='iconfont icon-sousuo search-icon'></text>
+    </view>
+  </view>
+
+  <text bindtap='opendate'>日期</text>
+  <text>筛选条件</text>
+  <!-- 空间列表 -->
+  <view class='space-list'>
+    <view class='space-item' wx:for='{{spaceData}}'>
+      <image class='space-img' src='{{item.imgUrl}}'></image>
+      <text class='space-renzheng' wx:if='{{item.official}}'>官方认证</text>
+      <text class='space-info'>{{item.info}}</text>
+      <text class='space-title'>{{item.title}}</text>
+      <text class='iconfont icon-wujiaoxing1 space-collect active' wx:if='{{item.collect}}'></text>
+      <text class='iconfont icon-wujiaoxing1 space-collect' wx:else='{{item.collect}}'></text>
+      <view class='space-bottom'>
+        <text class='space-price'>￥{{item.price}}/天</text>
+        <text class='space-zhengche'>{{item.zhengche}}</text>
+        <view class='space-score'>
+          <text class='iconfont icon-wujiaoxing score-icon active'></text>
+          <text class='iconfont icon-wujiaoxing score-icon active'></text>
+          <text class='iconfont icon-wujiaoxing score-icon active'></text>
+          <text class='iconfont icon-wujiaoxing score-icon'></text>
+          <text class='iconfont icon-wujiaoxing score-icon'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+	<view class="footer-li select">
+		<text class="iconfont icon-zhuye"></text>
+		<text>搜索</text>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-dingdan"></text>
+			<text>消息</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-zhuye"></text>
+			<text>行程</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-dingdan"></text>
+			<text>收藏</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/mine/mine">
+		<text class="iconfont icon-geren"></text>
+		<text>我的</text>
+		</navigator>
+	</view>
+</view>
+
+<view class="datepage {{opendate ? 'show':''}}">
+	<my-date bindmyevent="onMyEvent"></my-date>
+</view>

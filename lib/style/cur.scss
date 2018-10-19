@@ -1,0 +1,84 @@
+$colormain:#ec6517;
+.color9{
+    color: #999999;
+}
+.colormain{
+    color: $colormain;;
+}
+.mgl2{
+    margin-left: 20rpx;
+}
+.mgt2{
+    margin-top: 20rpx;
+}
+.bb {
+    border-bottom: 1rpx solid #EEEEEE;
+}
+.translateX0{
+    transform: translate3d(-100%, 0, 0) !important;
+}
+.fl{
+    float: left !important;
+}
+.fr{
+    float: right !important;
+}
+.divcenter{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+@mixin suolue2($num) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+}
+
+.suolue {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fs36{
+    font-size: 36rpx;
+}
+.fs28{
+    font-size: 28rpx;
+}
+.fs48{
+    font-size: 48rpx;
+}
+.clear{
+    clear: both;
+}
+.btn-mainred{
+    border: 1px solid $colormain;
+    color: $colormain;
+}
+.btn-main{
+    background: $colormain !important;
+    color: #FFFFFF !important;
+}
+.datepage {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+    top: 0;
+    left: 0;
+    background: #FFFFFF;
+}
