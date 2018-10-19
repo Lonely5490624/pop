@@ -1,5 +1,5 @@
 <!-- 搜索条 -->
-<view class="search">
+<navigator class="search" url='/pages/logs/logs'>
   <view class="locate">
     <text class='iconfont icon-didian' style='font-size: 30rpx;'></text>
     <text class='locate-text'>上海</text>
@@ -9,4 +9,4 @@
     <text>输入您想要的城市、商圈</text>
     <text class='iconfont icon-sousuo search-icon'></text>
   </view>
-</view>
+</navigator>

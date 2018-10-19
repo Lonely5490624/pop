@@ -10,9 +10,9 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"compileType": "plugin",
+	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wxc38c00d7f63cddb3",
+	"appid": "wxb2e77519230a2a30",
 	"projectname": "pop",
 	"debugOptions": {
 		"hidedInDevtools": []

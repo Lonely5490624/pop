@@ -1,1 +1,35 @@
 /* component/search/search.wxss */
+@import '../../lib/style/font.wxss';
+
+.search{
+  display: flex;
+  justify-content: space-between;
+}
+.locate{
+  line-height: 80rpx;
+}
+.locate-img{
+  width: 24rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.locate-text{
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.search-input{
+  width: 520rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+  color: #E0E0E0;
+  padding: 28rpx 0;
+  background-size: 30rpx;
+  position: relative;
+}
+.search-icon{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30rpx;
+}
