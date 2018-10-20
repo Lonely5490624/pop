@@ -1,7 +1,12 @@
 {
   "pages": [
-    "pages/fk/list/list",
     "pages/fk/index/index",
+    "pages/fk/order/order-confirm-3",
+    "pages/fk/order/order-confirm-2",
+    "pages/fk/contractor/contractor-add",
+    "pages/fk/order/order-confirm",
+    "pages/fk/detail/detail",
+    "pages/fk/list/list",
     "pages/fd/index/index",
     "pages/logs/logs"
   ],

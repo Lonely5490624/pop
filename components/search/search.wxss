@@ -1,5 +1,5 @@
 /* component/search/search.wxss */
-@import '../../lib/style/font.wxss';
+@import '/lib/style/font.wxss';
 
 .search{
   display: flex;

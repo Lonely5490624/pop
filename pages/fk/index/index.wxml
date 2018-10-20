@@ -16,7 +16,7 @@
   <view class='section recommend'>
     <text class='title'>热门推荐</text>
     <view class='recommend-list'>
-      <view class='recommend-item' wx:for='{{recommendData}}'>
+      <navigator url='../detail/detail' class='recommend-item' wx:for='{{recommendData}}'>
         <view class='recommend-box'>
           <image class='recommend-img' src='{{item.imgUrl}}'></image>
           <text class='recommend-official' wx:if='{{item.official}}'>官方认证</text>
@@ -30,7 +30,7 @@
             <text class='recommend-score'>评分: {{item.score}}</text>
           </text>
         </view>
-      </view>
+      </navigator>
     </view>
     <view class='recommend-more'>
       <navigator class='recommend-more-btn' url="/pages/fk/list/list">展开查看更多空间</navigator>

@@ -1,14 +1,15 @@
+
 <view class='page'>
   <!-- 搜索条 -->
   <space-search></space-search>
   
   <view class='space-coms'>
     <text class='space-com space-date' bindtap='opendate'>日期</text>
-    <text class='space-com space-condition'>筛选条件</text>
+    <text class='space-com space-condition' bindtap='openFilter'>筛选条件</text>
   </view>
   <!-- 空间列表 -->
   <view class='space-list'>
-    <view class='space-item' wx:for='{{spaceData}}'>
+    <navigator url='/pages/fk/detail/detail' class='space-item' wx:for='{{spaceData}}'>
       <image class='space-img' src='{{item.imgUrl}}'></image>
       <text class='space-renzheng' wx:if='{{item.official}}'>官方认证</text>
       <text class='space-info'>{{item.info}}</text>
@@ -26,7 +27,7 @@
           <text class='iconfont icon-wujiaoxing score-icon'></text>
         </view>
       </view>
-    </view>
+    </navigator>
   </view>
 
 </view>
@@ -66,4 +67,7 @@
 
 <view class="datepage {{opendate ? 'show':''}}">
 	<my-date bindmyevent="onMyEvent"></my-date>
+</view>
+<view class='filter {{isFilter ? "show" : ""}}'>
+  <space-filter bindmyevent="closeFilter"></space-filter>
 </view>

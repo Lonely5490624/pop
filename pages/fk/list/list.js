@@ -60,11 +60,17 @@ const spaceData = [{
 Page({
   data: {
     spaceData,
-    opendate: false
+    opendate: false,
+    isFilter: false
   },
   opendate: function() {
     this.setData({
       opendate: true
+    })
+  },
+  openFilter: function() {
+    this.setData({
+      isFilter: true
     })
   },
   onMyEvent: function (e) {
@@ -83,6 +89,13 @@ Page({
       })
     }
     console.log(this.data)
-
   },
+  closeFilter: function(e) {
+    let that = e.detail;
+    if (that.fuc == 'close') {
+      this.setData({
+        isFilter: false
+      })
+    }
+  }
 })
