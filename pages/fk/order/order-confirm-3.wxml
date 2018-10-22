@@ -1,0 +1,7 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='order-content'>
+  <image src='/images/success2@1x.png'></image>
+  <view class='deposit'>¥300</view>
+  <view class='success'>交纳成功</view>
+</view>
+<view class='order-bottom'>完成</view>

@@ -1,0 +1,29 @@
+/* pages/fk/contractor/contractor-add.wxss */
+.contractor-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 22rpx 32rpx;
+  border-bottom: 2rpx solid #e0e0e0;
+}
+.contractor-item .item-left{
+  font-size: 32rpx;
+  color: #212121;
+  line-height: 44rpx;
+}.contractor-item .item-right{
+  font-size: 28rpx;
+  color: #9e9e9e;
+  line-height: 44rpx;
+  text-align: right;
+}
+
+.contractor-bottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 98rpx;
+  text-align: center;
+  background: #ff5555;
+  color: #fff;
+  font-size: 34rpx;
+}

@@ -1,0 +1,9 @@
+<!--components/price-range/index.wxml-->
+<view class='price'>
+  <text class='price-min'>￥0</text>
+  -
+  <text class='price-max'>￥1720</text>
+</view>
+<view class='range'>
+  <slider></slider>
+</view>

@@ -1,0 +1,37 @@
+<!--pages/fk/order/order-confirm-2.wxml-->
+<view class='order-title'>
+  <image src='/images/a1.png'></image>
+  <text>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</text>
+</view>
+<view class='order-price'>
+  <view class='order-way'>
+    <text class='way-left'>支付方式</text>
+    <text class='way-right'>微信</text>
+  </view>
+  <view class='order-all'>
+    <text class='all-left'>总费用</text>
+    <text class='all-right'>￥3000</text>
+  </view>
+  <view class='order-detail'>
+    <text class='detail-left'>定金 10%</text>
+    <text class='detail-right'>￥300 预定时支付</text>
+  </view>
+  <view class='order-detail'>
+    <text class='detail-left'>余款 90%</text>
+    <text class='detail-right'>￥2700 于入场前n天支付</text>
+  </view>
+  <view class='order-deposit'>
+    <text class='deposit-left'>本次支付定金</text>
+    <text class='deposit-right'>￥300</text>
+  </view>
+</view>
+<view class='order-zhengche'>
+  <view class='zhengche-title'>退订政策：严格</view>
+  <view class='zhengche-info'>
+    这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚 这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚 <text class='zhengche-all'>查看全部</text>
+  </view>
+</view>
+<view class='order-bottom'>
+  <view class='bottom-left'>本次支付定金￥300</view>
+  <navigator url='order-confirm-3' class='bottom-right'>确认预定</navigator>
+</view>

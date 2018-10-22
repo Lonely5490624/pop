@@ -1,0 +1,125 @@
+<view class='page'>
+  <view class='banner' bindtap='previewImages'>
+    <image src='/images/aaa.jpg'></image>
+  </view> 
+  <view class='box1'>
+    <view class='box1_t1'>
+      <text>标题空间标题空间标题空间标题空间标题空间标题空间标题</text>
+      <view class='tx'></view>
+    </view>
+    <view class='box1_t2'>
+      <text class='bt2_t1'>200元/天</text>
+      <text class='bt2_t2'>退订政策严格</text>
+    </view>
+    <view class='bt3_list'>
+      <image src='/images/xiang-01.jpg'></image>
+      <view class='bt3_r'>
+        <view class='t1'>整套地理空间</view>
+        <view class='t2'>您可以使用整个空间进行您的商品销售活动</view>
+      </view>
+    </view>
+    <view class='bt3_list'>
+      <image src='/images/xiang-02.jpg'></image>
+      <view class='bt3_r'>
+        <view class='t1'>3%定金比例</view>
+        <view class='t2'>在预定后,您需支付3%定金，剩余尾款将于入住前支付</view>
+      </view>
+    </view>
+    <view class='bt3_list'>
+      <image src='/images/xiang-03.jpg'></image>
+      <view class='bt3_r'>
+        <view class='t1'>服装服饰</view>
+        <view class='t2'>该空间适合进行服装服饰类销售</view>
+      </view>
+    </view>
+    <view class='bt3_list'>
+      <image src='/images/xiang-04.jpg'></image>
+      <view class='bt3_r'>
+        <view class='t1'>入住/离开时间</view>
+        <view class='t2'>入住时间为每天0:00-8:00，离开时间20:00</view>
+      </view>
+    </view>
+    <view class='bt3_list'>
+      <image src='/images/xiang-05.jpg'></image>
+      <view class='bt3_r'>
+        <view class='t1'>施工时间</view>
+        <view class='t2'>每天晚上00:00-06:00</view>
+      </view>
+    </view>
+  </view> 
+  <view class='box1 box2'>
+    <view class='b2_title'>介绍信息</view>
+    <view class='b2_info'>这里是介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</view>
+    <view class='b2_more'>查看完整介绍</view>
+  </view>
+  <view class='box1 box2'>
+    <view class='b2_title'>空间配备与设施</view>
+    <view class='b2_list'>
+      <view class='b2_list_li'>
+        <view class='icon'></view>
+        <view class='text'>设施设备</view>
+      </view>
+      <view class='b2_list_li'>
+        <view class='icon'></view>
+        <view class='text'>设施设备</view>
+      </view>
+      <view class='b2_list_li'>
+        <view class='icon'></view>
+        <view class='text'>设施设备</view>
+      </view>
+      <view class='b2_list_li'>
+        <view class='icon'></view>
+        <view class='text'>设施设备</view>
+      </view>      
+    </view>
+    <view class='b2_more'>查看更多</view>
+  </view>
+  <view class='box1 box2 box4'>
+    <view class='b4_top'>
+      <view class='b2_title'>服务评价（100）</view>
+      <image src='/images/3.png'></image>
+    </view>
+    <view class='b2_info'>这里是评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</view>
+    <view class='b2_more'>查看全部评价</view>
+  </view>
+  <view class='box1 box2'>
+    <view class='b2_title'>位置</view>
+    <view class='b2_info'>
+      <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+    </view>
+    <view class='map_b'>上海市静安区路名门牌号</view>
+  </view>
+    <view class='box1 box2 mustknow'>
+    <view class='b2_title'>须知</view>
+    <view class='mn_list'>
+      <text class='t1'>3%定金比例</text>
+      <text class='t2'>· 在预定后，您需支付3%定金，剩余尾款将于入住前支付完成</text>
+    </view>
+    <view class='mn_list'>
+      <text class='t1'>尾款支付</text>
+      <text class='t2'>· 预定后，若未及时支付尾款，订单将自动取消，预定金不退</text>
+    </view>
+    <view class='mn_list'>
+      <text class='t1'>押金</text>
+      <text class='t2'>· 入驻前需支付押金￥5000，入驻结束后，若无发生违反守则行为，将原路退回，押金暂由平台保管</text>
+    </view>
+    <view class='mn_list'>
+      <text class='t1'>空间守则</text>
+      <text class='t2'>· 守则守XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</text>
+    </view>
+    <view class='mn_list'>
+      <text class='t1'>退订政策严格</text>
+      <text class='t3'>了解详情</text>
+    </view>
+  </view>
+  <view class='bottom_box'>
+    <view class='bb_l'>联系房东</view>
+    <view class='bb_r'>
+      <view class='price'>
+        <text class='t1'>￥200/每天</text>
+        <text class='t2'>最少预定4天</text>
+      </view>
+      <navigator class='btn' url='/pages/fk/order/order-confirm'>立即预定</navigator>
+    </view>
+  </view>
+</view>

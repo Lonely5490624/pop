@@ -1,0 +1,14 @@
+<!--pages/fk/contractor/contractor-add.wxml-->
+<view class='contractor-item'>
+  <text class='item-left'>姓名</text>
+  <input type='text' placeholder='请输入你的真实姓名' class='item-right'></input>
+</view>
+<view class='contractor-item'>
+  <text class='item-left'>身份证号码</text>
+  <input type='text' maxlength='18' placeholder='请输入证件号' class='item-right'></input>
+</view>
+<view class='contractor-item'>
+  <text class='item-left'>手机号</text>
+  <input type='number' maxlength='11' placeholder='请输入手机号' class='item-right'></input>
+</view>
+<view class='contractor-bottom'>确定</view>
