@@ -1,0 +1,5 @@
+<!--pages/fd/data/data-income.wxml-->
+<view class='income'>
+  <view class='income-title'>收入</view>
+  
+</view>
