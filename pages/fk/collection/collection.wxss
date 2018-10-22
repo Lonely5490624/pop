@@ -1,0 +1,64 @@
+/**index.wxss**/
+
+.section{
+  padding-top: 10rpx;
+}
+.section .title{
+  font-size: 48rpx;
+  color: #212121;
+  line-height: 56rpx;
+  padding: 20rpx 0;
+  display: block;
+}
+.shangq .shangq-scroll{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+.shangq .shangq-scroll .shangq-scroll-item{
+  position: relative;
+  width: 520rpx;
+  height: 320rpx;
+  display: inline-block;
+  margin-right: 12rpx;
+}
+.shangq .shangq-scroll .shangq-scroll-item .shangq-text-cn{
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 60rpx;
+  transform: translateX(-50%);
+}
+.shangq .shangq-scroll .shangq-scroll-item .shangq-text-en{
+  font-size: 20rpx;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 102rpx;
+  transform: translateX(-50%);
+}
+.shangq .shangq-scroll .shangq-scroll-item .shangq-img{
+  width: 100%;
+  height: 100%;
+}
+.info{
+  width: 100%;
+  height: 40rpx;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+}
+.info .name{
+color: #212121;
+font-size: 32rpx;
+float: left;
+}
+.info .num{
+color: #212121;
+font-size: 28rpx;
+float: right;
+}

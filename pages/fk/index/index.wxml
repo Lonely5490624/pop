@@ -49,7 +49,7 @@
   </view>
 </view>
 <view class='index-adv'>
-  <image src='{{locateUrl}}'></image>
+  <image src='/images/fa-img.jpg'></image>
 </view>
 
 <!--底部-->
@@ -72,13 +72,13 @@
 		</navigator>
 	</view>
 	<view class="footer-li">
-		<navigator url="/pages/order/order">
+		<navigator url="/pages/fk/collection/collection">
 			<text class="iconfont icon-dingdan"></text>
 			<text>收藏</text>
 		</navigator>
 	</view>
 	<view class="footer-li">
-		<navigator url="/pages/mine/mine">
+		<navigator url="/pages/fk/mine/mine">
 		<text class="iconfont icon-geren"></text>
 		<text>我的</text>
 		</navigator>

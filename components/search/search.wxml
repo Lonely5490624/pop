@@ -1,5 +1,5 @@
 <!-- 搜索条 -->
-<navigator class="search" url='/pages/logs/logs'>
+<navigator class="search" url='/pages/fk/search/search'>
   <view class="locate">
     <text class='iconfont icon-didian' style='font-size: 30rpx;'></text>
     <text class='locate-text'>上海</text>

@@ -1,0 +1,58 @@
+<view class='page'>
+  <!-- 我的收藏 -->
+  <view class="section shangq">
+    <text class='title'>我的收藏</text>
+    <scroll-view class='shangq-scroll' scroll-x>
+      <view class='shangq-scroll-item' wx:for='{{shangq}}'>
+        <image class='shangq-img' src='{{item.img}}'></image>
+      </view>
+    </scroll-view>
+    <view class='info'>
+      <view class='name'>上海 - 静安大悦城</view>
+      <view class='num'>3个空间</view>
+    </view>
+    <scroll-view class='shangq-scroll' scroll-x>
+      <view class='shangq-scroll-item'style="width:686rpx;" wx:for='{{shangq2}}'>
+        <image class='shangq-img' src='{{item.img}}'></image>
+        <text>{{shangq2.len()}}</text>
+      </view>
+    </scroll-view>
+    <view class='info'>
+      <view class='name'>北京 - 侨福芳草地</view>
+      <view class='num'>1个空间</view>
+    </view>
+  </view>
+  
+</view>
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+  <view class="footer-li select">
+    <text class="iconfont icon-zhuye"></text>
+    <text>搜索</text>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-dingdan"></text>
+      <text>消息</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-zhuye"></text>
+      <text>行程</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-dingdan"></text>
+      <text>收藏</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/fk/mine/mine">
+      <text class="iconfont icon-geren"></text>
+      <text>我的</text>
+    </navigator>
+  </view>
+</view>

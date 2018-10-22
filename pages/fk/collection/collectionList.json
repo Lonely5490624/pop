@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-date": "/components/date/date",
+    "space-search": "/components/search/search",
+    "space-filter": "/components/filter/filter"
+  }
+}

@@ -1,0 +1,25 @@
+/* pages/fk/order/order-confirm-3.wxss */
+.cont{
+  margin-top: 20rpx;
+}
+input{
+  border-bottom:1px  #E0E0E0 solid;
+  color: #000000;
+  font-size: 28rpx;
+  line-height: 88rpx;
+}
+.tipText{
+  color: #9E9E9E;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+textarea{
+  font-size:28rpx;
+  width: 100%;
+}
+.wordLimit{
+  color:#9E9E9E;
+  font-size: 24rpx;
+  text-align: right;
+  line-height: 50rpx;
+}

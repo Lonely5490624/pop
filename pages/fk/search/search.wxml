@@ -1,0 +1,36 @@
+<!--pages/fk/search/search.wxml-->
+<view class='search'>
+  <view class='search-header'>
+    <input type='text' focus confirm-type='search' bindconfirm='search' placeholder='搜索您想要的城市、商圈' placeholder-class='search-placeholder'></input>
+    <text class='cancel' bindtap='navigateBack'>取消</text>
+  </view>
+  <view class='search-hot'>
+    <view class='hot-title'>热门商圈</view>
+    <view class='hot-list'>
+      <text class='hot-item'>新天地</text>
+      <text class='hot-item'>中山公园</text>
+      <text class='hot-item'>静安寺</text>
+      <text class='hot-item'>中山公园</text>
+    </view>
+  </view>
+  <view class='search-history'>
+    <view class='history-title'>
+      <text class='title'>历史搜索</text>
+      <text class='clear'>清空</text>
+    </view>
+    <view class='history-list'>
+      <view class='history-item'>
+        <text class='iconfont icon-sousuo'></text>
+        <text>田子坊</text>
+      </view>
+      <view class='history-item'>
+        <text class='iconfont icon-sousuo'></text>
+        <text>外滩洛克菲勒</text>
+      </view>
+      <view class='history-item'>
+        <text class='iconfont icon-sousuo'></text>
+        <text>南京西路</text>
+      </view>
+    </view>
+  </view>
+</view>

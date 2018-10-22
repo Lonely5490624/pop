@@ -1,0 +1,142 @@
+<view class='page'>
+  <!-- 我的收藏 -->
+  <view class="section">
+    <text class='title'>行程</text>
+    <view class='box'>
+      <view class='list1'>上海 - 商场名称1</view>
+      <view class='list2'>
+        <view class='img'>
+          <image src='/images/aaa.jpg'></image>
+        </view>
+        <view class='info'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+      </view>
+      <view class='list3'>
+        <view>即将开始</view>
+        <view>
+          <text>8月10日-8月20日</text>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+      <view class='list3'>
+        <view>请于7月30日12:00前支付尾￥2700</view>
+        <view>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+    </view>
+    <view class='box'>
+      <view class='list1'>上海 - 商场名称2</view>
+      <view class='list2'>
+        <view class='img'>
+          <image src='/images/aaa.jpg'></image>
+        </view>
+        <view class='info'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+      </view>
+      <view class='list3'>
+        <view>已结束</view>
+        <view>
+          <text> 6月10日-7月20日</text>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+    </view>
+    <view class='box'>
+      <view class='list1'>上海 - 商场名称1</view>
+      <view class='list2'>
+        <view class='img'>
+          <image src='/images/aaa.jpg'></image>
+        </view>
+        <view class='info'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+      </view>
+      <view class='list3'>
+        <view>即将开始</view>
+        <view>
+          <text>8月10日-8月20日</text>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+      <view class='list3'>
+        <view class='font-f5'>请于48小时内完成尾款支付，逾期订单将自动关闭</view>
+        <view>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+    </view>
+    <view class='box'>
+      <view class='list1'>上海 - 商场名称1</view>
+      <view class='list2'>
+        <view class='img'>
+          <image src='/images/aaa.jpg'></image>
+        </view>
+        <view class='info'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+      </view>
+      <view class='list3'>
+        <view>即将开始</view>
+        <view>
+          <text>8月10日-8月20日</text>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+      <view class='list3'>
+        <view class='font-green'>尾款已付清￥2700</view>
+        <view>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+    </view>
+    <view class='box'>
+      <view class='list1'>上海 - 商场名称1</view>
+      <view class='list2'>
+        <view class='img'>
+          <image src='/images/aaa.jpg'></image>
+        </view>
+        <view class='info'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+      </view>
+      <view class='list3'>
+        <view>即将开始</view>
+        <view>
+          <text>8月10日-8月20日</text>
+          <text class="iconfont icon-icon1"></text>
+        </view>
+      </view>
+      <view class='list3'>
+        <view class='font-gray'>尾款逾期 · 订单已关闭</view>
+        <view class='font-f5'>详情</view>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+  <view class="footer-li">
+    <text class="iconfont icon-zhuye"></text>
+    <text>搜索</text>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-dingdan"></text>
+      <text>消息</text>
+    </navigator>
+  </view>
+  <view class="footer-li select">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-zhuye"></text>
+      <text>行程</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-dingdan"></text>
+      <text>收藏</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/fk/mine/mine">
+      <text class="iconfont icon-geren"></text>
+      <text>我的</text>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+<view class='page'>
+  <view class='top pad32'>
+    <view class='t1'>订单状态</view>
+    <view class='t2'>订单编号 SKDHBDS45WBJ</view>
+    <view class='t3'>
+      <view class='t3_left'>
+        <image src='/images/aaa.jpg'></image>
+      </view>
+      <view class='t3_right'>
+        <view class='t3_r_l1'>这是空间标题这里是空间标题…</view>
+        <view class='t3_r_l2'>独立空间·服饰销售</view>
+        <view class='t3_r_l3'>
+          <text class='font-f5'>￥1800 </text>
+          <text> 共10天</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='box2'>
+    <view class='box2_t1'>
+      <view class='box2_t1_l'>
+        <view>房东/运营者昵称</view>
+        <view>123条评价 · 已验证</view>
+      </view>
+      <view class='box2_t1_2'>
+        <image src='/images/fen-qq.jpg'></image>
+      </view>
+    </view>
+
+    <view class='box2_t2'>
+      <view class='box2_t2_1' style='border-right: 1px #E8E8E8 solid;'>
+        <text class="iconfont icon-dianhua"></text>
+        <view>发送消息</view>
+      </view>
+      <view class='box2_t2_1'>
+        <text class="iconfont icon-dianhua"></text>
+        <view>拨打电话</view>
+      </view>
+    </view>
+  </view>
+</view>

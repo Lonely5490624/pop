@@ -1,0 +1,64 @@
+/**index.wxss**/
+
+.section {
+  padding-top: 10rpx;
+}
+
+.section .title {
+  font-size: 48rpx;
+  color: #212121;
+  line-height: 56rpx;
+  padding: 20rpx 0;
+  display: block;
+}
+
+.box {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 70rpx;
+}
+
+.box .list1 {
+  color: #000;
+  font-size: 40rpx;
+}
+
+.box .list2 {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24rpx 0;
+}
+
+.box .list2 .img image {
+  width: 160rpx;
+  height: 120rpx;
+}
+
+.box .list2 .info {
+  color: #212121;
+  font-size: 28rpx;
+  margin-left: 28rpx;
+}
+
+.box .list3 {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  clear: both;
+  color: #212121;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #E0E0E0 solid;  
+}
+
+.box .list3 text {
+  color: #9e9e9e;
+  font-size: 28rpx;
+}

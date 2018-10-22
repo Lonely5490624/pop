@@ -1,0 +1,63 @@
+/* pages/fk/order/order-confirm-3.wxss */
+.pages{
+  background: #F5F5F5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.top{
+  width: 100%;
+  height: 144rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  margin-top: 62rpx;
+  }
+.top_l{
+float: left;
+}
+.top_l .name{
+ color: #212121;
+  font-size: 28rpx; 
+}
+.top_r{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  border: 1px red solid;
+  float: right;
+}
+.content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.content .con_list.l1{
+  height:auto;
+  overflow: hidden;
+  padding: 20rpx 32rpx;
+}
+.content .con_list{
+  width: 100%;
+  height: 88rpx;
+  border-bottom: 1px #e0e0e0 solid;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  line-height: 88rpx;
+  background: #fff;
+}
+.content .con_list .con_list_l{
+  float: left;
+  color: #212121;
+  font-size: 28rpx;
+}
+.content .con_list .con_list_r{
+  float: right;
+  color: #9e9e9e;
+  font-size: 28rpx;
+}
+.content .con_list .con_list_c{
+  color: #FF3B30;
+  font-size: 28rpx;
+  width: 100;
+  text-align: center;
+}
