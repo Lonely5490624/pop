@@ -1,5 +1,5 @@
 <view class='page'>
-  <!-- 搜索条 -->
+  <!-- 搜索条12121 -->
   <space-search></space-search>
   <!-- 热门商圈 -->
   <view class="section shangq">
