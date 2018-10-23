@@ -1,5 +1,112 @@
 <!--pages/fd/data/data-income.wxml-->
+<view>查看所有空间</view>
 <view class='income'>
   <view class='income-title'>收入</view>
-  
+  <view class='chart'>
+    <view class='chart-title'>
+      <text class='yi'>已转款</text>
+      <text class='ji'>即将转款</text>
+    </view>
+    <view class='chart-content'>
+      <view class='chart-prev'><text class='iconfont icon-icon1'></text></view>
+      <scroll-view scroll-x class='chart-show'>
+        <view class='chart-item'>
+          <view class='item-'></view>
+        </view>
+        <view class='chart-item'></view>
+        <view class='chart-item'></view>
+      </scroll-view>
+      <view class='chart-next'><text class='iconfont icon-icon1'></text></view>
+    </view>
+    <view class='chart-price'>
+      <view class='price-all'>￥17900.50</view>
+      <view class='price-info'>2018年8月收入 · 您已获得￥4754.50</view>
+    </view>
+  </view>
+</view>
+<view class='list'>
+  <view class='tab'>
+    <view class='tab-item {{tabId == 1 ? "active" : ""}}' data-id='1' bindtap='changeTab'>已转款</view>
+    <view class='tab-item {{tabId == 2 ? "active" : ""}}' data-id='2' bindtap='changeTab'>即将转款</view>
+  </view>
+  <view class='content'>
+    <view class='content-item {{tabId == 1 ? "active" : ""}}'>
+      <view class='item-time'>8月9日</view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-time'>8月9日</view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+    </view>
+    <view class='content-item {{tabId == 2 ? "active" : ""}}'>
+      <view class='item-time'>8月7日</view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-time'>8月6日</view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+      <view class='item-box'>
+        <view class='info'>
+          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
+          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+        </view>
+        <view class='price'>￥1298</view>
+      </view>
+    </view>
+  </view>
 </view>

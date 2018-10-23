@@ -1,23 +1,17 @@
-// pages/fd/data/data-income.js
+// pages/fd/data/data-view.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabId: 1
-  },
-  changeTab(e) {
-    let id = e.currentTarget.dataset.id;
-    this.setData({
-      tabId: id
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (e) {
+  onLoad: function (options) {
 
   },
 

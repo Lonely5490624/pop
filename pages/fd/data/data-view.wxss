@@ -1,8 +1,8 @@
-/* pages/fd/data/data-income.wxss */
-.income{
+/* pages/fd/data/data-view.wxss */
+.view{
   padding: 0 32rpx;
 }
-.income-title{
+.view-title{
   font-size: 48rpx;
   color: #212121;
   font-weight: bold;
@@ -61,61 +61,44 @@
   line-height: 28rpx;
   margin-top: 16rpx;
 }
-.list{
-  margin-top: 60rpx;
-}
-.list .tab{
+
+.view-list .view-top{
   display: flex;
   justify-content: space-between;
-  line-height: 40rpx;
-  border-bottom: 2rpx solid #e5e5e5;
-  color: #616161;
-  font-size: 28rpx;
+  text-align: left;
+  padding: 18rpx 32rpx 16rpx;
 }
-.list .tab .tab-item{
-  height: 94rpx;
-  line-height: 94rpx;
-  text-align: center;
-  width: 50%; 
+.view-list .view-top .item{
+  width: 50%;
 }
-.list .tab .tab-item.active{
-  border-bottom: 6rpx solid #212121;
+.view-list .view-top .item .p1{
+  font-size: 36rpx;
   color: #212121;
-}
-.list .content .content-item{
-  width: 100%;
-  display: none;
-}
-.list .content .content-item.active{
-  display: block;
-}
-.list .content .content-item .item-time{
-  font-size: 28rpx;
-  color: #212121;
-  line-height: 40rpx;
-  padding: 0 32rpx;
-  margin-bottom: 10rpx;
-  margin-top: 10rpx;
-}
-.list .content .content-item .item-box{
-  border-bottom: 2rpx solid #e0e0e0;
-  padding: 22rpx 32rpx 12rpx;
-  display: flex;
-  justify-content: space-between;
-}
-.list .content .content-item .item-box .info .title{
-  font-size: 24rpx;
-  color: #212121;
+  font-weight: bold;
   line-height: 44rpx;
 }
-.list .content .content-item .item-box .info .sub{
-  font-size: 20rpx;
+.view-list .view-top .item .p2{
+  font-size: 24rpx;
   color: #9e9e9e;
   line-height: 40rpx;
-  margin-top: 4rpx;
+  margin-top: 2rpx;
 }
-.list .content .content-item .item-box .price{
-  font-size: 24rpx;
-  color: #ff5555;
-  line-height: 34rpx;
+.view-list .view-bottom{
+  border-top: 2rpx solid #e0e0e0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 48rpx;
+}
+.view-list .view-bottom .item{
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #e0e0e0;
+  width: 50%;
+  font-size: 28rpx;
+  color: #212121;
+  text-align: center;
+  padding: 36rpx 0;
+  border-right: 2rpx solid #e0e0e0;
+}
+.view-list .view-bottom .item.br-0{
+  border-right: none;
 }

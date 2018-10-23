@@ -9,7 +9,7 @@
     </view>
     <text class='iconfont icon-icon1'></text>
   </navigator>
-  <navigator class='data-views'>
+  <navigator url='data-view' class='data-views'>
     <view class='views'>
       <view class='views-all'>2890</view>
       <view class='views-date'>30天浏览量</view>
@@ -20,7 +20,7 @@
     </view>
     <text class='iconfont icon-icon1'></text>
   </navigator>
-  <navigator class='data-views'>
+  <navigator url='data-score' class='data-views'>
     <view class='views'>
       <view class='views-all'>4.9 <text class='small'>/5.0</text> </view>
       <view class='views-date'>总体评分</view>

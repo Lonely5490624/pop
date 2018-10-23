@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/fd/data/data-score",
+    "pages/fd/data/data-view",
     "pages/fd/data/data-income",
     "pages/fd/data/index",
     "pages/fd/index/index",

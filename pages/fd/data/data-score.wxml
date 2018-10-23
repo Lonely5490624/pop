@@ -1,0 +1,114 @@
+<!--pages/fd/data/data-score.wxml-->
+<view class='score'>
+  <view class='score-title'>空间评分(29)</view>
+
+  <view class='score-list'>
+    <view class='score-item'>
+      <image class='img' src='/images/5.png'></image>
+      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
+      <text class='percent'>90%</text>
+    </view>
+    <view class='score-item'>
+      <image class='img' src='/images/4.png'></image>
+      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
+      <text class='percent'>90%</text>
+    </view>
+    <view class='score-item'>
+      <image class='img' src='/images/3.png'></image>
+      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
+      <text class='percent'>90%</text>
+    </view>
+    <view class='score-item'>
+      <image class='img' src='/images/2.png'></image>
+      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
+      <text class='percent'>90%</text>
+    </view>
+    <view class='score-item'>
+      <image class='img' src='/images/1.png'></image>
+      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
+      <text class='percent'>90%</text>
+    </view>
+  </view>  
+</view>
+<view class='eval'>
+  <view class='eval-title'>用户评价</view>
+  <view class='eval-list'>
+    <view class='eval-item'>
+      <view class='eval-detail'>
+        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
+        <view class='eval-info'>
+          <view class='eval-top'>
+            <view class='username'>用户名</view>
+            <image src='/images/1.png' class='score'></image>
+            <view class='time'>2018-12-28 10:41</view>
+          </view>
+          <view class='eval-bottom'>
+            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
+          </view>
+        </view>
+      </view>
+      <view class='eval-control'>
+        <view class='eval-reply'>回复</view>
+        <view class='eval-report'>举报</view>
+      </view>
+    </view>
+    <view class='eval-item'>
+      <view class='eval-detail'>
+        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
+        <view class='eval-info'>
+          <view class='eval-top'>
+            <view class='username'>用户名</view>
+            <image src='/images/1.png' class='score'></image>
+            <view class='time'>2018-12-28 10:41</view>
+          </view>
+          <view class='eval-bottom'>
+            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
+          </view>
+        </view>
+      </view>
+      <view class='eval-control'>
+        <view class='eval-reply'>回复</view>
+        <view class='eval-report'>举报</view>
+      </view>
+    </view>
+    <view class='eval-item'>
+      <view class='eval-detail'>
+        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
+        <view class='eval-info'>
+          <view class='eval-top'>
+            <view class='username'>用户名</view>
+            <image src='/images/1.png' class='score'></image>
+            <view class='time'>2018-12-28 10:41</view>
+          </view>
+          <view class='eval-bottom'>
+            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
+          </view>
+        </view>
+      </view>
+      <view class='eval-control'>
+        <view class='eval-reply'>回复</view>
+        <view class='eval-report'>举报</view>
+      </view>
+    </view>
+    <view class='eval-item'>
+      <view class='eval-detail'>
+        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
+        <view class='eval-info'>
+          <view class='eval-top'>
+            <view class='username'>用户名</view>
+            <image src='/images/1.png' class='score'></image>
+            <view class='time'>2018-12-28 10:41</view>
+          </view>
+          <view class='eval-bottom'>
+            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
+          </view>
+        </view>
+      </view>
+      <view class='eval-control'>
+        <view class='eval-reply'>回复</view>
+        <view class='eval-report'>举报</view>
+      </view>
+    </view>
+  </view>
+</view>
+
