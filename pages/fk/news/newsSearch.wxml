@@ -1,0 +1,82 @@
+<view class='page'>
+  <view class='title pad32'>
+    <input></input>
+  </view>
+  <view class='cont'>
+    <view class='list pad32'>
+      <view class='list_l'></view>
+      <view class='list_r'>
+        <view class='text1'>
+          <text class='t1'>用户昵称·订单状态</text>
+          <text class='t3'></text>
+          <text class='t2'>上午 10:41</text>
+        </view>
+        <view class='text2'>具录天天记录具体聊具体聊天记录具体聊天记录…</view>
+        <view class='text3'>上海大悦城独立空间</view>
+        <view class='text3'>2018年9月9日-2018年9月21日</view>
+      </view>
+    </view>
+    <view class='list pad32'>
+      <view class='list_l'></view>
+      <view class='list_r'>
+        <view class='text1'>
+          <text class='t1'>用户昵称·订单状态</text>
+          <text class='t3'></text>
+          <text class='t2'>上午 10:41</text>
+        </view>
+        <view class='text2'>具录天天记录具体聊具体聊天记录具体聊天记录…</view>
+        <view class='text3'>上海大悦城独立空间</view>
+        <view class='text3'>2018年9月9日-2018年9月21日</view>
+      </view>
+    </view>
+    <view class='list pad32'>
+      <view class='list_l'></view>
+      <view class='list_r'>
+        <view class='text1'>
+          <text class='t1'>用户昵称·订单状态</text>
+          <!-- <text class='t3'></text> -->
+          <text class='t2'>上午 10:41</text>
+        </view>
+        <view class='text2'>具录天天记录具体聊具体聊天记录具体聊天记录…</view>
+        <view class='text3'>上海大悦城独立空间</view>
+        <view class='text3'>2018年9月9日-2018年9月21日</view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>
+
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+	<view class="footer-li">
+		<text class="iconfont icon-zhuye"></text>
+		<text>搜索</text>
+	</view>
+	<view class="footer-li select">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-dingdan"></text>
+			<text>消息</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-zhuye"></text>
+			<text>行程</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/collection/collection">
+			<text class="iconfont icon-dingdan"></text>
+			<text>收藏</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/fk/mine/mine">
+		<text class="iconfont icon-geren"></text>
+		<text>我的</text>
+		</navigator>
+	</view>
+</view>

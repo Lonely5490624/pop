@@ -1,5 +1,9 @@
 {
-  "pages": [ 
+  "pages": [
+    "pages/fk/news/cancelOrde",
+    "pages/fk/news/newsSearch",
+    
+    "pages/fk/news/news", 
     "pages/fk/trip/finalPay",
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",

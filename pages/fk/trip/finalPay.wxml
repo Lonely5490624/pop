@@ -3,18 +3,28 @@
   <view class='top_text2'>请将余款在XX月XX日 12:00前汇入平台对公账户，收到款项后，预定成立。</view>
   <view class='box1'>
     <view class='box1_l'>
-
+      <image src='/images/step_line.png'></image>
     </view>
     <view class='box1_r'>
       <view class='b1_t1'>复制对公账号信息，交由公司财务</view>
       <view class='b1_t2'>
         <view class='b1_t2_l'>
-          <view>28837XXXXXXXXXX</view>
-          <view>上海擎库信息科技有限公司 </view>
-          <view>中国银行静安支行、其他必要展示的信息字段</view>
+          <view class='t1'>28837XXXXXXXXXX</view>
+          <view class='t2'>上海擎库信息科技有限公司 </view>
+          <view class='t2'>中国银行静安支行、其他必要展示的信息字段</view>
         </view>
-        <view class='b1_t2_r'></view>
+        <view class='b1_t2_r'>一键复制</view>
       </view>
+      <view class='b1_t1' style='margin-top:50rpx;'>上传支付凭证，可以是邮件截图，扣款截图等</view>
+      <view class='b_iamge_up'></view>
+      <view class='b1_t1' style='margin-top:30rpx;'>等待平台方验证支付信息</view>
+    </view>
+  </view>
+  <view class='box2'>
+    <view class='t1'>如有问题，咨询电话021-23435455 或搜索“闪殿”关注客服微信公众号</view>
+    <view class='t2'>查看
+      <text style="color:#0085FF;">逾期责任</text>与
+      <text style="color:#0085FF;">隐私条款</text>
     </view>
   </view>
 </view>
