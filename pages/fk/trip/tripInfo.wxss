@@ -103,11 +103,116 @@ page {
   color: #616161;
   font-size: 20rpx;
 }
-.box2_t2_1{
+
+.box2_t2_1 {
   width: 50%;
   height: 100%;
-  
 }
-.box2_t2_1{
-text-align: center;
+
+.box2_t2_1 {
+  text-align: center;
+}
+
+.box3 {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 30rpx;
+  background: #fff;
+}
+
+.b3_list {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  line-height: 88rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.b3_list .b3_list_l {
+  font-size: 28rpx;
+  color: #9e9e9e;
+}
+
+.b3_list .b3_list_r {
+  font-size: 24rpx;
+  color: #616161;
+}
+
+.b3_list2 {
+  width: 100%;
+  height: 400rpx;
+}
+
+.b3_list3 {
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 40rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.b3_list3 .b3_list_l, .b3_list3 .b3_list_r {
+  font-size: 24rpx;
+  color: #616161;
+}
+.b3_list3 .b3_list_r{
+  margin-left: 30rpx;
+}
+.b3_list4 {
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  justify-content:space-between;
+  line-height: 40rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+}
+.b3_list4 .b3_list_l, .b3_list4 .b3_list_r {
+  font-size: 24rpx;
+  color: #212121;
+}
+.b3_list4 .b3_list_r{
+  margin-left: 30rpx;
+}
+.b3_list4 .gopayBtn{
+  width: 128rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #FF5555;
+  border: 1px #FF5555 solid;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.box4 {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 30rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+
+.b4_list {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  line-height: 88rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  border-bottom: 1px #E0E0E0 solid;
+}
+.b4_list .b4_list_l{
+  color: #212121;
+  font-size: 28rpx;
+}
+.b4_list .b4_list_r{
+  color:#E0E0E0
 }

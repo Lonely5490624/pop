@@ -1,7 +1,6 @@
 /**app.wxss**/
 @import 'lib/style/font.wxss';
 
-
 /* .container {
 	height: 100%;
 	display: flex;
@@ -12,43 +11,75 @@
 	box-sizing: border-box;
 } */
 
-.page{
+.page {
   padding: 0 32rpx;
 }
 
 .footer-h {
-	height: 100rpx;
+  height: 100rpx;
 }
 
 .footer {
-	position: fixed;
-	width: 100%;
-	left: 0;
-	bottom: 0;
-	height: 100rpx;
-	text-align: center;
-	display: flex;
-	z-index: 9999;
-	background: #ffffff;
-  border-top: 2rpx solid #dddddd;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  text-align: center;
+  display: flex;
+  z-index: 9999;
+  background: #fff;
+  border-top: 2rpx solid #ddd;
 }
 
 .footer-li {
-	flex: 1;
-	color: #212121;
+  flex: 1;
+  color: #212121;
 }
 
 .footer .select {
-	color: #ff5555;
+  color: #f55;
 }
 
 .footer-li text {
-	display: block;
-	width: 100%;
-	font-size: 20rpx;
+  display: block;
+  width: 100%;
+  font-size: 20rpx;
 }
 
 .footer-li .iconfont {
-	margin-top: 26rpx;
-	font-size: 32rpx;
+  margin-top: 26rpx;
+  font-size: 32rpx;
+}
+
+.pad32 {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+image {
+  vertical-align: middle;
+}
+.font-f5{
+  color: #FF5555
+}
+.font-green{
+  color: #02BB00
+}
+.font-gray{
+  color: #9E9E9E
+}
+.border-b{
+  border-bottom: 1px #e0e0e0 solid;
+}
+.saveBtn{
+  width: 90%;
+  margin-left: 5%;
+  background: #FF5555;
+  color: #fff;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin-top: 40rpx;
+  font-size: 32rpx;
 }

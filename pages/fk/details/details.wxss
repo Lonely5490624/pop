@@ -1,0 +1,204 @@
+/**index.wxss**/
+.page{  
+  background: #eee;
+  padding-bottom: 80rpx;
+}
+.banner image{
+  width: 100%;
+  vertical-align:middle;
+}
+.box1{
+  padding:32rpx;
+  background: #fff;
+  box-sizing: border-box;
+  margin-bottom: 16rpx;
+}
+.box1 .box1_t1{
+  font-size: 32rpx;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.box1 .box1_t1 text{
+  float: left;
+  width: 500rpx;
+}
+.box1 .box1_t1 .tx{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  border: 1px red solid;
+  float: right;
+}
+.box1 .box1_t1{
+  width: 100%;
+  height: auto;
+}
+.box1 .box1_t2 .bt2_t1{
+    font-size: 32rpx;
+    color: #FF3B30;
+    font-weight: bold;
+}
+.box1 .box1_t2 .bt2_t2{
+  color:#212121;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+.box1 .bt3_list{
+  margin-top: 20rpx;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.box1 .bt3_list image{
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+}
+.box1 .bt3_list .bt3_r{
+  width: 644rpx;
+  float: right;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+.box1 .bt3_list .bt3_r .t1{
+  color: #212121;
+  margin-bottom: 6rpx;
+}
+.box1 .bt3_list .bt3_r .t2{
+  color: #9E9E9E;
+}
+.box2 .b2_title{
+  color: #212121;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.box2 .b2_info{
+  color: #9E9E9E;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+.box2 .b2_more{
+  color: #FF5555;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.box2 .b2_list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 40rpx 0;
+  display: flex;
+  align-items: center;
+}
+.box2 .b2_list .b2_list_li{
+  width: 25%;
+  text-align: center;
+}
+.box2 .b2_list .b2_list_li .icon{
+  background: #D8D8D8;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+.box2 .b2_list .b2_list_li .text{
+  color: #9E9E9E;
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}
+.box4 .b4_top{
+  width:100%;
+  height: auto;
+  overflow: hidden;
+}
+.box4 .b4_top .b2_title{
+  float: left;
+}
+.box4 .b4_top image{
+  float: right;
+  width: 140px;
+  height: 27px;
+}
+.box2 .map_b{
+  font-size: 24rpx;
+  color: #616161;
+  margin-top: 16rpx;
+}
+.mustknow .mn_list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  line-height: 36rpx;
+  margin-bottom: 20rpx;
+}
+.mustknow .mn_list .t1{
+  color: #212121;
+  font-size: 24rpx;
+}
+.mustknow .mn_list .t2{
+  color: #9E9E9E;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+.mustknow .mn_list .t3{
+  color: #FF5555;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+.bottom_box{
+  width: 100%;
+  height: 96rpx;
+  background: #FF5555;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.bottom_box .bb_l{
+  width: 240rpx;
+  height: 100%;
+  background: #fff;
+  color: #212121;
+  font-size: 28rpx;
+  text-align:center;
+  line-height: 96rpx;
+  float: left;
+}
+.bottom_box .bb_r{
+  color: #fff;
+  float: right;
+  width: 510rpx;
+}
+.bottom_box .price{
+float: left;
+margin-left: 30rpx;
+line-height: 30rpx;
+}
+.bottom_box .price .t1{
+  font-size: 28rpx;
+  display: block;
+  margin-top: 16rpx;
+}
+.bottom_box .price .t2{
+  font-size: 20rpx;
+  
+}
+.bottom_box .btn{
+  line-height: 96rpx;
+  font-size: 34rpx;
+  margin-right: 68rpx;
+  float: right;
+}
+.bigPic{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.bigPic swiper{
+  width: 100%;
+  height: 500rpx;
+}

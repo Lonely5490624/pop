@@ -11,35 +11,3 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>
-<!--底部-->
-<view class="footer-h"></view>
-<view class="footer">
-	<view class="footer-li select">
-		<text class="iconfont icon-zhuye"></text>
-		<text>消息</text>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>日历</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-zhuye"></text>
-			<text>空间</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/fk/collection/collection">
-			<text class="iconfont icon-dingdan"></text>
-			<text>数据</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/fk/mine/mine">
-		<text class="iconfont icon-geren"></text>
-		<text>我的</text>
-		</navigator>
-	</view>
-</view>

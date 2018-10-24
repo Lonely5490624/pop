@@ -1,5 +1,5 @@
 <view class='page'>
-  <!-- 搜索条12121 -->
+  <!-- 搜索条 -->
   <space-search></space-search>
   <!-- 热门商圈 -->
   <view class="section shangq">
@@ -49,7 +49,7 @@
   </view>
 </view>
 <view class='index-adv'>
-  <image src='/images/fa-img.jpg'></image>
+  <image src='{{locateUrl}}'></image>
 </view>
 
 <!--底部-->
@@ -72,7 +72,7 @@
 		</navigator>
 	</view>
 	<view class="footer-li">
-		<navigator url="/pages/fk/collection/collection">
+		<navigator url="/pages/collection/collection">
 			<text class="iconfont icon-dingdan"></text>
 			<text>收藏</text>
 		</navigator>

@@ -1,26 +1,22 @@
 {
-  "pages": [
-    "pages/fd/data/data-score",
-    "pages/fd/data/data-view",
-    "pages/fd/data/data-income",
-    "pages/fd/data/index",
-    "pages/fd/index/index",
+  "pages": [ 
+    "pages/fk/trip/finalPay",
+    "pages/fk/trip/tripInfo",
+    "pages/fk/trip/trip",
+    "pages/fk/collection/collectionList", 
+    "pages/fk/collection/collection",    
+    "pages/fk/mine/mine",
+    "pages/fk/mine/changePersonMessage",
+    "pages/fk/mine/changeM",
     "pages/fk/index/index",
-    "pages/fk/search/search",
     "pages/fk/order/order-confirm-3",
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",
     "pages/fk/order/order-confirm",
     "pages/fk/detail/detail",
     "pages/fk/list/list",
-    "pages/logs/logs",
-    "pages/fk/trip/tripInfo",
-    "pages/fk/trip/trip",
-    "pages/fk/collection/collectionList",
-    "pages/fk/collection/collection",
-    "pages/fk/mine/mine",
-    "pages/fk/mine/changePersonMessage",
-    "pages/fk/mine/changeM"
+    "pages/fd/index/index",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
