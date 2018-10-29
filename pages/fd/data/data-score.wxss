@@ -106,3 +106,43 @@
   line-height: 44rpx;
   margin-left: 20rpx;
 }
+
+.eval-form{
+  padding-left: 68rpx;
+  margin-top: 34rpx;
+}
+.eval-form textarea{
+  font-size: 24rpx;
+  color: #9e9e9e;
+  line-height: 34rpx;
+  height: 120rpx;
+}
+.eval-form .form-control{
+  display: flex;
+  justify-content: space-between;
+}
+.eval-form .form-control .form-num{
+  font-size: 20rpx;
+  color: #9e9e9e;
+  line-height: 34rpx;
+}
+.eval-form .form-control .form-btn{
+  padding-right: 32rpx;
+  display: inline-block;
+  text-align: center;
+}
+.eval-form .form-control .form-btn .cancel{
+  font-size: 24rpx;
+  color: #9e9e9e;
+  display: inline-block;
+  padding: 8rpx 0;
+  width: 88rpx;
+}
+.eval-form .form-control .form-btn .submit{
+  font-size: 24rpx;
+  color: #ff5555;
+  border: 2rpx solid #ff5555;
+  width: 128rpx;
+  display: inline-block;
+  padding: 8rpx 0;
+}

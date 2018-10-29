@@ -37,7 +37,7 @@
       <view class='score-date'>评分低于3分将会被下架所有空间</view>
     </view>
   </view>
-  <navigator class='data-num'>
+  <navigator url='data-num' class='data-num'>
     <view class='num'>
       <view class='num-all'>4.7<text>/5.0</text></view>
       <view class='num-date'>总体评分</view>

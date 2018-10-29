@@ -1,5 +1,5 @@
 <!--pages/fd/data/data-income.wxml-->
-<view>查看所有空间</view>
+<choose-space></choose-space>
 <view class='income'>
   <view class='income-title'>收入</view>
   <view class='chart'>

@@ -1,0 +1,10 @@
+<!--components/choose-space/index.wxml-->
+<view class='space'>
+  <view bindtap='toggleList' class='space-title'>查看更多空间<text class='arrow'>∧∨</text></view>
+  <view class='space-list {{show ? "active" : ""}}'>
+    <view class='space-item'>全部空间</view>
+    <view class='space-item'>场景一场景名称场景名称场景名称场景名称</view>
+    <view class='space-item active'>场景一场景名</view>
+    <view class='space-item'>场景一场景名称场景名称</view>
+  </view>
+</view>

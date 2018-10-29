@@ -1,5 +1,12 @@
 {
   "pages": [
+    "pages/fd/data/index",
+    "pages/fd/data/data-income",
+    "pages/fd/data/data-score",
+    "pages/fd/data/data-num",
+    "pages/fd/data/data-view",
+    "pages/fd/index/index",
+    
     "pages/fk/news/cancelOrde",
     "pages/fk/news/newsSearch",
     
@@ -19,7 +26,6 @@
     "pages/fk/order/order-confirm",
     "pages/fk/detail/detail",
     "pages/fk/list/list",
-    "pages/fd/index/index",
     "pages/logs/logs"
   ],
   "window": {

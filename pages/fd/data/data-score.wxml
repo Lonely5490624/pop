@@ -1,4 +1,5 @@
 <!--pages/fd/data/data-score.wxml-->
+<choose-space></choose-space>
 <view class='score'>
   <view class='score-title'>空间评分(29)</view>
 
@@ -47,9 +48,19 @@
           </view>
         </view>
       </view>
-      <view class='eval-control'>
+      <!-- <view class='eval-control'>
         <view class='eval-reply'>回复</view>
         <view class='eval-report'>举报</view>
+      </view> -->
+      <view class='eval-form'>
+        <textarea placeholder="请输入您的回复，最多200字…" placeholder-style="color: #e0e0e0;"></textarea>
+        <view class='form-control'>
+          <view class='form-num'>1/200</view>
+          <view class='form-btn'>
+            <view class='cancel'>取消</view>
+            <view class='submit'>提交</view>
+          </view>
+        </view>
       </view>
     </view>
     <view class='eval-item'>

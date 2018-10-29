@@ -1,0 +1,82 @@
+<!--pages/fd/data/data-num.wxml-->
+<view class='num'>
+  <view class='num-title'>你做得很棒！</view>
+  <view class='num-list'>
+    <!-- <view class='num-item good'>
+      <view class='p1'>总体评分</view>
+      <view class='p2'>
+        <view class='score'>
+          <text class='t1'>4.9/</text>
+          <text class='t2'>5.0</text>
+        </view>
+        <view class='info'>您的得分超过了90%的房东</view>
+      </view>
+    </view>
+    <view class='num-item good'>
+      <view class='p1'>拒单次数</view>
+      <view class='p2'>
+        <view class='times'>
+          <text class='t1'>0</text>
+        </view>
+        <view class='info'>超棒！您过去没有拒绝过任何一个订单</view>
+      </view>
+    </view>
+    <view class='num-item good'>
+      <view class='p1'>回复率</view>
+      <view class='p2'>
+        <view class='reply'>
+          <text class='t1'>100%</text>
+        </view>
+        <view class='info'>您做到了每条消息必回</view>
+      </view>
+    </view> -->
+    <view class='num-item bad'>
+      <view class='p1'>总体评分</view>
+      <view class='p2'>
+        <view class='score'>
+          <text class='t1'>4.5/</text>
+          <text class='t2'>5.0</text>
+        </view>
+        <view class='info'>您的得分超过了60%的房东</view>
+      </view>
+    </view>
+    <view class='num-item bad'>
+      <view class='p1'>拒单次数</view>
+      <view class='p2'>
+        <view class='times'>
+          <text class='t1'>10</text>
+        </view>
+        <view class='info'>您被拒绝的单数有点多哦</view>
+      </view>
+    </view>
+    <view class='num-item bad'>
+      <view class='p1'>回复率</view>
+      <view class='p2'>
+        <view class='reply'>
+          <text class='t1'>60%</text>
+        </view>
+        <view class='info'>你的回复率有点低哦</view>
+      </view>
+    </view>
+  </view>
+  <view class='claim-title'>基本要求</view>
+  <view class='claim-list'>
+    <view class='item border'>
+      <view class='left'>要求</view>
+      <view class='right'>目标</view>
+    </view>
+    <view class='item'>
+      <view class='left'>总体评分</view>
+      <view class='right'>> 4.5分</view>
+    </view>
+    <view class='item'>
+      <view class='left'>回复率</view>
+      <view class='right'>> 80%</view>
+    </view>
+    <view class='item'>
+      <view class='left'>取消预定</view>
+      <view class='right'>{{lt}} 3次</view>
+    </view>
+  </view>
+  <view class='claim-tip'>若您未达到基本要求时，将会被下架所有场景<text class='more'>了解更多</text></view>
+</view>

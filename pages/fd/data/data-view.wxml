@@ -1,5 +1,5 @@
 <!--pages/fd/data/data-view.wxml-->
-<view>查看所有空间</view>
+<choose-space></choose-space>
 <view class='view'>
   <view class='view-title'>浏览量</view>
   <view class='chart'>
