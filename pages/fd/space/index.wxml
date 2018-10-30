@@ -1,0 +1,87 @@
+<!--pages/fd/space/index.wxml-->
+<view class='space'>
+  <view class='space-title'>我的空间</view>
+  <view class='space-main'>
+    <view class='space-tab'>
+      <view bindtap='choose' data-id='1' class='item {{activeId==1 ? "active" : ""}}'>已发布</view>
+      <view bindtap='choose' data-id='2' class='item {{activeId==2 ? "active" : ""}}'>未发布</view>
+    </view>
+    <view class='space-con {{activeId==1 ? "active" : ""}}'>
+      <view class='space-item'>
+        <view class='space-info'>
+          <image src='/images/aaa.jpg'></image>
+          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+        </view>
+        <view class='space-btns'>
+          <view class='btn down'>下架</view>
+          <view class='btn edit'>编辑</view>
+        </view>
+      </view>
+      <view class='space-item'>
+        <view class='space-info'>
+          <image src='/images/aaa.jpg'></image>
+          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+        </view>
+        <view class='space-btns'>
+          <view class='btn down'>下架</view>
+          <view class='btn edit'>编辑</view>
+        </view>
+      </view>
+    </view>
+    <view class='space-con {{activeId==2 ? "active" : ""}}'>
+      <view class='space-item'>
+        <view class='space-info'>
+          <image src='/images/aaa.jpg'></image>
+          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+        </view>
+        <view class='space-btns'>
+          <view class='btn down'>删除</view>
+          <view class='btn edit'>继续编辑</view>
+        </view>
+      </view>
+      <view class='space-item'>
+        <view class='space-info'>
+          <image src='/images/aaa.jpg'></image>
+          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+        </view>
+        <view class='space-btns'>
+          <view class='btn down'>删除</view>
+          <view class='btn edit'>继续编辑</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+	<view class="footer-li">
+    <navigator url='/pages/fd/...'>
+      <text class="iconfont icon-zhuye"></text>
+      <text>消息</text>
+    </navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/order/order">
+			<text class="iconfont icon-dingdan"></text>
+			<text>日历</text>
+		</navigator>
+	</view>
+	<view class="footer-li select">
+    <text class="iconfont icon-zhuye"></text>
+    <text>空间</text>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/collection/collection">
+			<text class="iconfont icon-dingdan"></text>
+			<text>数据</text>
+		</navigator>
+	</view>
+	<view class="footer-li">
+		<navigator url="/pages/fk/mine/mine">
+		<text class="iconfont icon-geren"></text>
+		<text>我的</text>
+		</navigator>
+	</view>
+</view>

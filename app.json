@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fd/space/index",
     "pages/fd/data/index",
     "pages/fd/data/data-income",
     "pages/fd/data/data-score",
@@ -15,7 +16,7 @@
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",
     "pages/fk/collection/collectionList", 
-    "pages/fk/collection/collection",    
+    "pages/fk/collection/collection",
     "pages/fk/mine/mine",
     "pages/fk/mine/changePersonMessage",
     "pages/fk/mine/changeM",
