@@ -1,0 +1,89 @@
+/* pages/fd/space/add-4.wxss */
+page{
+  padding-bottom: 160rpx;
+}
+.title{
+  padding: 80rpx 32rpx 0;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.list{
+  margin-top: 40rpx;
+}
+.item{
+  border-bottom: 2rpx solid #e0e0e0;
+  padding: 24rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item .left{
+  font-size: 28rpx;
+  color: #212121;
+  line-height: 44rpx;
+}
+.item .right{
+  width: 500rpx;
+  font-size: 28rpx;
+  color: #9E9E9E;
+  line-height: 44rpx;
+  text-align: right;
+}
+.item.arrow{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABRElEQVRYR+2WMUoDQRSGv2AkN7HxAipG0lilylm0UQRtLCX3iEUCQcghbAMpUkS0ECy8gvwwC8OwuPNmht1mp9lmZr5v3pv3dgZ0PAYd8+kF+giUjMAR8AKcAnfAe8wFLyUg+Cswc1CJ3LYlMAQWHvwLuAA+2xAQfAVMHewbOAcOMXDNyUnBMbAM4GNgHwvPERD8Dbj2Tm6GpwqMgLUH/3E5N528ipI1BYJvgInbQPArYGcJuz/XIlAcbk3BE/Do7H9d2JNPnpKCe+C5S4G6FKjhJF2+lAhoTVgBajxJ5ZcqoHV1PcDU/VKrwF8XSqj/S0Jf07CUYbhx2Io/gEurRI6AhMKfkSTOAN2NqJErUCehqlB1qEs2jhIClYT/Jnjwesa/EqUEBNGraA6cADfAtvH4me+BmP0b55SMQCOsbkIv0EfgDzTxOCEMLwt0AAAAAElFTkSuQmCC) calc(100% - 32rpx) center no-repeat;
+  background-size: 28rpx 28rpx;
+  padding-right: 80rpx;
+}
+.item-ver{
+  padding: 24rpx 32rpx;
+  border-bottom: 2rpx solid #e0e0e0;
+}
+.item-ver .p1{
+  color: #212121;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+.item-ver textarea{
+  font-size: 28rpx;
+  color: #9E9E9E;
+  line-height: 44rpx;
+  margin-top: 20rpx;
+  height: 156rpx;
+}
+.item-ver .con{
+  display: flex;
+  flex-wrap: wrap;
+}
+.item-ver .con-item{
+  padding: 14rpx 28rpx;
+  border: 2rpx solid #e0e0e0;
+  font-size: 24rpx;
+  color: #212121;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 4rpx;
+}
+.item-ver .con-item.active{
+  color: #ff5555;
+  border-color: #ff5555;
+}
+
+
+
+
+
+
+.next{
+  width: calc(100% - 64rpx);
+  line-height: 46rpx;
+  font-size: 32rpx;
+  color: #fff;
+  padding: 22rpx 0;
+  border-radius: 8rpx;
+  background: #ff5555;
+  text-align: center;
+  position: fixed;
+  bottom: 32rpx;
+  left: 32rpx;
+  z-index: 2;
+}

@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/fd/space/add-4",
+    "pages/fd/space/add-3",
+    "pages/fd/space/add-2",
+    "pages/fd/space/add-1",
     "pages/fd/space/index",
     "pages/fd/data/index",
     "pages/fd/data/data-income",

@@ -1,0 +1,50 @@
+/* pages/fd/space/add-2.wxss */
+.title{
+  padding: 80rpx 32rpx 0;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.list{
+  margin-top: 40rpx;
+}
+.list .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #e0e0e0;
+  padding: 0 32rpx;
+}
+.list .item.arrow{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABRElEQVRYR+2WMUoDQRSGv2AkN7HxAipG0lilylm0UQRtLCX3iEUCQcghbAMpUkS0ECy8gvwwC8OwuPNmht1mp9lmZr5v3pv3dgZ0PAYd8+kF+giUjMAR8AKcAnfAe8wFLyUg+Cswc1CJ3LYlMAQWHvwLuAA+2xAQfAVMHewbOAcOMXDNyUnBMbAM4GNgHwvPERD8Dbj2Tm6GpwqMgLUH/3E5N528ipI1BYJvgInbQPArYGcJuz/XIlAcbk3BE/Do7H9d2JNPnpKCe+C5S4G6FKjhJF2+lAhoTVgBajxJ5ZcqoHV1PcDU/VKrwF8XSqj/S0Jf07CUYbhx2Io/gEurRI6AhMKfkSTOAN2NqJErUCehqlB1qEs2jhIClYT/Jnjwesa/EqUEBNGraA6cADfAtvH4me+BmP0b55SMQCOsbkIv0EfgDzTxOCEMLwt0AAAAAElFTkSuQmCC) calc(100% - 32rpx) center no-repeat;
+  background-size: 28rpx;
+  padding-right: 80rpx;
+}
+.item .left{
+  font-size: 28rpx;
+  color: #212121;
+  line-height: 44rpx;
+  padding: 24rpx 0;
+}
+.item .right{
+  width: 500rpx;
+  font-size: 28rpx;
+  line-height: 44rpx;
+  text-align: right;
+}
+.next{
+  width: calc(100% - 64rpx);
+  line-height: 46rpx;
+  font-size: 32rpx;
+  color: #9E9E9E;
+  padding: 22rpx 0;
+  border-radius: 8rpx;
+  background: #e0e0e0;
+  text-align: center;
+  position: fixed;
+  bottom: 32rpx;
+  left: 32rpx;
+}
+.next.active{
+  background: #ff5555;
+  color: #fff;
+}

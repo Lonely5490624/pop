@@ -1,0 +1,22 @@
+<!--pages/fd/space/add-1.wxml-->
+<view class='space-title'>一起来创建一个超赞的共享商业空间吧</view>
+<view class='space-main'>
+  <view class='title'>您想发布一个怎样的空间？</view>
+  <view class='list'>
+    <view class='item active'>
+      <view class='left'>
+        <view class='p1'>整个独立空间</view>
+        <view class='p2'>这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店</view>
+      </view>
+      <view class='right'></view>
+    </view>
+    <view class='item'>
+      <view class='left'>
+        <view class='p1'>集合空间</view>
+        <view class='p2'>这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店</view>
+      </view>
+      <view class='right'></view>
+    </view>
+  </view>
+</view>
+<view class='next'>下一步</view>

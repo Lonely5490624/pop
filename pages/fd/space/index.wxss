@@ -69,3 +69,11 @@ page{
   color: #fff;
   background: #ff5555;
 }
+.space-add{
+  width: 88rpx;
+  height: 88rpx;
+  position: fixed;
+  bottom: 182rpx;
+  right: 32rpx;
+  box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,.2);
+}
