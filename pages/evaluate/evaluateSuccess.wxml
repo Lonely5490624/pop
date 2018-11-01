@@ -1,0 +1,10 @@
+<!--pages/fd/data/index.wxml-->
+<view class='page'>
+  <view class='box'>
+    <image src='/images/success2@1x.png'></image>
+    <view>评价成功</view>
+  </view>
+  
+  <view class='nextBtn'>下一步</view>
+
+</view>

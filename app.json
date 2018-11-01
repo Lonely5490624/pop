@@ -1,5 +1,14 @@
 {
   "pages": [
+    "pages/news/chat",
+    "pages/evaluate/evaluate",
+    "pages/evaluate/evaluateList",
+    "pages/evaluate/evaluateSuccess",    
+    "pages/register/yz",
+    "pages/register/register",
+    "pages/login/addPerMessage",
+    "pages/login/yzMessage",
+    "pages/login/login",
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
@@ -10,12 +19,10 @@
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fd/data/data-view",
-    "pages/fd/index/index",
-    
-    "pages/fk/news/cancelOrde",
-    "pages/fk/news/newsSearch",
-    
-    "pages/fk/news/news", 
+    "pages/fd/index/index",    
+    "pages/news/cancelOrde",
+    "pages/news/newsSearch",    
+    "pages/news/news", 
     "pages/fk/trip/finalPay",
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",

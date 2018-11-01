@@ -1,0 +1,19 @@
+<!--pages/fd/data/index.wxml-->
+<view class='data'>
+  <view class='data-title'>添加个人信息</view>
+  <view class='box'>
+    <view class='list tx'>
+      <view style="font-size:32rpx;">上传头像</view>
+      <view class='t2'>></view>
+    </view>
+    <view class='list'>
+      <view>昵称</view>
+      <view class='t2'>></view>
+    </view>
+    <view class='list'>
+      <view>个人简介</view>
+      <view class='t2'>></view>
+    </view>
+    <view class='nextBtn able'>完成</view>
+  </view>
+</view>
