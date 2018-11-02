@@ -1,0 +1,44 @@
+/* pages/fk/order/order-confirm-3.wxss */
+.cont{
+  margin-top: 20rpx;
+}
+input{
+  border-bottom:1px  #E0E0E0 solid;
+  color: #000000;
+  font-size: 28rpx;
+  line-height: 88rpx;
+}
+.tipText{
+  color: #9E9E9E;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+textarea{
+  font-size:28rpx;
+  width: 100%;
+}
+.wordLimit{
+  color:#9E9E9E;
+  font-size: 24rpx;
+  text-align: right;
+  line-height: 50rpx;
+}
+.saveBtn {
+  width: 80%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #9e9e9e;
+  margin-top: 80rpx;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+  margin-left: 10%;
+}
+.unable {
+  background: #e0e0e0;
+  color: #9e9e9e;
+}
+.able {
+  background: #FF5555;
+  color: #fff;
+}

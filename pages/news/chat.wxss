@@ -7,17 +7,16 @@
 
 .title {
   width: 100%;
-  height: auto;
+  height: 120rpx;
+  line-height: 120rpx;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.title {
-  width: 100%;
-  height: 144rpx;
-  line-height: 144rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
 }
 
 .title .text {
@@ -43,6 +42,9 @@
   align-items: center;
   padding: 0 32rpx;
   box-sizing: border-box;
+  position: fixed;
+  top: 120rpx;
+  left: 0;
 }
 
 .middle .btn {
@@ -51,11 +53,132 @@
 }
 
 .middle .t2 {
-  width: 160rpx;
+  width: auto;
   height: 52rpx;
-  background: #f55;
   font-size: 28rpx;
-  color: #fff;
   text-align: center;
   line-height: 52rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle .t2 .red {
+  background: #f55;
+  color: #fff;
+  padding: 0 30rpx;
+  border-radius: 6rpx;
+}
+
+.middle .t2 .white {
+  background: #fff;
+  color: #f55;
+  padding: 0 30rpx;
+  border-radius: 6rpx;
+  margin-right: 30rpx;
+}
+
+.chatBox {
+  width: 100%;
+  height:auto;
+  overflow: scroll-y;
+  padding-top: 40rpx;  
+  margin-top: 220rpx;
+  padding-bottom: 104rpx;
+  box-sizing: border-box;
+}
+
+.chatBox .date {
+  color: #9e9e9e;
+  font-size: 20rpx;
+  text-align: center;
+  margin-bottom: 28rpx;
+}
+
+.chatBox .other {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+}
+
+.chatBox .other .tx {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  float: left;
+  border: 1px red solid;
+  margin-right: 20rpx;
+  margin-left: 32rpx;
+}
+
+.chatBox .other .cont {
+  color: #212121;
+  font-size: 28rpx;
+  float: left;
+  background: #f5f5f5;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  max-width: 400rpx;
+}
+
+.chatBox .our {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+}
+
+.chatBox .our .tx {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  float: right;
+  border: 1px red solid;
+  margin-right: 20rpx;
+  margin-left: 32rpx;
+}
+
+.chatBox .our .cont {
+  color: #fff;
+  font-size: 28rpx;
+  float: right;
+  background: #f55;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  max-width: 400rpx;
+}
+
+.editBox {
+  background: #f5f5f5;
+  width: 100%;
+  height: 104rpx;
+  padding: 0rpx 32rpx;
+  box-sizing: border-box;
+  border-top: 1px #e0e0e0 solid;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.editBox input {
+  background: #fff;
+  float: left;
+  margin-top: 14rpx;
+  width: 85%;
+  height: 76rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  border: 1px #e0e0e0 solid;
+  border-radius: 6rpx;
+}
+
+.editBox .sendBtn {
+  width: 13%;
+  text-align: center;
+  color: #f55;
+  font-size: 28rpx;
+  float: right;
+  line-height: 104rpx;
 }

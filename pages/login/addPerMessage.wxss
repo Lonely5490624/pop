@@ -28,6 +28,12 @@
   line-height: 200rpx;
   margin-top: 40rpx;
 }
+.txjpg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  overflow: hidden;
+}
 
 
 .nextBtn {

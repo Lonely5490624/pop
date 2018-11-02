@@ -1,14 +1,21 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/fk/index/index",
+    "pages/login/addPerMessage",
+    "pages/login/register",
+    
+    
+    "pages/fk/trip/selectPayWay",
     "pages/news/chat",
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateSuccess",    
-    "pages/register/yz",
-    "pages/register/register",
-    "pages/login/addPerMessage",
+    "pages/login/yz",
+    
+    
     "pages/login/yzMessage",
-    "pages/login/login",
+    
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
@@ -19,7 +26,7 @@
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fd/data/data-view",
-    "pages/fd/index/index",    
+       
     "pages/news/cancelOrde",
     "pages/news/newsSearch",    
     "pages/news/news", 
@@ -30,8 +37,9 @@
     "pages/fk/collection/collection",
     "pages/fk/mine/mine",
     "pages/fk/mine/changePersonMessage",
-    "pages/fk/mine/changeM",
-    "pages/fk/index/index",
+    "pages/login/changeM",
+    "pages/login/changeM2",
+    
     "pages/fk/order/order-confirm-3",
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",

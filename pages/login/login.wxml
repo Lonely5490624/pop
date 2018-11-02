@@ -1,17 +1,11 @@
 <!--pages/fd/data/index.wxml-->
-<view class='data'>
-  <view class='data-title' style='margin-top:60rpx;'>注册登陆</view>
+<view class='data'>  
   <view class='box'>
+  <view class='tx'></view>
     <view class='list'>
       <view style='width:20%;' class='qh'>+86</view>
-      <input style='width:78%;' placeholder='请输入手机号码'></input>
-    </view>
-    <view class='list'>
-      <input style='width:65%;' placeholder='请输入验证码'></input>
-      <view style='width:35%;' class='getBtn'>获取短信验证码</view>
-    </view>
-    <view class='nextBtn unable'>下一步</view>
-    <view class='tip' style="margin-top:600rpx;">验证登陆后，未注册用户将会自动建立XX账号</view>
-    <view class='tip'>注册登陆即表示同意<text style="color:#0085FF;">《用户隐私与安全协议》</text></view>
+      <input style='width:78%;' placeholder='请输入手机号码' maxlength='11' type="number" bindinput='getMoblie'></input>
+    </view>    
+    <view class="nextBtn {{btnBg?'able':'unable'}}" bindtap='yzPhoneNum'>获取验证码</view>    
   </view>
 </view>

@@ -3,14 +3,7 @@
 .data {
   padding: 0 88rpx;
 }
-.tx{
-  width: 120rpx;
-  height: 120rpx;
-  border: 1px red solid;
-  border-radius: 100%;
-  margin: 80rpx auto;
 
-}
 .data-title {
   font-size: 48rpx;
   color: #212121;
@@ -37,6 +30,10 @@
   margin-top: 44rpx;
 }
 
+.list .getBtn {
+  font-size: 28rpx;
+  color: #f55;
+}
 
 .nextBtn {
   width: 100%;
@@ -57,3 +54,10 @@
   background: #FF5555;
   color: #fff;
 }
+.tip{
+  color: #9E9E9E;
+  font-size:20rpx; 
+  text-align: center;
+  line-height: 28rpx;
+}
+

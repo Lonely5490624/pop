@@ -1,0 +1,12 @@
+<view class='page'>
+  <view class='top_text pad32'>尾款未支付</view>
+  <view class='cont pad32'>
+    <view>支付方式</view>
+    <view class="section">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">{{array[index]}}></view>
+      </picker>
+    </view>
+  </view>
+  <view class='btn'>支付</view>
+</view>
