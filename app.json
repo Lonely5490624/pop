@@ -1,21 +1,19 @@
 {
   "pages": [
-    "pages/login/login",
+    "pages/fk/list/list",
+    "pages/fk/detail/detail",
+  
     "pages/fk/index/index",
-    "pages/login/addPerMessage",
     "pages/login/register",
-    
-    
+    "pages/login/login",
+    "pages/login/yz",  
+    "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
     "pages/news/chat",
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateSuccess",    
-    "pages/login/yz",
-    
-    
-    "pages/login/yzMessage",
-    
+    "pages/login/yzMessage",    
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
@@ -25,8 +23,7 @@
     "pages/fd/data/data-income",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
-    "pages/fd/data/data-view",
-       
+    "pages/fd/data/data-view",       
     "pages/news/cancelOrde",
     "pages/news/newsSearch",    
     "pages/news/news", 
@@ -38,14 +35,12 @@
     "pages/fk/mine/mine",
     "pages/fk/mine/changePersonMessage",
     "pages/login/changeM",
-    "pages/login/changeM2",
-    
+    "pages/login/changeM2",    
     "pages/fk/order/order-confirm-3",
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",
     "pages/fk/order/order-confirm",
-    "pages/fk/detail/detail",
-    "pages/fk/list/list",
+     
     "pages/logs/logs"
   ],
   "window": {

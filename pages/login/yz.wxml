@@ -3,10 +3,16 @@
   <view class='data-title' style='margin-top:60rpx;'>输入验证码</view>
   <view class='box'>
     <view class='t1'>已发送6位验证码至</view>
-    <view class='t2'>+86 138 1775 0824</view>
+    <view class='t2'>+86 {{moblie}}</view>
    <view class='t3'>
-   <input></input>
+   <form>
+    <view class='ipt_box'>
+      <input type='number' wx:for="{{inputLen}}" wx:key="{{index}}" 
+      disabled bindtap='onFocus' value="{{iptValue.length>=index+1?iptValue[index]:''}}" />
+    </view>
+  <input name="password" password="{{true}}" type='number' class='hidden_ipt' maxlength="{{inputLen}}" focus="{{isFocus}}" bindinput="setValue"></input>
+</form>
    </view>
-   <view class='t4'>重新发送（59s）</view>
+   <button class="t4 {{bg?'able':''}}" disabled="{{disabled?'false':''}}" bindtap='getVerificationCode'>重新发送（{{time}}s）</button>
   </view>
 </view>

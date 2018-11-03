@@ -1,21 +1,24 @@
 <view class='page'>
   <view class='banner' bindtap='previewImages'>
-    <image src='/images/aaa.jpg'></image>
-  </view> 
+    <image src='http://pop.aieye8.com/data/upload/{{space_info.banner}}'></image>
+  </view>
   <view class='box1'>
     <view class='box1_t1'>
-      <text>标题空间标题空间标题空间标题空间标题空间标题空间标题</text>
-      <view class='tx'></view>
+      <text>{{space_info.title}}</text>
+      <view class='tx'>
+        <image src='{{space_info.head_img_url}}'></image>
+      </view>
     </view>
     <view class='box1_t2'>
-      <text class='bt2_t1'>200元/天</text>
-      <text class='bt2_t2'>退订政策严格</text>
+      <text class='bt2_t1'>{{space_info.everyday_price}}元/天</text>
+      <text class='bt2_t2' wx:if='{{space_info.unsubscribe_policy==1}}'>退订政策灵活</text>
+      <text class='bt2_t2' wx:if='{{space_info.unsubscribe_policy==2}}'>退订政策中等</text>
     </view>
     <view class='bt3_list'>
       <image src='/images/xiang-01.jpg'></image>
       <view class='bt3_r'>
-        <view class='t1'>整套地理空间</view>
-        <view class='t2'>您可以使用整个空间进行您的商品销售活动</view>
+        <view class='t1'>{{space_info.type}}</view>
+        <view class='t2'>您可以使用{{space_info.type}}进行您的商品销售活动</view>
       </view>
     </view>
     <view class='bt3_list'>
@@ -36,17 +39,17 @@
       <image src='/images/xiang-04.jpg'></image>
       <view class='bt3_r'>
         <view class='t1'>入住/离开时间</view>
-        <view class='t2'>入住时间为每天0:00-8:00，离开时间20:00</view>
+        <view class='t2'>入住时间为每天{{space_info.arrival_start_time}}-{{space_info.arrival_end_time}}，离开时间{{space_info.leave_time}}</view>
       </view>
     </view>
     <view class='bt3_list'>
       <image src='/images/xiang-05.jpg'></image>
       <view class='bt3_r'>
         <view class='t1'>施工时间</view>
-        <view class='t2'>每天晚上00:00-06:00</view>
+        <view class='t2'>每天晚上{{space_info.construct_start_time}}-{{space_info.construct_end_time}}</view>
       </view>
     </view>
-  </view> 
+  </view>
   <view class='box1 box2'>
     <view class='b2_title'>介绍信息</view>
     <view class='b2_info'>这里是介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</view>
@@ -54,33 +57,87 @@
   </view>
   <view class='box1 box2'>
     <view class='b2_title'>空间配备与设施</view>
-    <view class='b2_list'>
-      <view class='b2_list_li'>
-        <view class='icon'></view>
-        <view class='text'>设施设备</view>
+    <view class="b2_list {{ssHeight?'height':''}}">
+      <view class='b2_list_li' wx:for='{{space_info.convenience_facilities}}'>
+        <view class='icon'>
+          <image src='http://pop.aieye8.com/data/upload/{{item.icon}}'></image>
+        </view>
+        <view class='text'>{{item.name}}</view>
       </view>
-      <view class='b2_list_li'>
-        <view class='icon'></view>
-        <view class='text'>设施设备</view>
-      </view>
-      <view class='b2_list_li'>
-        <view class='icon'></view>
-        <view class='text'>设施设备</view>
-      </view>
-      <view class='b2_list_li'>
-        <view class='icon'></view>
-        <view class='text'>设施设备</view>
-      </view>      
     </view>
-    <view class='b2_more'>查看更多</view>
+    <view class='b2_more' bindtap='openMore' wx:if='{{space_info.convenience_facilities.length>4}}'>查看更多</view>
   </view>
-  <view class='box1 box2 box4'>
+  <view class='box1 box2 box4' wx:if="{{space_info.comment!=''}}">
     <view class='b4_top'>
-      <view class='b2_title'>服务评价（100）</view>
-      <image src='/images/3.png'></image>
+      <view class='b2_title'>服务评价（{{space_info.count_service}}）</view>
+      <!-- avg_service -->
+      <view class='space-score' wx:for='{{space_info.avg_service}}'>
+        <text class='iconfont icon-wujiaoxing score-icon active'></text>
+      </view>
+      <view class='space-score' wx:for='{{5-space_info.avg_service}}'>
+        <text class='iconfont icon-wujiaoxing score-icon'></text>
+      </view>
     </view>
-    <view class='b2_info'>这里是评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</view>
-    <view class='b2_more'>查看全部评价</view>
+    <view class="list_box {{ssHeight?'height':''}}">
+      <view class='list' wx:for='{{space_info.comment}}'>
+        <view class='list_l'>
+          <image src='http://pop.aieye8.com/data/upload/{{item.head_img_url}}'></image>
+        </view>
+        <view class='list_r'>
+          <view class='list_r_l1'>
+            <view class='name'>
+              <view style="float:left;margin-right:10rpx;">{{item.nick_name}}</view>
+              <view class='space-score' wx:if='{{item.service==0}}'>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+              </view>
+              <view class='space-score' wx:elif='{{item.service==1}}'>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+              </view>
+              <view class='space-score' wx:elif='{{item.service==2}}'>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+              </view>
+              <view class='space-score' wx:elif="{{item.service==3}}">
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+              </view>
+              <view class='space-score' wx:elif='{{item.service==4}}'>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon'></text>
+              </view>
+              <view class='space-score' wx:else='{{item.service==5}}'>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+                <text class='iconfont icon-wujiaoxing score-icon active'></text>
+              </view>
+            </view>
+            <view class='date'>{{item.create_time}}</view>
+          </view>
+          <view class='list_r_l2'>{{item.space_content}}</view>
+          <view class='reply' wx:if="{{item.reply_content!=''}}">房东回复：{{item.reply_content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='b2_more' wx:if="{{isShow}}" bindtap='openMore' wx:if="{{space_info.comment.length>1}}">查看全部评价</view>
   </view>
   <view class='box1 box2'>
     <view class='b2_title'>位置</view>
@@ -89,7 +146,7 @@
     </view>
     <view class='map_b'>上海市静安区路名门牌号</view>
   </view>
-    <view class='box1 box2 mustknow'>
+  <view class='box1 box2 mustknow'>
     <view class='b2_title'>须知</view>
     <view class='mn_list'>
       <text class='t1'>3%定金比例</text>
@@ -101,11 +158,11 @@
     </view>
     <view class='mn_list'>
       <text class='t1'>押金</text>
-      <text class='t2'>· 入驻前需支付押金￥5000，入驻结束后，若无发生违反守则行为，将原路退回，押金暂由平台保管</text>
+      <text class='t2'>· 入驻前需支付押金￥{{space_info.cash_pledge}}，入驻结束后，若无发生违反守则行为，将原路退回，押金暂由平台保管</text>
     </view>
     <view class='mn_list'>
       <text class='t1'>空间守则</text>
-      <text class='t2'>· 守则守XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</text>
+      <text class='t2'>· {{space_info.rules}}</text>
     </view>
     <view class='mn_list'>
       <text class='t1'>退订政策严格</text>
@@ -116,8 +173,8 @@
     <view class='bb_l'>联系房东</view>
     <view class='bb_r'>
       <view class='price'>
-        <text class='t1'>￥200/每天</text>
-        <text class='t2'>最少预定4天</text>
+        <text class='t1'>￥{{space_info.everyday_price}}/每天</text>
+        <text class='t2'>最少预定{{space_info.min_hire_time}}天</text>
       </view>
       <navigator class='btn' url='/pages/fk/order/order-confirm'>立即预定</navigator>
     </view>

@@ -1,4 +1,3 @@
-// pages/fd/data/index.js
 Page({
   data: {
     mobile: '',

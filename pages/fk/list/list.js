@@ -1,62 +1,5 @@
 // pages/fk/list/list.js
-
-
-const spaceData = [{
-    official: true,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: false,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: true,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: false,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: false,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: false,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: false,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: true,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }]
-
+const spaceData = []
 Page({
   data: {
     spaceData,
@@ -68,12 +11,30 @@ Page({
       opendate: true
     })
   },
+  onLoad: function() {
+    var that = this
+    wx.request({
+      url: 'http://pop.aieye8.com/index.php/Home/home/searchSpace',
+      data: {
+        member_id: ''
+      },
+      success: function(res) {
+        console.log(res.data.data)
+        for (var i = 0; i++; i <= res.data.data.length) {          
+          res.data.data[i].avg_service=parseInt(res.data.data[i].avg_service)
+        }
+        that.setData({
+          spaceData: res.data.data
+        })
+      }
+    })
+  },
   openFilter: function() {
     this.setData({
       isFilter: true
     })
   },
-  onMyEvent: function (e) {
+  onMyEvent: function(e) {
     // 自定义组件触发事件时提供的detail对象
     let that = e.detail;
     // this.setData({

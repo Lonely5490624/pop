@@ -21,21 +21,23 @@ Page({
         duration: 2000
       })
     } else {
+      var that = this;
       wx.request({
         url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
         data: {
-          mobile: parseInt(this.data.mobile),
+          mobile: parseInt(that.data.mobile),
         },
         success: function(res) {
           if (res.data.code==200){
+            wx.setStorage({
+              key: 'mobile',
+              data: that.ata.mobile
+            })
             wx.navigateTo({
               url: 'yz'
             })
           }
           console.log(res.data)
-          // page.this.setData({
-          //   btnCont:"59s",
-          // })
         }
       })
     }

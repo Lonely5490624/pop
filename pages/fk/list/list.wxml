@@ -9,21 +9,20 @@
   </view>
   <!-- 空间列表 -->
   <view class='space-list'>
-    <navigator url='/pages/fk/detail/detail' class='space-item' wx:for='{{spaceData}}'>
-      <image class='space-img' src='{{item.imgUrl}}'></image>
-      <text class='space-renzheng' wx:if='{{item.official}}'>官方认证</text>
-      <text class='space-info'>{{item.info}}</text>
+    <navigator url='/pages/fk/detail/detail?id={{item.id}}' class='space-item' wx:for='{{spaceData}}'>
+      <image class='space-img' src='http://pop.aieye8.com/data/upload/{{item.banner}}'></image>
+      <text class='space-renzheng' wx:if='{{item.official_certification==1}}'>官方认证</text>
+      <text class='space-info'>{{item.categoryName}} . {{item.type}}</text>
       <text class='space-title'>{{item.title}}</text>
-      <text class='iconfont icon-wujiaoxing1 space-collect active' wx:if='{{item.collect}}'></text>
-      <text class='iconfont icon-wujiaoxing1 space-collect' wx:else='{{item.collect}}'></text>
+      <text class='iconfont icon-wujiaoxing1 space-collect active' wx:if='{{item.isFavorite==1}}'></text>
+      <text class='iconfont icon-wujiaoxing1 space-collect' wx:else='{{item.isFavorite==0}}'></text>
       <view class='space-bottom'>
-        <text class='space-price'>￥{{item.price}}/天</text>
-        <text class='space-zhengche'>{{item.zhengche}}</text>
-        <view class='space-score'>
+        <text class='space-price'>￥{{item.everyday_price}}/天</text>
+        <text class='space-zhengche'>退订政策{{item.unsubscribe_policy_name}}</text>
+        <view class='space-score' wx:for='{{item.avg_service}}'>
           <text class='iconfont icon-wujiaoxing score-icon active'></text>
-          <text class='iconfont icon-wujiaoxing score-icon active'></text>
-          <text class='iconfont icon-wujiaoxing score-icon active'></text>
-          <text class='iconfont icon-wujiaoxing score-icon'></text>
+        </view>
+        <view class='space-score' wx:for='{{5-item.avg_service}}'>
           <text class='iconfont icon-wujiaoxing score-icon'></text>
         </view>
       </view>
