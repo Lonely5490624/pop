@@ -78,7 +78,6 @@ Component({
      * 左边滑块滑动
      */
     _minMove: function (e) {
-
       let pagex = e.changedTouches[0].pageX / this.data.ratio - this.data.containerLeft - this.data.sliderLength / 2
 
       if (pagex + this.data.sliderLength >= this.data.rightValue) {
@@ -100,7 +99,6 @@ Component({
      * 右边滑块滑动
      */
     _maxMove: function (e) {
-
       let pagex = e.changedTouches[0].pageX / this.data.ratio - this.data.containerLeft - this.data.sliderLength / 2
       if (pagex <= this.data.leftValue + this.data.sliderLength) {
         pagex = this.data.leftValue + this.data.sliderLength

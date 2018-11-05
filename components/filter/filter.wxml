@@ -18,17 +18,7 @@
     <view class='filter-content-item'>
       <view class='filter-content-title'>服务区服</view>
       <view class='filter-content-con'>
-        <price-range
-          minValue="{{low}}"
-          maxValue="{{high}}"
-          min="{{min}}"
-          max="{{max}}"
-          blockColor="#ff5555"
-          backgroundColor="#dddddd"
-          selectedColor="#ff5555"
-          bind:lowValueChange="lowValueChangeAction"
-          bind:highValueChange="highValueChangeAction"
-        ></price-range>
+        <price-range minValue="{{low}}" maxValue="{{high}}" min="{{min}}" max="{{max}}" blockColor="#ff5555" backgroundColor="#dddddd" selectedColor="#ff5555" bind:lowValueChange="lowValueChangeAction" bind:highValueChange="highValueChangeAction"></price-range>
       </view>
     </view>
     <view class='filter-content-item'>
