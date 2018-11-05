@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/fk/list/list",
-    "pages/fk/detail/detail",
-  
+    "pages/fk/mine/mine",
     "pages/fk/index/index",
-    "pages/login/register",
     "pages/login/login",
-    "pages/login/yz",  
+
+    "pages/login/yz",      
+    "pages/fk/list/list",
+    "pages/fk/detail/detail", 
+    "pages/login/register", 
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
     "pages/news/chat",
@@ -32,8 +33,8 @@
     "pages/fk/trip/trip",
     "pages/fk/collection/collectionList", 
     "pages/fk/collection/collection",
-    "pages/fk/mine/mine",
     "pages/fk/mine/changePersonMessage",
+    "pages/fk/mine/changeM",
     "pages/login/changeM",
     "pages/login/changeM2",    
     "pages/fk/order/order-confirm-3",

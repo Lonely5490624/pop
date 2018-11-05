@@ -24,8 +24,12 @@ float: left;
   width: 100rpx;
   height: 100rpx;
   border-radius: 100%;
-  border: 1px red solid;
   float: right;
+}
+.top_r image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
 }
 .content{
   width: 100%;

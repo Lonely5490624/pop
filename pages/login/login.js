@@ -2,12 +2,34 @@
 Page({
   data: {
     btnBg: false,
-    mobile:""
+    mobile: "",
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userData:[]
   },
-  onLoad: function(options) {
-
+  onLoad: function () {
+    var that =this
+    // 查看是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              wx.setStorageSync('wxUserData', res.userInfo);
+              that.setData({
+                userData:res.userInfo
+              })
+            }
+          })
+        }
+      }
+    })
   },
-  getMoblie: function (e) {
+  bindGetUserInfo(e) {
+    console.log(e.detail.userInfo)
+  },
+  getMoblie: function(e) {
     this.setData({
       btnBg: true,
       mobile: e.detail.value
@@ -28,18 +50,14 @@ Page({
           mobile: parseInt(that.data.mobile),
         },
         success: function(res) {
-          if (res.data.code==200){
-            wx.setStorage({
-              key: 'mobile',
-              data: that.ata.mobile
-            })
+          if (res.data.code == 200) {
             wx.navigateTo({
-              url: 'yz'
+              url: 'yz?mobile=' + that.data.mobile
             })
           }
           console.log(res.data)
         }
       })
     }
-  }  
+  }
 })

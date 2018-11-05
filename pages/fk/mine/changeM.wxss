@@ -23,3 +23,11 @@ textarea{
   text-align: right;
   line-height: 50rpx;
 }
+.unable{
+  background: #E0E0E0;
+  color: #616161
+}
+.able{
+  background: #FF5555;
+  color: #fff
+}

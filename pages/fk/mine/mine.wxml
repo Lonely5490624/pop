@@ -2,11 +2,11 @@
 <view class='pages'>
   <view class='top'>
     <view class='top_l'>
-      <view class='name'>阿凡达</view>
-      <navigator url='changePersonMessage' class='editbtn'>查看并编辑个人信息 ></navigator>
+      <view class='name'>{{userInfo.nick_name}}</view>
+      <view class='editbtn' bindtap='gotoEdit'>查看并编辑个人信息 ></view>
     </view>
     <view class='top_r'>
-   <!-- 头像图片        -->
+   <image src='{{tx}}'></image>
     </view>
   </view>
   <view class='content'>

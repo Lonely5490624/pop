@@ -6,10 +6,14 @@
 .tx{
   width: 120rpx;
   height: 120rpx;
-  border: 1px red solid;
   border-radius: 100%;
   margin: 80rpx auto;
 
+}
+.tx image{
+   width: 120rpx;
+  height: 120rpx;
+  border-radius: 100%;
 }
 .data-title {
   font-size: 48rpx;
