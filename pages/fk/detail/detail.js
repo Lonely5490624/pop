@@ -44,6 +44,10 @@ Page({
     ssHeight: false,
     isShow:true
   },
+  //立即预定
+  reserve:function(){
+    
+  },
   //查看更多
   openMore:function(){
     this.setData({

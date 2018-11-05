@@ -1,71 +1,78 @@
-// pages/fk/order/order-confirm-3.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     // 省市区三级联动初始化
-    region: ["四川省", "成都市", "武侯区"],
+    region: [],
+    userInfo: [],
+    userData:[],
+    wxtx:''
   },
   // 选择省市区函数
   changeRegin(e) {
-    this.setData({ region: e.detail.value });
+    console.log(e.detail.value)
+    this.setData({
+      region: e.detail.value,
+      'userInfo.province': e.detail.value[0],
+      'userInfo.city': e.detail.value[1],
+      'userInfo.county': e.detail.value[2],
+    });
   },
+  //保存
+  saveInfo: function() {
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+    console.log(this.data.userData.member_id);
+    wx.request({
+      url: 'http://pop.aieye8.com/index.php/home/my/save',
+      data: {
+        member_id: this.data.userData.member_id,
+        nick_name: this.data.userInfo.nick_name,
+        synopsis: this.data.userInfo.synopsis,
+        credentials_numbere: this.data.userInfo.credentials_numbere,
+        head_img_url:this.data.wxtx,
+        address: this.data.userInfo.province + this.data.userInfo.city + this.data.userInfo.county
+      },
+      success: function(res) {
+        console.log(res.data);
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+        if (res.data.code==200){
+          wx.navigateTo({
+            url: 'mine'
+          })
+        }        
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onShow: function() {
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    console.log(currPage.data.name)
+    if (currPage.data.name != undefined) {
+      this.setData({
+        'userInfo.nick_name': currPage.data.name
+      })
+    }
+    if (currPage.data.info != undefined) {
+      this.setData({
+        'userInfo.synopsis': currPage.data.info
+      });
+    }
+    if (currPage.data.idCardNum != undefined) {
+      this.setData({
+        'userInfo.credentials_numbere': currPage.data.idCardNum
+      });
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onLoad: function(options) {
+    this.setData({
+      wxtx: wx.getStorageSync('wxUserData').avatarUrl,
+      userData: wx.getStorageSync('userData'),
+      userInfo: JSON.parse(options.userInfo),
+      'region[0]': this.data.userInfo.province,
+      'region[1]': this.data.userInfo.city,
+      'region[2]': this.data.userInfo.county
+    })
   }
 })

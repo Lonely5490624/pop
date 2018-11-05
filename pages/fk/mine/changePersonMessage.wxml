@@ -5,31 +5,38 @@
       <view class='top_l'>
         <view class='name'>头像</view>
       </view>
-      <view class='top_r'>
+      <view class='top_r'><image src='{{wxtx}}'></image>
       </view>
     </view>
     <view class='con_list'>
-      <view class='con_list_l'>昵称</view>
-      <view class='con_list_r'>Ada阿达 ></view>
+      <navigator url="changeM?type=nm">
+        <view class='con_list_l'>昵称</view>
+        <view class='con_list_r'>{{userInfo.nick_name}} ></view>
+      </navigator>
     </view>
     <view class='con_list'>
-      <view class='con_list_l'>个人简介</view>
-      <view class='con_list_r'>我想去个什么地方？去你的心... ></view>
+      <navigator url="changeM?type=if">
+        <view class='con_list_l'>个人简介</view>
+        <view class='con_list_r'>{{userInfo.synopsis}} ></view>
+      </navigator>
     </view>
     <view class='con_list' style='margin-top:30rpx;'>
+
       <view class='con_list_l'>手机号码</view>
-      <view class='con_list_r'>13817750824</view>
+      <view class='con_list_r'>{{userInfo.mobile}}</view>
     </view>
     <view class='con_list'>
       <view class='con_list_l'>所在地</view>
       <picker bindchange="changeRegin" mode="region" value="{{region}}">
-          <view class="con_list_r">{{region[0]}} - {{region[1]}} - {{region[2]}}</view>
-        </picker>
+        <view class="con_list_r">{{region[0]}} - {{region[1]}} - {{region[2]}}</view>
+      </picker>
     </view>
     <view class='con_list'>
-      <view class='con_list_l'>身份证</view>
-      <view class='con_list_r'>></view>
+      <navigator url="changeM?type=sf">
+        <view class='con_list_l'>身份证</view>
+        <view class='con_list_r'>{{userInfo.credentials_numbere}}></view>
+      </navigator>
     </view>
-    
+    <view class='saveBtn' bindtap='saveInfo'>保存</view>
   </view>
 </view>

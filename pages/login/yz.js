@@ -9,20 +9,14 @@ Page({
     disabled: false,
     bg: false,
     time: '59',
-    moblie:''
+    mobile: ''
   },
-  onLoad: function() {
-    this.getTime();
-    wx.getStorage({
-      key: 'mobile',
-      success: function(res) {
-        console.res.data;
-        this.setData({
-          moblie: res.data.mobile
-        })
-      },
+  onLoad: function(options) {
+    console.log(options)
+    this.setData({
+      mobile: options.mobile
     })
-    
+    this.getTime();   
   },
   getTime: function(options) {
     var that = this;
@@ -42,9 +36,9 @@ Page({
           bg: true
         })
       }
-    }, 100)
+    }, 1000)
   },
-  getVerificationCode() {    
+  getVerificationCode() {
     this.getCode();
     var that = this
     that.setData({
@@ -56,7 +50,7 @@ Page({
     wx.request({
       url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
       data: {
-        mobile: parseInt(this.data.mobile),
+        mobile: parseInt(that.data.mobile),
       },
       success: function(res) {
         that.getTime();
@@ -76,34 +70,30 @@ Page({
     that.setData({
       iptValue: e.detail.value
     });
-    if (iptValue.length == 6) {
+    if (that.data.iptValue.length == 6) {
       wx.request({
         url: 'http://pop.aieye8.com/index.php/home/member/login',
         data: {
-          mobile: parseInt(this.data.mobile),
-          code: parseInt(this.data.iptValue)
+          mobile: parseInt(that.data.mobile),
+          code: parseInt(that.data.iptValue)
         },
         success: function(res) {
           console.log(res.data)
           if (res.data.code == 200) {
+            wx.setStorageSync('userData', res.data.data);
             wx.navigateTo({
               url: '../fk/index/index'
-            })             
+            })
+            
           } else if (res.data.code == 400) {
             wx.showToast({
               title: '此手机号码没有被注册过',
               icon: 'none',
               duration: 2000
             })
-          } else if (res.data.code == 600) {
+          }else {
             wx.showToast({
-              title: '验证码不正确',
-              icon: 'none',
-              duration: 2000
-            })
-          } else {
-            wx.showToast({
-              title: '注册失败',
+              title: res.data.msg,
               icon: 'none',
               duration: 2000
             })
