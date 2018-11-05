@@ -1,6 +1,13 @@
 {
   "pages": [
+<<<<<<< HEAD
     "pages/fk/mine/mine",
+=======
+    "pages/fd/calendar/index",
+    "pages/fk/list/list",
+    "pages/fk/detail/detail",
+    "pages/fk/news/cancelOrde",
+>>>>>>> da66be907eb517f31c9b3e60e852ca2f7fb7b106
     "pages/fk/index/index",
     "pages/login/login",
 
@@ -16,6 +23,7 @@
     "pages/evaluate/evaluateSuccess",    
     "pages/login/yzMessage",    
     "pages/fd/space/add-4",
+    "pages/fd/space/add-5",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
     "pages/fd/space/add-1",

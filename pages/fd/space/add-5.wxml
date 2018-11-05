@@ -1,0 +1,8 @@
+<!--pages/fd/space/add-5.wxml-->
+<view class='space-done'>
+  <image src='/images/success2@1x.png'></image>
+  <text>发布成功</text>
+</view>
+
+<navigator class='view'>查看发布的空间</navigator>
+<view class='done'>完成</view>
