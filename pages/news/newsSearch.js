@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const points = []
+
 Page({
   data: {
     markers: [{
@@ -10,10 +10,16 @@ Page({
       latitude: 23.099994,
       longitude: 113.324520,
       width: 50,
-      height: 50,      
+      height: 50
     }],
     polyline: [{
-      points: points,
+      points: [{
+        longitude: 113.3245211,
+        latitude: 23.10229
+      }, {
+        longitude: 113.324520,
+        latitude: 23.21229
+      }],
       color: "#FF0000DD",
       width: 2,
       dottedLine: true
@@ -38,21 +44,10 @@ Page({
     autoplay: false,
     interval: 5000,
     duration: 1000,
-    displayMultipleItems: true,
-    space_id: '', //空间id
-    space_info: [],
-    ssHeight: false,
-    isShow:true
-  },
-  //查看更多
-  openMore:function(){
-    this.setData({
-      ssHeight: true,
-      isShow:false
-    })
+    displayMultipleItems: true
   },
   //事件处理函数
-  toSearch: function() {
+  toSearch: function () {
     wx.navigateTo({
       url: '../../logs/logs'
     })
@@ -61,36 +56,10 @@ Page({
     console.log(1)
     wx.previewImage({
       urls: ['http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg',
-        'http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg'
-      ]
+        'http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg']
     })
   },
-  onLoad: function(options) {
-    if (options != '') {
-      this.setData({
-        space_id: options.id
-      })
-    }
-    var that = this
-    wx.request({
-      url: 'http://pop.aieye8.com/index.php/Home/home/spaceDetail',
-      data: {
-        space_id: that.data.space_id
-      },
-      success: function(res) {
-        console.log(res.data)
-        that.setData({
-          space_info: res.data.data,
-          points: [{
-            longitude: res.data.data.longitude,
-            latitude: res.data.data.latitude
-          }, {
-            longitude: res.data.data.longitude,
-            latitude: res.data.data.latitude
-          }]
-        })
-      }
-    })
+  onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -127,7 +96,7 @@ Page({
   controltap(e) {
     console.log(e.controlId)
   },
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
     return {
       title: '自定义分享标题',
       desc: '自定义分享描述',

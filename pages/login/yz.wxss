@@ -1,0 +1,85 @@
+/* pages/fd/data/index.wxss */
+
+.data {
+  padding: 0 88rpx;
+}
+
+.data-title {
+  font-size: 48rpx;
+  color: #212121;
+}
+
+.t1 {
+  color: #9e9e9e;
+  font-size: 20rpx;
+  margin: 15rpx 0;
+}
+
+.t2 {
+  color: #212121;
+  font-size: 20rpx;
+}
+
+.t3 {
+  margin: 60rpx auto;
+}
+
+.t3 input {
+  border-bottom: 1px #cfcfcf solid;
+}
+
+.t4 {
+  color: #9e9e9e;
+  font-size: 28rpx;
+  text-align: center;
+  background: none;
+}
+
+button::after {
+  border: none;
+}
+
+.able {
+  color: #f55;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+}
+
+form input {
+  height: 80rpx;
+  width: 70rpx;
+  border-bottom: 1px solid #cdcdcd;
+  border-radius: 8rpx;
+  display: inline-block;
+  line-height: 80px;
+  text-align: center;
+  font-size: 48rpx;
+  color: #323232;
+  margin: 0 8rpx;
+}
+
+form .hidden_ipt {
+  height: 0rpx;
+  width: 0rpx;
+  border: none;
+  margin: 0;
+}
+
+.scan_code {
+  width: 400rpx;
+  height: 98rpx;
+  display: block;
+  margin: 0 auto;
+  line-height: 98rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #6f5bde;
+  text-align: center;
+  border-radius: 50rpx;
+  margin-top: 60rpx;
+}

@@ -1,0 +1,19 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='pages'>
+  <!-- <view class='title pad32'>
+    <view class='title_l'>
+      <image src='/images/arrowLeft.png'></image>
+    </view>
+    <view class='title_c'>修改昵称</view>
+    <view class='title_r'>保存</view>
+  </view> -->
+  <!-- <view class='cont pad32'>
+    <input placeholder='请输入...'></input>
+    <view class='tipText'>好的昵称可以让你更受欢迎哦~</view>
+  </view> -->
+  <view class='cont pad32 border-b'>
+    <textarea placeholder='简介可以让老板更好地了解你~' bindinput="bindWordLimit" maxlength='100'></textarea>
+    <view class="wordLimit">{{limitNoteLen}}</view> 
+  </view>
+  <view class="saveBtn  {{nextBtn?'able':'unable'}}" bindtap='save'>保存</view>
+</view>

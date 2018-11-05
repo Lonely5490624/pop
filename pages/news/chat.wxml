@@ -1,0 +1,50 @@
+<view class='page'>
+  <view class='title pad32'>
+    <view class='icon'>
+      <text class="iconfont icon-sousuo search-icon"></text>
+    </view>
+    <view class='text'>用户昵称·订单状态</view>
+    <view class="infoBtn">详情</view>
+  </view>
+  <view class='middle'>
+    <view class='btn'>房东已与准，需支付定金</view>
+    <view class='t2'>
+      <!-- <view class="white"  bindtap='refuse'>拒绝</view>-->
+      <view class="red">支付定金</view>
+      <!-- <view class="red" bindtap='accept'>接受预定</view> -->
+    </view>
+  </view>
+  <view class='chatBox'>
+    <view class="date">星期一 10:41</view>
+    <view class="date">咨询（进程）</view>
+    <view class='other'>
+      <view class='tx'></view>
+      <view class='cont'>消息详情消息详情消息详情消</view>
+    </view>
+    <view class='other'>
+      <view class='tx'></view>
+      <view class='cont'>消息详情消息详情消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消</view>
+    </view>
+    <view class='other'>
+      <view class='tx'></view>
+      <view class='cont'>消息详情消息详情消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消</view>
+    </view>
+    <view class='other'>
+      <view class='tx'></view>
+      <view class='cont'>消息详情消息详情消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消</view>
+    </view>
+    <view class="date">上午10:41</view>
+    <view class='our'>
+      <view class='tx'></view>
+      <view class='cont'>消息详情消息详情消息详情消</view>
+    </view>
+    <view class='our'>
+      <view class='tx'></view>
+      <view class='cont'>消息详情消息消息详情消息详情消息详情消消息详情消息详情消息详情消详情消息详情消</view>
+    </view>
+  </view>
+  <view class="editBox">
+      <input></input>
+      <view class='sendBtn'>发送</view>
+    </view>
+</view>

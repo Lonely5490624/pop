@@ -1,0 +1,27 @@
+<!--pages/fd/data/index.wxml-->
+<view class='data'>
+  <view class='data-title'>添加个人信息</view>
+  <view class='box'>
+    <view class='list tx'>
+      <view style="font-size:32rpx;">上传头像</view>
+      <view class='t2'>
+        <open-data type="userAvatarUrl" class="txjpg"></open-data>
+      </view>
+    </view>
+    <navigator url='changeM'>
+      <view class='list'>
+        <view>昵称</view>
+        <view>
+          <open-data class='t2' type="userNickName" lang="zh_CN"></open-data>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='changeM2'>
+      <view class='list'>
+        <view>个人简介</view>
+        <view class='t2'>{{info}} ></view>
+      </view>
+    </navigator>
+    <view class='nextBtn able'>完成</view>
+  </view>
+</view>

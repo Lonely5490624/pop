@@ -1,0 +1,71 @@
+/* pages/fd/data/index.wxss */
+
+.top image {
+  width: 180rpx;
+  height: 120rpx;
+  float: left;
+  margin-right: 30rpx;
+}
+
+.top .title {
+  font-size: 28rpx;
+  color: #212121;
+  line-height: 44rpx;
+}
+
+.t2 {
+  clear: both;
+  margin-top: 100rpx;
+  color: #212121;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.t3 {
+  width: 100%;
+  height: 240rpx;
+  border: 2rpx solid #e0e0e0;
+  font-size: 28rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-top: 120rpx;
+}
+
+.nextBtn {
+  width: 90%;
+  height: 88rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 20rpx;
+  left: 5%;
+  border-radius: 6rpx;
+}
+.unable {
+  background: #e0e0e0;
+  color: #616161;
+}
+.able {
+  background: #FF5555;
+  color: #fff;
+}
+
+.score{
+  font-size: 28rpx;
+  color: #616161;
+  text-align: center;
+}
+.xing{
+  color: #E0E0E0;
+  font-size: 54rpx;
+  margin: 20rpx auto;
+  display: flex;
+  justify-content:center;
+}
+.active{
+  color: #FF5555;
+}
+.xing text{
+  margin-right: 20rpx;
+}

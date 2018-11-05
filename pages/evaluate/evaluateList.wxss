@@ -1,0 +1,79 @@
+/* pages/fd/data/index.wxss */
+
+.top {
+  width: 100%;
+  height: 144rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.top .name {
+  color: #212121;
+  font-size: 48rpx;
+}
+
+.top .tx {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  border: 1px red solid;
+}
+
+.perInfo {
+  color: #616161;
+  font-size: 24rpx;
+}
+
+.title {
+  color: #212121;
+  font-size: 40rpx;
+  font-weight: 500;
+  margin-top: 80rpx;
+  margin-bottom: 30rpx;
+}
+
+.list {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+
+.list .list_l {
+  width: 48rpx;
+  height: 48rpx;
+  background: #d8d8d8;
+  border-radius: 100%;
+  float: left;
+}
+
+.list .list_r {
+  float: right;
+  width: 90%;
+  border-bottom: 1px #e0e0e0 solid;
+}
+.list_r_l1{
+    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list .list_r .name {
+  color: #212121;
+  font-size: 28rpx;
+}
+
+.list .list_r .date {
+  color: #9e9e9e;
+  font-size: 20rpx;
+}
+
+.list .list_r .list_r_l2 {
+  color: #9e9e9e;
+  font-size: 24rpx;
+  margin: 20rpx 0;
+}

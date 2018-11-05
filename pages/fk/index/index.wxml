@@ -6,9 +6,9 @@
     <text class='title'>热门商圈</text>
     <scroll-view class='shangq-scroll' scroll-x>
       <view class='shangq-scroll-item' wx:for='{{shangq}}'>
-        <text class='shangq-text-cn'>{{item.textCn}}</text>
-        <text class='shangq-text-en'>{{item.textEn}}</text>
-        <image class='shangq-img' src='{{item.img}}'></image>
+        <!-- <text class='shangq-text-cn'>{{item.name}}</text> -->
+        <!-- <text class='shangq-text-en'>{{item.textEn}}</text> -->
+        <image class='shangq-img' src='http://pop.aieye8.com/data/upload/{{item.pic}}'></image>
       </view>
     </scroll-view>
   </view>
@@ -18,16 +18,17 @@
     <view class='recommend-list'>
       <navigator url='../detail/detail' class='recommend-item' wx:for='{{recommendData}}'>
         <view class='recommend-box'>
-          <image class='recommend-img' src='{{item.imgUrl}}'></image>
-          <text class='recommend-official' wx:if='{{item.official}}'>官方认证</text>
-          <text class='iconfont icon-wujiaoxing1 recommend-collect collect'></text>
+          <image class='recommend-img' src='http://pop.aieye8.com/data/upload/{{item.banner}}'></image>
+          <text class='recommend-official' wx:if='{{item.official_certification==1}}'>官方认证</text>
+          <!-- 收藏 -->
+          <text class='iconfont icon-wujiaoxing1 recommend-collect collect' wx:if='{{item.isFavorite==1}}'></text>
         </view>
         <view class='recommend-info'>
-          <text class='recommend-tip'>{{item.tip}}</text>
+          <text class='recommend-tip'>{{item.type}} . {{item.categoryName}}</text>
           <text class='recommend-title'>{{item.title}}</text>
           <text class='recommend-bottom'>
-            <text class='recommend-price'>￥{{item.price}}/天</text>
-            <text class='recommend-score'>评分: {{item.score}}</text>
+            <text class='recommend-price'>￥{{item.everyday_price}}/天</text>
+          <text class='recommend-score'>评分: {{item.avg_service}}</text>
           </text>
         </view>
       </navigator>
@@ -41,9 +42,10 @@
     <view class='title'>故事</view>
     <scroll-view class='story-scroll' scroll-x>
       <view class='story-scroll-item' wx:for='{{storyData}}'>
-        <image class='story-img' src='{{item.imgUrl}}'></image>
+        <!-- {{item.link_address}} -->
+        <image class='story-img' src='http://pop.aieye8.com/data/upload/{{item.pic}}'></image>
         <text class='story-title'>{{item.title}}</text>
-        <text class='story-info'>{{item.info}}</text>
+        <text class='story-info'>{{item.synopsis}}</text>
       </view>
     </scroll-view>
   </view>
@@ -55,32 +57,32 @@
 <!--底部-->
 <view class="footer-h"></view>
 <view class="footer">
-	<view class="footer-li select">
-		<text class="iconfont icon-zhuye"></text>
-		<text>搜索</text>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>消息</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-zhuye"></text>
-			<text>行程</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/collection/collection">
-			<text class="iconfont icon-dingdan"></text>
-			<text>收藏</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/fk/mine/mine">
-		<text class="iconfont icon-geren"></text>
-		<text>我的</text>
-		</navigator>
-	</view>
+  <view class="footer-li select">
+    <text class="iconfont icon-zhuye"></text>
+    <text>搜索</text>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-dingdan"></text>
+      <text>消息</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-zhuye"></text>
+      <text>行程</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/collection/collection">
+      <text class="iconfont icon-dingdan"></text>
+      <text>收藏</text>
+    </navigator>
+  </view>
+  <view class="footer-li">
+    <navigator url="/pages/fk/mine/mine">
+      <text class="iconfont icon-geren"></text>
+      <text>我的</text>
+    </navigator>
+  </view>
 </view>

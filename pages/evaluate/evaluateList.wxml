@@ -1,0 +1,33 @@
+<!--pages/fd/data/index.wxml-->
+<view class='page'>
+  <view class='top'>
+    <view class='name'>Ada阿达</view>
+    <view class='tx'></view>
+  </view>
+  <view class='perInfo'>这里是自我简介，最多展示五行，其余折叠，这里是自我简介，最多展示五行，其余折叠这里是自我简介，最多展示五行，其余折叠这里是自我简介，最多展示五行，其余折叠</view>
+  <view class='title'>8条评价</view>
+  <view class='list'>
+    <view class='list_l'></view>
+    <view class='list_r'>
+      <view class='list_r_l1'>
+        <view class='name'>用户名</view>
+        <view class='date'>2018-12-28 10:41</view>
+      </view>
+      <view class='list_r_l2'>评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价</view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='list_l'></view>
+    <view class='list_r'>
+      <view class='list_r_l1'>
+        <view class='name'>用户名</view>
+        <view class='date'>2018-12-28 10:41</view>
+      </view>
+      <view class='list_r_l2'>评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价</view>
+    </view>
+  </view>
+
+
+
+
+</view>
