@@ -1,18 +1,12 @@
 {
   "pages": [
+    "pages/fk/list/list",
+    "pages/fd/calendar/index",
     "pages/fk/index/index",
     "pages/fk/mine/mine",
-    "pages/fd/calendar/index",
-    "pages/fk/list/list",
-    "pages/fd/calendar/index",
-    "pages/fk/detail/detail",
     "pages/fk/news/cancelOrde",
-    "pages/login/register",
-    "pages/fk/index/index",
-    "pages/login/login",
 
-    "pages/login/yz",      
-    "pages/fk/list/list",
+    "pages/login/yz",
     "pages/fk/detail/detail", 
     "pages/login/register", 
     "pages/login/addPerMessage",

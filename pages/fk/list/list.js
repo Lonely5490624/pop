@@ -4,7 +4,7 @@ Page({
   data: {
     spaceData,
     opendate: false,
-    isFilter: false
+    isFilter: true
   },
   opendate: function() {
     this.setData({

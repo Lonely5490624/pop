@@ -127,7 +127,7 @@ Page({
     const year_click = e.currentTarget.dataset.year;
     const month_click = e.currentTarget.dataset.month;
     const day_click = e.currentTarget.dataset.day;
-    console.log(year_click, month_click, day_click);
+    console.log('date', year_click, month_click, day_click);
     // 如果是空格或者以前的日期就直接返回
     if (day_click === '' || `${year_click}-${month_click}-${day_click}` < this.data.nowDate) {
       return;
