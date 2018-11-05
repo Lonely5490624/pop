@@ -1,0 +1,44 @@
+/* pages/fd/space/add-5.wxss */
+.space-done{
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 400rpx;
+}
+.space-done image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.space-done text{
+  display: block;
+  text-align: center;
+  margin-top: 40rpx;
+  font-size: 34rpx;
+  color: #212121;
+}
+
+.view{
+  position: fixed;
+  bottom: 160rpx;
+  left: 76rpx;
+  width: calc(100% - 152rpx);
+  line-height: 46rpx;
+  font-size: 32rpx;
+  color: #fff;
+  padding: 22rpx 0;
+  background: #ff5555;
+  text-align: center;
+}
+.done{
+  position: fixed;
+  bottom: 32rpx;
+  left: 76rpx;
+  width: calc(100% - 152rpx);
+  line-height: 46rpx;
+  font-size: 32rpx;
+  color: #ff5555;
+  background: #fff;
+  padding: 22rpx 0;
+  border: 2rpx solid #ff5555;
+  text-align: center;
+}

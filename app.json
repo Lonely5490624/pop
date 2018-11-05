@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/fd/calendar/index",
     "pages/fd/space/add-4",
+    "pages/fd/space/add-5",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
     "pages/fd/space/add-1",

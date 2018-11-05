@@ -34,6 +34,22 @@
     </view>
   </view>
 </view>
+<view class='title'>店铺设施</view>
+<view class='list'>
+  <view class='item-ver'>
+    <view class='con'>
+      <view class='con-item active'>货架</view>
+      <view class='con-item'>wifi</view>
+      <view class='con-item active'>灯光</view>
+      <view class='con-item'>wifi</view>
+      <view class='con-item'>基础货架</view>
+      <view class='con-item'>wifi</view>
+      <view class='con-item'>灯光</view>
+      <view class='con-item'>wifi</view>
+      <view class='con-item active'>货架</view>
+    </view>
+  </view>
+</view>
 <view class='title'>其他信息</view>
 <view class='list'>
   <view class='item'>
@@ -85,19 +101,73 @@
   </view>
   <view class='item'>
     <view class='left'>周末价格（非必填）</view>
-    <view class='right'>
+    <view class='right small'>
       <input type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item'>
     <view class='left'>xx费（每个订单一次性支付）</view>
-    <view class='right'>
+    <view class='right small'>
       <input type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
 </view>
-
-
-
-
-<view class='next'>下一步</view>
+<view class='title'>日历</view>
+<view class='title-sub'>可定状态</view>
+<view class='list'>
+  <view class='item arrow'>
+    <view class='left'>提前预定天数</view>
+    <view class='right'>
+      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
+        <view>{{spaceTypes[spaceType]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item arrow'>
+    <view class='left'>可预订时段</view>
+    <view class='right'>
+      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
+        <view>{{spaceTypes[spaceType]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='title-sub'>预定天数</view>
+<view class='list'>
+  <view class='item arrow'>
+    <view class='left'>最少预定天数</view>
+    <view class='right'>
+      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
+        <view>{{spaceTypes[spaceType]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item arrow'>
+    <view class='left'>最多预定天数</view>
+    <view class='right'>
+      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
+        <view>{{spaceTypes[spaceType]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='title-sub'>入驻和清场时间</view>
+<view class='list'>
+  <view class='item arrow'>
+    <view class='left'>经营时间</view>
+    <view class='right'>
+      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
+        <view>{{spaceTypes[spaceType]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item arrow'>
+    <view class='left'>施工时间</view>
+    <view class='right'>
+      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
+        <view>{{spaceTypes[spaceType]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='next'>发布</view>
