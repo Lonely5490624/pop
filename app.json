@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/fk/list/list",
-    "pages/fd/calendar/index",
-    "pages/fk/index/index",
+    "pages/fk/mine/setUp",
     "pages/fk/mine/mine",
-    "pages/fk/news/cancelOrde",
+    "pages/fk/mine/help",
+    
+    "pages/fk/index/index",
+    "pages/login/login",
 
-    "pages/login/yz",
+    "pages/login/yz",      
+    "pages/fk/list/list",
     "pages/fk/detail/detail", 
     "pages/login/register", 
     "pages/login/addPerMessage",
@@ -17,7 +19,6 @@
     "pages/evaluate/evaluateSuccess",    
     "pages/login/yzMessage",    
     "pages/fd/space/add-4",
-    "pages/fd/space/add-5",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
     "pages/fd/space/add-1",
