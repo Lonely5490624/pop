@@ -345,4 +345,3 @@ module.exports = {
 	post: post,
   wxPromisify: wxPromisify
 }
-

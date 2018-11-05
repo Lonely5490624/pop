@@ -35,7 +35,7 @@
 <view class="footer-h"></view>
 <view class="footer">
 	<view class="footer-li select">
-		<text class="iconfont icon-hangcheng"></text>
+		<text class="iconfont icon-zhuye"></text>
 		<text>搜索</text>
 	</view>
 	<view class="footer-li">
@@ -67,6 +67,6 @@
 <view class="datepage {{opendate ? 'show':''}}">
 	<my-date bindmyevent="onMyEvent"></my-date>
 </view>
-<view class='filter {{isFilter ? "show" : ""}}'>
+<view class='filter {{isFilter ? "show" : "show"}}'>
   <space-filter bindmyevent="closeFilter"></space-filter>
 </view>

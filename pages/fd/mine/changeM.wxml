@@ -1,0 +1,15 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='pages'>
+  <view class='cont pad32' wx:if='{{input}}'>
+    <input placeholder='请输入...' bindinput='getNewName'></input>
+    <view class='tipText'>好的昵称可以让你更受欢迎哦~</view>
+  </view>
+  <view class='cont pad32 border-b' wx:if='{{textarea}}'>
+    <textarea placeholder='简介可以让老板更好地了解你~' bindinput="bindWordLimit" maxlength='100'></textarea>
+    <view class="wordLimit">{{limitNoteLen}}</view>
+  </view>
+  <view class='cont pad32' wx:if='{{sfinput}}'>
+    <input placeholder='请输入身份证号码' bindinput='getsfNum' maxlength='19'></input>
+  </view>
+  <view class="saveBtn {{bg?'able':'unable'}}" bindtap='save'>保存</view>
+</view>

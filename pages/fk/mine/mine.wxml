@@ -6,7 +6,7 @@
       <view class='editbtn' bindtap='gotoEdit'>查看并编辑个人信息 ></view>
     </view>
     <view class='top_r'>
-   <image src='{{tx}}'></image>
+      <image src='{{tx}}'></image>
     </view>
   </view>
   <view class='content'>
@@ -19,8 +19,10 @@
       <view class='con_list_r'>></view>
     </view>
     <view class='con_list'>
-      <view class='con_list_l'>常见帮助</view>
-      <view class='con_list_r'>></view>
+      <navigator url="help">
+        <view class='con_list_l'>常见帮助</view>
+        <view class='con_list_r'>></view>
+      </navigator>
     </view>
     <view class='con_list'>
       <view class='con_list_l'>我要发布空间</view>
@@ -31,35 +33,35 @@
     </view>
   </view>
   <!--底部-->
-<view class="footer-h"></view>
-<view class="footer">
-	<view class="footer-li">
-		<text class="iconfont icon-zhuye"></text>
-		<text>搜索</text>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>消息</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-zhuye"></text>
-			<text>行程</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>收藏</text>
-		</navigator>
-	</view>
-	<view class="footer-li select">
-		<navigator url="/pages/fk/mine/mine">
-		<text class="iconfont icon-geren"></text>
-		<text>我的</text>
-		</navigator>
-	</view>
-</view>
+  <view class="footer-h"></view>
+  <view class="footer">
+    <view class="footer-li">
+      <text class="iconfont icon-zhuye"></text>
+      <text>搜索</text>
+    </view>
+    <view class="footer-li">
+      <navigator url="/pages/order/order">
+        <text class="iconfont icon-dingdan"></text>
+        <text>消息</text>
+      </navigator>
+    </view>
+    <view class="footer-li">
+      <navigator url="/pages/fk/trip/trip">
+        <text class="iconfont icon-zhuye"></text>
+        <text>行程</text>
+      </navigator>
+    </view>
+    <view class="footer-li">
+      <navigator url="/pages/fk/collection/collection">
+        <text class="iconfont icon-dingdan"></text>
+        <text>收藏</text>
+      </navigator>
+    </view>
+    <view class="footer-li select">
+      <navigator url="/pages/fk/mine/mine">
+        <text class="iconfont icon-geren"></text>
+        <text>我的</text>
+      </navigator>
+    </view>
+  </view>
 </view>
