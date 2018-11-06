@@ -22,7 +22,7 @@
           <text class='recommend-official' wx:if='{{item.official_certification==1}}'>官方认证</text>
           <!-- 收藏 -->
           <text class='iconfont icon-aixin recommend-collect collect' wx:if='{{item.isFavorite==1}}'></text>
-          <text class='iconfont icon-aixin recommend-collect' else='{{item.isFavorite==0}}'  bindtap='getCollect'></text>
+          <text class='iconfont icon-aixin recommend-collect' else='{{item.isFavorite==0}}' bindtap='getCollect'></text>
         </view>
         <view class='recommend-info'>
           <text class='recommend-tip'>{{item.type}} . {{item.categoryName}}</text>
@@ -59,31 +59,31 @@
 <!--底部-->
 <view class="footer-h"></view>
 <view class="footer">
-  <view class="footer-li select">
-    <text class="iconfont icon-zhuye"></text>
+  <view class="footer-li">
+    <text class="iconfont icon-tubiao-"></text>
     <text>搜索</text>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/news/news">
-      <text class="iconfont icon-dingdan"></text>
+    <navigator url="/pages/order/order">
+      <text class="iconfont icon-xiaoxi"></text>
       <text>消息</text>
     </navigator>
   </view>
   <view class="footer-li">
     <navigator url="/pages/fk/trip/trip">
-      <text class="iconfont icon-zhuye"></text>
+      <text class="iconfont icon-hangcheng"></text>
       <text>行程</text>
     </navigator>
   </view>
   <view class="footer-li">
     <navigator url="/pages/fk/collection/collection">
-      <text class="iconfont icon-dingdan"></text>
+      <text class="iconfont icon-shoucang"></text>
       <text>收藏</text>
     </navigator>
   </view>
   <view class="footer-li">
     <navigator url="/pages/fk/mine/mine">
-      <text class="iconfont icon-geren"></text>
+      <text class="iconfont icon-wode"></text>
       <text>我的</text>
     </navigator>
   </view>

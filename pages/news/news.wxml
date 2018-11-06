@@ -77,7 +77,7 @@
 		</navigator>
 	</view>
 	<view class="footer-li">
-		<navigator url="/pages/fk/mine/mine">
+		<navigator url="/pages/mine/mine">
 		<text class="iconfont icon-geren"></text>
 		<text>我的</text>
 		</navigator>

@@ -49,6 +49,10 @@ Page({
     var that = this;
     wx.request({
       url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       data: {
         mobile: parseInt(that.data.mobile),
       },
@@ -73,6 +77,10 @@ Page({
     if (that.data.iptValue.length == 6) {
       wx.request({
         url: 'http://pop.aieye8.com/index.php/home/member/login',
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
         data: {
           mobile: parseInt(that.data.mobile),
           code: parseInt(that.data.iptValue)

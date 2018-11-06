@@ -10,26 +10,36 @@
     </view>
   </view>
   <view class='content'>
-    <view class='con_list'>
-      <view class='con_list_l'>设置</view>
-      <view class='con_list_r'>></view>
-    </view>
+    <navigator url="setUp">
+      <view class='con_list'>
+        <view class='con_list_l'>设置</view>
+        <view class='con_list_r'>
+          <text class="iconfont icon-icon_arrow_right"></text>
+        </view>
+      </view>
+    </navigator>
     <view class='con_list'>
       <view class='con_list_l'>邀请好友</view>
-      <view class='con_list_r'>></view>
+      <view class='con_list_r'>
+        <text class="iconfont icon-icon_arrow_right"></text>
+      </view>
     </view>
-    <view class='con_list'>
-      <navigator url="help">
+    <navigator url="help">
+      <view class='con_list'>
         <view class='con_list_l'>常见帮助</view>
-        <view class='con_list_r'>></view>
-      </navigator>
-    </view>
+        <view class='con_list_r'>
+          <text class="iconfont icon-icon_arrow_right"></text>
+        </view>
+      </view>
+    </navigator>
     <view class='con_list'>
       <view class='con_list_l'>我要发布空间</view>
-      <view class='con_list_r'>></view>
+      <view class='con_list_r'>
+        <text class="iconfont icon-icon_arrow_right"></text>
+      </view>
     </view>
     <view class='con_list'>
-      <view class='con_list_c'>退出登录</view>
+      <view class='con_list_c' bindtap='signOut'>退出登录</view>
     </view>
   </view>
   <!--底部-->

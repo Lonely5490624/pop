@@ -27,6 +27,7 @@ Page({
     } else {
       wx.request({
         url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
+        method: "POST",
         data: {
           mobile: parseInt(this.data.mobile)
         },
@@ -49,6 +50,7 @@ Page({
     } else {
       wx.request({
         url: 'http://pop.aieye8.com/index.php/home/member/login',
+        method: "POST",
         data: {
           mobile: parseInt(this.data.mobile),
           code: parseInt(this.data.code)

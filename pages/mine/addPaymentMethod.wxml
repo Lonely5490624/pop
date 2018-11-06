@@ -1,0 +1,55 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='pages'>
+  <view class='content'>
+
+    <view class='con_list'>
+      <view class='con_list_l'>真实姓名</view>
+      <view class='con_list_r'>{{userInfo.true_name}}</view>
+    </view>
+
+    <view class='con_list'>
+      <view class='con_list_l'>身份证</view>
+      <view class='con_list_r'>
+        <text class="iconfont icon-icon_arrow_right"></text>
+      </view>
+    </view>
+
+    <view class='con_list'>
+      <view class='con_list_l'>证件号码</view>
+      <view class='con_list_r'>{{userInfo.credentials_numbere}}</view>
+    </view>
+
+    <view class='con_list' style='margin-top:20rpx;'>
+      <view class='con_list_l'>银行卡号</view>
+      <view class='con_list_r'>
+        <input placeholder='请输入..' bindinput='getBankNum' maxlength='19' placeholder-style='color:#E0E0E0;' type='Number'></input>
+      </view>
+    </view>
+
+    <view class='con_list'>
+      <view class='con_list_l'>银行 </view>
+      <view class='con_list_r'>
+        <text class="iconfont icon-icon_arrow_right" style="float:right;display:block;"></text>
+        <picker bindchange="bindPickerChange" style="float:right;" value="{{index}}" range="{{yhList}}">
+          <view class="picker">{{yhList[index]}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class='con_list'>
+      <view class='con_list_l'>地区</view>
+      <view class='con_list_r'>
+        <text class="iconfont icon-icon_arrow_right" style="float:right;display:block;"></text>
+        <picker mode="region" style="float:right;" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class='con_list'>
+      <view class='con_list_l'>选择支行</view>
+      <view class='con_list_r'>
+        <input placeholder='请输入支行..' bindinput='getZH' placeholder-style='color:#E0E0E0;'></input>
+      </view>
+    </view>
+    <view class="saveBtn" bindtap='save'>保存</view>
+  </view>
+</view>

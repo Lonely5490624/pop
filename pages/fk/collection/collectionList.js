@@ -1,6 +1,3 @@
-// pages/fk/list/list.js
-
-
 const spaceData = [{
     official: true,
     imgUrl: '/images/aaa.jpg',
@@ -62,6 +59,23 @@ Page({
     spaceData,
     opendate: false,
     isFilter: false
+  },
+  onLoad:function(options){
+    console.log(1)
+    console.log(options.id)    
+    // wx.request({
+    //   url: 'http://pop.aieye8.com/index.php/Home/collection/getCollectionSpace',
+    //method: "POST",
+    //   data: {
+    //     member_id: '',
+     //     space_ids:''
+    //   },
+    //   success: function (res) {
+    //     that.setData({
+    //       storyData: res.data.data
+    //     })
+    //   }
+    // })
   },
   opendate: function() {
     this.setData({

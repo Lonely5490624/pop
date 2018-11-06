@@ -1,0 +1,10 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='pages'>
+  <view class='content'>
+    <view class='img'>
+      <image src='/images/Group 8@1x.png'></image>
+    </view>
+    <view class='t1'>v 1.0.2</view>
+    <view class='t2'>版本介绍版本介绍版本介绍版本介绍版本介绍版本介绍版本介绍版本介绍</view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+.pages{
+  padding: 22rpx 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.list{
+  padding: 22rpx 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-bottom: 1px #E0E0E0 solid;
+}
+.list .redC{
+  width: 12rpx;
+  height: 12rpx;
+  background: #FF5555;
+  border-radius: 100%;
+  float: left;
+  margin-right: 20rpx;
+  margin-top: 14rpx;
+}
+.list .t1{
+  font-size: 28rpx;
+  color: #212121;
+  float: left;
+  line-height: 44rpx;
+}
+.list .t2{
+  clear: both;
+  font-size: 24rpx;
+  color: #9E9E9E;
+  margin-left: 30rpx;
+  line-height: 40rpx;
+}

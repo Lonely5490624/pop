@@ -1,0 +1,7 @@
+<view class='pages'>
+  <view class='list' wx:for="{{qalist}}">
+    <view class='redC'></view>
+    <view class='t1'>Q{{index+1}}：{{item.question}}</view>
+    <view class='t2'>{{item.answer}}</view>
+  </view>
+</view>

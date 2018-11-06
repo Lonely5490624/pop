@@ -1,0 +1,16 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='pages'>
+  <view class='content'>
+      <view class='con_list'>
+        <view class='con_list_l'>中国银行</view>
+        <view class='con_list_r'>储蓄卡· 7527******1839</view>
+      </view>
+      <view class='con_list'>
+        <view class='con_list_l'>中国银行</view>
+        <view class='con_list_r'>储蓄卡· 7527******1839</view>
+      </view>
+      <navigator url="addPaymentMethod">
+      <view class="saveBtn add">添加</view>
+      </navigator>
+  </view>
+</view>

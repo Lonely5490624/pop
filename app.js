@@ -1,5 +1,16 @@
 //app.js
 App({
+  data:{
+    imgurl: 'http://pop.aieye8.com/data/upload/',
+    requestUrl: 'http://pop.aieye8.com/index.php/'
+  },
+  ajaxData:function(data={}){
+    var timestamp = Date.parse(new Date());
+    data.t = timestamp / 1000;
+    data.r = '';
+    data.s = '';
+    return data;
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

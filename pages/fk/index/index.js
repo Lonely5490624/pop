@@ -41,10 +41,15 @@ Page({
     that.setData({
       userData: wx.getStorageSync('userData')
     })
+    console.log(wx.getStorageSync('userData'));
     
     //热门商圈
     wx.request({
       url: 'http://pop.aieye8.com/index.php/Home/home/commercialCircleList',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       data: {
         member_id: '',
         type:'1'
@@ -58,6 +63,10 @@ Page({
     //故事列表
       wx.request({
       url: 'http://pop.aieye8.com/index.php/Home/home/storyList',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
         data: {
           member_id: ''
         },
@@ -70,6 +79,10 @@ Page({
       //热门推荐
       wx.request({
       url: 'http://pop.aieye8.com/index.php/Home/home/isRecommendSpaceList',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
         data: {
           member_id: ''
         },

@@ -1,19 +1,33 @@
 {
   "pages": [
-    "pages/fk/mine/setUp",
-    "pages/fk/mine/mine",
-    "pages/fk/mine/help",
-    
     "pages/fk/index/index",
-    "pages/login/login",
+   "pages/login/login",
+    "pages/fk/collection/collection",
+    "pages/fk/list/list",
+    
+    "pages/fk/collection/collectionList",
+    
+    "pages/mine/mine",
+    "pages/mine/paymentMethod",
+    "pages/mine/addPaymentMethod",
+    
+    "pages/mine/version",
+    "pages/mine/account",
+    "pages/mine/notice",
+    "pages/mine/setUp",    
+    "pages/mine/help",
+    
+   
+    
 
     "pages/login/yz",      
-    "pages/fk/list/list",
+   
     "pages/fk/detail/detail", 
     "pages/login/register", 
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
     "pages/news/chat",
+    "pages/news/cancelOrde",
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateSuccess",    
@@ -23,21 +37,20 @@
     "pages/fd/space/add-2",
     "pages/fd/space/add-1",
     "pages/fd/space/index",
+    
     "pages/fd/data/index",
     "pages/fd/data/data-income",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fd/data/data-view",       
-    "pages/news/cancelOrde",
     "pages/news/newsSearch",    
     "pages/news/news", 
     "pages/fk/trip/finalPay",
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",
-    "pages/fk/collection/collectionList", 
-    "pages/fk/collection/collection",
-    "pages/fk/mine/changePersonMessage",
-    "pages/fk/mine/changeM",
+    
+    "pages/mine/changePersonMessage",
+    "pages/mine/changeM",
     "pages/login/changeM",
     "pages/login/changeM2",    
     "pages/fk/order/order-confirm-3",
