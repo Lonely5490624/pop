@@ -1,5 +1,4 @@
 /* components/filter/filter.wxss */
-@import '/lib/style/font.wxss';
 
 .filter-view{
   position: fixed;

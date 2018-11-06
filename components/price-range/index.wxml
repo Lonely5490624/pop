@@ -1,9 +1,15 @@
 <!--components/price-range/index.wxml-->
+<view class="container {{hideOption}}"> 
 <view class='price'>
-  <text class='price-min'>￥0</text>
+  <text class='price-min'>￥{{minValue}}</text>
   -
-  <text class='price-max'>￥1720</text>
+  <text class='price-max'>￥{{maxValue}}</text>
 </view>
-<view class='range'>
-  <slider></slider>
+<view class="slider-item min" style="left:{{leftValue}}rpx;border-color:{{blockColor}};" catchtouchmove="_minMove"></view>
+<view class="slider-item max" style="left:{{rightValue}}rpx;border-color:{{blockColor}};" catchtouchmove="_maxMove"></view>
+
+<view class="slider-body left" style="left:{{sliderLength}}rpx; width:{{leftValue}}rpx;background-color:{{backgroundColor}};"></view>
+<view class="slider-body body" style="left:{{leftValue + 20}}rpx; width:{{rightValue-leftValue}}rpx;background-color:{{selectedColor}};"></view>
+<view class="slider-body right" style="left:{{rightValue}}rpx; width:{{totalLength - rightValue}}rpx;background-color:{{backgroundColor}};"></view>
+<slot></slot>
 </view>

@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/fk/list/list",
+    "pages/fk/mine/setUp",
+    "pages/fk/mine/mine",
+    "pages/fk/mine/help",
+    
     "pages/fk/index/index",
    "pages/login/login",
     "pages/fk/collection/collection",
@@ -21,7 +26,6 @@
     
 
     "pages/login/yz",      
-   
     "pages/fk/detail/detail", 
     "pages/login/register", 
     "pages/login/addPerMessage",
