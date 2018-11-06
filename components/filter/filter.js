@@ -12,18 +12,31 @@ Component({
    */
   data: {
     low: 0,
-    high: 100,
+    high: 10000,
     min: 0,
-    max: 10000
+    max: 10000,
+    categoryList: []
   },
 
-  onload: function() {
-
+  ready: function () {
+    let that = this;
+    wx.request({
+      url: 'http://pop.aieye8.com/index.php/Home/home/categoryList',
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          categoryList: res.data.data
+        })
+      }
+    })
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    getCategory () {
+    },
+
     lowValueChangeAction: function (e) {
       this.setData({
         low: e.detail.lowValue

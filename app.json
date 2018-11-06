@@ -4,6 +4,7 @@
     "pages/fk/mine/setUp",
     "pages/fk/mine/mine",
     "pages/fk/mine/help",
+    "pages/fk/news/cancelOrde",
     
     "pages/fk/index/index",
     "pages/login/login",

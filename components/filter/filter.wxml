@@ -24,14 +24,7 @@
     <view class='filter-content-item'>
       <view class='filter-content-title'>适用品类</view>
       <view class='filter-content-con'>
-        <view class='filter-item'>服装服饰</view>
-        <view class='filter-item'>百货精品</view>
-        <view class='filter-item'>美妆护肤</view>
-        <view class='filter-item'>百货精品</view>
-        <view class='filter-item'>服装服饰</view>
-        <view class='filter-item'>美妆护肤</view>
-        <view class='filter-item'>服装服饰</view>
-        <view class='filter-item'>百货精品</view>
+        <view wx:for='{{categoryList}}' wx:key='{{item.id}}' data-id='{{item.id}}' class='filter-item'>{{item.name}}</view>
       </view>
     </view>
     <view class='filter-content-item'>
