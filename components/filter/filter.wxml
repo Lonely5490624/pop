@@ -9,10 +9,7 @@
     <view class='filter-content-item'>
       <view class='filter-content-title'>空间类型</view>
       <view class='filter-content-con'>
-        <view class='filter-item'>独立空间</view>
-        <view class='filter-item'>共享空间</view>
-        <view class='filter-item active'>共享货架</view>
-        <view class='filter-item'>共享橱窗</view>
+        <view wx:for='{{spaceTypeList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseType' class='filter-item'>{{item.name}}</view>
       </view>
     </view>
     <view class='filter-content-item'>
@@ -30,15 +27,7 @@
     <view class='filter-content-item'>
       <view class='filter-content-title'>便利设施</view>
       <view class='filter-content-con'>
-        <view class='filter-item'>货架</view>
-        <view class='filter-item'>wifi</view>
-        <view class='filter-item'>灯光</view>
-        <view class='filter-item'>货架</view>
-        <view class='filter-item'>wifi</view>
-        <view class='filter-item'>灯光</view>
-        <view class='filter-item'>货架</view>
-        <view class='filter-item'>wifi</view>
-        <view class='filter-item'>灯光</view>
+        <view wx:for='{{getconvenienceList}}' wx:key='{{item.id}}' data-id='{{item.id}}' class='filter-item'>{{item.name}}</view>
       </view>
     </view>
   </scroll-view>
