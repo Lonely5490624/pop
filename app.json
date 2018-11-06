@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fd/data/data-income",
     "pages/fk/list/list",
     "pages/fk/mine/setUp",
     "pages/fk/mine/mine",
@@ -43,7 +44,6 @@
     "pages/fd/space/index",
     
     "pages/fd/data/index",
-    "pages/fd/data/data-income",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fd/data/data-view",       
