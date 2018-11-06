@@ -62,3 +62,21 @@ color: #212121;
 font-size: 28rpx;
 float: right;
 }
+.t1{
+  text-align:center;
+  font-size: 28rpx;
+  color: #9E9E9E;
+  margin-top: 100rpx;
+}
+.t2{
+  text-align:center;
+  font-size: 28rpx;
+  color: #FF5555;
+  margin-top: 10rpx;
+}
+.list{
+  height: 400rpx;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40rpx;
+}

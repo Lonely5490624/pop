@@ -1,0 +1,12 @@
+<!--pages/fk/order/order-confirm-3.wxml-->
+<view class='pages'>
+  <view class='content'>
+      <view class='con_list' wx:for="{{banklist}}">
+        <view class='con_list_l'>{{item.bank_name}}</view>
+        <view class='con_list_r'>储蓄卡· {{item.bank_number}}</view>
+      </view>
+      <navigator url="addPaymentMethod">
+      <view class="saveBtn add">添加</view>
+      </navigator>
+  </view>
+</view>

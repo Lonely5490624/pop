@@ -2,56 +2,65 @@
   <!-- 我的收藏 -->
   <view class="section shangq">
     <text class='title'>我的收藏</text>
-    <scroll-view class='shangq-scroll' scroll-x>
-      <view class='shangq-scroll-item' wx:for='{{shangq}}'>
-        <image class='shangq-img' src='{{item.img}}'></image>
+    <view wx:for='{{shangq}}' wx:for-item="kj">
+
+      <view class="list">
+        <scroll-view class='shangq-scroll' scroll-x>
+          <view class='shangq-scroll-item' wx:for="{{kj}}" style="width:686rpx;" wx:if='{{kj.length==1}}'>
+              <image class='shangq-img' bindtap='gotoList' id='{{item.id}}' src='{{imgUrl+item.banner}}'></image>
+          
+          </view>
+          <view class='shangq-scroll-item' wx:for="{{kj}}" wx:if='{{kj.length>1}}'>
+              <image class='shangq-img se' bindtap='gotoList' id='{{item.id}}' src='{{imgUrl+item.banner}}'></image>
+
+          </view>
+
+        </scroll-view>
+        <view class='info' wx:for="{{kj}}">
+          <view class='name'>{{item.city_name}} - {{item.commercial_name}}</view>
+          <view class='num'>{{kj.length}}个空间</view>
+        </view>
       </view>
-    </scroll-view>
-    <view class='info'>
-      <view class='name'>上海 - 静安大悦城</view>
-      <view class='num'>3个空间</view>
+
     </view>
-    <scroll-view class='shangq-scroll' scroll-x>
-      <view class='shangq-scroll-item'style="width:686rpx;" wx:for='{{shangq2}}'>
-        <image class='shangq-img' src='{{item.img}}'></image>
-        <text>{{shangq2.len()}}</text>
-      </view>
-    </scroll-view>
-    <view class='info'>
-      <view class='name'>北京 - 侨福芳草地</view>
-      <view class='num'>1个空间</view>
+
+    <view wx:if="{{shangq.length==0}}">
+      <view class='t1'>您暂无收藏空间,请先到空间列表添加收藏</view>
+      <navigator url="/pages/fk/list/list">
+        <view class='t2'>现在去空间列表？</view>
+      </navigator>
     </view>
   </view>
-  
+
 </view>
 <!--底部-->
 <view class="footer-h"></view>
 <view class="footer">
-  <view class="footer-li select">
-    <text class="iconfont icon-zhuye"></text>
+  <view class="footer-li">
+    <text class="iconfont icon-tubiao-"></text>
     <text>搜索</text>
   </view>
   <view class="footer-li">
     <navigator url="/pages/order/order">
-      <text class="iconfont icon-dingdan"></text>
+      <text class="iconfont icon-xiaoxi"></text>
       <text>消息</text>
     </navigator>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/order/order">
-      <text class="iconfont icon-zhuye"></text>
+    <navigator url="/pages/fk/trip/trip">
+      <text class="iconfont icon-hangcheng"></text>
       <text>行程</text>
     </navigator>
   </view>
-  <view class="footer-li">
-    <navigator url="/pages/order/order">
-      <text class="iconfont icon-dingdan"></text>
+  <view class="footer-li select">
+    <navigator url="/pages/fk/collection/collection">
+      <text class="iconfont icon-shoucang"></text>
       <text>收藏</text>
     </navigator>
   </view>
   <view class="footer-li">
     <navigator url="/pages/fk/mine/mine">
-      <text class="iconfont icon-geren"></text>
+      <text class="iconfont icon-wode"></text>
       <text>我的</text>
     </navigator>
   </view>

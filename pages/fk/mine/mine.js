@@ -30,6 +30,22 @@ Page({
       }
     })
   },
+  signOut:function(){
+    wx.showModal({
+      title: '',
+      content: '确认退出登录 ？',
+      confirmText: "退出登录",//默认是“确定”
+      confirmColor: '#FF5555',//确定文字的颜色
+      success: function (res) {
+        if (res.confirm) {
+          console.log('退出登录')
+        } else {
+          console.log('取消')
+        }
+
+      }
+    })
+  },
   gotoEdit:function(){
     var userInfo = JSON.stringify(this.data.userInfo);
     wx.navigateTo({

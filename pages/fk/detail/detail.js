@@ -78,6 +78,7 @@ Page({
     var that = this
     wx.request({
       url: 'http://pop.aieye8.com/index.php/Home/home/spaceDetail',
+      method: "POST",
       data: {
         space_id: that.data.space_id
       },

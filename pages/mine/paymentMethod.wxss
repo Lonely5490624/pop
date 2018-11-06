@@ -1,0 +1,34 @@
+/* pages/fk/order/order-confirm-3.wxss */
+.content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 40rpx;
+}
+.content .con_list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-bottom: 1px #E0E0E0 solid;
+  padding: 20rpx 32rpx;
+  box-sizing: border-box;
+}
+.content .con_list .con_list_l{
+  color: #212121;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.content .con_list .con_list_r{
+  color: #9E9E9E;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.add{
+  width: 70%;
+  margin-left: 15%;
+  background: #fff;
+  color: #FF5555;
+  border: 1px #FF5555 solid;
+  border-radius: 8rpx;
+  margin-top: 60rpx;
+}
