@@ -16,13 +16,15 @@
   <view class='section recommend'>
     <text class='title'>热门推荐</text>
     <view class='recommend-list'>
-      <navigator url='../detail/detail?id={{item.id}}' class='recommend-item' wx:for='{{recommendData}}'>
+      <view class='recommend-item' wx:for='{{recommendData}}'>
         <view class='recommend-box'>
-          <image class='recommend-img' src='http://pop.aieye8.com/data/upload/{{item.banner}}'></image>
+          <navigator url='../detail/detail?id={{item.id}}'>
+            <image class='recommend-img' src='http://pop.aieye8.com/data/upload/{{item.banner}}'></image>
+          </navigator>
           <text class='recommend-official' wx:if='{{item.official_certification==1}}'>官方认证</text>
           <!-- 收藏 -->
-          <text class='iconfont icon-aixin recommend-collect collect' wx:if='{{item.isFavorite==1}}'></text>
-          <text class='iconfont icon-aixin recommend-collect' else='{{item.isFavorite==0}}' bindtap='getCollect'></text>
+          <text class='iconfont #icon-02 space-collect recommend-collect' id='{{item.id}}' bindtap='addCl' wx:if='{{item.isFavorite==0}}'></text>
+          <text class='iconfont #icon-aixin space-collect recommend-collect active' id='{{item.id}}' bindtap='addCl' wx:else='{{item.isFavorite==1}}'></text>
         </view>
         <view class='recommend-info'>
           <text class='recommend-tip'>{{item.type}} . {{item.categoryName}}</text>
@@ -32,7 +34,7 @@
           <text class='recommend-score'>评分: {{item.avg_service}}</text>
           </text>
         </view>
-      </navigator>
+      </view>
     </view>
     <view class='recommend-more'>
       <navigator class='recommend-more-btn' url="/pages/fk/list/list">展开查看更多空间</navigator>
@@ -59,12 +61,12 @@
 <!--底部-->
 <view class="footer-h"></view>
 <view class="footer">
-  <view class="footer-li">
+  <view class="footer-li select">
     <text class="iconfont icon-tubiao-"></text>
     <text>搜索</text>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/order/order">
+    <navigator url="/pages/news/news">
       <text class="iconfont icon-xiaoxi"></text>
       <text>消息</text>
     </navigator>
@@ -82,7 +84,7 @@
     </navigator>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/fk/mine/mine">
+    <navigator url="/pages/mine/mine">
       <text class="iconfont icon-wode"></text>
       <text>我的</text>
     </navigator>

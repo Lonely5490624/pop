@@ -17,26 +17,18 @@ Page({
       imgUrl: app.data.imgurl,
       userData: wx.getStorageSync('userData')
     })   
-    console.log(that.data.userData.member_id)
-    // var data={
-    //   member_id: that.data.userData.member_id
-    // } 
-    // console.log(app.data.requestUrl + 'Home/collection/getCollection')
-    // console.log(data);
-    // data = app.ajaxData(data);
+    console.log(app.data.imgurl)
+    var data={
+      member_id: that.data.userData.member_id
+    } 
+    data = app.ajaxData(data);
     wx.request({
       url: app.data.requestUrl+'Home/collection/getCollection',
       method:"POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      data: {
-        member_id: "11",
-        t:'123',
-        r:'123',
-        s:'123'
-      },
-      
+      data:data,      
       success: function (res) {
         that.setData({
           shangq: res.data.data

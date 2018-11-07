@@ -1,18 +1,24 @@
 // pages/fk/order/order-confirm-3.js
+var app=getApp();
 Page({
   data: {
     qalist:[]
   },
   onLoad: function () {    
     var that=this
+    var data = {}
+    data = app.ajaxData(data);
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/home/my/get_help',
-      data: {},
+      url: app.data.requestUrl+'home/my/get_help',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: data,
       success: function (res) {        
         that.setData({
           qalist: res.data.data
         })
-        console.log(res.data.data)
       }
     })
   }

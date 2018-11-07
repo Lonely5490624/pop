@@ -26,6 +26,9 @@ Component({
    * 组件的初始数据
    */
   data: {
+<<<<<<< HEAD
+
+=======
     low: 0,
     high: 10000,
     min: 0,
@@ -41,11 +44,15 @@ Component({
   ready: function () {
     this.getCategory();
     this.getconvenience();
+>>>>>>> 3e71efcf071090fe1435ed7a1a387337e01fbae2
   },
+
   /**
    * 组件的方法列表
    */
   methods: {
+<<<<<<< HEAD
+=======
     // 获取品类
     getCategory() {
       let that = this;
@@ -134,6 +141,7 @@ Component({
       })
     },
 
+>>>>>>> 3e71efcf071090fe1435ed7a1a387337e01fbae2
     _close: function() {
       this.triggerEvent('myevent', {
         fuc: "close"

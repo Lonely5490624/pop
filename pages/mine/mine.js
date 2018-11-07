@@ -1,4 +1,5 @@
 // pages/fk/order/order-confirm-3.js
+var app=getApp();
 Page({
   data: {
     userData:[],
@@ -13,11 +14,17 @@ Page({
       userData: wx.getStorageSync('userData'),
       member_type: wx.getStorageSync('userData').member_type
     })
+    var data = {
+      member_id: that.data.userData.member_id
+    }
+    data = app.ajaxData(data);
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/home/my/index',
-      data: {
-        member_id: that.data.userData.member_id
+      url: app.data.requestUrl+'home/my/index',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
+      data: data,
       success: function (res) {        
         that.setData({
           userInfo: res.data.data
@@ -55,12 +62,18 @@ Page({
   },
   typeswitch:function(){
     var that=this
+    var data = {
+      member_id: that.data.userData.member_id,
+      member_type: that.data.userData.member_type
+    }
+    data = app.ajaxData(data);
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/home/my/index',
-      data: {
-        member_id: that.data.userData.member_id,
-        member_type: that.data.userData.member_type
+      url: app.data.requestUrl+'home/my/index',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
+      data: data,
       success: function (res) {
         // that.setData({
         //   userInfo: res.data.data

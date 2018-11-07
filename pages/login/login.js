@@ -1,4 +1,5 @@
 // pages/fd/data/index.js
+var app=getApp()
 Page({
   data: {
     btnBg: false,
@@ -45,7 +46,7 @@ Page({
     } else {
       var that = this;
       wx.request({
-        url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
+        url: app.data.requestUrl +'home/member/send_sms',
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded"

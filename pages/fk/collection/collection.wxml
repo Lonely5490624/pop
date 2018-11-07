@@ -7,11 +7,11 @@
       <view class="list">
         <scroll-view class='shangq-scroll' scroll-x>
           <view class='shangq-scroll-item' wx:for="{{kj}}" style="width:686rpx;" wx:if='{{kj.length==1}}'>
-              <image class='shangq-img' bindtap='gotoList' id='{{item.id}}' src='{{imgUrl+item.banner}}'></image>
-          
+            <image class='shangq-img' bindtap='gotoList' id='{{item.id}}' src='{{imgUrl+item.banner}}'></image>
+
           </view>
           <view class='shangq-scroll-item' wx:for="{{kj}}" wx:if='{{kj.length>1}}'>
-              <image class='shangq-img se' bindtap='gotoList' id='{{item.id}}' src='{{imgUrl+item.banner}}'></image>
+            <image class='shangq-img se' bindtap='gotoList' id='{{item.id}}' src='{{imgUrl+item.banner}}'></image>
 
           </view>
 
@@ -37,11 +37,13 @@
 <view class="footer-h"></view>
 <view class="footer">
   <view class="footer-li">
-    <text class="iconfont icon-tubiao-"></text>
-    <text>搜索</text>
+    <navigator url="/pages/fk/index/index">
+      <text class="iconfont icon-tubiao-"></text>
+      <text>搜索</text>
+    </navigator>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/order/order">
+    <navigator url="/pages/news/news">
       <text class="iconfont icon-xiaoxi"></text>
       <text>消息</text>
     </navigator>
@@ -59,7 +61,7 @@
     </navigator>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/fk/mine/mine">
+    <navigator url="/pages/mine/mine">
       <text class="iconfont icon-wode"></text>
       <text>我的</text>
     </navigator>

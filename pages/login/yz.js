@@ -1,5 +1,6 @@
 // pages/fd/data/index.js
 var interval = null //倒计时函数
+var app=getApp()
 Page({
   data: {
     inputLen: 6,
@@ -48,7 +49,7 @@ Page({
   getCode: function() {
     var that = this;
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
+      url: app.data.requestUrl+'home/member/send_sms',
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -76,7 +77,7 @@ Page({
     });
     if (that.data.iptValue.length == 6) {
       wx.request({
-        url: 'http://pop.aieye8.com/index.php/home/member/login',
+        url: app.data.requestUrl +'home/member/login',
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
