@@ -1,115 +1,69 @@
-const spaceData = [{
-    official: true,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-  collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: false,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: true,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: false,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: false,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }, {
-    official: true,
-    imgUrl: '/images/aaa.jpg',
-    info: '商场店铺内的独立空间·美妆',
-    title: '这里是空间标题空间标标题空间标题这里是空间标题空间标标题空间标题',
-    collect: true,
-    price: 200,
-    zhengche: '退订政策严格',
-    score: 3
-  }]
-
+const spaceData = []
+var app=getApp();
 Page({
   data: {
     spaceData,
     opendate: false,
-    isFilter: false
+    isFilter: false,
+    userData:[],
+    space_ids:'',
+    imgUrl:''
   },
-  onLoad:function(options){
-    console.log(1)
-    console.log(options.id)    
-    // wx.request({
-    //   url: 'http://pop.aieye8.com/index.php/Home/collection/getCollectionSpace',
-    //method: "POST",
-    //   data: {
-    //     member_id: '',
-     //     space_ids:''
-    //   },
-    //   success: function (res) {
-    //     that.setData({
-    //       storyData: res.data.data
-    //     })
-    //   }
-    // })
-  },
-  opendate: function() {
-    this.setData({
-      opendate: true
+  onLoad: function(options) {
+    // console.log(1)
+    // console.log(options.id)
+    var that=this
+    that.setData({
+      userData: wx.getStorageSync('userData'),
+      space_ids: options.id,
+      imgUrl: app.data.imgurl
+    })
+    var data = {
+      member_id: that.data.userData.member_id,
+      space_ids: that.data.space_ids
+    }
+    data = app.ajaxData(data);
+    wx.request({
+      url: app.data.requestUrl+'Home/collection/getCollectionSpace',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: data,
+      success: function(res) {
+        that.setData({
+          spaceData: res.data.data
+        })
+      }
     })
   },
-  openFilter: function() {
-    this.setData({
-      isFilter: true
+  //加收藏
+  addCl: function (e) {
+    var that = this
+    var data = {
+      member_id: that.data.userData.member_id,
+      space_id: e.currentTarget.id
+    }
+    data = app.ajaxData(data);
+    wx.request({
+      url: app.data.requestUrl + 'Home/collection/editCollection',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: data,
+      success: function (res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+        if (res.data.code==200){
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      }
     })
-  },
-  onMyEvent: function (e) {
-    // 自定义组件触发事件时提供的detail对象
-    let that = e.detail;
-    // this.setData({
-    //   start: util.datefuc('Y-m-d H:i:s', new Date(that.start).getTime() / 1000, true),
-    //   end: util.datefuc('Y-m-d H:i:s', new Date(that.end).getTime() / 1000, true),
-    //   starttime: util.datefuc('m月d日', new Date(that.start).getTime() / 1000, true),
-    //   endtime: util.datefuc('m月d日', new Date(that.end).getTime() / 1000, true),
-    //   compareday: util.compare(new Date(that.start).getTime(), new Date(that.end).getTime()),
-    // });
-    if (that.fuc == "close") {
-      this.setData({
-        opendate: 0,
-      })
-    }
-    console.log(this.data)
-  },
-  closeFilter: function(e) {
-    let that = e.detail;
-    if (that.fuc == 'close') {
-      this.setData({
-        isFilter: false
-      })
-    }
   }
 })

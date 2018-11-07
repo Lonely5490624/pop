@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+var app = getApp()
 const points = []
 Page({
   data: {
@@ -42,7 +42,8 @@ Page({
     space_id: '', //空间id
     space_info: [],
     ssHeight: false,
-    isShow:true
+    isShow:true,
+    imgUrl:''
   },
   //立即预定
   reserve:function(){
@@ -62,7 +63,6 @@ Page({
     })
   },
   previewImages: function() {
-    console.log(1)
     wx.previewImage({
       urls: ['http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg',
         'http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg'
@@ -70,18 +70,26 @@ Page({
     })
   },
   onLoad: function(options) {
+    this.setData({
+      imgUrl: app.data.imgurl
+    })
     if (options != '') {
       this.setData({
         space_id: options.id
       })
     }
     var that = this
+    var data = {
+      space_id: that.data.space_id
+    }
+    data = app.ajaxData(data);
     wx.request({
       url: 'http://pop.aieye8.com/index.php/Home/home/spaceDetail',
       method: "POST",
-      data: {
-        space_id: that.data.space_id
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
+      data: data,
       success: function(res) {
         console.log(res.data)
         that.setData({

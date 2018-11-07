@@ -10,7 +10,7 @@
   <view class='space-list'>
     <view class='space-list space-item' wx:for='{{spaceData}}'>
       <navigator url='/pages/fk/detail/detail?id={{item.id}}'>
-        <image class='space-img' src='http://pop.aieye8.com/data/upload/{{item.banner}}'></image>
+        <image class='space-img' src='{{imgurl+item.banner}}'></image>
       </navigator>
       <text class='space-renzheng' wx:if='{{item.official_certification==1}}'>官方认证</text>
       <text class='space-info'>{{item.categoryName}} . {{item.type}}</text>
@@ -24,7 +24,7 @@
           <text class='iconfont icon-wujiaoxing score-icon active'></text>
         </view>
         <view class='space-score' wx:for='{{5-item.avg_service}}'>
-          <text class='iconfont icon-wujiaoxing score-icon'></text>
+          <text class='iconfont icon-wujiaoxing1 score-icon'></text>
         </view>
       </view>
     </view>
@@ -38,7 +38,7 @@
     <text>搜索</text>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/order/order">
+    <navigator url="/pages/news/news">
       <text class="iconfont icon-xiaoxi"></text>
       <text>消息</text>
     </navigator>
@@ -56,7 +56,7 @@
     </navigator>
   </view>
   <view class="footer-li">
-    <navigator url="/pages/fk/mine/mine">
+    <navigator url="/pages/mine/mine">
       <text class="iconfont icon-wode"></text>
       <text>我的</text>
     </navigator>
@@ -66,6 +66,6 @@
 <view class="datepage {{opendate ? 'show':''}}">
   <my-date bindmyevent="onMyEvent"></my-date>
 </view>
-<view class='filter {{isFilter ? "show" : "show"}}'>
+<view class='filter {{isFilter ? "show" : ""}}'>
   <space-filter bindmyevent="closeFilter"></space-filter>
 </view>

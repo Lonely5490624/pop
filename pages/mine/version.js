@@ -1,4 +1,5 @@
 // pages/fk/order/order-confirm-3.js
+var app=getApp()
 Page({
   data: {
     userData:[],
@@ -12,7 +13,7 @@ Page({
       userData: wx.getStorageSync('userData')
     })
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/home/my/index',
+      url: app.data.requestUrl+'home/my/index',
       data: {
         member_id: that.data.userData.member_id
       },

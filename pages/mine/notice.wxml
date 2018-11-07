@@ -3,30 +3,31 @@
   <view class='title pad32  '>消息提醒</view>
   <view class='list pad32'>
     <view class='list_l'>推送通知</view>
-    <view class='list_r'><switch bindchange="switch2Change" color="#FF5555"/></view>
+    <view class='list_r'><switch bindchange="news_pushChange" checked="{{userInfo.news_push=='1'}}" color="#FF5555"/></view>
   </view>
   <view class='list pad32'>
     <view class='list_l'>短信</view>
-    <view class='list_r'><switch bindchange="switch2Change" checked color="#FF5555"/></view>
+    <view class='list_r'><switch bindchange="news_messageChange" checked="{{userInfo.news_message=='1'}}" color="#FF5555"/></view>
   </view>
 
     <view class='title pad32  '>推广及活动</view>
     <view class='list pad32'>
       <view class='list_l'>推送通知</view>
-      <view class='list_r'><switch bindchange="switch2Change" color="#FF5555"/></view>
+      <view class='list_r'><switch bindchange="activity_pushChange" checked="{{userInfo.activity_push=='1'}}"  color="#FF5555"/></view>
     </view>
     <view class='list pad32'>
       <view class='list_l'>短信</view>
-      <view class='list_r'><switch bindchange="switch2Change" checked color="#FF5555"/></view>
+      <view class='list_r'><switch bindchange="activity_messageChange" checked="{{userInfo.activity_message=='1'}}" color="#FF5555"/></view>
     </view>
 
   <view class='title pad32'>政策信息</view>
   <view class='list pad32'>
     <view class='list_l'>推送通知</view>
-    <view class='list_r'><switch bindchange="switch2Change" color="#FF5555"/></view>
+    <view class='list_r'><switch bindchange="policy_pushChange" checked="{{userInfo.policy_push=='1'}}" color="#FF5555"/></view>
   </view>
   <view class='list pad32'>
     <view class='list_l'>短信</view>
-    <view class='list_r'><switch bindchange="switch2Change" checked color="#FF5555"/></view>
+    <view class='list_r'><switch bindchange="policy_messageChange" checked="{{userInfo.policy_message=='1'}}" color="#FF5555"/></view>
   </view>
+  <view class="saveBtn {{bg?'able':'unable'}}" bindtap='save'>保存</view>
 </view>

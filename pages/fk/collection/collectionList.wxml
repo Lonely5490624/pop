@@ -1,68 +1,25 @@
-
 <view class='page'>
   <!-- 空间列表 -->
   <view class='space-list'>
-    <navigator url='/pages/fk/detail/detail' class='space-item' wx:for='{{spaceData}}'>
-      <image class='space-img' src='{{item.imgUrl}}'></image>
-      <text class='space-renzheng' wx:if='{{item.official}}'>官方认证</text>
-      <text class='space-info'>{{item.info}}</text>
+    <view class='space-item' wx:for='{{spaceData}}'>
+      <navigator url='/pages/fk/detail/detail?id={{item.id}}'>
+        <image class='space-img' src='{{imgUrl+item.banner}}'></image>
+      </navigator>
+      <text class='space-renzheng' wx:if='{{item.official_certification==1}}'>官方认证</text>
+      <text class='space-info'>{{item.categoryName}} . {{item.type}}</text>
       <text class='space-title'>{{item.title}}</text>
-      <image src='/images/shou-icon2.png' class='space-collect' wx:if='{{item.collect}}'></image>
-      <image src='/images/shou-icon.png' class='space-collect' wx:else='{{item.collect}}'></image>
-      <!-- <text class='iconfont icon-wujiaoxing1 space-collect active' wx:if='{{item.collect}}'></text>
-      <text class='iconfont icon-wujiaoxing1 space-collect' wx:else='{{item.collect}}'></text> -->
+     <text class='iconfont #icon-02 space-collect' id='{{item.id}}' bindtap='addCl' wx:if='{{item.isFavorite==0}}'></text>
+      <text class='iconfont #icon-aixin space-collect active' id='{{item.id}}' bindtap='addCl' wx:else='{{item.isFavorite==1}}'></text>
       <view class='space-bottom'>
-        <text class='space-price'>￥{{item.price}}/天</text>
-        <text class='space-zhengche'>{{item.zhengche}}</text>
-        <view class='space-score'>
+        <text class='space-price'>￥{{item.everyday_price}}/天</text>
+        <text class='space-zhengche'>退订政策{{item.unsubscribe_policy_name}}</text>
+        <view class='space-score' wx:for='{{item.avg_service}}'>
           <text class='iconfont icon-wujiaoxing score-icon active'></text>
-          <text class='iconfont icon-wujiaoxing score-icon active'></text>
-          <text class='iconfont icon-wujiaoxing score-icon active'></text>
-          <text class='iconfont icon-wujiaoxing score-icon'></text>
-          <text class='iconfont icon-wujiaoxing score-icon'></text>
+        </view>
+        <view class='space-score' wx:for='{{5-item.avg_service}}'>
+          <text class='iconfont icon-wujiaoxing1 score-icon'></text>
         </view>
       </view>
-    </navigator>
+    </view>
   </view>
-
-</view>
-
-<!--底部-->
-<view class="footer-h"></view>
-<view class="footer">
-	<view class="footer-li select">
-		<text class="iconfont icon-zhuye"></text>
-		<text>搜索</text>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>消息</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-zhuye"></text>
-			<text>行程</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>收藏</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/mine/mine">
-		<text class="iconfont icon-geren"></text>
-		<text>我的</text>
-		</navigator>
-	</view>
-</view>
-
-<view class="datepage {{opendate ? 'show':''}}">
-	<my-date bindmyevent="onMyEvent"></my-date>
-</view>
-<view class='filter {{isFilter ? "show" : ""}}'>
-  <space-filter bindmyevent="closeFilter"></space-filter>
 </view>

@@ -1,6 +1,6 @@
 <view class='page'>
   <view class='banner' bindtap='previewImages'>
-    <image src='http://pop.aieye8.com/data/upload/{{space_info.banner}}'></image>
+    <image src='{{imgUrl+space_info.banner}}'></image>
   </view>
   <view class='box1'>
     <view class='box1_t1'>
@@ -60,7 +60,7 @@
     <view class="b2_list {{ssHeight?'height':''}}">
       <view class='b2_list_li' wx:for='{{space_info.convenience_facilities}}'>
         <view class='icon'>
-          <image src='http://pop.aieye8.com/data/upload/{{item.icon}}'></image>
+          <image src='{{imgUrl+item.icon}}'></image>
         </view>
         <view class='text'>{{item.name}}</view>
       </view>
@@ -81,7 +81,7 @@
     <view class="list_box {{ssHeight?'height':''}}">
       <view class='list' wx:for='{{space_info.comment}}'>
         <view class='list_l'>
-          <image src='http://pop.aieye8.com/data/upload/{{item.head_img_url}}'></image>
+          <image src='{{imgUrl+item.head_img_url}}'></image>
         </view>
         <view class='list_r'>
           <view class='list_r_l1'>

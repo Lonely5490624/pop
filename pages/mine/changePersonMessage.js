@@ -1,3 +1,4 @@
+var app=getApp()
 Page({
   data: {
     // 省市区三级联动初始化
@@ -30,7 +31,11 @@ Page({
   //保存
   saveInfo: function() {
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/home/my/save',
+      url: app.data.requestUrl+'home/my/save',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       data: {
         member_id: this.data.userData.member_id,
         nick_name: this.data.userInfo.nick_name,
@@ -40,7 +45,6 @@ Page({
         address: this.data.userInfo.province + ',' + this.data.userInfo.city + ',' + this.data.userInfo.county
       },
       success: function(res) {
-
         wx.showToast({
           title: res.data.msg,
           icon: 'none',

@@ -1,30 +1,37 @@
 // pages/fk/list/list.js
+var app = getApp()
 const spaceData = []
 Page({
   data: {
     spaceData,
     opendate: false,
     isFilter: false,
-    userData:[]
+    userData:[],
+    imgurl:''
   },
   opendate: function() {
     this.setData({
-      opendate: true
+      opendate: true      
     })
   },
   onLoad: function() {
     var that = this
     that.setData({
       userData: wx.getStorageSync('userData'),
+      imgurl: app.data.imgurl
     })    
+    var data = {
+      member_id: that.data.userData.member_id
+    }
+    data = app.ajaxData(data);
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/Home/home/searchSpace',
+      url: app.data.requestUrl+'Home/home/searchSpace',
       method: "POST",
-      data: {
-        member_id: that.data.userData.member_id,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
+      data: data,
       success: function(res) {
-        console.log(res.data.data)
         for (var i = 0; i++; i <= res.data.data.length) {          
           res.data.data[i].avg_service=parseInt(res.data.data[i].avg_service)
         }
@@ -35,31 +42,38 @@ Page({
     })
   },
   //加收藏
-  addCl:function(e){
-    
+  addCl:function(e){    
     var that=this
-    console.log(that.data.userData.member_id)
+    var data = {
+      member_id: that.data.userData.member_id,
+      space_id: e.currentTarget.id
+    }
+    data = app.ajaxData(data);
     wx.request({
-      url: 'http://pop.aieye8.com/index.php/Home/collection/editCollection',
+      url: app.data.requestUrl +'Home/collection/editCollection',
       method: "POST",
-      data: {
-        member_id: that.data.userData.member_id,
-        space_id: e.currentTarget.id
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
       },
+      data: data,
       success: function (res) {
         wx.showToast({
           title: res.data.msg,
           icon: 'none',
           duration: 2000
         })
+        var data = {
+          member_id: that.data.userData.member_id
+        }
+        data = app.ajaxData(data);
         wx.request({
-          url: 'http://pop.aieye8.com/index.php/Home/home/searchSpace',
+          url: app.data.requestUrl +'Home/home/searchSpace',
           method: "POST",
-          data: {
-            member_id: that.data.userData.member_id,
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
           },
+          data: data,
           success: function (res) {
-            console.log(res.data.data)
             for (var i = 0; i++; i <= res.data.data.length) {
               res.data.data[i].avg_service = parseInt(res.data.data[i].avg_service)
             }

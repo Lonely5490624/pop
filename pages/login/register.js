@@ -1,3 +1,4 @@
+var app=getApp()
 Page({
   data: {
     mobile: '',
@@ -26,7 +27,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'http://pop.aieye8.com/index.php/home/member/send_sms',
+        url: app.data.requestUrl +'home/member/send_sms',
         method: "POST",
         data: {
           mobile: parseInt(this.data.mobile)
@@ -49,7 +50,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'http://pop.aieye8.com/index.php/home/member/login',
+        url: app.data.requestUrl +'home/member/login',
         method: "POST",
         data: {
           mobile: parseInt(this.data.mobile),

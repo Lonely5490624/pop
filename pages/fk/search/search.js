@@ -1,74 +1,96 @@
-// pages/fk/search/search.js
+var app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userData: []
   },
   navigateBack: function() {
     wx.navigateBack({
       changed: true
     })
   },
-  search: function(e) {
-    console.log(e)
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    that.setData({
+      userData: wx.getStorageSync('userData')
+    })
+    var data = {
+      member_id: that.data.userData.member_id
+    }
+    data = app.ajaxData(data);
+    wx.request({
+      url: app.data.requestUrl + 'Home/home/historySearchList',
+      data: data,
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        // that.setData({
+        //   shangq: res.data.data
+        // })
+        console.log(res.data);
+      }
+    })
+  },
+  clear:function(){
+    var data = {
+      member_id: this.data.userData.member_id
+    }
+    data = app.ajaxData(data);
+    wx.request({
+      url: app.data.requestUrl + 'Home/home/convenienceListt',
+      data: data,
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        // that.setData({
+        //   shangq: res.data.data
+        // })
+        console.log(res.data);
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  search:function(e){
+    var data = {
+      search_content: e.detail.value
+    }
+    data = app.ajaxData(data);
+    console.log(data);
+    wx.request({
+      url: app.data.requestUrl + 'Home/home/searchSpace',
+      data: data,
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        // that.setData({
+        //   shangq: res.data.data
+        // })
+        console.log(res.data);
+        if (res.data.code!=200){
+          wx.showToast({
+            title: res.data.msg ,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  cancle:function(){
+    wx.navigateBack({
+      delta: 1
+    })
+  }  
 })

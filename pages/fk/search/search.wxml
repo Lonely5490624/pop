@@ -2,7 +2,7 @@
 <view class='search'>
   <view class='search-header'>
     <input type='text' focus confirm-type='search' bindconfirm='search' placeholder='搜索您想要的城市、商圈' placeholder-class='search-placeholder'></input>
-    <text class='cancel' bindtap='navigateBack'>取消</text>
+    <text class='cancel' bindtap='cancle'>取消</text>
   </view>
   <view class='search-hot'>
     <view class='hot-title'>热门商圈</view>
@@ -20,15 +20,15 @@
     </view>
     <view class='history-list'>
       <view class='history-item'>
-        <text class='iconfont icon-sousuo'></text>
+        <text class='iconfont icon-tubiao-'></text>
         <text>田子坊</text>
       </view>
       <view class='history-item'>
-        <text class='iconfont icon-sousuo'></text>
+        <text class='iconfont icon-tubiao-'></text>
         <text>外滩洛克菲勒</text>
       </view>
       <view class='history-item'>
-        <text class='iconfont icon-sousuo'></text>
+        <text class='iconfont icon-tubiao-'></text>
         <text>南京西路</text>
       </view>
     </view>
