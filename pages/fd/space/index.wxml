@@ -7,46 +7,26 @@
       <view bindtap='choose' data-id='2' class='item {{activeId==2 ? "active" : ""}}'>未发布</view>
     </view>
     <view class='space-con {{activeId==1 ? "active" : ""}}'>
-      <view class='space-item'>
+      <view wx:for='{{pubList}}' wx:key='{{item.id}}' class='space-item'>
         <view class='space-info'>
-          <image src='/images/aaa.jpg'></image>
-          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+          <image src='{{imgUrl + item.banner}}'></image>
+          <view class='title'>{{item.title}}</view>
         </view>
         <view class='space-btns'>
-          <view class='btn down'>下架</view>
-          <view class='btn edit'>编辑</view>
-        </view>
-      </view>
-      <view class='space-item'>
-        <view class='space-info'>
-          <image src='/images/aaa.jpg'></image>
-          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
-        </view>
-        <view class='space-btns'>
-          <view class='btn down'>下架</view>
-          <view class='btn edit'>编辑</view>
+          <view data-id='{{item.id}}' bindtap='handleDown' class='btn down'>下架</view>
+          <view data-id='{{item.id}}' bindtap='handleEdit' class='btn edit'>编辑</view>
         </view>
       </view>
     </view>
     <view class='space-con {{activeId==2 ? "active" : ""}}'>
-      <view class='space-item'>
+      <view wx:for='{{unpubList}}' wx:key='{{item.id}}' class='space-item'>
         <view class='space-info'>
-          <image src='/images/aaa.jpg'></image>
-          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+          <image src='{{imgUrl + item.banner}}'></image>
+          <view class='title'>{{item.title}}</view>
         </view>
         <view class='space-btns'>
-          <view class='btn down'>删除</view>
-          <view class='btn edit'>继续编辑</view>
-        </view>
-      </view>
-      <view class='space-item'>
-        <view class='space-info'>
-          <image src='/images/aaa.jpg'></image>
-          <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
-        </view>
-        <view class='space-btns'>
-          <view class='btn down'>删除</view>
-          <view class='btn edit'>继续编辑</view>
+          <view data-id='{{item.id}}' bindtap='handleDel' class='btn down'>删除</view>
+          <view data-id='{{item.id}}' bindtap='handleEdit' class='btn edit'>继续编辑</view>
         </view>
       </view>
     </view>

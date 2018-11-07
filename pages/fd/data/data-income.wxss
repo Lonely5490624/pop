@@ -82,9 +82,6 @@
   padding-top: 18rpx;
   text-align: center;
 }
-.chart-item.active .item-yi{
-  background: #ff5555;
-}
 .chart-item.active .item-date{
   color: #363636;
   font-size: 28rpx;

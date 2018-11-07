@@ -1,9 +1,16 @@
 var filter = {
   getHeight: function (nowHeight, maxHeight) {
     return (parseInt(nowHeight) / parseInt(maxHeight)) * 300
+  },
+  hasEle: function (arr, ele) {
+    if (arr.indexOf(ele) > -1) {
+      return true
+    }
+    return false
   }
 }
 
 module.exports = {
-  getHeight: filter.getHeight
+  getHeight: filter.getHeight,
+  hasEle: filter.hasEle
 }

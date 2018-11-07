@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/fd/data/data-income",
+    "pages/fd/space/index",
+    "pages/fk/search/search",
     "pages/fk/list/list",
+    "pages/fd/data/data-income",
     "pages/fk/mine/setUp",
     "pages/fk/mine/mine",
     "pages/fk/mine/help",
@@ -25,7 +27,6 @@
     
    
     
-
     "pages/login/yz",      
     "pages/fk/detail/detail", 
     "pages/login/register", 
@@ -41,7 +42,6 @@
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
     "pages/fd/space/add-1",
-    "pages/fd/space/index",
     
     "pages/fd/data/index",
     "pages/fd/data/data-score",

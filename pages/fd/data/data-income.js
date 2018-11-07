@@ -9,49 +9,57 @@ Array.prototype.max = function() {
   return max
 }
 
+const currentMonth = new Date().getMonth() + 1
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    currentMonth,
     tabId: 1,
     currentId: null,
     scrollLeft: 0,
     maxHeight: null,
     income: [{
       id: 1,
-      date: '4月',
+      date: '4',
       yi: '300',
       ji: '100'
     }, {
       id: 2,
-      date: '5月',
+      date: '5',
       yi: '100',
       ji: '100'
     }, {
       id: 3,
-      date: '6月',
+      date: '6',
       yi: '77',
       ji: '36'
     }, {
       id: 4,
-      date: '7月',
+      date: '7',
       yi: '90',
       ji: '52'
     }, {
       id: 5,
-      date: '8月',
+      date: '8',
       yi: '125',
       ji: '45'
     }, {
       id: 6,
-      date: '9月',
+      date: '9',
       yi: '190',
       ji: '15'
     }, {
       id: 7,
-      date: '10月',
+      date: '10',
+      yi: '20',
+      ji: '30'
+    }, {
+      id: 8,
+      date: '11',
       yi: '20',
       ji: '30'
     }]

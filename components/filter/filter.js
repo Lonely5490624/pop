@@ -1,4 +1,11 @@
 // components/filter/filter.js
+Array.prototype.remove = function (val) {
+  var index = this.indexOf(val);
+  if (index > -1) {
+    this.splice(index, 1);
+  }
+};
+
 var app = getApp()
 const spaceTypeList = [{
   id: 1,
@@ -25,7 +32,10 @@ Component({
     max: 10000,
     categoryList: [],
     getconvenienceList: [],
-    spaceTypeList
+    spaceTypeList,
+    currentTypes: [],
+    currentCates: [],
+    currentFacs: [],
   },
 
   ready: function () {
@@ -62,9 +72,54 @@ Component({
         }
       })
     },
-    // 选中类型
+    // 选择类型
     chooseType (e) {
-      console.log(e)
+      let arr = this.data.currentTypes
+      let id = e.currentTarget.dataset.id
+      if (arr.indexOf(id) > -1) {
+        arr.remove(id)
+      } else {
+        arr.push(id)
+      }
+      this.setData({
+        currentTypes: arr
+      })
+    },
+    // 选择品类
+    chooseCate(e) {
+      let arr = this.data.currentCates
+      let id = e.currentTarget.dataset.id
+      if (arr.indexOf(id) > -1) {
+        arr.remove(id)
+      } else {
+        arr.push(id)
+      }
+      this.setData({
+        currentCates: arr
+      })
+    },
+    // 选择设施
+    chooseFac(e) {
+      let arr = this.data.currentFacs
+      let id = e.currentTarget.dataset.id
+      if (arr.indexOf(id) > -1) {
+        arr.remove(id)
+      } else {
+        arr.push(id)
+      }
+      this.setData({
+        currentFacs: arr
+      })
+    },
+    // 重置选项
+    reset () {
+      this.setData({
+        low: this.data.min,
+        high: this.data.max,
+        currentTypes: [],
+        currentCates: [],
+        currentFacs: []
+      })
     },
 
     lowValueChangeAction: function (e) {
@@ -82,6 +137,18 @@ Component({
     _close: function() {
       this.triggerEvent('myevent', {
         fuc: "close"
+      })
+    },
+    _submit: function() {
+      this.triggerEvent('myevent', {
+        fuc: "submit",
+        data: {
+          currentTypes: this.data.currentTypes,
+          currentCates: this.data.currentCates,
+          currentFacs: this.data.currentFacs,
+          low: this.data.low,
+          high: this.data.high
+        }
       })
     }
   }

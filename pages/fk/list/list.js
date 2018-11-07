@@ -4,7 +4,7 @@ Page({
   data: {
     spaceData,
     opendate: false,
-    isFilter: false,
+    openFilter: true,
     userData:[]
   },
   opendate: function() {
@@ -13,20 +13,23 @@ Page({
     })
   },
   onLoad: function() {
+    this.getList()
+  },
+  // 获取列表数据
+  getList: function (params) {
     var that = this
     that.setData({
       userData: wx.getStorageSync('userData'),
-    })    
+    })
+    let data = Object.assign({}, params, {member_id: that.data.userData.member_id})
     wx.request({
       url: 'http://pop.aieye8.com/index.php/Home/home/searchSpace',
       method: "POST",
-      data: {
-        member_id: that.data.userData.member_id,
-      },
-      success: function(res) {
+      data,
+      success: function (res) {
         console.log(res.data.data)
-        for (var i = 0; i++; i <= res.data.data.length) {          
-          res.data.data[i].avg_service=parseInt(res.data.data[i].avg_service)
+        for (var i = 0; i++; i <= res.data.data.length) {
+          res.data.data[i].avg_service = parseInt(res.data.data[i].avg_service)
         }
         that.setData({
           spaceData: res.data.data
@@ -73,10 +76,10 @@ Page({
   },
   openFilter: function() {
     this.setData({
-      isFilter: true
+      openFilter: true
     })
   },
-  onMyEvent: function(e) {
+  onFilter: function(e) {
     // 自定义组件触发事件时提供的detail对象
     let that = e.detail;
     // this.setData({
@@ -90,15 +93,19 @@ Page({
       this.setData({
         opendate: 0,
       })
-    }
-    console.log(this.data)
-  },
-  closeFilter: function(e) {
-    let that = e.detail;
-    if (that.fuc == 'close') {
+    } else if (that.fuc == 'submit') {
       this.setData({
-        isFilter: false
+        openFilter: 0,
       })
+      let params = {
+        start_price: that.data.low,
+        end_price: that.data.high,
+        space_type: that.data.currentTypes.join(','),
+        category_ids: that.data.currentCates.join(','),
+        convenience_facilities_ids: that.data.currentFacs.join(',')
+      }
+      console.log(params)
+      this.getList(params)
     }
   }
 })

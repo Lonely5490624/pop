@@ -66,6 +66,6 @@
 <view class="datepage {{opendate ? 'show':''}}">
   <my-date bindmyevent="onMyEvent"></my-date>
 </view>
-<view class='filter {{isFilter ? "show" : "show"}}'>
-  <space-filter bindmyevent="closeFilter"></space-filter>
+<view class='filter {{openFilter ? "show" : ""}}'>
+  <space-filter bindmyevent="onFilter"></space-filter>
 </view>

@@ -9,10 +9,10 @@
       <text class='ji'>即将转款</text>
     </view>
     <view class='chart-content'>
-      <view bindtap='prevTap' class='chart-prev'><text class='iconfont icon-jiantouzuo'></text></view>
+      <view class='chart-prev'><text class='iconfont icon-jiantouzuo'></text></view>
       <scroll-view scroll-x scroll-left='{{scrollLeft}}' class='chart-show'>
-        <view wx:for='{{income}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseItem' class='chart-item {{currentId === item.id ? "active" : ""}}'>
-          <view class='item-date'>{{item.date}}</view>
+        <view wx:for='{{income}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseItem' class='chart-item {{item.date == currentMonth ? "active" : ""}}'>
+          <view class='item-date'>{{item.date}}月</view>
           <view class='item-yi' style='height: {{filter.getHeight(item.yi, maxHeight)}}rpx;'></view>
           <view class='item-ji' style='height: {{filter.getHeight(item.ji, maxHeight)}}rpx;'></view>
         </view>
