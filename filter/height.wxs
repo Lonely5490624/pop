@@ -1,0 +1,9 @@
+var filter = {
+  getHeight: function (nowHeight, maxHeight) {
+    return (parseInt(nowHeight) / parseInt(maxHeight)) * 300
+  }
+}
+
+module.exports = {
+  getHeight: filter.getHeight
+}

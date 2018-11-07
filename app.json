@@ -1,14 +1,28 @@
 {
   "pages": [
+<<<<<<< HEAD
+=======
+    "pages/fd/data/data-income",
+    "pages/fk/list/list",
+    "pages/fk/mine/setUp",
+    "pages/fk/mine/mine",
+    "pages/fk/mine/help",
+    "pages/fk/news/cancelOrde",
+    
+>>>>>>> 3e71efcf071090fe1435ed7a1a387337e01fbae2
     "pages/fk/index/index",
     "pages/fk/search/search",
     "pages/mine/mine",
     "pages/mine/notice",
     "pages/mine/setUp",
     "pages/fk/collection/collection",
+<<<<<<< HEAD
     "pages/fk/list/list",
     "pages/fk/detail/detail",
     "pages/login/login",
+=======
+    
+>>>>>>> 3e71efcf071090fe1435ed7a1a387337e01fbae2
     "pages/fk/collection/collectionList",
     "pages/mine/paymentMethod",
     "pages/mine/addPaymentMethod",
@@ -31,7 +45,6 @@
     "pages/fd/space/add-1",
     "pages/fd/space/index",
     "pages/fd/data/index",
-    "pages/fd/data/data-income",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fd/data/data-view",
