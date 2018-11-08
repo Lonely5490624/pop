@@ -46,7 +46,7 @@ Page({
     } else {
       var that = this;
       wx.request({
-        url: app.data.requestUrl +'home/member/send_sms',
+        url: app.data.requestUrl +'/member/send_sms',
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded"

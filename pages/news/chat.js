@@ -18,28 +18,35 @@ Page({
       order_id: options.order_id,
       space_id: options.space_id,
     })
-    var data = {
-      member_id: that.data.userData.member_id,
-      member_type: that.data.userData.member_type,
-      info_id: that.data.info_id,
-      order_id: that.data.order_id,
-      space_id: that.data.space_id,
-    }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl + 'home/message/detail',
-      data: data,
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        that.setData({
-          newsList: res.data.data.result
+    // var data = {
+    //   member_id: that.data.userData.member_id,
+    //   member_type: that.data.userData.member_type,
+    //   info_id: that.data.info_id,
+    //   order_id: that.data.order_id,
+    //   space_id: that.data.space_id,
+    // }
+    // data = app.ajaxData(data);
+    // wx.request({
+    //   url: app.data.requestUrl + 'home/message/detail',
+    //   data: data,
+    //   method: "POST",
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   },
+    //   success: function (res) {
+    //     that.setData({
+    //       newsList: res.data.data.result
+    //     })
+    //     console.log(res.data.data);
+    //   }
+    // })
+
+    app.http('/message/index', { member_type: this.data.userData.member_type })
+      .then(res => {
+        this.setData({
+          newsList: res.data
         })
-        console.log(res.data.data);
-      }
-    })
+      })
   },
   getNewContent:function(e){
     this.setData({

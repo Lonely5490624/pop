@@ -1,5 +1,12 @@
 {
   "pages": [
+    "pages/news/news",
+    "pages/login/login",
+    
+    "pages/news/newsSearch",
+    
+    "pages/news/chat",
+    "pages/news/cancelOrde",
     "pages/fd/space/index",
     "pages/fd/space/add-1",
     "pages/fk/search/search",
@@ -9,59 +16,47 @@
     "pages/fk/mine/mine",
     "pages/fk/mine/help",
     "pages/fk/news/cancelOrde",
-    
     "pages/fk/index/index",
-   "pages/login/login",
+    
     "pages/fk/collection/collection",
-    
     "pages/fk/collection/collectionList",
-    
     "pages/mine/mine",
     "pages/mine/paymentMethod",
     "pages/mine/addPaymentMethod",
-    
     "pages/mine/version",
     "pages/mine/account",
     "pages/mine/notice",
-    "pages/mine/setUp",    
+    "pages/mine/setUp",
     "pages/mine/help",
-    
-   
-    
-    "pages/login/yz",      
-    "pages/fk/detail/detail", 
-    "pages/login/register", 
+    "pages/login/yz",
+    "pages/fk/detail/detail",
+    "pages/login/register",
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
-    "pages/news/chat",
-    "pages/news/cancelOrde",
+    
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateList",
-    "pages/evaluate/evaluateSuccess",    
-    "pages/login/yzMessage",    
+    "pages/evaluate/evaluateSuccess",
+    "pages/login/yzMessage",
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
-    
     "pages/fd/data/index",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
-    "pages/fd/data/data-view",       
-    "pages/news/newsSearch",    
-    "pages/news/news", 
+    "pages/fd/data/data-view",
+    
     "pages/fk/trip/finalPay",
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",
-    
     "pages/mine/changePersonMessage",
     "pages/mine/changeM",
     "pages/login/changeM",
-    "pages/login/changeM2",    
+    "pages/login/changeM2",
     "pages/fk/order/order-confirm-3",
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",
     "pages/fk/order/order-confirm",
-     
     "pages/logs/logs"
   ],
   "window": {

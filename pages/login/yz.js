@@ -49,7 +49,7 @@ Page({
   getCode: function() {
     var that = this;
     wx.request({
-      url: app.data.requestUrl+'home/member/send_sms',
+      url: app.data.requestUrl+'/member/send_sms',
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -77,7 +77,7 @@ Page({
     });
     if (that.data.iptValue.length == 6) {
       wx.request({
-        url: app.data.requestUrl +'home/member/login',
+        url: app.data.requestUrl +'/member/login',
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded"

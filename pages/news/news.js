@@ -11,29 +11,14 @@ Page({
     })
   },
   onLoad: function() {
-    var that = this;
-    that.setData({
+    this.setData({
       userData: wx.getStorageSync('userData')
     })
-
-    var data = {
-      member_id: that.data.userData.member_id,
-      member_type: that.data.userData.member_type
-    }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl + 'home/message/index',
-      data: data,
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function(res) {
-        that.setData({
-          newsList: res.data.data
-        })
-        console.log(res.data.data);
-      }
-    })
+    app.http('/message/index', { member_type: this.data.userData.member_type})
+      .then(res => {
+        this.setData({
+          newsList: res.data
+        })        
+      })
   },
 })

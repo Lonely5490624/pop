@@ -49,7 +49,7 @@ App({
   },
   // 封装的网络请求
   http: function (url, pramas) {
-    let data = Object.assign({}, pramas, { member_id: 11 })
+    let data = Object.assign({}, pramas, { member_id: 11,t:'',r:'',s:'' })
     let promise = new Promise((resolve, reject) => {
       wx.request({
         url: this.data.requestUrl + url,
