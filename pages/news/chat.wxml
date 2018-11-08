@@ -17,9 +17,16 @@
   <view class='chatBox'>
     <view class="date">星期一 10:41</view>
     <view class="date">咨询（进程）</view>
-    <view class='other'>
+    <view class='other' wx:for="{{newsList}}">
+      <view class="date">{{item.create_time}}</view>
+      <view class='tx'>
+        <image src='{{item.other_head}}'></image>
+      </view>
+      <view class='cont'>{{item.content}}</view>
+    </view>
+    <!-- <view class='other'>
       <view class='tx'></view>
-      <view class='cont'>消息详情消息详情消息详情消</view>
+      <view class='cont'>消息详情消息详情消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消</view>
     </view>
     <view class='other'>
       <view class='tx'></view>
@@ -28,11 +35,7 @@
     <view class='other'>
       <view class='tx'></view>
       <view class='cont'>消息详情消息详情消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消</view>
-    </view>
-    <view class='other'>
-      <view class='tx'></view>
-      <view class='cont'>消息详情消息详情消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消息详情消息详情消消息详情消</view>
-    </view>
+    </view> -->
     <view class="date">上午10:41</view>
     <view class='our'>
       <view class='tx'></view>
@@ -44,7 +47,7 @@
     </view>
   </view>
   <view class="editBox">
-      <input></input>
-      <view class='sendBtn'>发送</view>
-    </view>
+    <input bindinput='getNewContent'></input>
+    <view class='sendBtn' bindtap='send'>发送</view>
+  </view>
 </view>

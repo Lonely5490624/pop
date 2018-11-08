@@ -3,7 +3,77 @@
 const app = getApp()
 Page({
   data: {
-  
+    userData:[],
+    newsList:[],
+    info_id: "",
+    order_id: "",
+    space_id: "",
+    newsContent:''
+  },
+  onLoad:function(options){
+    var that=this
+    that.setData({
+      userData: wx.getStorageSync('userData'),
+      info_id: options.info_id,
+      order_id: options.order_id,
+      space_id: options.space_id,
+    })
+    var data = {
+      member_id: that.data.userData.member_id,
+      member_type: that.data.userData.member_type,
+      info_id: that.data.info_id,
+      order_id: that.data.order_id,
+      space_id: that.data.space_id,
+    }
+    data = app.ajaxData(data);
+    wx.request({
+      url: app.data.requestUrl + 'home/message/detail',
+      data: data,
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        that.setData({
+          newsList: res.data.data.result
+        })
+        console.log(res.data.data);
+      }
+    })
+  },
+  getNewContent:function(e){
+    this.setData({
+      newsContent: e.detail.value
+    })    
+  },
+  send:function(){
+    var that = this
+    that.setData({
+      userData: wx.getStorageSync('userData')
+    })
+    var data = {
+      member_id: that.data.userData.member_id,
+      member_type: that.data.userData.member_type,
+      info_id: that.data.info_id,
+      order_id: that.data.order_id,
+      space_id: that.data.space_id,
+      content: that.data.newsContent
+    }
+    data = app.ajaxData(data);
+    wx.request({
+      url: app.data.requestUrl + 'home/message/send_message',
+      data: data,
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        // that.setData({
+        //   newsList: res.data.data.result
+        // })
+        console.log(res.data);
+      }
+    })
   },
   refuse:function(e){
     wx.showModal({
