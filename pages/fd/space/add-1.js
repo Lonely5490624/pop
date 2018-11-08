@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceType: 1
+    spaceType: null
   },
   // 选择空间类型
   chooseType (e) {
@@ -15,15 +15,40 @@ Page({
       spaceType: e.currentTarget.dataset.id
     })
   },
+  // 下一步
   pubStep1 () {
-    app.http('/home/space/published', {})
+    let params = {
+      type: this.data.spaceType
+    }
+    if(this.data.spaceId) {
+      params.space_id = this.data.spaceId
+    }
+    app.http('/space/published', params)
+      .then(res => {
+        this.setData({
+          spaceId: res.data
+        })
+        wx.navigateTo({
+          url: `add-2?spaceId=${this.data.spaceId}`,
+        })
+      })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (options && options.spaceId) {
+      this.setData({
+        spaceId: options.spaceId
+      })
+      app.http('/space/unpublished', { space_id: options.spaceId })
+        .then(res => {
+          this.setData({
+            spaceType: res.data.type
+          })
+        })
+    }
   },
 
   /**

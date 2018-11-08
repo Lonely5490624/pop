@@ -61,7 +61,7 @@ App({
         success: function (res) {
           if (res.data.code == 200) {
             resolve(res.data)
-          } else {
+          } else if (res.data.msg) {
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
