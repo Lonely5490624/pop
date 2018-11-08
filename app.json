@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/fd/space/index",
+    "pages/fd/space/add-1",
     "pages/fk/search/search",
     "pages/fk/list/list",
     "pages/fd/data/data-income",
@@ -41,7 +42,6 @@
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
-    "pages/fd/space/add-1",
     
     "pages/fd/data/index",
     "pages/fd/data/data-score",

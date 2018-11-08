@@ -31,7 +31,7 @@ Page({
   },
   // 获取已发布空间
   getPub: function () {
-    app.http('/space/published_list', {}, 'POST')
+    app.http('/space/published_list')
       .then(res => {
         res = {
           "code": 200,
@@ -53,7 +53,7 @@ Page({
   },
   // 获取未发布空间列表
   getUnpub: function () {
-    app.http('/space/unpublished_list', {}, 'POST')
+    app.http('/space/unpublished_list')
       .then(res => {
         res = {
           "code": 200,
@@ -75,12 +75,12 @@ Page({
   },
   // 下架空间
   handleDown(e) {
-    app.http('/space/lower_space', { space_id: e.currentTarget.dataset.id }, 'POST')
+    app.http('/space/lower_space', { space_id: e.currentTarget.dataset.id })
       .then(res => {})
   },
   // 删除空间
   handleDel(e) {
-    app.http('/space/del_space', { space_id: e.currentTarget.dataset.id }, 'POST')
+    app.http('/space/del_space', { space_id: e.currentTarget.dataset.id })
       .then(res => { })
   },
 

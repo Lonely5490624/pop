@@ -1,4 +1,5 @@
 // pages/fd/space/add-1.js
+const app = getApp()
 
 Page({
 
@@ -7,6 +8,15 @@ Page({
    */
   data: {
     spaceType: 1
+  },
+  // 选择空间类型
+  chooseType (e) {
+    this.setData({
+      spaceType: e.currentTarget.dataset.id
+    })
+  },
+  pubStep1 () {
+    app.http('/home/space/published', {})
   },
 
   /**

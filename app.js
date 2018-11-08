@@ -48,13 +48,13 @@ App({
     userInfo: null
   },
   // 封装的网络请求
-  http: function (url, pramas, type) {
+  http: function (url, pramas) {
     let data = Object.assign({}, pramas, { member_id: 11 })
     let promise = new Promise((resolve, reject) => {
       wx.request({
         url: this.data.requestUrl + url,
         data,
-        method: type || 'GET',
+        method: 'POST',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
