@@ -3,14 +3,14 @@
 <view class='space-main'>
   <view class='title'>您想发布一个怎样的空间？</view>
   <view class='list'>
-    <view class='item active'>
+    <view class='item active' data-id='1'>
       <view class='left'>
         <view class='p1'>整个独立空间</view>
         <view class='p2'>这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店</view>
       </view>
       <view class='right'></view>
     </view>
-    <view class='item'>
+    <view class='item' data-id='2'>
       <view class='left'>
         <view class='p1'>集合空间</view>
         <view class='p2'>这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店</view>

@@ -2,7 +2,7 @@
 App({
   data:{
     imgurl: 'http://pop.aieye8.com/data/upload/',
-    requestUrl: 'http://pop.aieye8.com/index.php'
+    requestUrl: 'http://pop.aieye8.com/index.php/home'
   },
   ajaxData:function(data={}){
     var timestamp = Date.parse(new Date());
