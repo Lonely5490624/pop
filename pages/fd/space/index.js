@@ -31,17 +31,8 @@ Page({
   },
   // 获取已发布空间
   getPub: function () {
-    var that = this;
-    wx.request({
-      url: app.data.requestUrl + 'home/space/published_list',
-      methods: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        member_id: that.data.userData
-      },
-      success: function (res) {
+    app.http('/home/space/published_list', {}, 'POST')
+      .then(res => {
         res = {
           "code": 200,
           "msg": "请求成功",
@@ -55,25 +46,15 @@ Page({
             }
           ]
         }
-        that.setData({
+        this.setData({
           pubList: res.data
         })
-      }
-    })
+      })
   },
   // 获取未发布空间列表
   getUnpub: function () {
-    var that = this;
-    wx.request({
-      url: app.data.requestUrl + 'home/space/unpublished_list',
-      methods: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        member_id: that.data.userData
-      },
-      success: function (res) {
+    app.http('/home/space/unpublished_list', {}, 'POST')
+      .then(res => {
         res = {
           "code": 200,
           "msg": "请求成功",
@@ -87,55 +68,20 @@ Page({
             }
           ]
         }
-        that.setData({
+        this.setData({
           unpubList: res.data
         })
-      }
-    })
+      })
   },
   // 下架空间
   handleDown(e) {
-    var that = this;
-    wx.request({
-      url: app.data.requestUrl + 'home/space/lower_space',
-      methods: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        member_id: that.data.userData,
-        space_id: e.currentTarget.dataset.id
-      },
-      success: function (res) {
-        if(res.data.code == 200) {
-
-        } else {
-          console.log(res.data.msg)
-        }
-      }
-    })
+    app.http('/home/space/lower_space', { space_id: e.currentTarget.dataset.id }, 'POST')
+      .then(res => {})
   },
   // 删除空间
   handleDel(e) {
-    var that = this;
-    wx.request({
-      url: app.data.requestUrl + 'home/space/del_space',
-      methods: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        member_id: that.data.userData,
-        space_id: e.currentTarget.dataset.id
-      },
-      success: function (res) {
-        if (res.data.code == 200) {
-
-        } else {
-          console.log(res.data.msg)
-        }
-      }
-    })
+    app.http('/home/space/del_space', { space_id: e.currentTarget.dataset.id }, 'POST')
+      .then(res => { })
   },
 
   /**

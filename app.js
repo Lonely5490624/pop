@@ -2,7 +2,7 @@
 App({
   data:{
     imgurl: 'http://pop.aieye8.com/data/upload/',
-    requestUrl: 'http://pop.aieye8.com/index.php/'
+    requestUrl: 'http://pop.aieye8.com/index.php'
   },
   ajaxData:function(data={}){
     var timestamp = Date.parse(new Date());
@@ -46,5 +46,39 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  // 封装的网络请求
+  http: function (url, pramas, type) {
+    let data = Object.assign({}, pramas, { member_id: 11 })
+    let promise = new Promise((resolve, reject) => {
+      wx.request({
+        url: this.data.requestUrl + url,
+        data,
+        method: type || 'GET',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          if (res.data.code == 200) {
+            resolve(res.data)
+          } else {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000
+            })
+            resolve(res.data.msg)
+          }
+        },
+        fail: function (err) {
+          wx.showToast({
+            title: '网络错误，请重试！',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    })
+    return promise
   }
 })
