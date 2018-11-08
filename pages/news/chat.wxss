@@ -107,9 +107,13 @@
   height: 80rpx;
   border-radius: 100%;
   float: left;
-  border: 1px red solid;
   margin-right: 20rpx;
   margin-left: 32rpx;
+}
+.chatBox .other .tx image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
 }
 
 .chatBox .other .cont {
@@ -135,9 +139,13 @@
   height: 80rpx;
   border-radius: 100%;
   float: right;
-  border: 1px red solid;
   margin-right: 20rpx;
   margin-left: 32rpx;
+}
+.chatBox .our .tx image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
 }
 
 .chatBox .our .cont {

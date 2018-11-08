@@ -47,7 +47,12 @@ page {
   width: 80rpx;
   height: 80rpx;
   border-radius: 100%;
-  border: 1px red solid;
+  margin-right: 32rpx;
+}
+.list .list_l image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
   margin-right: 32rpx;
 }
 

@@ -1,9 +1,0 @@
-<!--pages/fk/order/order-confirm-3.wxml-->
-<view class='pages'>  
-  <view class='content'>
-    <view class='con_list'>
-      <view class='con_list_l'>账号</view>
-      <view class='con_list_r'>ada阿达</view>
-    </view>
-  </view>  
-</view>
