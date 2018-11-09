@@ -57,11 +57,6 @@ Page({
     })
   },
   //事件处理函数
-  toSearch: function() {
-    wx.navigateTo({
-      url: '../../logs/logs'
-    })
-  },
   previewImages: function() {
     wx.previewImage({
       urls: ['http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg',
@@ -79,31 +74,20 @@ Page({
       })
     }
     var that = this
-    var data = {
-      space_id: that.data.space_id
-    }
-    data = app.ajaxData(data);
-    wx.request({
-      url: 'http://pop.aieye8.com/index.php/Home/home/spaceDetail',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: data,
-      success: function(res) {
+    app.http('/home/spaceDetail', { space_id: that.data.space_id})
+      .then(res => {
         console.log(res.data)
         that.setData({
-          space_info: res.data.data,
+          space_info: res.data,
           points: [{
-            longitude: res.data.data.longitude,
-            latitude: res.data.data.latitude
+            longitude: res.data.longitude,
+            latitude: res.data.latitude
           }, {
-            longitude: res.data.data.longitude,
-            latitude: res.data.data.latitude
+            longitude: res.data.longitude,
+            latitude: res.data.latitude
           }]
         })
-      }
-    })
+      })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

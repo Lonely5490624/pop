@@ -14,30 +14,17 @@ Page({
       userData: wx.getStorageSync('userData'),
       member_type: wx.getStorageSync('userData').member_type
     })
-    var data = {
-      member_id: that.data.userData.member_id
-    }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl+'home/my/index',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: data,
-      success: function (res) {        
+    app.http('/my/index')
+      .then(res => {
         that.setData({
-          userInfo: res.data.data
+          userInfo: res.data
         })
-        console.log(res.data.data)
-        if (res.data.data.head_img_url){   
-          console.log(1)       
+        if (res.data.head_img_url) {
           that.setData({
-            tx: res.data.data.head_img_url
+            tx: res.data.head_img_url
           })
         } 
-      }
-    })
+      })
   },
   signOut:function(){
     wx.showModal({
@@ -62,24 +49,11 @@ Page({
   },
   typeswitch:function(){
     var that=this
-    var data = {
-      member_id: that.data.userData.member_id,
-      member_type: that.data.userData.member_type
-    }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl+'home/my/index',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: data,
-      success: function (res) {
-        // that.setData({
-        //   userInfo: res.data.data
+    app.http('/my/index',{ member_type: that.data.userData.member_type})
+      .then(res => {
+        // this.setData({
+        //   pubList: res.data
         // })
-        console.log(res.data)        
-      }
-    })
+      })
   }
 })

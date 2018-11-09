@@ -7,29 +7,19 @@
   <view class='search-hot'>
     <view class='hot-title'>热门商圈</view>
     <view class='hot-list'>
-      <text class='hot-item'>新天地</text>
-      <text class='hot-item'>中山公园</text>
-      <text class='hot-item'>静安寺</text>
-      <text class='hot-item'>中山公园</text>
+      <text class='hot-item' wx:for='{{commercialCircleList}}'>{{item.name}}</text>
+      
     </view>
   </view>
   <view class='search-history'>
     <view class='history-title'>
       <text class='title'>历史搜索</text>
-      <text class='clear'>清空</text>
+      <text class='clear' bindtap='clear'>清空</text>
     </view>
     <view class='history-list'>
-      <view class='history-item'>
+      <view class='history-item' wx:for="{{historySearchList}}">
         <text class='iconfont icon-tubiao-'></text>
-        <text>田子坊</text>
-      </view>
-      <view class='history-item'>
-        <text class='iconfont icon-tubiao-'></text>
-        <text>外滩洛克菲勒</text>
-      </view>
-      <view class='history-item'>
-        <text class='iconfont icon-tubiao-'></text>
-        <text>南京西路</text>
+        <text id='{{item.id}}'>{{item.name}}</text>
       </view>
     </view>
   </view>

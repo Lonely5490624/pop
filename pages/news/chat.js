@@ -18,31 +18,14 @@ Page({
       order_id: options.order_id,
       space_id: options.space_id,
     })
-    // var data = {
-    //   member_id: that.data.userData.member_id,
-    //   member_type: that.data.userData.member_type,
-    //   info_id: that.data.info_id,
-    //   order_id: that.data.order_id,
-    //   space_id: that.data.space_id,
-    // }
-    // data = app.ajaxData(data);
-    // wx.request({
-    //   url: app.data.requestUrl + 'home/message/detail',
-    //   data: data,
-    //   method: "POST",
-    //   header: {
-    //     "Content-Type": "application/x-www-form-urlencoded"
-    //   },
-    //   success: function (res) {
-    //     that.setData({
-    //       newsList: res.data.data.result
-    //     })
-    //     console.log(res.data.data);
-    //   }
-    // })
-
-    app.http('/message/index', { member_type: this.data.userData.member_type })
-      .then(res => {
+  var data = {
+      member_type: that.data.userData.member_type,
+      info_id: that.data.info_id,
+      order_id: that.data.order_id,
+      space_id: that.data.space_id,
+    }
+    app.http('/message/index',data)
+      .then(res => {        
         this.setData({
           newsList: res.data
         })
@@ -55,32 +38,20 @@ Page({
   },
   send:function(){
     var that = this
-    that.setData({
-      userData: wx.getStorageSync('userData')
-    })
     var data = {
-      member_id: that.data.userData.member_id,
       member_type: that.data.userData.member_type,
       info_id: that.data.info_id,
       order_id: that.data.order_id,
       space_id: that.data.space_id,
       content: that.data.newsContent
     }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl + 'home/message/send_message',
-      data: data,
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        // that.setData({
-        //   newsList: res.data.data.result
+    app.http('/message/send_message',data)
+      .then(res => {
+        // this.setData({
+        //   pubList: res.data
         // })
-        console.log(res.data);
-      }
-    })
+        console.log(res);
+      })
   },
   refuse:function(e){
     wx.showModal({

@@ -18,53 +18,25 @@ Page({
     })
 
     //热门商圈
-    wx.request({
-        url: app.data.requestUrl + 'Home/home/commercialCircleList',
-        method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        data: {
-          member_id: '',
-          type: '1'
-        },
-        success: function(res) {
-          that.setData({
-            shangq: res.data.data
-          })
-        }
-      }),
+    app.http('/home/commercialCircleList', { type: '1'})
+      .then(res => {
+        this.setData({
+          shangq: res.data
+        })
+      })
       //故事列表
-      wx.request({
-        url: app.data.requestUrl + 'Home/home/storyList',
-        method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        data: {
-          member_id: ''
-        },
-        success: function(res) {
-          that.setData({
-            storyData: res.data.data
-          })
-        }
-      }),
+    app.http('/home/storyList')
+      .then(res => {
+        this.setData({
+          storyData: res.data
+        })
+      })
       //热门推荐
-      wx.request({
-        url: app.data.requestUrl + 'Home/home/isRecommendSpaceList',
-        method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        data: {
-          member_id: ''
-        },
-        success: function(res) {
-          that.setData({
-            recommendData: res.data.data
-          })
-        }
+    app.http('/home/isRecommendSpaceList')
+      .then(res => {
+        this.setData({
+          recommendData: res.data
+        })
       })
   },
   //加收藏
@@ -85,41 +57,22 @@ Page({
         }
       })
     }else{
-      wx.request({
-        url: app.data.requestUrl + 'Home/collection/editCollection',
-        method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        data: {
-          member_id: that.data.userData.member_id,
-          space_id: e.currentTarget.id
-        },
-        success: function (res) {
+      app.http('/collection/editCollection',{ space_id: e.currentTarget.id})
+        .then(res => {
           wx.showToast({
             title: res.data.msg,
             icon: 'none',
             duration: 2000
           })
           //热门推荐
-          wx.request({
-            url: app.data.requestUrl + 'Home/home/isRecommendSpaceList',
-            method: "POST",
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: {
-              member_id: that.data.userData.member_id,
-            },
-            success: function (res) {
+          app.http('/home/isRecommendSpaceList')
+            .then(res => {
               that.setData({
-                recommendData: res.data.data
+                recommendData: res.data
               })
               console.log(res.data)
-            }
-          })
-        }
-      })
+            })  
+        })
     }   
   },
   toSearch: function() {

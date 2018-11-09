@@ -1,26 +1,28 @@
 {
   "pages": [
+    "pages/fk/list/list",
+    "pages/fk/search/search",
+    "pages/fk/search/searchResult",
+    
+    
+    "pages/fk/index/index",
+    "pages/mine/mine",
     "pages/news/news",
     "pages/login/login",
-    
     "pages/news/newsSearch",
-    
     "pages/news/chat",
     "pages/news/cancelOrde",
     "pages/fd/space/index",
     "pages/fd/space/add-1",
-    "pages/fk/search/search",
-    "pages/fk/list/list",
+    
+    
     "pages/fd/data/data-income",
     "pages/fk/mine/setUp",
     "pages/fk/mine/mine",
     "pages/fk/mine/help",
     "pages/fk/news/cancelOrde",
-    "pages/fk/index/index",
-    
     "pages/fk/collection/collection",
     "pages/fk/collection/collectionList",
-    "pages/mine/mine",
     "pages/mine/paymentMethod",
     "pages/mine/addPaymentMethod",
     "pages/mine/version",
@@ -33,7 +35,6 @@
     "pages/login/register",
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
-    
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateSuccess",
@@ -45,7 +46,6 @@
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fd/data/data-view",
-    
     "pages/fk/trip/finalPay",
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",

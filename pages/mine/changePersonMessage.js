@@ -30,33 +30,26 @@ Page({
   },
   //保存
   saveInfo: function() {
-    wx.request({
-      url: app.data.requestUrl+'home/my/save',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        member_id: this.data.userData.member_id,
-        nick_name: this.data.userInfo.nick_name,
-        synopsis: this.data.userInfo.synopsis,
-        credentials_numbere: this.data.userInfo.credentials_numbere,
-        head_img_url:this.data.wxtx,
-        address: this.data.userInfo.province + ',' + this.data.userInfo.city + ',' + this.data.userInfo.county
-      },
-      success: function(res) {
+    var data={
+      nick_name: this.data.userInfo.nick_name,
+      synopsis: this.data.userInfo.synopsis,
+      credentials_numbere: this.data.userInfo.credentials_numbere,
+      head_img_url: this.data.wxtx,
+      address: this.data.userInfo.province + ',' + this.data.userInfo.city + ',' + this.data.userInfo.county
+  }
+    app.http('/my/save', data)
+      .then(res => {
         wx.showToast({
-          title: res.data.msg,
+          title: res.msg,
           icon: 'none',
           duration: 2000
         })
-        if (res.data.code==200){
+        if (res.code == 200) {
           wx.navigateTo({
             url: 'mine'
           })
-        }        
-      }
-    })
+        }  
+      })
   },
   onShow: function() {
     let pages = getCurrentPages();

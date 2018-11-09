@@ -15,23 +15,12 @@ Page({
     that.setData({
       userData: wx.getStorageSync('userData')
     })
-    var data = {
-      member_id: that.data.userData.member_id
-    }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl+'home/my/index',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: data,
-      success: function(res) {
-        that.setData({
-          userInfo: res.data.data
+    app.http('/my/index')
+      .then(res => {
+        this.setData({
+          userInfo: res.data
         })
-      }
-    })
+      })
   },
   bindPickerChange: function(e) {
     this.setData({
@@ -75,7 +64,6 @@ Page({
       return false;
     }
     var data = {
-      member_id: that.data.userData.member_id,
       true_name: that.data.userInfo.true_name,
       credentials_numbere: that.data.userInfo.credentials_numbere,
       bank_number: that.data.bank_number,
@@ -83,21 +71,11 @@ Page({
       bank_name: that.data.yhList[that.data.index],
       subbranch: that.data.subbranch
     }
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl +'home/my/save_bank',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data:data,
-      success: function(res) {
-        if (res.data.code == 200) {
-          wx.navigateTo({
+    app.http('/my/save_bank',data)
+      .then(res => {
+        wx.navigateTo({
             url: 'paymentMethod'
           })
-        }
-      }
-    })
+      })
   }
 })

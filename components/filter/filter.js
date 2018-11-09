@@ -49,29 +49,21 @@ Component({
   methods: {
     // 获取品类
     getCategory() {
-      let that = this;
-      wx.request({
-        url: app.data.requestUrl + 'Home/home/categoryList',
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            categoryList: res.data.data
+      app.http('/home/categoryList')
+        .then(res => {
+          this.setData({
+            categoryList: res.data
           })
-        }
-      })
+        })
     },
     // 获取便利设施
     getconvenience() {
-      let that = this;
-      wx.request({
-        url: app.data.requestUrl + 'Home/home/convenienceList',
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            getconvenienceList: res.data.data
+      app.http('/home/convenienceList')
+        .then(res => {
+          this.setData({
+            getconvenienceList: res.data
           })
-        }
-      })
+        })
     },
     // 选择类型
     chooseType (e) {

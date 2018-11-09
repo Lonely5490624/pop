@@ -1,10 +1,11 @@
 // pages/fk/list/list.js
 const spaceData = []
+var app=getApp()
 Page({
   data: {
     spaceData,
     opendate: false,
-    openFilter: true,
+    openFilter: false,
     userData:[]
   },
   opendate: function() {
@@ -21,58 +22,29 @@ Page({
     that.setData({
       userData: wx.getStorageSync('userData'),
     })
-    let data = Object.assign({}, params, {member_id: that.data.userData.member_id})
-    wx.request({
-      url: 'http://pop.aieye8.com/index.php/Home/home/searchSpace',
-      method: "POST",
-      data,
-      success: function (res) {
-        console.log(res.data.data)
-        for (var i = 0; i++; i <= res.data.data.length) {
-          res.data.data[i].avg_service = parseInt(res.data.data[i].avg_service)
+    app.http('/home/searchSpace')
+      .then(res => {
+        for (var i = 0; i++; i <= res.data.length) {
+          res.data[i].avg_service = parseInt(res.data[i].avg_service)
         }
         that.setData({
-          spaceData: res.data.data
+          spaceData: res.data
         })
-      }
-    })
+      })
   },
   //加收藏
   addCl:function(e){
     
     var that=this
-    console.log(that.data.userData.member_id)
-    wx.request({
-      url: 'http://pop.aieye8.com/index.php/Home/collection/editCollection',
-      method: "POST",
-      data: {
-        member_id: that.data.userData.member_id,
-        space_id: e.currentTarget.id
-      },
-      success: function (res) {
+    app.http('/collection/editCollection',{ space_id: e.currentTarget.id})
+      .then(res => {
         wx.showToast({
-          title: res.data.msg,
+          title: res.msg,
           icon: 'none',
           duration: 2000
         })
-        wx.request({
-          url: 'http://pop.aieye8.com/index.php/Home/home/searchSpace',
-          method: "POST",
-          data: {
-            member_id: that.data.userData.member_id,
-          },
-          success: function (res) {
-            console.log(res.data.data)
-            for (var i = 0; i++; i <= res.data.data.length) {
-              res.data.data[i].avg_service = parseInt(res.data.data[i].avg_service)
-            }
-            that.setData({
-              spaceData: res.data.data
-            })
-          }
-        })
-      }
-    })
+        this.getList();
+      })
   },
   openFilter: function() {
     this.setData({
