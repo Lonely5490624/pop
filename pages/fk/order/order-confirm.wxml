@@ -18,7 +18,7 @@
   </view>
   <view class='order-item'>
     <text class='left'>签约人</text>
-    <text class='right' bindtap='contractorOpen'>XXX</text>
+    <text class='right' bindtap='contractorOpen'>{{contractorName ? contractorName : "请选择"}}</text>
   </view>
   <view class='order-price'>
     <view class='all'>
@@ -53,45 +53,17 @@
     <text class='iconfont icon-iconfont56 close' bindtap='contractorClose'></text>
   </view>
   <scroll-view scroll-y class='contractor-content'>
-    <view class='contractor-item'>
+    <view wx:for='{{contractors}}' wx:key='{{item.id}}' class='contractor-item'>
       <view class='item-info'>
-        <view class='item-name'>李阳</view>
-        <view class='item-id'>身份证 310***********3278</view>
+        <view class='item-name'>{{item.name}}</view>
+        <view class='item-id'>身份证 {{item.idcard}}</view>
       </view>
-      <view class='item-check'><checkbox></checkbox></view>
-    </view>
-    <view class='contractor-item'>
-      <view class='item-info'>
-        <view class='item-name'>李阳</view>
-        <view class='item-id'>身份证 310***********3278</view>
-      </view>
-      <view class='item-check'><checkbox></checkbox></view>
-    </view>
-    <view class='contractor-item'>
-      <view class='item-info'>
-        <view class='item-name'>李阳</view>
-        <view class='item-id'>身份证 310***********3278</view>
-      </view>
-      <view class='item-check'><checkbox></checkbox></view>
-    </view>
-    <view class='contractor-item'>
-      <view class='item-info'>
-        <view class='item-name'>李阳</view>
-        <view class='item-id'>身份证 310***********3278</view>
-      </view>
-      <view class='item-check'><checkbox></checkbox></view>
-    </view>
-    <view class='contractor-item'>
-      <view class='item-info'>
-        <view class='item-name'>李阳</view>
-        <view class='item-id'>身份证 310***********3278</view>
-      </view>
-      <view class='item-check'><checkbox></checkbox></view>
+      <view bindtap='chooseContractor' data-id='{{item.id}}' data-name='{{item.name}}' class='item-check {{contractorId == item.id ? "active" : ""}}'></view>
     </view>
     <view class='contractor-add'>
       <navigator url='/pages/fk/contractor/contractor-add'>添加签约人</navigator>
     </view>
   </scroll-view>
-  <view class='contractor-bottom'>确定</view>
+  <view bindtap='contractorClose' class='contractor-bottom'>确定</view>
 </view>
 <view class='pop-over {{isContractorOpen ? "show" : ""}}'></view>

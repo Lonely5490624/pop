@@ -1,17 +1,5 @@
 // pages/fk/order/order-confirm.js
-const contractors = [{
-    name: '李阳',
-    idNum: '310***********3278',
-    isChecked: true
-  }, {
-    name: '李阳',
-    idNum: '310***********3278',
-    isChecked: false
-  }, {
-    name: '李阳',
-    idNum: '310***********3278',
-    isChecked: false
-  }]
+const app = getApp()
 
 Page({
 
@@ -19,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isContractorOpen: false
+    contractors: null,
+    isContractorOpen: false,
+    contractorId: null,
+    contractorName: null
   },
   contractorOpen: function () {
     this.setData({
@@ -37,7 +28,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getSignList()
+  },
+  // 获取签约人列表
+  getSignList() {
+    app.http('/space/getSignList')
+      .then(res => {
+        this.setData({
+          contractors: res.data
+        })
+      })
+  },
+  // 选择签约人
+  chooseContractor(e) {
+    console.log(e)
+    this.setData({
+      contractorId: e.currentTarget.dataset.id,
+      contractorName: e.currentTarget.dataset.name
+    })
   },
 
   /**

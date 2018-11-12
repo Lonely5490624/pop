@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fk/order/order-confirm",
     "pages/fk/list/list",
     "pages/fk/index/index",
     "pages/fd/space/index",
@@ -49,7 +50,6 @@
     "pages/fk/order/order-confirm-3",
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",
-    "pages/fk/order/order-confirm",
     "pages/logs/logs"
   ],
   "window": {
