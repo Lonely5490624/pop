@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/fk/list/list",
+    "pages/fk/index/index",
+    "pages/fd/space/index",
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
-    "pages/fd/space/index",
-    "pages/fk/list/list",
     "pages/fk/search/search",
     "pages/fk/search/searchResult",
-    "pages/fk/index/index",
     "pages/mine/mine",
     "pages/news/news",
     "pages/login/login",

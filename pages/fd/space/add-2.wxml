@@ -27,7 +27,7 @@
   <view class='item'>
     <view class='left'>楼层位置</view>
     <view class='right'>
-      <input type='text' bindinput='bindStoreyInput' value='storey' placeholder='请输入楼层位置'></input>
+      <input type='text' bindinput='bindStoreyInput' value='{{storey}}' placeholder='请输入楼层位置'></input>
     </view>
   </view>
 </view>

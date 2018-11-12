@@ -33,7 +33,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: 74,
+    spaceId: null,
     title: '',
     describe: '',
     attributes: ['专营店', '品牌店'],
@@ -66,10 +66,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.spaceId = this.data.spaceId
-    // this.setData({
-    //   spaceId: options.spaceId
-    // })
+    // options.spaceId = this.data.spaceId
+    this.setData({
+      spaceId: options.spaceId
+    })
     // 获取空间品类
     app.http('/home/categoryList')
       .then(res => {

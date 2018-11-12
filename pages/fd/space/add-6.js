@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: 74,
+    spaceId: null,
     unsubscribes: ['灵活：入驻前5天取消可退全款', '中等：入驻前7天取消可退全款'],
     unsubscribeArray,
     unsubscribeIndex: 0,
@@ -30,10 +30,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.spaceId = this.data.spaceId
-    // this.setData({
-    //   spaceId: options.spaceId
-    // })
+    // options.spaceId = this.data.spaceId
+    this.setData({
+      spaceId: options.spaceId
+    })
     app.http('/space/unpublished', { space_id: options.spaceId })
       .then(res => {
         let images = res.data.pics.split(',')
@@ -72,10 +72,22 @@ Page({
     let params = {
       space_id: this.data.spaceId,
       unsubscribe_policy: this.data.unsubscribeArray[unsubscribeIndex].id,
-      rules: this.data.rules,
-      everyday_price: this.data.everyday_price,
-      week_price: this.data.week_price,
-      clear_price: this.data.clear_price
+      // rules: this.data.rules,
+      // everyday_price: this.data.everyday_price,
+      // week_price: this.data.week_price,
+      // clear_price: this.data.clear_price
+      rules: '空间守则',
+      everyday_price: 1000,
+      week_price: 2000,
+      clear_price: 500,
+      min_subscribe_time: 15,
+      max_subscribe_time: 1,
+      max_hire_time: 60,
+      arrival_start_time: '2018-11-12',
+      arrival_end_time: '2019-01-01',
+      leave_time: '2019-01-05',
+      construct_start_time: '2018-11-12',
+      construct_end_time: '2019-01-01'
     }
     app.http('/space/published_four', params)
       .then(res => {
