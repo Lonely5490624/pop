@@ -3,30 +3,17 @@
 <view class='title'>上传空间照片</view>
 <view class='main'>
   <view class='control'>
-    <view class='add'>添加照片</view>
-    <view class='clear'>清空</view>
+    <view bindtap='uploadImg' class='add'>添加照片</view>
+    <view bindtap='clearImg' class='clear'>清空</view>
   </view>
-  <view class='list'>
-    <view class='item'>
-      <image src='/images/aaa.jpg' class='img'></image>
-      <image src='/images/cha.png' class='del'></image>
+  <view wx:if='{{images.length}}' class='list'>
+    <view wx:for='{{images}}' wx:key='{{index}}' class='item'>
+      <image src='{{item}}' class='img'></image>
+      <image bindtap='delImage' data-url='{{item}}' src='/images/cha.png' class='del'></image>
     </view>
-    <view class='item'>
-      <image src='/images/aaa.jpg' class='img'></image>
-      <image src='/images/cha.png' class='del'></image>
-    </view>
-    <view class='item'>
-      <image src='/images/aaa.jpg' class='img'></image>
-      <image src='/images/cha.png' class='del'></image>
-    </view>
-    <view class='item'>
-      <image src='/images/aaa.jpg' class='img'></image>
-      <image src='/images/cha.png' class='del'></image>
-    </view>
-    <view class='item'>
-      <image src='/images/aaa.jpg' class='img'></image>
-      <image src='/images/cha.png' class='del'></image>
-    </view>
+  </view>
+  <view wx:else class='list-nodata'>
+    <text>请添加照片</text>
   </view>
 </view>
-<view class='next'>下一步</view>
+<view bindtap='pubStep3' class='next'>下一步</view>

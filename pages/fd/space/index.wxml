@@ -32,7 +32,7 @@
     </view>
   </view>
 </view>
-<navigator url='add-1?spaceId=19'>
+<navigator url='add-1?spaceId=74'>
   <image src='/images/success2@1x.png' class='space-add'></image>
 </navigator>
 

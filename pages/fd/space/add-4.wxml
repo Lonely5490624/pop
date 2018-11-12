@@ -1,103 +1,59 @@
 <!--pages/fd/space/add-4.wxml-->
-<progress percent="100" stroke-width='2' activeColor='#ff5555' backgroundColor='#fff' />
+<wxs module="filter" src="../../../filter/height.wxs"></wxs>
+<progress percent="66.67" stroke-width='2' activeColor='#ff5555' backgroundColor='#fff' />
 <view class='title'>填写基本信息</view>
 <view class='list'>
   <view class='item'>
     <view class='left'>空间标题</view>
     <view class='right'>
-      <input type='text' placeholder='空间标题' placeholder-style='color: #e0e0e0;'></input>
+      <input type='text' bindinput='inputTile' value='{{title}}' placeholder='空间标题' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item-ver'>
     <view class='p1'>空间描述</view>
-    <textarea placeholder='请输入…'></textarea>
+    <textarea bindinput='inputDescribe' value='{{describe}}' placeholder='请输入…'></textarea>
   </view>
   <view class='item arrow'>
     <view class='left'>空间类型</view>
     <view class='right'>
-      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
-        <view>{{spaceTypes[spaceType]}}</view>
+      <picker bindchange="changeAttribute" range='{{attributes}}' mode="selector" value="{{attributeIndex}}">
+        <view>{{attributesArrar[attributeIndex].name}}</view>
       </picker>
     </view>
   </view>
   <view class='item-ver'>
     <view class='p1'>店铺品牌定位</view>
     <view class='con'>
-      <view class='con-item active'>食品</view>
-      <view class='con-item'>服饰服装</view>
-      <view class='con-item'>生活家居</view>
-      <view class='con-item'>美妆护肤</view>
-      <view class='con-item'>食品</view>
-      <view class='con-item'>服饰服装</view>
-      <view class='con-item'>生活家居</view>
-      <view class='con-item'>美妆护肤</view>
+      <view wx:for='{{categoryList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='choosePin' data-id='{{item.id}}' class='con-item {{filter.hasEle(category, item.id) ? "active" : ""}}'>{{item.name}}</view>
+    </view>
+  </view>
+  <view class='item arrow'>
+    <view class='left'>消费定位</view>
+    <view class='right'>
+      <picker bindchange="changeCon" range='{{consumption_orientations}}' mode="selector" value="{{consumption_orientationIndex}}">
+        <view>{{consumption_orientationsArray[consumption_orientationIndex].name}}</view>
+      </picker>
     </view>
   </view>
 </view>
+<view class='title'>店铺设施</view>
+  <view class='item-ver'>
+    <view class='con'>
+      <view wx:for='{{convenienceList}}' wx:key='{{item.id}}' bindtap='chooseCon' data-id='{{item.id}}' class='con-item {{filter.hasEle(convenience, item.id) ? "active" : ""}}'>{{item.name}}</view>
+    </view>
+  </view>
 <view class='title'>其他信息</view>
 <view class='list'>
   <view class='item'>
     <view class='left'>店长介绍</view>
     <view class='right'>
-      <input type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputIntroduce' type='text' value='{{store_introduce}}' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item-ver'>
     <view class='p1'>店长技能</view>
-    <textarea placeholder='请输入…'></textarea>
-  </view>
-</view>
-<view class='title'>预定</view>
-<view class='list'>
-  <view class='item-ver'>
-    <view class='p1'>对租客的要求</view>
-    <view class='con'>
-      <view class='con-item active'>要求</view>
-      <view class='con-item'>要求要求</view>
-      <view class='con-item'>要求要求</view>
-      <view class='con-item'>要求要求</view>
-      <view class='con-item active'>要求</view>
-      <view class='con-item'>要求要求</view>
-      <view class='con-item'>要求要求</view>
-      <view class='con-item'>要求要求</view>
-    </view>
-  </view>
-  <view class='item arrow'>
-    <view class='left'>退订政策</view>
-    <view class='right'>
-      <picker bindchange="changeSpaceType" range='{{spaceTypes}}' mode="selector" value="{{spaceType}}">
-        <view>{{spaceTypes[spaceType]}}</view>
-      </picker>
-    </view>
-  </view>
-  <view class='item-ver'>
-    <view class='p1'>空间守则</view>
-    <textarea placeholder='请输入…' value='这里是房东提出的空间守则内容，这里是房东提出的空间守则内容，这里是房东提出的空间守则内容，这里是房东提出的空间守则内容，这里是房东提出的空间守则内容。 '></textarea>
-  </view>
-</view>
-<view class='title'>价格</view>
-<view class='list'>
-  <view class='item'>
-    <view class='left'>每日价格</view>
-    <view class='right'>
-      <input type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
-    </view>
-  </view>
-  <view class='item'>
-    <view class='left'>周末价格（非必填）</view>
-    <view class='right'>
-      <input type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
-    </view>
-  </view>
-  <view class='item'>
-    <view class='left'>xx费（每个订单一次性支付）</view>
-    <view class='right'>
-      <input type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
-    </view>
+    <textarea bindinput='inputSkills' value='{{skills}}' placeholder='请输入…'></textarea>
   </view>
 </view>
 
-
-
-
-<view class='next'>下一步</view>
+<view bindtap='pubStep4' class='next'>下一步</view>

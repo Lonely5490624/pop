@@ -21,14 +21,14 @@
   <view class='item'>
     <view class='left'>商城名</view>
     <view class='right'>
-      <input type='text' placeholder='请输入商城名'></input>
+      <input type='text' bindinput='bindMallInput' value='{{mall_name}}' placeholder='请输入商城名'></input>
     </view>
   </view>
   <view class='item'>
     <view class='left'>楼层位置</view>
     <view class='right'>
-      <input type='text' placeholder='请输入楼层位置'></input>
+      <input type='text' bindinput='bindStoreyInput' value='storey' placeholder='请输入楼层位置'></input>
     </view>
   </view>
 </view>
-<view class='next'>下一步</view>
+<view bindtap='pubStep2' class='next'>下一步</view>

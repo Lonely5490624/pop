@@ -1,10 +1,15 @@
 // pages/fd/space/add-2.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    spaceId: null,
+    mall_name: null,
+    storey: null,
     region: ["四川省", "成都市", "武侯区"],
   },
 
@@ -12,7 +17,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('options', options)
+    this.setData({
+      spaceId: options.spaceId
+    })
+    app.http('/space/unpublished', { space_id: options.spaceId })
+      .then(res => {
+        this.setData({
+          mall_name: res.data.mall_name,
+          storey: res.data.storey
+        })
+      })
+  },
+  // 下一步
+  pubStep2() {
+    let params = {
+      space_id: this.data.spaceId,
+      province: '',
+      city: '',
+      mall_name: this.data.mall_name,
+      storey: this.data.storey
+    }
+    app.http('/space/published_one', params)
+      .then(res => {
+        wx.navigateTo({
+          url: `add-3?spaceId=${this.data.spaceId}`,
+        })
+      })
+  },
+  // 商城输入框
+  bindMallInput (e) {
+    this.setData({
+      mall_name: e.detail.value
+    })
+  },
+  // 位置输入框
+  bindStoreyInput(e) {
+    this.setData({
+      storey: e.detail.value
+    })
   },
 
   /**
