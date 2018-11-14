@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/fd/space/index",
+    "pages/fd/space/add-4",
     "pages/fk/order/order-confirm",
     "pages/fk/list/list",
     "pages/fk/index/index",
-    "pages/fd/space/index",
     "pages/fd/space/add-6",
-    "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fk/search/search",
     "pages/fk/search/searchResult",

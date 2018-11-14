@@ -14,6 +14,12 @@
     <textarea bindinput='inputDescribe' value='{{describe}}' placeholder='请输入…'></textarea>
   </view>
   <view class='item arrow'>
+    <view class='left'>空间位置</view>
+    <view class='right'>
+      <view bindtap='openMap'>{{address}}</view>
+    </view>
+  </view>
+  <view class='item arrow'>
     <view class='left'>空间类型</view>
     <view class='right'>
       <picker bindchange="changeAttribute" range='{{attributes}}' mode="selector" value="{{attributeIndex}}">

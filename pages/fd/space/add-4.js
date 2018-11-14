@@ -36,6 +36,9 @@ Page({
     spaceId: null,
     title: '',
     describe: '',
+    address: '重庆西站',
+    latitude: '',
+    longitude: '',
     attributes: ['专营店', '品牌店'],
     attributesArrar,
     attributeIndex: 0,
@@ -115,6 +118,25 @@ Page({
       describe: e.detail.value
     })
   },
+  // 打开地图
+  openMap () {
+    wx.chooseLocation({
+      success: res => {
+        let params = {
+          space_id: this.data.spaceId,
+          address: res.address,
+          lat: res.latitude,
+          lng: res.longitude
+        }
+        app.http('/space/published_map', params)
+          .then(res2 => {
+            this.setData({
+              address: res.address
+            })
+          })
+      },
+    })
+  },
   // 选择品牌
   choosePin(e) {
     let arr = this.data.category
@@ -172,9 +194,9 @@ Page({
     app.http('/space/published_three', params)
       .then(res => {
         console.log(res)
-        // wx.navigateTo({
-        //   url: `add-6?spaceId=${this.data.spaceId}`,
-        // })
+        wx.navigateTo({
+          url: `add-6?spaceId=${this.data.spaceId}`,
+        })
       })
   },
 
