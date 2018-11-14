@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/fk/order/order-confirm",
+    "pages/fk/order/order-confirm-3",
+    "pages/fk/order/order-confirm-2",
+    "pages/fk/contractor/contractor-add",
+    
     "pages/fk/list/list",
     "pages/fk/search/search",
     "pages/fk/search/searchResult",
@@ -53,10 +58,7 @@
     "pages/mine/changeM",
     "pages/login/changeM",
     "pages/login/changeM2",
-    "pages/fk/order/order-confirm-3",
-    "pages/fk/order/order-confirm-2",
-    "pages/fk/contractor/contractor-add",
-    "pages/fk/order/order-confirm",
+    
     "pages/logs/logs"
   ],
   "window": {
