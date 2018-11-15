@@ -14,22 +14,22 @@ Page({
     })
   },
   onLoad: function() {
-    this.getList()
+    this.getList({})
   },
   // 获取列表数据
   getList: function (params) {
-    var that = this
-    that.setData({
-      userData: wx.getStorageSync('userData'),
-    })
-    app.http('/home/searchSpace')
+    app.http('/home/searchSpace', params)
       .then(res => {
-        for (var i = 0; i++; i <= res.data.length) {
-          res.data[i].avg_service = parseInt(res.data[i].avg_service)
-        }
-        that.setData({
-          spaceData: res.data
+        console.log(res)
+        this.setData({
+          spaceData: res.data.space_data
         })
+        // for (var i = 0; i++; i <= res.data.length) {
+        //   res.data[i].avg_service = parseInt(res.data[i].avg_service)
+        // }
+        // that.setData({
+        //   spaceData: res.data
+        // })
       })
   },
   //加收藏

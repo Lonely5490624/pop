@@ -1,0 +1,114 @@
+<!--pages/fd/space/add-4.wxml-->
+<progress percent="100" stroke-width='2' activeColor='#ff5555' backgroundColor='#fff' />
+<view class='title'>预定</view>
+<view class='list'>
+  <view class='item-ver'>
+    <view class='p1'>对租客的要求</view>
+    <view class='con'>
+      <view class='con-item active'>要求</view>
+      <view class='con-item'>要求要求</view>
+      <view class='con-item'>要求要求</view>
+      <view class='con-item'>要求要求</view>
+      <view class='con-item active'>要求</view>
+      <view class='con-item'>要求要求</view>
+      <view class='con-item'>要求要求</view>
+      <view class='con-item'>要求要求</view>
+    </view>
+  </view>
+  <view class='item arrow'>
+    <view class='left'>退订政策</view>
+    <view class='right' style='width: 500rpx;'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item-ver'>
+    <view class='p1'>空间守则</view>
+    <textarea bindinput='inputRules' value='{{rules}}' placeholder='请输入…'></textarea>
+  </view>
+</view>
+<view class='title'>价格</view>
+<view class='list'>
+  <view class='item'>
+    <view class='left'>每日价格</view>
+    <view class='right'>
+      <input bindinput='inputEverydayPrice' value='{{everyday_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>周末价格（非必填）</view>
+    <view class='right'>
+      <input bindinput='inputWeekPrice' value='{{week_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>xx费（每个订单一次性支付）</view>
+    <view class='right'>
+      <input bindinput='inputClearPrice' value='{{clear_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+    </view>
+  </view>
+</view>
+<view class='title'>日历</view>
+<view class='title2'>可定状态</view>
+<view class='list'>
+  <view class='item'>
+    <view class='left'>提前预定天数</view>
+    <view class='right'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>可预订时段</view>
+    <view class='right'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='title2'>预定天数</view>
+<view class='list'>
+  <view class='item'>
+    <view class='left'>最少预定天数</view>
+    <view class='right'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>最多预定天数</view>
+    <view class='right'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class='title2'>入驻和清场时间</view>
+<view class='list'>
+  <view class='item'>
+    <view class='left'>经营时间</view>
+    <view class='right'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>施工时间</view>
+    <view class='right'>
+      <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
+        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view bindtap='pubDone' class='next'>下一步</view>

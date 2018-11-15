@@ -1,4 +1,7 @@
 /* pages/fd/space/add-3.wxss */
+page{
+  padding-bottom: 160rpx;
+}
 .main{
   padding: 0 32rpx;
 }
@@ -14,6 +17,12 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+.list-nodata{
+  text-align: center;
+  font-size: 32rpx;
+  color: #e4e4e4;
+  padding-top: 300rpx;
 }
 .item{
   width: 336rpx;

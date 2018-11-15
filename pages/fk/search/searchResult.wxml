@@ -1,0 +1,7 @@
+<view class='search'>
+  <view class='search-header'>
+    <!-- <input type='text' focus confirm-type='search' bindconfirm='search' placeholder='搜索您想要的城市、商圈' placeholder-class='search-placeholder'></input> -->
+    <view>{{search_content}}</view>
+  </view>
+  <view class='noSearch'>没有搜索到相关结果哦</view>
+</view>

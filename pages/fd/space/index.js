@@ -55,19 +55,6 @@ Page({
   getUnpub: function () {
     app.http('/space/unpublished_list')
       .then(res => {
-        res = {
-          "code": 200,
-          "msg": "请求成功",
-          "data": [
-            {
-              "id": "4",
-              "title": "杜的空间",
-              "banner": "home/201810221831307565278.jpeg",
-              "status": "0",
-              "examine_status": "0"
-            }
-          ]
-        }
         this.setData({
           unpubList: res.data
         })

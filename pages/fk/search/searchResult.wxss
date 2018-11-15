@@ -1,0 +1,18 @@
+/* pages/fk/search/search.wxss */
+.search{
+  padding: 0 32rpx;
+}
+.search-header view{
+  border-bottom: 2rpx solid #e0e0e0;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  flex-shrink: 1;
+  width: 100%;
+  color: #212121;
+}
+.noSearch{
+  color: #9B9B9B;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 400rpx;
+}

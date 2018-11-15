@@ -1,15 +1,11 @@
-// pages/fk/contractor/contractor-add.js
-const app = getApp()
-
+// pages/fk/mine/mine.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: '',
-    idcard: '',
-    tel: ''
+
   },
 
   /**
@@ -17,36 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  inputName(e) {
-    this.setData({
-      name: e.detail.value
-    })
-  },
-  inputID(e) {
-    this.setData({
-      idcard: e.detail.value
-    })
-  },
-  inputPhone(e) {
-    this.setData({
-      tel: e.detail.value
-    })
-  },
-  btnAdd() {
-    let params = {
-      name: this.data.name,
-      idcard: this.data.idcard,
-      tel: this.data.tel
-    }
-    app.http('/Space/saveSign', params)
-      .then(res => {
-        console.log(res)
-        wx.navigateBack({
-          url: '../order/order-confirm'
-        })
-      })
   },
 
   /**
