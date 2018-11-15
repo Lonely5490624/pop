@@ -1,66 +1,41 @@
 // pages/fd/data/data-score.js
+var app=getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    score:[],
+    userData:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.setData({
+      userData: wx.getStorageSync('userData')
+    })
+    console.log(this.data.userData)
+    // app.http('/data/space_comment_data', { member_type: this.data.userData.member_type, space_id: '' })
+    app.http('/data/space_comment_data',{member_type:'2',space_id:''})
+      .then(res => {
+        this.setData({
+          score: res.data
+        })
+        console.log(res.data)
+      })
   },
+  report:function(){
+    wx.showModal({
+      title: '确认要举报该评论吗？',
+      content: '一旦举报，将不可撤销',
+      success: function (res) {
+        if (res.confirm) {         
+          app.http('/data/report',{ comment_id: '',member_type:'2'})
+            .then(res => {
+              // this.setData({
+              //   pubList: res.data
+              // })
+            })
+        } else {
+          console.log('取消')
+        }
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      }
+    })
   }
 })

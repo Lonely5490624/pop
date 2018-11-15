@@ -1,61 +1,33 @@
 <!--pages/fd/data/data-num.wxml-->
 <view class='num'>
-  <view class='num-title'>你做得很棒！</view>
+  <view class='num-title'>{{dataInfo.official_content}}</view>
   <view class='num-list'>
-    <!-- <view class='num-item good'>
-      <view class='p1'>总体评分</view>
-      <view class='p2'>
-        <view class='score'>
-          <text class='t1'>4.9/</text>
-          <text class='t2'>5.0</text>
-        </view>
-        <view class='info'>您的得分超过了90%的房东</view>
-      </view>
-    </view>
-    <view class='num-item good'>
-      <view class='p1'>拒单次数</view>
-      <view class='p2'>
-        <view class='times'>
-          <text class='t1'>0</text>
-        </view>
-        <view class='info'>超棒！您过去没有拒绝过任何一个订单</view>
-      </view>
-    </view>
-    <view class='num-item good'>
-      <view class='p1'>回复率</view>
-      <view class='p2'>
-        <view class='reply'>
-          <text class='t1'>100%</text>
-        </view>
-        <view class='info'>您做到了每条消息必回</view>
-      </view>
-    </view> -->
     <view class='num-item bad'>
       <view class='p1'>总体评分</view>
       <view class='p2'>
         <view class='score'>
-          <text class='t1'>4.5/</text>
+          <text class='t1'>{{dataInfo.round_space_comment}}/</text>
           <text class='t2'>5.0</text>
         </view>
-        <view class='info'>您的得分超过了60%的房东</view>
+        <view class='info'>您的得分超过了{{dataInfo.comment_rate}}的房东</view>
       </view>
     </view>
     <view class='num-item bad'>
       <view class='p1'>拒单次数</view>
       <view class='p2'>
         <view class='times'>
-          <text class='t1'>10</text>
+          <text class='t1'>{{dataInfo.refuse_count}}</text>
         </view>
-        <view class='info'>您被拒绝的单数有点多哦</view>
+        <view class='info'>{{dataInfo.refuse_content}}</view>
       </view>
     </view>
     <view class='num-item bad'>
       <view class='p1'>回复率</view>
       <view class='p2'>
         <view class='reply'>
-          <text class='t1'>60%</text>
+          <text class='t1'>{{dataInfo.reversion_rate}}</text>
         </view>
-        <view class='info'>你的回复率有点低哦</view>
+        <view class='info'>{{dataInfo.reversion_content}}</view>
       </view>
     </view>
   </view>

@@ -1,16 +1,24 @@
 {
   "pages": [
+    "pages/fd/data/data-score",
+    
+    "pages/fd/data/data-num",
+    "pages/fd/data/index",
+    
+    
+    "pages/fd/data/data-view",
+    "pages/evaluate/evaluateList",
+    "pages/evaluate/evaluateMore",
+    "pages/evaluate/evaluate",
+    "pages/evaluate/evaluateSuccess",
+    "pages/fk/index/index",
     "pages/fk/order/order-confirm",
     "pages/fk/order/order-confirm-3",
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",
-    
     "pages/fk/list/list",
     "pages/fk/search/search",
     "pages/fk/search/searchResult",
-    
-    
-    "pages/fk/index/index",
     "pages/mine/mine",
     "pages/news/news",
     "pages/login/login",
@@ -19,8 +27,6 @@
     "pages/news/cancelOrde",
     "pages/fd/space/index",
     "pages/fd/space/add-1",
-    
-    
     "pages/fd/data/data-income",
     "pages/fk/mine/setUp",
     "pages/fk/mine/mine",
@@ -40,17 +46,10 @@
     "pages/login/register",
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
-    "pages/evaluate/evaluate",
-    "pages/evaluate/evaluateList",
-    "pages/evaluate/evaluateSuccess",
     "pages/login/yzMessage",
     "pages/fd/space/add-4",
     "pages/fd/space/add-3",
     "pages/fd/space/add-2",
-    "pages/fd/data/index",
-    "pages/fd/data/data-score",
-    "pages/fd/data/data-num",
-    "pages/fd/data/data-view",
     "pages/fk/trip/finalPay",
     "pages/fk/trip/tripInfo",
     "pages/fk/trip/trip",
@@ -58,7 +57,6 @@
     "pages/mine/changeM",
     "pages/login/changeM",
     "pages/login/changeM2",
-    
     "pages/logs/logs"
   ],
   "window": {

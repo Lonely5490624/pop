@@ -77,3 +77,15 @@
   font-size: 24rpx;
   margin: 20rpx 0;
 }
+.xing{
+  color: #E0E0E0;
+  font-size: 54rpx;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.xing image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 8rpx;
+}

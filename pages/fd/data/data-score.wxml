@@ -6,28 +6,28 @@
   <view class='score-list'>
     <view class='score-item'>
       <image class='img' src='/images/5.png'></image>
-      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
-      <text class='percent'>90%</text>
+      <progress class='progress' percent="{{score.one_rate}}" stroke-width='4' color="#ff5555" />
+      <text class='percent'>{{score.one_rate}}</text>
     </view>
     <view class='score-item'>
       <image class='img' src='/images/4.png'></image>
-      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
-      <text class='percent'>90%</text>
+      <progress class='progress' percent="{{score.two_rate}}" stroke-width='4' color="#ff5555" />
+      <text class='percent'>{{score.two_rate}}</text>
     </view>
     <view class='score-item'>
       <image class='img' src='/images/3.png'></image>
-      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
-      <text class='percent'>90%</text>
+      <progress class='progress' percent="{{score.three_rate}}" stroke-width='4' color="#ff5555" />
+      <text class='percent'>{{score.three_rate}}</text>
     </view>
     <view class='score-item'>
       <image class='img' src='/images/2.png'></image>
-      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
-      <text class='percent'>90%</text>
+      <progress class='progress' percent="{{score.four_rate}}" stroke-width='4' color="#ff5555" />
+      <text class='percent'>{{score.four_rate}}</text>
     </view>
     <view class='score-item'>
       <image class='img' src='/images/1.png'></image>
-      <progress class='progress' percent="60" stroke-width='4' color="#ff5555" />
-      <text class='percent'>90%</text>
+      <progress class='progress' percent="{{score.five_rate}}" stroke-width='4' color="#ff5555" />
+      <text class='percent'>{{score.five_rate}}</text>
     </view>
   </view>  
 </view>
@@ -79,7 +79,7 @@
       </view>
       <view class='eval-control'>
         <view class='eval-reply'>回复</view>
-        <view class='eval-report'>举报</view>
+        <view class='eval-report' bindtap='report'>举报</view>
       </view>
     </view>
     <view class='eval-item'>
