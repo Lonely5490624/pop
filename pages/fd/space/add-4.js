@@ -33,7 +33,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: 87,
+    spaceId: null,
     title: '',
     describe: '',
     address: '',
@@ -50,7 +50,8 @@ Page({
     convenience: [],
     convenienceList: [],
     store_introduce: '',
-    skills: ''
+    craftsmanship: [],
+    craftsmanshipList: []
   },
   // 空间类型选择
   changeAttribute: function (e) {
@@ -69,10 +70,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.spaceId = this.data.spaceId
-    // this.setData({
-    //   spaceId: options.spaceId
-    // })
+    // options.spaceId = this.data.spaceId
+    this.setData({
+      spaceId: options.spaceId
+    })
     // 获取空间品类
     app.http('/home/categoryList')
       .then(res => {
@@ -85,6 +86,13 @@ Page({
       .then(res => {
         this.setData({
           convenienceList: res.data
+        })
+      })
+    // 获取店长技能
+    app.http('/info/craftsmanship')
+      .then(res => {
+        this.setData({
+          craftsmanshipList: res.data
         })
       })
     app.http('/space/unpublished', { space_id: options.spaceId })
@@ -170,16 +178,24 @@ Page({
       store_introduce: e.detail.value
     })
   },
-  // 输入店长技能
-  inputSkills(e) {
+  // 选择店长技能
+  chooseCra(e) {
+    let arr = this.data.craftsmanship
+    let id = e.currentTarget.dataset.id
+    if (arr.indexOf(id) > -1) {
+      arr.remove(id)
+    } else {
+      arr.push(id)
+    }
     this.setData({
-      skills: e.detail.value
+      craftsmanship: arr
     })
   },
   // 下一步
   pubStep4() {
     let attributeIndex = this.data.attributeIndex
     let consumption_orientationIndex = this.data.consumption_orientationIndex
+    let category = this.data.category
     let params = {
       space_id: this.data.spaceId,
       title: this.data.title,
@@ -187,7 +203,7 @@ Page({
       store_introduce: this.data.store_introduce,
       attribute: this.data.attributesArrar[attributeIndex].id,
       consumption_orientation: this.data.consumption_orientationsArray[consumption_orientationIndex].id,
-      category: this.data.category,
+      category,
       convenience: this.data.convenience,
       store_introduce: this.data.store_introduce,
       craftsmanship: this.data.skills

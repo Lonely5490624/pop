@@ -5,29 +5,39 @@
     <view class='tx'></view>
   </view>
   <view class='perInfo'>这里是自我简介，最多展示五行，其余折叠，这里是自我简介，最多展示五行，其余折叠这里是自我简介，最多展示五行，其余折叠这里是自我简介，最多展示五行，其余折叠</view>
-  <view class='title'>8条评价</view>
-  <view class='list'>
+  <view class='title'>{{pList.length}}条评价</view>
+  <view class='list' wx:for="{{pList}}">
+    <view class='list_l'>{{item.head_img_url}}</view>
+    <view class='list_r'>
+      <view class='list_r_l1'>
+        <view style='display: flex;justify-content:center;'>
+          <view class='name'>{{item.nick_name}}</view>
+          <view class='xing' style="display:flex;flex-direction:row;margin-left:20rpx;">
+            <image src='/images/icon_xing1.png'></image>
+            <image src='/images/icon_xing3.png'></image>
+            <image src='/images/icon_xing2.png'></image>
+          </view>
+        </view>
+        <view class='date'>{{item.create_time}}</view>
+      </view>
+      <view class='list_r_l2'>{{item.count}}</view>
+    </view>
+  </view>
+  <!-- <view class='list'>
     <view class='list_l'></view>
     <view class='list_r'>
       <view class='list_r_l1'>
-        <view class='name'>用户名</view>
+        <view style='display: flex;justify-content:center;'>
+          <view class='name'>用户名</view>
+          <view class='xing' style="display:flex;flex-direction:row;margin-left:20rpx;">
+            <image src='/images/icon_xing1.png'></image>
+            <image src='/images/icon_xing3.png'></image>
+            <image src='/images/icon_xing2.png'></image>
+          </view>
+        </view>i
         <view class='date'>2018-12-28 10:41</view>
       </view>
       <view class='list_r_l2'>评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价</view>
     </view>
-  </view>
-  <view class='list'>
-    <view class='list_l'></view>
-    <view class='list_r'>
-      <view class='list_r_l1'>
-        <view class='name'>用户名</view>
-        <view class='date'>2018-12-28 10:41</view>
-      </view>
-      <view class='list_r_l2'>评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价</view>
-    </view>
-  </view>
-
-
-
-
+  </view> -->
 </view>

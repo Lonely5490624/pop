@@ -1,0 +1,64 @@
+<!--pages/fd/data/index.wxml-->
+<view class='page'>
+  <view class='top'>
+    <image src='/images/aaa.jpg'></image>
+    <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>准确度</view>
+    <view class='xing'>
+      <text class='score' wx:if="{{accuracy>=1}}">{{accuracy}}.0</text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=1? 'active': ''}}" bindtap="cAccuracy1"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=2? 'active': ''}}" bindtap="cAccuracy2"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=3? 'active': ''}}" bindtap="cAccuracy3"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=4? 'active': ''}}" bindtap="cAccuracy4"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=5? 'active': ''}}" bindtap="cAccuracy5"></text>
+    </view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>沟通性</view>
+    <view class='xing'>
+    <text class='score' wx:if="{{communicate>=1}}">{{communicate}}.0</text>
+      <text class="iconfont icon-wujiaoxing {{communicate>=1? 'active': ''}}" bindtap="cCommunicate1"></text>
+      <text class="iconfont icon-wujiaoxing {{communicate>=2? 'active': ''}}" bindtap="cCommunicate2"></text>
+      <text class="iconfont icon-wujiaoxing {{communicate>=3? 'active': ''}}" bindtap="cCommunicate3"></text>
+      <text class="iconfont icon-wujiaoxing {{communicate>=4? 'active': ''}}" bindtap="cCommunicate4"></text>
+      <text class="iconfont icon-wujiaoxing {{communicate>=5? 'active': ''}}" bindtap="cCommunicate5"></text>
+    </view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>场景效果</view>
+    <view class='xing'>
+    <text class='score' wx:if="{{effect>=1}}">{{effect}}.0</text>
+      <text class="iconfont icon-wujiaoxing {{effect>=1? 'active': ''}}" bindtap="cEffect1"></text>
+      <text class="iconfont icon-wujiaoxing {{effect>=2? 'active': ''}}" bindtap="cEffect2"></text>
+      <text class="iconfont icon-wujiaoxing {{effect>=3? 'active': ''}}" bindtap="cEffect3"></text>
+      <text class="iconfont icon-wujiaoxing {{effect>=4? 'active': ''}}" bindtap="cEffect4"></text>
+      <text class="iconfont icon-wujiaoxing {{effect>=5? 'active': ''}}" bindtap="cEffect5"></text>
+    </view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>运营能力</view>
+    <view class='xing'>
+    <text class='score' wx:if="{{operational_capacity>=1}}">{{operational_capacity}}.0</text>
+      <text class="iconfont icon-wujiaoxing {{operational_capacity>=1? 'active': ''}}" bindtap="cOerational_capacity1"></text>
+      <text class="iconfont icon-wujiaoxing {{operational_capacity>=2? 'active': ''}}" bindtap="cOerational_capacity2"></text>
+      <text class="iconfont icon-wujiaoxing {{operational_capacity>=3? 'active': ''}}" bindtap="cOerational_capacity3"></text>
+      <text class="iconfont icon-wujiaoxing {{operational_capacity>=4? 'active': ''}}" bindtap="cOerational_capacity4"></text>
+      <text class="iconfont icon-wujiaoxing {{operational_capacity>=5? 'active': ''}}" bindtap="cOerational_capacity5"></text>
+    </view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>营销转化</view>
+    <view class='xing'>
+    <text class='score' wx:if="{{marketing>=1}}">{{marketing}}.0</text>
+      <text class="iconfont icon-wujiaoxing {{marketing>=1? 'active': ''}}" bindtap="cMarketing1"></text>
+      <text class="iconfont icon-wujiaoxing {{marketing>=2? 'active': ''}}" bindtap="cMarketing2"></text>
+      <text class="iconfont icon-wujiaoxing {{marketing>=3? 'active': ''}}" bindtap="cMarketing3"></text>
+      <text class="iconfont icon-wujiaoxing {{marketing>=4? 'active': ''}}" bindtap="cMarketing4"></text>
+      <text class="iconfont icon-wujiaoxing {{marketing>=5? 'active': ''}}" bindtap="cMarketing5"></text>
+    </view>
+  </view>
+  <view class="nextBtn able" bindtap='next'>下一步</view>
+
+</view>

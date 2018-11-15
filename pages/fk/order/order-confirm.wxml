@@ -1,20 +1,20 @@
 <!--pages/fk/order/order-confirm.wxml-->
 <view class='order-title'>
-  <image src='/images/a1.png'></image>
-  <text>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</text>
+  <image src='{{imgUrl+space_info.banner}}'></image>
+  <text>{{space_info.title}}</text>
 </view>
 <view class='order-detail'>
   <view class='order-item'>
     <text class='left'>入驻</text>
-    <text class='right'>8月9日 周四</text>
+    <text class='right' bindtap='opendate'>8月9日 周四</text>
   </view>
   <view class='order-item'>
     <text class='left'>离开</text>
-    <text class='right'>8月19日 周三</text>
+    <text class='right' bindtap='opendate'>8月19日 周三</text>
   </view>
   <view class='order-item'>
     <text class='left'>用途</text>
-    <text class='right'>首饰精品、服饰服装</text>
+    <text class='right'>{{yt}}</text>
   </view>
   <view class='order-item'>
     <text class='left'>签约人</text>
@@ -36,8 +36,9 @@
   </view>
 </view>
 <view class='order-rule'>
-  <checkbox id='rule'></checkbox>
-  <label for='rule'>我已阅读并同意</label> <navigator url=''>空间守则</navigator>
+  <checkbox id='rule' color="#616161"></checkbox>
+  <label for='rule'>我已阅读并同意</label>
+  <navigator url=''>空间守则</navigator>
 </view>
 <view class='order-bottom'>
   <view class='price'>
@@ -56,9 +57,10 @@
     <view wx:for='{{contractors}}' wx:key='{{item.id}}' class='contractor-item'>
       <view class='item-info'>
         <view class='item-name'>{{item.name}}</view>
-        <view class='item-id'>身份证 {{item.idcard}}</view>
+        <view class='item-id' id="{{item.id}}">身份证 {{item.idcard}}</view>
       </view>
-      <view bindtap='chooseContractor' data-id='{{item.id}}' data-name='{{item.name}}' class='item-check {{contractorId == item.id ? "active" : ""}}'></view>
+      <text class="iconfont icon-xuanze-fangkuang item-check" data-id='{{item.id}}' data-name='{{item.name}}' wx:if="{{contractorId == item.id}}" bindtap='chooseContractor'></text>
+      <text class="iconfont icon-xuanzeweixuanze item-check" data-id='{{item.id}}' data-name='{{item.name}}' wx:else bindtap='chooseContractor'></text>
     </view>
     <view class='contractor-add'>
       <navigator url='/pages/fk/contractor/contractor-add'>添加签约人</navigator>
@@ -67,3 +69,6 @@
   <view bindtap='contractorClose' class='contractor-bottom'>确定</view>
 </view>
 <view class='pop-over {{isContractorOpen ? "show" : ""}}'></view>
+<view class="datepage {{opendate ? 'show':''}}">
+  <my-date bindmyevent="onMyEvent"></my-date>
+</view>

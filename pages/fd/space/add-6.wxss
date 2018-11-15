@@ -29,7 +29,7 @@ page{
   line-height: 44rpx;
 }
 .item .right{
-  width: 300rpx;
+  width: 500rpx;
   font-size: 28rpx;
   color: #9E9E9E;
   line-height: 44rpx;

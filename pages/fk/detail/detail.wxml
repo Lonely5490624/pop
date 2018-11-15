@@ -146,7 +146,7 @@
     </view>
     <view class='map_b'>{{space_info.address}}</view>
   </view>
-  <view class='box1 box2 mustknow'>
+  <view class='box1 box2 mustknow' style="padding-bottom:100rpx;">
     <view class='b2_title'>须知</view>
     <view class='mn_list'>
       <text class='t1'>3%定金比例</text>
@@ -176,7 +176,7 @@
         <text class='t1'>￥{{space_info.everyday_price}}/每天</text>
         <text class='t2'>最少预定{{space_info.min_hire_time}}天</text>
       </view>
-      <navigator class='btn' url='/pages/fk/order/order-confirm'>立即预定</navigator>
+      <navigator class='btn' bindtap='next'>立即预定</navigator>
     </view>
   </view>
 </view>

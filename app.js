@@ -56,7 +56,7 @@ App({
         data,
         method: 'POST',
         header: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
         },
         success: function (res) {
           if (res.data.code == 200) {

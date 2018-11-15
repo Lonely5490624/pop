@@ -13,7 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: 19,
+    spaceId: null,
     images: []
   },
 

@@ -70,6 +70,12 @@ Page({
     app.http('/space/del_space', { space_id: e.currentTarget.dataset.id })
       .then(res => { })
   },
+  // 继续编辑
+  handleEdit(e) {
+    wx.navigateTo({
+      url: `add-1?spaceId=${e.currentTarget.dataset.id}`,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

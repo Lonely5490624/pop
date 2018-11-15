@@ -1,66 +1,52 @@
 // pages/fd/data/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    bg:false,
+    pcount:'',
+    flag2: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getCount:function(e){
+    this.setData({
+      bg:true,
+      pcount: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  changeColor11: function () {
+    var that = this;
+    that.setData({
+      flag2: 1
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  changeColor12: function () {
+    var that = this;
+    that.setData({
+      flag2: 2
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  changeColor13: function () {
+    var that = this;
+    that.setData({
+      flag2: 3
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  changeColor14: function () {
+    var that = this;
+    that.setData({
+      flag2: 4
+    });
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  changeColor15: function () {
+    var that = this;
+    that.setData({
+      flag2: 5
+    });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  next:function(){
+    wx.navigateTo({
+      url: "evaluateMore?flag2=" + this.data.flag2 + "&pcount=" + this.data.pcount
+    })
   }
 })

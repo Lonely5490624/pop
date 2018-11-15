@@ -68,6 +68,7 @@ Page({
     this.setData({
       imgUrl: app.data.imgurl
     })
+    console.log(options)
     if (options != '') {
       this.setData({
         space_id: options.id
@@ -130,5 +131,10 @@ Page({
       desc: '自定义分享描述',
       path: '/page/user?id=123'
     }
+  },
+  next:function(){
+    wx.navigateTo({
+      url: "/pages/fk/order/order-confirm?space_id=" + this.data.space_id
+    })
   }
 })

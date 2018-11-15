@@ -4,29 +4,29 @@
 
   <navigator url='data-income' class='data-income'>
     <view class='income'>
-      <view class='income-all'>￥17900.50</view>
-      <view class='income-date'>8月收入</view>
+      <view class='income-all'>￥{{dataInfo.income}}</view>
+      <view class='income-date'>{{dataInfo.current_month}}月收入</view>
     </view>
     <text class='iconfont icon-icon1'></text>
   </navigator>
   <navigator url='data-view' class='data-views'>
     <view class='views'>
-      <view class='views-all'>2890</view>
+      <view class='views-all'>{{dataInfo.page_view_num}}</view>
       <view class='views-date'>30天浏览量</view>
     </view>
     <view class='views'>
-      <view class='views-all'>4</view>
+      <view class='views-all'>{{dataInfo.quantity}}</view>
       <view class='views-date'>30天预定量</view>
     </view>
     <text class='iconfont icon-icon1'></text>
   </navigator>
   <navigator url='data-score' class='data-views'>
     <view class='views'>
-      <view class='views-all'>4.9 <text class='small'>/5.0</text> </view>
+      <view class='views-all'>{{dataInfo.round_space_comment}} <text class='small'>/5.0</text> </view>
       <view class='views-date'>总体评分</view>
     </view>
     <view class='views'>
-      <view class='views-all'>29</view>
+      <view class='views-all'>{{dataInfo.comment_count}}</view>
       <view class='views-date'>评价数</view>
     </view>
     <text class='iconfont icon-icon1'></text>
@@ -39,18 +39,18 @@
   </view>
   <navigator url='data-num' class='data-num'>
     <view class='num'>
-      <view class='num-all'>4.7<text>/5.0</text></view>
+      <view class='num-all'>{{dataInfo.round_space_comment}} <text>/5.0</text></view>
       <view class='num-date'>总体评分</view>
     </view>
     <text class='iconfont icon-icon1'></text>
   </navigator>
   <view class='data-times'>
     <view class='times'>
-      <view class='times-all'>0</view>
+      <view class='times-all'>{{dataInfo.refuse_count}}</view>
       <view class='times-date'>拒单次数</view>
     </view>
     <view class='times'>
-      <view class='times-all'>100%</view>
+      <view class='times-all'>{{dataInfo.reversion_rate}}</view>
       <view class='times-date'>回复率</view>
     </view>
   </view>
