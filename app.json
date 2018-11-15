@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/fd/space/index",
     "pages/fd/space/add-4",
+    "pages/fd/space/index",
     "pages/fk/order/order-confirm",
     "pages/fk/list/list",
     "pages/fk/index/index",

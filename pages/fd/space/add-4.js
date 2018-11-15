@@ -33,10 +33,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: null,
+    spaceId: 87,
     title: '',
     describe: '',
-    address: '重庆西站',
+    address: '',
     latitude: '',
     longitude: '',
     attributes: ['专营店', '品牌店'],
@@ -69,10 +69,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = this.data.spaceId
-    this.setData({
-      spaceId: options.spaceId
-    })
+    options.spaceId = this.data.spaceId
+    // this.setData({
+    //   spaceId: options.spaceId
+    // })
     // 获取空间品类
     app.http('/home/categoryList')
       .then(res => {
@@ -100,6 +100,7 @@ Page({
         this.setData({
           title: res.data.title,
           describe: res.data.describe,
+          address: res.data.address,
           attributeIndex,
           store_introduce: res.data.store_introduce,
           consumption_orientationIndex
