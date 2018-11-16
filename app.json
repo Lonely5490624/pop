@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/fk/order/order-confirm",
+    "pages/fd/space/index",
+    "pages/fd/space/add-5",
+    "pages/fd/space/add-6",
+    "pages/fd/space/add-4",
     "pages/fk/list/list",
-    
-    
-   
-    
+    "pages/fk/order/order-confirm",
     "pages/fk/index/index",
     "pages/fd/data/data-score",
     
@@ -24,11 +24,8 @@
     "pages/fk/order/order-confirm-2",
     "pages/fk/contractor/contractor-add",
     
-    "pages/fd/space/index",
-    "pages/fd/space/add-4",
   
 
-    "pages/fd/space/add-6",
     "pages/fd/space/add-3",
     "pages/fk/search/search",
     "pages/fk/search/searchResult",

@@ -58,7 +58,9 @@
   </view>
   <view class='item-ver'>
     <view class='p1'>店长技能</view>
-    <textarea bindinput='inputSkills' value='{{skills}}' placeholder='请输入…'></textarea>
+    <view class='con'>
+      <view wx:for='{{craftsmanshipList}}' wx:key='{{item.id}}' bindtap='chooseCra' data-id='{{item.id}}' class='con-item {{filter.hasEle(craftsmanship, item.id) ? "active" : ""}}'>{{item.name}}</view>
+    </view>
   </view>
 </view>
 

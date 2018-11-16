@@ -1,11 +1,34 @@
 // pages/fd/space/add-4.js
 const app = getApp()
+Array.prototype.remove = function (val) {
+  var index = this.indexOf(val);
+  if (index > -1) {
+    this.splice(index, 1);
+  }
+};
+
 const unsubscribeArray = [{
   id: 1,
   name: '灵活：入驻前5天取消可退全款'
 }, {
   id: 2,
   name: '中等：入驻前7天取消可退全款'
+}]
+const subscribeTimeArray = [{
+  id: 1,
+  name: '30天'
+}, {
+  id: 2,
+  name: '60天'
+}, {
+  id: 3,
+  name: '90天'
+}, {
+  id: 4,
+  name: '6个月'
+}, {
+  id: 5,
+  name: '一年'
 }]
 
 Page({
@@ -14,11 +37,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: null,
+    spaceId: 87,
+    demand: [],
+    demandList: [],
     unsubscribes: ['灵活：入驻前5天取消可退全款', '中等：入驻前7天取消可退全款'],
     unsubscribeArray,
     unsubscribeIndex: 0,
-    rules: ''
+    rules: '',
+    min_subscribe_time: '',
+    min_hire_time: '',
+    max_hire_time: '',
+    subscribeTimes: ['30天', '60天', '90天', '6个月', '一年'],
+    subscribeTimeArray,
+    subscribeTimeIndex: 0,
+    arrival_start_time: '00:00',
+    arrival_end_time: '00:00',
+    leave_time: '00:00',
+    construct_start_time: '00:00',
+    construct_end_time: '00:00'
   },
   changeUnsubscribe: function (e) {
     this.setData({
@@ -30,17 +66,58 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = this.data.spaceId
-    this.setData({
-      spaceId: options.spaceId
-    })
-    app.http('/space/unpublished', { space_id: options.spaceId })
+    options.spaceId = this.data.spaceId
+    // this.setData({
+    //   spaceId: options.spaceId
+    // })
+    // 获取要求
+    app.http('/info/demand')
       .then(res => {
-        let images = res.data.pics.split(',')
         this.setData({
-          images
+          demandList: res.data
         })
       })
+    app.http('/space/unpublished', { space_id: options.spaceId })
+      .then(res => {
+        let unsubscribeIndex
+        this.data.unsubscribeArray.forEach((item, index) => {
+          if (item.id == res.data.unsubscribe_policy) unsubscribeIndex = index
+        })
+        let subscribeTimeIndex
+        this.data.subscribeTimeArray.forEach((item, index) => {
+          if (item.id == res.data.max_subscribe_time) subscribeTimeIndex = index
+        })
+        this.setData({
+          unsubscribeIndex,
+          rules: res.data.rules,
+          demand: res.data.demand,
+          everyday_price: res.data.everyday_price,
+          week_price: res.data.week_price,
+          clear_price: res.data.clear_price,
+          min_subscribe_time: res.data.min_subscribe_time,
+          subscribeTimeIndex,
+          min_hire_time: res.data.min_hire_time,
+          max_hire_time: res.data.max_hire_time,
+          arrival_start_time: res.data.arrival_start_time,
+          arrival_end_time: res.data.arrival_end_time,
+          leave_time: res.data.leave_time,
+          construct_start_time: res.data.construct_start_time,
+          construct_end_time: res.data.construct_end_time
+        })
+      })
+  },
+  // 选择要求
+  chooseDem(e) {
+    let arr = this.data.demand
+    let id = e.currentTarget.dataset.id
+    if (arr.indexOf(id) > -1) {
+      arr.remove(id)
+    } else {
+      arr.push(id)
+    }
+    this.setData({
+      demand: arr
+    })
   },
   // 输入空间守则
   inputRules (e) {
@@ -66,32 +143,87 @@ Page({
       clear_price: e.detail.value
     })
   },
+  // 输入提前预定天数
+  inputSubscribe(e) {
+    this.setData({
+      min_subscribe_time: e.detail.value
+    })
+  },
+  // 选择可预订时段
+  changeSubscribeTime(e) {
+    this.setData({
+      subscribeTimeIndex: e.detail.value
+    })
+  },
+  // 最少预定天数
+  inputMinHireTime(e) {
+    this.setData({
+      min_hire_time: e.detail.value
+    })
+  },
+  // 最多预定天数
+  inputMaxHireTime(e) {
+    this.setData({
+      max_hire_time: e.detail.value
+    })
+  },
+  // 选择入驻开始时间
+  bindArrivalStartTime(e) {
+    this.setData({
+      arrival_start_time: e.detail.value
+    })
+  },
+  // 选择入驻结束时间
+  bindArrivalEndTime(e) {
+    this.setData({
+      arrival_end_time: e.detail.value
+    })
+  },
+  // 选择离开时间
+  bindLeaveTime(e) {
+    this.setData({
+      leave_time: e.detail.value
+    })
+  },
+  // 选择施工开始时间
+  bindConstructStartTime(e) {
+    this.setData({
+      construct_start_time: e.detail.value
+    })
+  },
+  // 选择施工结束时间
+  bindConstructEndTime(e) {
+    this.setData({
+      construct_end_time: e.detail.value
+    })
+  },
   // 发布完成
   pubDone() {
     let unsubscribeIndex = this.data.unsubscribeIndex
+    let subscribeTimeIndex = this.data.subscribeTimeIndex
     let params = {
       space_id: this.data.spaceId,
       unsubscribe_policy: this.data.unsubscribeArray[unsubscribeIndex].id,
-      // rules: this.data.rules,
-      // everyday_price: this.data.everyday_price,
-      // week_price: this.data.week_price,
-      // clear_price: this.data.clear_price
-      rules: '空间守则',
-      everyday_price: 1000,
-      week_price: 2000,
-      clear_price: 500,
-      min_subscribe_time: 15,
-      max_subscribe_time: 1,
-      max_hire_time: 60,
-      arrival_start_time: '2018-11-12',
-      arrival_end_time: '2019-01-01',
-      leave_time: '2019-01-05',
-      construct_start_time: '2018-11-12',
-      construct_end_time: '2019-01-01'
+      rules: this.data.rules,
+      demand: this.data.demand,
+      everyday_price: this.data.everyday_price,
+      week_price: this.data.week_price,
+      clear_price: this.data.clear_price,
+      min_subscribe_time: this.data.min_subscribe_time,
+      max_subscribe_time: this.data.subscribeTimeArray[subscribeTimeIndex].id,
+      min_hire_time: this.data.min_hire_time,
+      max_hire_time: this.data.max_hire_time,
+      arrival_start_time: this.data.arrival_start_time,
+      arrival_end_time: this.data.arrival_end_time,
+      leave_time: this.data.leave_time,
+      construct_start_time: this.data.construct_start_time,
+      construct_end_time: this.data.construct_end_time
     }
     app.http('/space/published_four', params)
       .then(res => {
-        console.log(res)
+        wx.navigateTo({
+          url: `add-5`,
+        })
       })
   },
 

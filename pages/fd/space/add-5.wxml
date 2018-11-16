@@ -4,5 +4,5 @@
   <text>发布成功</text>
 </view>
 
-<navigator class='view'>查看发布的空间</navigator>
-<view class='done'>完成</view>
+<navigator url='index' class='view'>查看发布的空间</navigator>
+<navigator url='index' class='done'>完成</navigator>
