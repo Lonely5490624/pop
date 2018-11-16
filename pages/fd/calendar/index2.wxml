@@ -1,0 +1,29 @@
+<view class="dateTop">
+  <view class='close'>
+    <image src='/images/guan.png'></image>
+  </view>
+  <view class="cell" style='margin-left:30rpx;'>
+    <text class="t">入住日期</text>
+    <text class="b">{{startDate||"请选择"}}{{inDate}}</text>
+  </view>
+  <view class="xie">共{{dayNum}}天</view>
+  <view class="cell">
+    <text class="t">离场日期</text>
+    <text class="b">{{endDate||"请选择"}}</text>
+  </view>
+</view>
+<scroll-view scroll-y class='calendar-main'>
+  <view class="month-block" wx:for="{{canlendar_data}}" wx:for-item="canlendar_item">
+    <view class="month-title">{{canlendar_item.year}}年{{canlendar_item.month}}月</view>
+    <view class="week-title">
+      <view class="week-item {{idx===0||idx===6?'relax':''}}" wx:for="{{week_list}}" wx:for-index="idx">{{item}}</view>
+    </view>
+    <view class="month-content">
+      <view class="month-day {{item.fullDate<nowDate?'gray':''}} {{startDate===item.fullDate?'startActive':''}} {{endDate===item.fullDate?'endActive':''}} {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}}" bindtap="chooseDate"
+        data-year="{{canlendar_item.year}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{item.fullDate}}" wx:for="{{canlendar_item.allDays}}">
+        <view class='day-item'>{{item.day}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<button class="{{starttime&&endtime?'btn-main':''}} btn" bindtap="sure">确定</button>

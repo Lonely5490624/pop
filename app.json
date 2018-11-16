@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/fk/order/order-confirm",
+    "pages/fd/calendar/index2",
     "pages/fd/calendar/index",
+    
+    
     
     "pages/fk/index/index",
     

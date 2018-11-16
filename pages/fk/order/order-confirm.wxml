@@ -6,11 +6,11 @@
 <view class='order-detail'>
   <view class='order-item'>
     <text class='left'>入驻</text>
-    <text class='right' bindtap='opendate'>8月9日 周四</text>
+    <text class='right' bindtap='opendate'>{{startDate}}</text>
   </view>
   <view class='order-item'>
     <text class='left'>离开</text>
-    <text class='right' bindtap='opendate'>8月19日 周三</text>
+    <text class='right' bindtap='opendate'>{{endDate}}</text>
   </view>
   <view class='order-item'>
     <text class='left'>用途</text>
@@ -23,15 +23,15 @@
   <view class='order-price'>
     <view class='all'>
       <text class='left'>总费用</text>
-      <text class='right'>￥3000</text>
+      <text class='right'>￥{{moneyAll}}</text>
     </view>
     <view class='detail'>
       <text class='left'>定金 {{space_info.depositRate}}%</text>
-      <text class='right'>￥300 预定时支付</text>
+      <text class='right'>￥{{moneyY}} 预定时支付</text>
     </view>
     <view class='detail'>
       <text class='left'>余款 {{100-space_info.depositRate}}%</text>
-      <text class='right'>￥2700 于入场前{{space_info.final_payment_time}}天支付</text>
+      <text class='right'>￥{{moneyW}} 于入场前{{space_info.final_payment_time}}天支付</text>
     </view>
   </view>
 </view>
@@ -42,8 +42,8 @@
 </view>
 <view class='order-bottom'>
   <view class='price'>
-    <text class='t1'>本次支付定金￥300</text>
-    <text class='t2'>订单总￥3000 共10天，尾款￥2700于入驻前支付</text>
+    <text class='t1'>本次支付定金￥{{moneyY}}</text>
+    <text class='t2'>订单总￥{{moneyAll}} 共{{dayNum}}天，尾款￥{{moneyW}}于入驻前支付</text>
   </view>
   <navigator url='order-confirm-2' class='next'>下一步</navigator>
 </view>
@@ -69,6 +69,6 @@
   <view bindtap='contractorClose' class='contractor-bottom'>确定</view>
 </view>
 <view class='pop-over {{isContractorOpen ? "show" : ""}}'></view>
-<view class="datepage {{opendate ? 'show':''}}">
+<!-- <view class="datepage {{opendate ? 'show':''}}">
   <my-date bindmyevent="onMyEvent"></my-date>
-</view>
+</view> -->
