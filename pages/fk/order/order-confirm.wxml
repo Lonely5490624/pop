@@ -14,7 +14,7 @@
   </view>
   <view class='order-item'>
     <text class='left'>用途</text>
-    <text class='right'>{{yt}}</text>
+    <text class='right'>{{space_info.use}}</text>
   </view>
   <view class='order-item'>
     <text class='left'>签约人</text>
@@ -26,12 +26,12 @@
       <text class='right'>￥3000</text>
     </view>
     <view class='detail'>
-      <text class='left'>定金 10%</text>
+      <text class='left'>定金 {{space_info.depositRate}}%</text>
       <text class='right'>￥300 预定时支付</text>
     </view>
     <view class='detail'>
-      <text class='left'>余款 90%</text>
-      <text class='right'>￥2700 于入场前n天支付</text>
+      <text class='left'>余款 {{100-space_info.depositRate}}%</text>
+      <text class='right'>￥2700 于入场前{{space_info.final_payment_time}}天支付</text>
     </view>
   </view>
 </view>

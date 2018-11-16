@@ -31,26 +31,19 @@ Page({
     that.setData({
       imgUrl: app.data.imgurl,
     }) 
-    app.http('/home/spaceDetail', {space_id: that.data.space_id})
+    app.http('/space/getSpaceDetail', {space_id: that.data.space_id})
       .then(res => {
         that.setData({
-          space_info: res.data,
-          points: [{
-            longitude: res.data.longitude,
-            latitude: res.data.latitude
-          }, {
-            longitude: res.data.longitude,
-            latitude: res.data.latitude
-          }]
+          space_info: res.data
         })
         console.log(res.data)
-        var ss = []
-        for (var i = 0; i < that.data.space_info.category.length;i++){          
-          ss.push(that.data.space_info.category[i].name)      
-        }
-        that.setData({
-          yt:ss.join('、')
-        })
+        // var ss = []
+        // for (var i = 0; i < that.data.space_info.category.length;i++){          
+        //   ss.push(that.data.space_info.category[i].name)      
+        // }
+        // that.setData({
+        //   yt:ss.join('、')
+        // })
       }),
       this.getSignList()
   },
