@@ -1,18 +1,57 @@
 // pages/fk/order/order-confirm-2.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    img: '',
+    title: '',
+    totalPrice: '',
+    depositRate: 0,
+    deposit: 0,
+    balance: 0,
+    date: '',
+    signid: 0,
+    space_id: null,
+    payaway: 'wxchat',
+    payEndTime: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      img: app.data.imgurl + options.img,
+      title: options.title,
+      totalPrice: options.totalPrice,
+      depositRate: options.depositRate,
+      deposit: options.deposit,
+      balance: options.balance,
+      date: options.date,
+      signid: options.signid,
+      space_id: options.space_id,
+      payEndTime: options.payEndTime
+    })
+  },
+  // 确定预订
+  orderConfirm () {
+    let params = {
+      date: this.data.date,
+      signid: this.data.signid,
+      space_id: this.data.space_id,
+      totalPrice: this.data.totalPrice,
+      deposit: this.data.deposit,
+      payaway: this.data.payaway
+    }
+    app.http('/Order/subOrder', params)
+      .then(res => {
+        console.log(res)
+      })
   },
 
   /**

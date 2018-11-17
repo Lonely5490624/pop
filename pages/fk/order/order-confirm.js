@@ -20,6 +20,7 @@ Page({
     moneyY:0,
     moneyAll: 0,
     moneyW: 0,
+    dateArray: []
   },
   opendate: function () {
     wx.navigateTo({
@@ -36,27 +37,8 @@ Page({
         endDate: currPage.data.endDate
       });
     } 
-    var dateObj = [];
-    var dd = ["2018-12-6", "2018-12-7", "2018-12-8"]
-    for(var i=0;i<3;i++){
-      dateObj.push(dd[i]);
-    }  
-    var data = ({
-      space_id: "54",
-      date: dateObj
-    })
-    app.http('/space/getSpaceDayPrice',data)
-      .then(res => {        
-        console.log(res.data);
-      }) 
   },
-  onLoad: function(options) {
-    // if (options != '') {
-    //   this.setData({
-    //     space_id: options.id
-    //   })      
-    // }
-     
+  onLoad: function(options) {     
     var that = this
     that.setData({
       imgUrl: app.data.imgurl,
@@ -66,14 +48,6 @@ Page({
         that.setData({
           space_info: res.data
         })
-        console.log(res.data)
-        // var ss = []
-        // for (var i = 0; i < that.data.space_info.category.length;i++){          
-        //   ss.push(that.data.space_info.category[i].name)      
-        // }
-        // that.setData({
-        //   yt:ss.join('、')
-        // })
       }),
       this.getSignList()
   },
@@ -134,5 +108,12 @@ Page({
       console.log(params)
       this.getList(params)
     }
+  },
+  // 下一步
+  confirmNext () {
+    let params = `date=${this.data.dateArray}&signid=${this.data.contractorId}&space_id=${this.data.space_info.id}&title=${this.data.space_info.title}&img=${this.data.space_info.banner}&depositRate=${this.data.space_info.depositRate}&totalPrice=${this.data.moneyAll}&deposit=${this.data.moneyY}&balance=${this.data.moneyW}&payEndTime=${this.data.space_info.final_payment_time}`
+    wx.navigateTo({
+      url: `order-confirm-2?${params}`,
+    })
   }
 })

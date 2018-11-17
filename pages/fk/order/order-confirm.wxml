@@ -45,7 +45,7 @@
     <text class='t1'>本次支付定金￥{{moneyY}}</text>
     <text class='t2'>订单总￥{{moneyAll}} 共{{dayNum}}天，尾款￥{{moneyW}}于入驻前支付</text>
   </view>
-  <navigator url='order-confirm-2' class='next'>下一步</navigator>
+  <view bindtap='confirmNext' class='next'>下一步</view>
 </view>
 
 <view class='contractor {{isContractorOpen ? "show" : ""}}'>

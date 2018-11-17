@@ -1,3 +1,14 @@
+const app = getApp()
+Date.prototype.format = function () {
+  var s = '';
+  var mouth = (this.getMonth() + 1) >= 10 ? (this.getMonth() + 1) : ('0' + (this.getMonth() + 1));
+  var day = this.getDate() >= 10 ? this.getDate() : ('0' + this.getDate());
+  s += this.getFullYear() + '-'; // 获取年份。
+  s += mouth + "-"; // 获取月份。
+  s += day; // 获取日。
+  return (s); // 返回日期。
+}
+
 Page({
   data: {
     week_list: ['日', '一', '二', '三', '四', '五', '六'],
@@ -176,41 +187,46 @@ Page({
       }
     }      
   },
-   addDate(date, days) {    
-    if (days == undefined || days == '') {
-       days = 1;      
-    }    
-    var date = new Date(date);
-     date.setDate(date.getDate() + days);    
-    var month = date.getMonth() + 1;    
-    var day = date.getDate();    
-    var mm = "'" + month + "'";    
-    var dd = "'" + day + "'";    
-     //单位数前面加0    
-    if (mm.length == 3) {
-       month = "0" + month;      
-    }    
-    if (dd.length == 3) {
-       day = "0" + day;      
+  _close() {
+    wx.navigateBack({
+      
+    })
+  },
+  // 获取所有日期数组
+  getAll(begin, end) {
+    let dateAll = []
+    var ab = begin.split("-");
+    var ae = end.split("-");
+    var db = new Date();
+    db.setUTCFullYear(ab[0], ab[1] - 1, ab[2]);
+    var de = new Date();
+    de.setUTCFullYear(ae[0], ae[1] - 1, ae[2]);
+    var unixDb = db.getTime();
+    var unixDe = de.getTime();
+    for (var k = unixDb; k <= unixDe;) {
+      k = k + 24 * 60 * 60 * 1000;
+      dateAll.push((new Date(parseInt(k))).format())
     }
-    var time = date.getFullYear() + "-" + month + "-" + day    
-    return time;    
+    return dateAll
   },
   sure() {
-    for (var i = 0; i < this.data.dayNum.length;i++){
-      var addTime = this.addDate("2017-07-24", i);
-      dateArry.push(addTime);
-    }    
-    console.log(addTime);
-    // let pages = getCurrentPages(); //当前页面
-    // let prevPage = pages[pages.length - 2]; //上一页面 
-    // prevPage.setData({
-    //   startDate:this.data.startDate,
-    //   dayNum:this.data.dayNum,
-    //   endDate:this.data.endDate
-    // })
-    // wx.navigateBack({ //返回
-    //   delta: 1
-    // })
+    let pages = getCurrentPages(); //当前页面
+    let prevPage = pages[pages.length - 2]; //上一页面 
+    let dateArray = this.getAll(this.data.startDate, this.data.endDate)
+    app.http('/space/getSpaceDayPrice', { date: dateArray, space_id: 93 })
+      .then(res => {
+        prevPage.setData({
+          startDate: this.data.startDate,
+          dayNum: this.data.dayNum,
+          endDate: this.data.endDate,
+          dateArray: dateArray,
+          moneyAll: res.data.price,
+          moneyY: res.data.price * prevPage.data.space_info.depositRate / 100,
+          moneyW: res.data.price * (100 - prevPage.data.space_info.depositRate) / 100
+        })
+        wx.navigateBack({ //返回
+          delta: 1
+        })
+      })
   }
 })
