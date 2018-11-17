@@ -13,12 +13,42 @@ Page({
     space_id:'54',
     imgUrl:'',
     yt:'',
-    opendate:false
+    startDate:"请选择",
+    dayNum: 0,
+    endDate: "请选择",
+    opendate:false,
+    moneyY:0,
+    moneyAll: 0,
+    moneyW: 0,
   },
   opendate: function () {
-    this.setData({
-      opendate: true
-    })    
+    wx.navigateTo({
+      url: "/pages/fd/calendar/index2"
+    })   
+  },
+  onShow: function () {
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    if (currPage.data.info != undefined) {
+      this.setData({
+        startDate: currPage.data.startDate,
+        dayNum: currPage.data.dayNum,
+        endDate: currPage.data.endDate
+      });
+    } 
+    var dateObj = [];
+    var dd = ["2018-12-6", "2018-12-7", "2018-12-8"]
+    for(var i=0;i<3;i++){
+      dateObj.push(dd[i]);
+    }  
+    var data = ({
+      space_id: "54",
+      date: dateObj
+    })
+    app.http('/space/getSpaceDayPrice',data)
+      .then(res => {        
+        console.log(res.data);
+      }) 
   },
   onLoad: function(options) {
     // if (options != '') {
@@ -31,26 +61,19 @@ Page({
     that.setData({
       imgUrl: app.data.imgurl,
     }) 
-    app.http('/home/spaceDetail', {space_id: that.data.space_id})
+    app.http('/space/getSpaceDetail', {space_id: that.data.space_id})
       .then(res => {
         that.setData({
-          space_info: res.data,
-          points: [{
-            longitude: res.data.longitude,
-            latitude: res.data.latitude
-          }, {
-            longitude: res.data.longitude,
-            latitude: res.data.latitude
-          }]
+          space_info: res.data
         })
         console.log(res.data)
-        var ss = []
-        for (var i = 0; i < that.data.space_info.category.length;i++){          
-          ss.push(that.data.space_info.category[i].name)      
-        }
-        that.setData({
-          yt:ss.join('、')
-        })
+        // var ss = []
+        // for (var i = 0; i < that.data.space_info.category.length;i++){          
+        //   ss.push(that.data.space_info.category[i].name)      
+        // }
+        // that.setData({
+        //   yt:ss.join('、')
+        // })
       }),
       this.getSignList()
   },

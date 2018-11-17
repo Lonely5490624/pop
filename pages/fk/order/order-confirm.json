@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "确认订单",
   "usingComponents": {
-    "space-contractor": "/components/contractor/contractor"
+    "space-contractor": "/components/contractor/contractor",
+    "my-date": "/components/date/date",
+    "space-search": "/components/search/search",
+    "space-filter": "/components/filter/filter"
   }
 }

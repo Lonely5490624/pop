@@ -1,12 +1,20 @@
 {
   "pages": [
-    "pages/fk/list/list",
+    "pages/fk/order/order-confirm",
+    "pages/fd/calendar/index2",
+    "pages/fd/calendar/index",
+    
+    
+    
+    "pages/fk/index/index",
+    
     "pages/fd/space/index",
     "pages/fd/space/add-5",
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",
-    "pages/fk/order/order-confirm",
-    "pages/fk/index/index",
+    "pages/fk/list/list",
+    
+    
     "pages/fd/data/data-score",
     
     "pages/fd/data/data-num",

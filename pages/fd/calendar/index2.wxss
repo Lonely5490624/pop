@@ -1,86 +1,13 @@
-.color9 {
-  color: #999999;
-}
-
-.colormain {
-  color: #ec6517;
-}
-
-.mgl2 {
-  margin-left: 20rpx;
-}
-
-.mgt2 {
-  margin-top: 20rpx;
-}
-
-.bb {
-  border-bottom: 1rpx solid #EEEEEE;
-}
-
-.translateX0 {
-  transform: translate3d(-100%, 0, 0) !important;
-}
-
-.fl {
-  float: left !important;
-}
-
-.fr {
-  float: right !important;
-}
-
-.divcenter {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-height: 100%;
-  max-width: 100%;
-}
-
-.suolue {
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-  -moz-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.fs36 {
-  font-size: 36rpx;
-}
-
-.fs28 {
-  font-size: 28rpx;
-}
-
-.fs48 {
-  font-size: 48rpx;
-}
-
-.clear {
-  clear: both;
-}
-
-.btn-mainred {
-  border: 1px solid #FF5555;
-  color: #FF5555;
-}
-
-.btn-main {
-  background: #FF5555 !important;
-  color: #FFFFFF !important;
-}
+/* pages/fd/calendar/index.wxss */
 
 .dateTop {
   height: 100rpx;
-  padding: 50rpx 20rpx;
+  padding: 0rpx 20rpx;
   display: flex;
   padding-top:20rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .close{
   padding-left: 40rpx;
@@ -131,88 +58,6 @@
   line-height: 40rpx;
   margin:0 60rpx;
 }
-
-.canlendarTopView {
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 26rpx;
-  color: #999999;
-  display: flex;
-}
-
-.canlendarTopView .leftBgView, .canlendarTopView .centerView, .canlendarTopView .rightBgView {
-  flex: 1;
-  flex-direction: row;
-  text-align: center;
-}
-
-.weekBgView {
-  display: flex;
-  height: 90rpx;
-  line-height: 90rpx;
-  font-size: 26rpx;
-}
-
-.weekBgView .weekView {
-  flex: 1;
-  text-align: center;
-}
-
-.dateBgView {
-  height: auto;
-  overflow: hidden;
-}
-
-.dateBgView .cyt {
-  width: 107rpx;
-  height: 107rpx;
-  float: left;
-  text-align: center;
-  line-height: 107rpx;
-}
-
-.dateBgView .dateEmptyView {
-  color: #999999;
-}
-
-.dateBgView .noselect {
-  color: #CCCCCC;
-  font-size:20rpx;
-}
-
-.dateBgView .select {
-  margin: 24rpx auto;
-  width: 60rpx;
-  height: 60rpx;
-  text-align: center;
-  line-height: 60rpx;
-  background: #FF5555;
-  color: #FFFFFF;
-  border-radius: 50%;
-  font-size: 20rpx;
-}
-
-.dateBgView .zj {
-  margin: 24rpx auto;
-  width: 60rpx;
-  height: 60rpx;
-  text-align: center;
-  line-height: 60rpx;
-  background: #f4c4a7;
-  color: #FFFFFF;
-  border-radius: 50%;
-}
-
-.btn {
-  width: 680rpx;
-  height: 100rpx;
-  border-radius: 6rpx;
-  margin: 50rpx auto 0;
-  line-height: 100rpx;
-  color: #FFFFFF;
-  background: #999999;
-}
-/* pages/fd/calendar/index.wxss */
 .calendar-title{
   font-size: 48rpx;
   color: #212121;
@@ -249,9 +94,9 @@
 }
 
 .calendar-main{
-  height: calc(100% - 362rpx);
+  height: calc(100% - 270rpx);
   position: absolute;
-  bottom: 0;
+  bottom:140rpx;
   left: 0;
 }
 .month-block{
@@ -304,4 +149,16 @@
 .month-day.endActive .day-item{
   background: #ff5555;
   color: #fff;
+}
+.btn {
+  width: 90%;
+  height: 100rpx;
+  border-radius: 6rpx;
+  margin: 50rpx auto 0;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background: #FF5555;
+  position: fixed;
+  left: 5%;
+  bottom: 10rpx;
 }
