@@ -193,34 +193,42 @@ Page({
     })
   },
   // 获取所有日期数组
-  getAll(begin, end) {
-    let dateAll = []
-    var ab = begin.split("-");
-    var ae = end.split("-");
-    var db = new Date();
-    db.setUTCFullYear(ab[0], ab[1] - 1, ab[2]);
-    var de = new Date();
-    de.setUTCFullYear(ae[0], ae[1] - 1, ae[2]);
-    var unixDb = db.getTime();
-    var unixDe = de.getTime();
-    for (var k = unixDb; k <= unixDe;) {
-      k = k + 24 * 60 * 60 * 1000;
-      dateAll.push((new Date(parseInt(k))).format())
+  getDate (datestr) {
+    let temp = datestr.split("-");
+    if(temp[1] === '01') {
+      temp[0] = parseInt(temp[0], 10) - 1;
+      temp[1] = '12';
+    } else {
+      temp[1] = parseInt(temp[1], 10) - 1;
     }
-    return dateAll
+    let date = new Date(temp[0], temp[1], temp[2]);
+    return date;
+  },
+  getAll (start, end) {
+    let startTime = this.getDate(start);
+    let endTime = this.getDate(end);
+    let dateArr = [];
+    while ((endTime.getTime() - startTime.getTime()) >= 0) {
+      let year = startTime.getFullYear();
+      let month = startTime.getMonth().toString().length === 1 ? "0" + (parseInt(startTime.getMonth().toString(), 10) + 1) : (startTime.getMonth() + 1);
+      let day = startTime.getDate().toString().length === 1 ? "0" + startTime.getDate() : startTime.getDate();
+      dateArr.push(year + "-" + month + "-" + day);
+      startTime.setDate(startTime.getDate() + 1);
+    }
+    return dateArr;
   },
   sure() {
     let pages = getCurrentPages(); //当前页面
     let prevPage = pages[pages.length - 2]; //上一页面 
     let dateArray = this.getAll(this.data.startDate, this.data.endDate)
-    app.http('/space/getSpaceDayPrice', { date: dateArray, space_id: 93 })
+    app.http('/space/getSpaceDayPrice', { date: dateArray, space_id: prevPage.data.space_info.id })
       .then(res => {
         prevPage.setData({
           startDate: this.data.startDate,
           dayNum: this.data.dayNum,
           endDate: this.data.endDate,
           dateArray: dateArray,
-          moneyAll: res.data.price,
+          moneyAll: Number(res.data.price) + Number(prevPage.data.space_info.clear_price) + Number(prevPage.data.space_info.cash_pledge),
           moneyY: res.data.price * prevPage.data.space_info.depositRate / 100,
           moneyW: res.data.price * (100 - prevPage.data.space_info.depositRate) / 100
         })

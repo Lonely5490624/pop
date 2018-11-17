@@ -10,7 +10,7 @@ Page({
     contractorId: null,
     contractorName: null,
     space_info:[],
-    space_id:'54',
+    space_id:'',
     imgUrl:'',
     yt:'',
     startDate:"请选择",
@@ -41,7 +41,8 @@ Page({
   onLoad: function(options) {     
     var that = this
     that.setData({
-      imgUrl: app.data.imgurl,
+      space_id: options.space_id,
+      imgUrl: app.data.imgurl
     }) 
     app.http('/space/getSpaceDetail', {space_id: that.data.space_id})
       .then(res => {

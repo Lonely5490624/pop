@@ -50,7 +50,9 @@ Page({
     }
     app.http('/Order/subOrder', params)
       .then(res => {
-        console.log(res)
+        wx.navigateTo({
+          url: 'order-confirm-3',
+        })
       })
   },
 

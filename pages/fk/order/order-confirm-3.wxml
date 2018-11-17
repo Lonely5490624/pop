@@ -4,4 +4,4 @@
   <view class='deposit'>¥300</view>
   <view class='success'>交纳成功</view>
 </view>
-<view class='order-bottom'>完成</view>
+<navigator url='../trip/trip' class='order-bottom'>完成</navigator>
