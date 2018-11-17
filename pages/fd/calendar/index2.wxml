@@ -26,4 +26,4 @@
     </view>
   </view>
 </scroll-view>
-<button class="{{starttime&&endtime?'btn-main':''}} btn" bindtap="sure">确定</button>
+<button class="{{starttime&&endtime?'btn-main':''}} btn" bindtap="DateAdd">确定</button>

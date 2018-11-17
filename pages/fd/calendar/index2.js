@@ -1,11 +1,11 @@
 Page({
   data: {
     week_list: ['日', '一', '二', '三', '四', '五', '六'],
-    startDate: '2018-11-01',
-    endDate: '2018-11-25',
+    startDate: '',
+    endDate: '',
     date_click: 0,
     dayNum: 0,
-    date:[]
+    dateArry: []
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -100,6 +100,7 @@ Page({
     })
   },
   onLoad() {
+
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;
@@ -136,6 +137,8 @@ Page({
     const month_click = e.currentTarget.dataset.month;
     const day_click = e.currentTarget.dataset.day;
     console.log('date', year_click, month_click, day_click);
+
+
     // 如果是空格或者以前的日期就直接返回
     if (day_click === '' || `${year_click}-${month_click}-${day_click}` < this.data.nowDate) {
       return;
@@ -171,19 +174,43 @@ Page({
           dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`)
         })
       }
-
+    }      
+  },
+   addDate(date, days) {    
+    if (days == undefined || days == '') {
+       days = 1;      
+    }    
+    var date = new Date(date);
+     date.setDate(date.getDate() + days);    
+    var month = date.getMonth() + 1;    
+    var day = date.getDate();    
+    var mm = "'" + month + "'";    
+    var dd = "'" + day + "'";    
+     //单位数前面加0    
+    if (mm.length == 3) {
+       month = "0" + month;      
+    }    
+    if (dd.length == 3) {
+       day = "0" + day;      
     }
+    var time = date.getFullYear() + "-" + month + "-" + day    
+    return time;    
   },
   sure() {
-    let pages = getCurrentPages(); //当前页面
-    let prevPage = pages[pages.length - 2]; //上一页面 
-    prevPage.setData({
-      startDate:this.data.startDate,
-      dayNum:this.data.dayNum,
-      endDate:this.data.endDate
-    })
-    wx.navigateBack({ //返回
-      delta: 1
-    })
+    for (var i = 0; i < this.data.dayNum.length;i++){
+      var addTime = this.addDate("2017-07-24", i);
+      dateArry.push(addTime);
+    }    
+    console.log(addTime);
+    // let pages = getCurrentPages(); //当前页面
+    // let prevPage = pages[pages.length - 2]; //上一页面 
+    // prevPage.setData({
+    //   startDate:this.data.startDate,
+    //   dayNum:this.data.dayNum,
+    //   endDate:this.data.endDate
+    // })
+    // wx.navigateBack({ //返回
+    //   delta: 1
+    // })
   }
 })
