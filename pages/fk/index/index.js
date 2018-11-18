@@ -1,14 +1,12 @@
 var app = getApp()
-// const shangq = []
-// const recommendData = []
-// const storyData = []
 Page({
   data: {
     shangq: [],
     userData: [],
     recommendData: [],
     storyData: [],
-    imgUrl: ''
+    imgUrl: '',
+    locateUrl:'/images/fa-img.jpg'
   },
   onLoad: function() {
     var that = this;
@@ -38,6 +36,11 @@ Page({
           recommendData: res.data
         })
       })
+  },
+  gotolist: function (e) {
+    wx.navigateTo({
+      url: "../list/list?name=" + e.currentTarget.dataset.text
+    })
   },
   //加收藏
   addCl: function (e) {

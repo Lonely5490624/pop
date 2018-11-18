@@ -1,4 +1,44 @@
 /* pages/fk/list/list.wxss */
+
+.search{
+  display: flex;
+  justify-content: space-between;
+}
+.locate{
+  line-height: 80rpx;
+  width: 20%;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+.locate-img{
+  width: 24rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.locate-text{
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.search-input{
+  width: 520rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+  color: #616161;
+  padding: 28rpx 0;
+  background-size: 30rpx;
+  position: relative;
+}
+.search-icon{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30rpx;
+}
+.navigator-hover{
+  background: none;
+}
 .space-coms{
   padding-bottom: 18rpx;
   margin-top: 28rpx;

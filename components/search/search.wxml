@@ -1,5 +1,4 @@
 <!-- 搜索条 -->
-
 <view class="search">
   <view class="locate">
     <text class='iconfont icon-dingwei' style="color:#000000;"></text>

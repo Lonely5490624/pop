@@ -33,6 +33,11 @@ Page({
         })
       })
   },
+  bindtapFunc: function (e) {
+    wx.navigateTo({
+      url: "../list/list?name=" + e.currentTarget.dataset.text
+    })
+  },
   //获取热门商圈
   getCommercialCircleList:function(){
     app.http('/home/commercialCircleList')

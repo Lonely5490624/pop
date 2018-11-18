@@ -10,6 +10,14 @@ Page({
     userData:[],
     imgUrl:''
   },
+  onShow:function(){
+    app.http('/collection/getCollection')
+      .then(res => {
+        this.setData({
+          shangq: res.data
+        })
+      })
+  },
   //事件处理函数
   onLoad: function () {
     var that=this;
@@ -17,25 +25,12 @@ Page({
       imgUrl: app.data.imgurl,
       userData: wx.getStorageSync('userData')
     })   
-    console.log(app.data.imgurl)
-    var data={
-      member_id: that.data.userData.member_id
-    } 
-    data = app.ajaxData(data);
-    wx.request({
-      url: app.data.requestUrl+'Home/collection/getCollection',
-      method:"POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data:data,      
-      success: function (res) {
-        that.setData({
-          shangq: res.data.data
+    app.http('/collection/getCollection')
+      .then(res => {
+        this.setData({
+          shangq: res.data
         })
-        console.log(res.data);
-      }
-    })
+      })
   },
   gotoList:function(e){
     wx.navigateTo({

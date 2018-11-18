@@ -49,11 +49,13 @@ Page({
   },
   typeswitch:function(){
     var that=this
-    app.http('/my/index',{ member_type: that.data.userData.member_type})
+    app.http('/my/change',{ member_type: that.data.userData.member_type})
       .then(res => {
-        // this.setData({
-        //   pubList: res.data
-        // })
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
+        })
       })
   }
 })

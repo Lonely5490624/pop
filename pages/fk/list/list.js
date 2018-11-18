@@ -6,15 +6,48 @@ Page({
     spaceData,
     opendate: false,
     openFilter: false,
-    userData:[]
+    userData:[],
+    cityList: [],
+    index: 0,
+    searchC:'输入您想要的城市、商圈'
   },
   opendate: function() {
     this.setData({
       opendate: true
     })
   },
-  onLoad: function() {
-    this.getList({})
+  onLoad: function(options) {     
+    if (options.name != undefined){
+      this.setData({
+        searchC: options.name
+      }) 
+      this.getList({ search_content: options.name})
+    }else{
+      this.getList({})      
+    }
+  },
+  onReady:function(){
+    this.getCityList();
+  },
+  getCityList:function() {
+    app.http('/area/cityList')
+      .then(res => {
+        this.setData({
+          cityList: res.data
+        })
+        console.log(res.data);
+      })
+  },
+  toSearch: function () {
+    wx.navigateTo({
+      url: '/pages/fk/search/search'
+    })
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   // 获取列表数据
   getList: function (params) {

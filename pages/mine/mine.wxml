@@ -25,14 +25,14 @@
       </view>
     </view>
     <navigator url="paymentMethod">
-      <view class='con_list' wx:if='{{member_type==1}}'>
+      <view class='con_list' wx:if='{{member_type==2}}'>
         <view class='con_list_l'>收付款方式</view>
         <view class='con_list_r'>
           <text class="iconfont icon-icon_arrow_right"></text>
         </view>
       </view>
     </navigator>
-    <view class='con_list' wx:if='{{member_type==1}}'>
+    <view class='con_list' wx:if='{{member_type==2}}'>
       <view class='con_list_l' bindtap='typeswitch'>切换至消费模式</view>
       <view class='con_list_r'>
         <text class="iconfont icon-icon_arrow_right"></text>

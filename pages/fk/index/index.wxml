@@ -8,7 +8,7 @@
       <view class='shangq-scroll-item' wx:for='{{shangq}}'>
         <!-- <text class='shangq-text-cn'>{{item.name}}</text> -->
         <!-- <text class='shangq-text-en'>{{item.textEn}}</text> -->
-        <image class='shangq-img' src='http://pop.aieye8.com/data/upload/{{item.pic}}'></image>
+        <image class='shangq-img' bindtap='gotolist' data-text="{{item.name}}" src='http://pop.aieye8.com/data/upload/{{item.pic}}'></image>
       </view>
     </scroll-view>
   </view>
@@ -55,7 +55,9 @@
   </view>
 </view>
 <view class='index-adv'>
-  <image src='{{locateUrl}}'></image>
+  <navigator url="/pages/fd/space/index">
+    <image src='{{locateUrl}}'></image>
+  </navigator>
 </view>
 
 <!--底部-->

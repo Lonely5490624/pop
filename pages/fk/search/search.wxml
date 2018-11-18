@@ -7,8 +7,7 @@
   <view class='search-hot'>
     <view class='hot-title'>热门商圈</view>
     <view class='hot-list'>
-      <text class='hot-item' wx:for='{{commercialCircleList}}'>{{item.name}}</text>
-      
+      <text class='hot-item' data-text="{{item.name}}" wx:for='{{commercialCircleList}}' bindtap='bindtapFunc'>{{item.name}}</text>
     </view>
   </view>
   <view class='search-history'>

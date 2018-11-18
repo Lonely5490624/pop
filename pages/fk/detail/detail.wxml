@@ -52,8 +52,8 @@
   </view>
   <view class='box1 box2'>
     <view class='b2_title'>介绍信息</view>
-    <view class='b2_info'>这里是介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</view>
-    <view class='b2_more'>查看完整介绍</view>
+    <view class="b2_info {{ssHeight?'height':''}}" >{{space_info.describe}}</view>
+    <view class='b2_more' wx:if="{{isShow1}}" bindtap='openMore'>查看完整介绍</view>
   </view>
   <view class='box1 box2'>
     <view class='b2_title'>空间配备与设施</view>
@@ -65,7 +65,7 @@
         <view class='text'>{{item.name}}</view>
       </view>
     </view>
-    <view class='b2_more' bindtap='openMore' wx:if='{{space_info.convenience_facilities.length>4}}'>查看更多</view>
+    <view class='b2_more' bindtap='openMore' wx:if='{{isShow2}}'>查看更多</view>
   </view>
   <view class='box1 box2 box4' wx:if="{{space_info.comment!=''}}">
     <view class='b4_top'>

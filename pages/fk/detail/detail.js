@@ -10,7 +10,7 @@ Page({
       latitude: 23.099994,
       longitude: 113.324520,
       width: 50,
-      height: 50,      
+      height: 50,
     }],
     polyline: [{
       points: points,
@@ -42,18 +42,21 @@ Page({
     space_id: '', //空间id
     space_info: [],
     ssHeight: false,
-    isShow:true,
-    imgUrl:''
+    isShow1: false,
+    isShow2: false,
+    imgUrl: ''
   },
   //立即预定
-  reserve:function(){
-    
+  reserve: function() {
+
   },
+
   //查看更多
-  openMore:function(){
+  openMore: function() {
     this.setData({
       ssHeight: true,
-      isShow:false
+      isShow1: false,
+      isShow2: false
     })
   },
   //事件处理函数
@@ -75,7 +78,9 @@ Page({
       })
     }
     var that = this
-    app.http('/home/spaceDetail', { space_id: that.data.space_id})
+    app.http('/home/spaceDetail', {
+        space_id: that.data.space_id
+      })
       .then(res => {
         console.log(res.data)
         that.setData({
@@ -88,6 +93,16 @@ Page({
             latitude: res.data.latitude
           }]
         })
+        if (res.data.describe.length > 40) {
+          that.setData({
+            isShow1: true
+          })
+        }
+        if (res.data.convenience_facilities.length > 4) {
+          that.setData({
+            isShow2: true
+          })
+        }
       })
     if (app.globalData.userInfo) {
       this.setData({
@@ -132,7 +147,7 @@ Page({
       path: '/page/user?id=123'
     }
   },
-  next:function(){
+  next: function() {
     wx.navigateTo({
       url: "/pages/fk/order/order-confirm?space_id=" + this.data.space_id
     })
