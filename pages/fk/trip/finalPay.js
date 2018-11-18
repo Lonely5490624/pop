@@ -2,74 +2,43 @@
 //获取应用实例
 const app = getApp()
 
-const shangq = [{
-    textCn: '新天地',
-    textEn: 'XinTianDi',
-    img: 'http://www.runoob.com/try/demo_source/paris.jpg'
-  }, {
-    textCn: '南京西路',
-    textEn: 'West Nanjing Road',
-    img: 'http://www.runoob.com/try/demo_source/paris.jpg'
-  }, {
-    textCn: '新天地',
-    textEn: 'XinTianDi',
-    img: 'http://www.runoob.com/try/demo_source/paris.jpg'
-  }, {
-    textCn: '南京西路',
-    textEn: 'West Nanjing Road',
-    img: 'http://www.runoob.com/try/demo_source/paris.jpg'
-  }]
-const shangq2 = [{
-  textCn: '新天地',
-  textEn: 'XinTianDi',
-  img: 'http://www.runoob.com/try/demo_source/paris.jpg'
-},]
 Page({
   data: {
-    locateUrl: 'http://www.runoob.com/try/demo_source/paris.jpg',
-    shangq,
-    shangq2,
+    order_id: null,
+    balance_time: '11月15日 00:00',
+    account: '28837XXXXXXXXXX',
+    img: null
   },
   //事件处理函数
-  toSearch: function() {
-    wx.navigateTo({
-      url: '../../logs/logs'
+  onLoad: function (options) {
+    this.setData({
+      order_id: options.id
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+  copy () {
+    wx.setClipboardData({
+      data: this.data.account,
+      success: res => {
+
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    })
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  uploadImg () {
+    wx.chooseImage({
+      count: 1,
+      success: res => {
+        console.log(res)
+        this.setData({
+          img: res.tempFiles[0].path
+        })
+        app.http('/order/upload_voucher', { order_id: this.data.order_id, file: this.data.img})
+          .then(res => {
+            wx.showToast({
+              title: res.msg,
+              duration: 2000
+            })
+          })
+      }
     })
   }
 })

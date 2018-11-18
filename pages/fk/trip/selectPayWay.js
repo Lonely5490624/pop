@@ -21,9 +21,9 @@ Page({
   },
   toPay () {
     let payWay = this.data.index
-    if (payWay === 0) {
+    if (payWay == 0) {
 
-    } else if (payWay === 2) {
+    } else if (payWay == 2) {
       wx.navigateTo({
         url: `finalPay?id=${this.data.orderId}`
       })
