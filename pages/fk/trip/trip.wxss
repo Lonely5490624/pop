@@ -43,6 +43,8 @@
   color: #212121;
   font-size: 28rpx;
   margin-left: 28rpx;
+  width: 100%;
+  flex-shrink: 1;
 }
 
 .box .list3 {

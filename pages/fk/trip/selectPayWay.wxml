@@ -8,5 +8,5 @@
       </picker>
     </view>
   </view>
-  <view class='btn'>支付</view>
+  <view bindtap='toPay' class='btn'>支付</view>
 </view>

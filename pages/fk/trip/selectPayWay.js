@@ -6,6 +6,7 @@ Page({
   data: {
     array: ['微信', '支付宝', '公对公付款'],
     index: 0,
+    orderId: null
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -13,4 +14,19 @@ Page({
       index: e.detail.value
     })
   },
+  onLoad (options) {
+    this.setData({
+      orderId: options.id
+    })
+  },
+  toPay () {
+    let payWay = this.data.index
+    if (payWay === 0) {
+
+    } else if (payWay === 2) {
+      wx.navigateTo({
+        url: `finalPay?id=${this.data.orderId}`
+      })
+    }
+  }
 })
