@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fd/data/data-view",
     "pages/fd/space/index",
     "pages/fk/trip/trip",
     "pages/fk/trip/finalPay",
@@ -16,7 +17,6 @@
     "pages/fd/space/add-5",
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",
-    "pages/fd/data/data-view",
     "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateMore",
     "pages/evaluate/evaluate",
