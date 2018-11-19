@@ -3,20 +3,57 @@ var app=getApp()
 Page({
   data: {
     score:[],
-    userData:[]
+    userData:[],
+    isshowHf:false,
+    isshowHfbtn:true,
+    hfCont:''
   },
   onLoad: function (options) {
     this.setData({
       userData: wx.getStorageSync('userData')
     })
     console.log(this.data.userData)
-    // app.http('/data/space_comment_data', { member_type: this.data.userData.member_type, space_id: '' })
     app.http('/data/space_comment_data',{member_type:'2',space_id:''})
       .then(res => {
         this.setData({
           score: res.data
         })
         console.log(res.data)
+      })
+  },
+  openHf:function(){
+    this.setData({
+      isshowHf:true,
+      isshowHfbtn:false
+    })
+  },
+  closeHf: function () {
+    this.setData({
+      isshowHf: false,
+      isshowHfbtn: true
+    })
+  },
+  getHfcont:function(e){
+    this.setData({
+      hfCont: e.detail.value
+    })    
+  },
+  submitHf:function(){
+    var data = {
+      member_type:'2',
+      comment_id:'',
+      content: this.data.hfCont
+    }
+    app.http('/data/save_reply_content', data)
+      .then(res => {
+        // this.setData({
+        //   newsList: res.data
+        // })
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
+        })
       })
   },
   report:function(){

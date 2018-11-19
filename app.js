@@ -4,6 +4,7 @@ App({
     imgurl: 'http://pop.aieye8.com/data/upload/',
     requestUrl: 'http://pop.aieye8.com/index.php/home'
   },
+  
   ajaxData:function(data={}){
     var timestamp = Date.parse(new Date());
     data.t = timestamp / 1000;
@@ -45,7 +46,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    xData: '123',
+    yData: ''
   },
   // 封装的网络请求
   http: function (url, pramas) {

@@ -3,7 +3,13 @@
 <view class='view'>
   <view class='view-title'>浏览量</view>
   <view class='chart'>
-    <view class='chart-content'>
+
+
+    <view class="container">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </view>
+
+    <!-- <view class='chart-content'>
       <view class='chart-prev'><text class='iconfont icon-icon1'></text></view>
       <scroll-view scroll-x class='chart-show'>
         <view class='chart-item'>
@@ -13,22 +19,22 @@
         <view class='chart-item'></view>
       </scroll-view>
       <view class='chart-next'><text class='iconfont icon-icon1'></text></view>
-    </view>
+    </view> -->
     <view class='chart-price'>
       <view class='price-all'>1890</view>
-      <view class='price-info'>2018年8月浏览量</view>
+      <view class='price-info'>2018年{{viewInfo.current_month}}月浏览量</view>
     </view>
   </view>
 </view>
 <view class='view-list'>
   <view class='view-top'>
     <view class='item'>
-      <view class='p1'>4</view>
-      <view class='p2'>2018年8月预定量</view>
+      <view class='p1'>{{viewInfo.quantity}}</view>
+      <view class='p2'>2018年{{viewInfo.current_month}}月预定量</view>
     </view>
     <view class='item'>
-      <view class='p1'>1.5%</view>
-      <view class='p2'>2018年8月预定率</view>
+      <view class='p1'>{{viewInfo.rate}}</view>
+      <view class='p2'>2018年{{viewInfo.current_month}}月预定率</view>
     </view>
   </view>
   <view class='view-bottom'>

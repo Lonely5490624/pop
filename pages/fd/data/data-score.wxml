@@ -48,20 +48,21 @@
           </view>
         </view>
       </view>
-      <!-- <view class='eval-control'>
-        <view class='eval-reply'>回复</view>
-        <view class='eval-report'>举报</view>
-      </view> -->
-      <view class='eval-form'>
-        <textarea placeholder="请输入您的回复，最多200字…" placeholder-style="color: #e0e0e0;"></textarea>
+      <view class='eval-control'>
+        <view class='eval-reply' bindtap='openHf' wx:if="{{isshowHfbtn}}">回复</view>
+        <view class='eval-report' wx:if="{{isshowHfbtn}}"  bindtap='report'>举报</view>
+      </view>
+      <view class='eval-form' wx:if="{{isshowHf}}">
+        <textarea placeholder="请输入您的回复，最多200字…" bindinput='getHfcont' placeholder-style="color: #e0e0e0;"></textarea>
         <view class='form-control'>
           <view class='form-num'>1/200</view>
           <view class='form-btn'>
-            <view class='cancel'>取消</view>
-            <view class='submit'>提交</view>
+            <view class='cancel' bindtap='closeHf'>取消</view>
+            <view class='submit' bindtap='submitHf'>提交</view>
           </view>
         </view>
       </view>
+      
     </view>
     <view class='eval-item'>
       <view class='eval-detail'>
@@ -79,7 +80,7 @@
       </view>
       <view class='eval-control'>
         <view class='eval-reply'>回复</view>
-        <view class='eval-report' bindtap='report'>举报</view>
+        <view class='eval-report'>举报</view>
       </view>
     </view>
     <view class='eval-item'>

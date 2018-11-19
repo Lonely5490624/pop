@@ -39,6 +39,14 @@
 .eval-list{
   margin-top: 38rpx;
 }
+.eval-item{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding-top:10rpx; 
+  border-bottom:2rpx solid #e0e0e0;
+  padding-bottom: 20rpx;
+}
 .eval-item .eval-detail{
   display: flex;
   justify-content: space-between;
@@ -86,8 +94,8 @@
   padding-right: 32rpx;
   margin-top: 32rpx;
   margin-left: 68rpx;
-  padding-bottom: 20rpx;
-  border-bottom: 2rpx solid #e0e0e0;
+  /* padding-bottom: 20rpx; */
+  /* border-bottom: 2rpx solid #e0e0e0; */
 }
 .eval-item .eval-control .eval-reply{
   display: inline-block;
