@@ -82,8 +82,10 @@ Page({
     this.ecComponent = this.selectComponent('#mychart-dom-line')
     app.http('/data/browse_data', data)
       .then(res => {
-        xData = [18, 36, 65, 30, 78, 40, -1]
-        yData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        //xData = [18, 36, 65, 30, 78, 40, -1]
+        //yData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        xData = res.data.num_arr,
+        yData = res.data.month_arr,
         this.ecComponent.init((canvas, width, height) => {
           const chart = echarts.init(canvas, null, {
             width: width,
@@ -98,9 +100,9 @@ Page({
           viewInfo: res.data
         })
         console.log(this.data.viewInfo)
-        getApp().globalData.xData = [18, 36, 65, 30, 78, 40, -1];
-        getApp().globalData.yData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        console.log(app.globalData.xData)
+        //getApp().globalData.xData = [18, 36, 65, 30, 78, 40, -1];
+        //getApp().globalData.yData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        //console.log(app.globalData.xData)
         //console.log(xData)
         //console.log(yData)
         //initChart(canvas, '500prx', '500rpx')
