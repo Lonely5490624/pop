@@ -28,6 +28,12 @@ Page({
         })
       })
   },
+  // 选择城市
+  changeRegin (e) {
+    this.setData({
+      region: e.detail.value
+    })
+  },
   // 下一步
   pubStep2() {
     let params = {
@@ -37,8 +43,23 @@ Page({
       mall_name: this.data.mall_name,
       storey: this.data.storey
     }
+    if(!params.mall_name) {
+      wx.showToast({
+        title: '请填写商城名',
+        icon: 'none'
+      })
+      return
+    }
+    if(!params.storey) {
+      wx.showToast({
+        title: '请填写楼层位置',
+        icon: 'none'
+      })
+      return
+    }
     app.http('/space/published_one', params)
       .then(res => {
+        console.log(res)
         wx.navigateTo({
           url: `add-3?spaceId=${this.data.spaceId}`,
         })

@@ -34,6 +34,15 @@ page{
   color: #9E9E9E;
   line-height: 44rpx;
   text-align: right;
+  height: 44rpx;
+}
+.item .right picker{
+  width: 100%;
+  height: 100%;
+}
+.item .right picker view{
+  width: 500rpx;
+  height: 44rpx;
 }
 .item.arrow{
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABRElEQVRYR+2WMUoDQRSGv2AkN7HxAipG0lilylm0UQRtLCX3iEUCQcghbAMpUkS0ECy8gvwwC8OwuPNmht1mp9lmZr5v3pv3dgZ0PAYd8+kF+giUjMAR8AKcAnfAe8wFLyUg+Cswc1CJ3LYlMAQWHvwLuAA+2xAQfAVMHewbOAcOMXDNyUnBMbAM4GNgHwvPERD8Dbj2Tm6GpwqMgLUH/3E5N528ipI1BYJvgInbQPArYGcJuz/XIlAcbk3BE/Do7H9d2JNPnpKCe+C5S4G6FKjhJF2+lAhoTVgBajxJ5ZcqoHV1PcDU/VKrwF8XSqj/S0Jf07CUYbhx2Io/gEurRI6AhMKfkSTOAN2NqJErUCehqlB1qEs2jhIClYT/Jnjwesa/EqUEBNGraA6cADfAtvH4me+BmP0b55SMQCOsbkIv0EfgDzTxOCEMLwt0AAAAAElFTkSuQmCC) calc(100% - 32rpx) center no-repeat;

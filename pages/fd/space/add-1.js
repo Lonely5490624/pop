@@ -20,6 +20,13 @@ Page({
     let params = {
       type: this.data.spaceType
     }
+    if (!params.type) {
+      wx.showToast({
+        title: '请选择空间类型',
+        icon: 'none'
+      })
+      return
+    }
     if(this.data.spaceId) {
       params.space_id = this.data.spaceId
     }

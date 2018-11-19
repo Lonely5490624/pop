@@ -208,6 +208,41 @@ Page({
       store_introduce: this.data.store_introduce,
       craftsmanship: this.data.skills
     }
+    if(!params.title) {
+      wx.showToast({
+        title: '请填写空间标题',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.describe) {
+      wx.showToast({
+        title: '请填写空间描述',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.address) {
+      wx.showToast({
+        title: '请选择空间位置',
+        icon: 'none'
+      })
+      return
+    }
+    if (params.category.length < 1){
+      wx.showToast({
+        title: '请选择品牌定位',
+        icon: 'none'
+      })
+      return
+    }
+    if (params.convenience < 1) {
+      wx.showToast({
+        title: '请选择店铺设施',
+        icon: 'none'
+      })
+      return
+    }
     app.http('/space/published_three', params)
       .then(res => {
         console.log(res)

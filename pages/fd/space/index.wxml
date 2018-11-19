@@ -33,7 +33,7 @@
   </view>
 </view>
 <navigator url='add-1'>
-  <image src='/images/success2@1x.png' class='space-add'></image>
+  <image src='/images/icon_new.png' class='space-add'></image>
 </navigator>
 
 <!--底部-->

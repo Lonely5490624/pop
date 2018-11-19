@@ -37,7 +37,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceId: 87,
+    spaceId: null,
     demand: [],
     demandList: [],
     unsubscribes: ['灵活：入驻前5天取消可退全款', '中等：入驻前7天取消可退全款'],
@@ -50,7 +50,7 @@ Page({
     subscribeTimes: ['30天', '60天', '90天', '6个月', '一年'],
     subscribeTimeArray,
     subscribeTimeIndex: 0,
-    arrival_start_time: '00:00',
+    arrival_start_time: '',
     arrival_end_time: '00:00',
     leave_time: '00:00',
     construct_start_time: '00:00',
@@ -66,10 +66,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    options.spaceId = this.data.spaceId
-    // this.setData({
-    //   spaceId: options.spaceId
-    // })
+    // options.spaceId = this.data.spaceId
+    this.setData({
+      spaceId: options.spaceId
+    })
     // 获取要求
     app.http('/info/demand')
       .then(res => {
@@ -218,6 +218,90 @@ Page({
       leave_time: this.data.leave_time,
       construct_start_time: this.data.construct_start_time,
       construct_end_time: this.data.construct_end_time
+    }
+    if (params.demand.length < 1) {
+      wx.showToast({
+        title: '请选择对租客的要求',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.rules) {
+      wx.showToast({
+        title: '请填写空间守则',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.everyday_price) {
+      wx.showToast({
+        title: '请填写每日价格',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.clear_price) {
+      wx.showToast({
+        title: '请填写xx费',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.min_subscribe_time) {
+      wx.showToast({
+        title: '请填写提前预定天数',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.min_hire_time) {
+      wx.showToast({
+        title: '请填写最少预定天数',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.max_hire_time) {
+      wx.showToast({
+        title: '请填写最多预定天数',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.arrival_start_time) {
+      wx.showToast({
+        title: '请选择入驻开始时间',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.arrival_end_time) {
+      wx.showToast({
+        title: '请选择入驻结束时间',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.leave_time) {
+      wx.showToast({
+        title: '请选择清场',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.construct_start_time) {
+      wx.showToast({
+        title: '请选择施工开始时间',
+        icon: 'none'
+      })
+      return
+    }
+    if (!params.construct_end_time) {
+      wx.showToast({
+        title: '请选择施工结束时间',
+        icon: 'none'
+      })
+      return
     }
     app.http('/space/published_four', params)
       .then(res => {

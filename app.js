@@ -70,7 +70,6 @@ App({
               icon: 'none',
               duration: 2000
             })
-            resolve(res.data.msg)
             //console.log(res);
           }
         },

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fd/space/index",
     "pages/fk/trip/trip",
     "pages/fk/trip/finalPay",
     "pages/fk/list/list",
@@ -12,7 +13,6 @@
     "pages/fd/calendar/index2",
     "pages/fd/calendar/index",
     "pages/fk/index/index",
-    "pages/fd/space/index",
     "pages/fd/space/add-5",
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",

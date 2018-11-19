@@ -27,7 +27,7 @@ Page({
     })
     app.http('/space/unpublished', { space_id: options.spaceId })
       .then(res => {
-        let images = res.data.pics.split(',')
+        let images = res.data.pics
         this.setData({
           images
         })
@@ -68,6 +68,13 @@ Page({
     let params = {
       space_id: this.data.spaceId,
       img_url: this.data.images
+    }
+    if(params.img_url.length < 1) {
+      wx.showToast({
+        title: '请选择图片',
+        icon: 'none'
+      })
+      return
     }
     app.http('/space/published_two', params)
       .then(res => {
