@@ -36,7 +36,9 @@
   </view>
 </view>
 <view class='order-rule'>
-  <checkbox id='rule' color="#616161"></checkbox>
+  <checkbox-group bindchange="checkboxChange" >
+    <checkbox id='rule' value="同意" color="#616161" />
+  </checkbox-group>
   <label for='rule'>我已阅读并同意</label>
   <navigator url=''>空间守则</navigator>
 </view>
@@ -45,7 +47,7 @@
     <text class='t1'>本次支付定金￥{{moneyY}}</text>
     <text class='t2'>订单总￥{{moneyAll}} 共{{dayNum}}天，尾款￥{{moneyW}}于入驻前支付</text>
   </view>
-  <view bindtap='confirmNext' class='next'>下一步</view>
+  <view bindtap='confirmNext' class='next {{bg?"able":"unable"}}'>下一步</view>
 </view>
 
 <view class='contractor {{isContractorOpen ? "show" : ""}}'>

@@ -9,25 +9,27 @@ Page({
     isContractorOpen: false,
     contractorId: null,
     contractorName: null,
-    space_info:[],
-    space_id:'',
-    imgUrl:'',
-    yt:'',
-    startDate:"请选择",
+    space_info: [],
+    space_id: '',
+    imgUrl: '',
+    yt: '',
+    startDate: "请选择",
     dayNum: 0,
     endDate: "请选择",
-    opendate:false,
-    moneyY:0,
+    opendate: false,
+    moneyY: 0,
     moneyAll: 0,
     moneyW: 0,
-    dateArray: []
+    dateArray: [],
+    bg: false,
+    ischeck:false
   },
-  opendate: function () {
+  opendate: function() {
     wx.navigateTo({
       url: "/pages/fd/calendar/index2"
-    })   
+    })
   },
-  onShow: function () {
+  onShow: function() {
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
     if (currPage.data.info != undefined) {
@@ -36,15 +38,17 @@ Page({
         dayNum: currPage.data.dayNum,
         endDate: currPage.data.endDate
       });
-    } 
+    }
   },
-  onLoad: function(options) {     
+  onLoad: function(options) {
     var that = this
     that.setData({
       space_id: options.space_id,
       imgUrl: app.data.imgurl
-    }) 
-    app.http('/space/getSpaceDetail', {space_id: that.data.space_id})
+    })
+    app.http('/space/getSpaceDetail', {
+        space_id: that.data.space_id
+      })
       .then(res => {
         that.setData({
           space_info: res.data
@@ -81,7 +85,7 @@ Page({
       contractorName: e.currentTarget.dataset.name
     })
   },
-  onFilter: function (e) {
+  onFilter: function(e) {
     // 自定义组件触发事件时提供的detail对象
     let that = e.detail;
     // this.setData({
@@ -106,15 +110,37 @@ Page({
         category_ids: that.data.currentCates.join(','),
         convenience_facilities_ids: that.data.currentFacs.join(',')
       }
-      console.log(params)
       this.getList(params)
     }
   },
+  //同意守则
+  checkboxChange:function(e){
+    if (e.detail.value == '同意') {
+      this.setData({
+        ischeck:true,
+        bg: true
+      })      
+    }else {
+      this.setData({
+        ischeck: false,
+        bg: false
+      })
+    }
+  },  
   // 下一步
-  confirmNext () {
+  confirmNext() {    
     let params = `date=${this.data.dateArray}&signid=${this.data.contractorId}&space_id=${this.data.space_info.id}&title=${this.data.space_info.title}&img=${this.data.space_info.banner}&depositRate=${this.data.space_info.depositRate}&totalPrice=${this.data.moneyAll}&deposit=${this.data.moneyY}&balance=${this.data.moneyW}&payEndTime=${this.data.space_info.final_payment_time}`
-    wx.navigateTo({
-      url: `order-confirm-2?${params}`,
-    })
+    if (this.data.startDate != "请选择" && this.data.endDate != "请选择" && this.data.contractorName != null && this.data.ischeck) {
+      wx.navigateTo({
+        url: `order-confirm-2?${params}`,
+      })
+    }else{
+      wx.showToast({
+        title: '请选择相关信息',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+
   }
 })

@@ -17,7 +17,8 @@ Page({
     signid: 0,
     space_id: null,
     payaway: 'wxchat',
-    payEndTime: 0
+    payEndTime: 0,
+    isContractorOpen:false
   },
 
   /**
@@ -38,6 +39,24 @@ Page({
       payEndTime: options.payEndTime
     })
   },
+  //打开支付方式选择
+  contractorOpen: function () {
+    this.setData({
+      isContractorOpen: true
+    })
+  },
+  // 选择支付方式
+  radioChange: function (e) {
+    this.setData({
+      payaway: e.detail.value
+    })
+  },
+  // 关闭支付方式选择
+  contractorClose: function () {
+    this.setData({
+      isContractorOpen: false
+    })
+  },
   // 确定预订
   orderConfirm () {
     let params = {
@@ -51,7 +70,7 @@ Page({
     app.http('/Order/subOrder', params)
       .then(res => {
         wx.navigateTo({
-          url: 'order-confirm-3',
+          url: 'order-confirm-3?money=' + this.data.deposit,
         })
       })
   },

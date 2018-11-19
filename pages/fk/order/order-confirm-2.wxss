@@ -113,3 +113,124 @@
   flex-shrink: 0;
   font-weight: bold;
 }
+
+.contractor{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  background: #fff;
+  transform: translateY(100%);
+  transition: .6s ease-in-out
+}
+.contractor.show{
+  transform: translateY(0);
+}
+.contractor .contractor-header{
+  text-align: center;
+  position: relative;
+  font-size: 32rpx;
+  color: #212121;
+  line-height: 88rpx;
+  margin: 0 32rpx;
+  border-bottom: 2rpx solid #e0e0e0;
+}
+.contractor .contractor-header .close{
+  position: absolute;
+  right: 0;
+  color: #9e9e9e;
+}
+.radio-group{
+  height: 400rpx;
+  padding-bottom: 98rpx;
+}
+.radio{
+  display: flex;
+  border-bottom: 2rpx solid #e0e0e0;
+  padding: 22rpx 32rpx 18rpx;
+  justify-content: space-between;
+}
+ .item-name{
+  font-size: 28rpx;
+  color: #212121;
+  line-height: 44rpx;
+}
+ .item-name image{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+}
+.contractor-item .item-info .item-id{
+  font-size: 28rpx;
+  color: #9e9e9e;
+  line-height: 40rpx;
+}
+.contractor-item .item-check{
+  width: 40rpx;
+  line-height: 80rpx;
+  background-size: 100%;
+}
+
+.contractor .contractor-content .contractor-add{
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #ff5555;
+  line-height: 44rpx;
+}
+.contractor .contractor-bottom{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 98rpx;
+  color: #fff;
+  background: #ff5555;
+  text-align: center;
+  line-height: 98rpx;
+  font-size: 34rpx;
+}
+
+.pop-over{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background: rgba(4, 4, 15,.25);
+  display: none;
+}
+.pop-over.show{
+  display: block;
+}
+/* 日期组件 */
+.datepage {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000000;
+  top: 0;
+  left: 0;
+  background: #FFFFFF;
+  transform: translateY(-100%);
+  transition: .5s ease-in-out;
+}
+.datepage.show{
+  transform: translateY(0);
+}
+.filter{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000000;
+  top: 0;
+  left: 0;
+  background: #FFFFFF;
+  transform: translateY(-100%);
+  transition: .5s ease-in-out;
+}
+.filter.show{
+  transform: translateY(0);
+}

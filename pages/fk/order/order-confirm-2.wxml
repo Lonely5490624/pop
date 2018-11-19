@@ -6,7 +6,7 @@
 <view class='order-price'>
   <view class='order-way'>
     <text class='way-left'>支付方式</text>
-    <text class='way-right'>微信</text>
+    <text class='way-right' bindtap='contractorOpen'>{{payaway=='alipay'?"支付宝":"微信"}}</text>
   </view>
   <view class='order-all'>
     <text class='all-left'>总费用</text>
@@ -28,10 +28,36 @@
 <view class='order-zhengche'>
   <view class='zhengche-title'>退订政策：严格</view>
   <view class='zhengche-info'>
-    这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚 这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚 <text class='zhengche-all'>查看全部</text>
+    这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚 这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚
+    <text class='zhengche-all'>查看全部</text>
   </view>
 </view>
 <view class='order-bottom'>
   <view class='bottom-left'>本次支付定金￥{{deposit}}</view>
   <view bindtap='orderConfirm' class='bottom-right'>确认预定</view>
 </view>
+<!-- 添加支付方式 -->
+<view class='contractor {{isContractorOpen ? "show" : ""}}'>
+  <view class='contractor-header'>
+    添加支付方式
+    <text class='iconfont icon-iconfont56 close' bindtap='contractorClose'></text>
+  </view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio">
+      <view class='item-name'>
+        <image src='/images/wechat2@1x.png'></image>微信支付</view>
+      <view>
+        <radio checked="{{item.checked}}" value="wechat" color='#4A4C5B' />
+      </view>
+    </label>
+    <label class="radio">
+      <view class='item-name'>
+        <image src='/images/alipay_F@1x.png'></image>支付宝支付</view>
+      <view>
+        <radio checked="{{item.checked}}" value="alipay" color='#4A4C5B' />
+      </view>
+    </label>
+  </radio-group>
+  <view bindtap='contractorClose' class='contractor-bottom'>确定</view>
+</view>
+<view class='pop-over {{isContractorOpen ? "show" : ""}}'></view>

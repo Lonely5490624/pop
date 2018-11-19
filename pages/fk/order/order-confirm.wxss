@@ -104,11 +104,17 @@
   line-height: 22rpx
 }
 .order-bottom .next{
-  color: #fff;
-  background: #ff5555;
   width: 280rpx;
   text-align: center;
   flex-shrink: 0;
+}
+.unable{
+color: #616161;
+  background: #E0E0E0;
+}
+.able{
+  color: #fff;
+  background: #ff5555;
 }
 
 .contractor{
@@ -225,4 +231,7 @@
 }
 .filter.show{
   transform: translateY(0);
+}
+checkbox-group{
+  display: inline;
 }
