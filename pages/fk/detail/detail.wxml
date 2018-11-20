@@ -52,7 +52,7 @@
   </view>
   <view class='box1 box2'>
     <view class='b2_title'>介绍信息</view>
-    <view class="b2_info {{ssHeight?'height':''}}" >{{space_info.describe}}</view>
+    <view class="b2_info {{ssHeight?'height':''}}">{{space_info.describe}}</view>
     <view class='b2_more' wx:if="{{isShow1}}" bindtap='openMore'>查看完整介绍</view>
   </view>
   <view class='box1 box2'>
@@ -170,7 +170,7 @@
     </view>
   </view>
   <view class='bottom_box'>
-    <view class='bb_l'>联系房东</view>
+    <view class='bb_l' bindtap='gochat'>联系房东</view>
     <view class='bb_r'>
       <view class='price'>
         <text class='t1'>￥{{space_info.everyday_price}}/每天</text>

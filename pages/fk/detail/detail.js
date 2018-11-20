@@ -151,5 +151,10 @@ Page({
     wx.navigateTo({
       url: "/pages/fk/order/order-confirm?space_id=" + this.data.space_id
     })
+  },
+  gochat:function() {
+    wx.navigateTo({
+      url: "/pages/news/chat?space_id=" + this.data.space_id
+    })
   }
 })

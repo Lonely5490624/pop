@@ -33,19 +33,19 @@ Page({
   getPub: function () {
     app.http('/space/published_list')
       .then(res => {
-        res = {
-          "code": 200,
-          "msg": "请求成功",
-          "data": [
-            {
-              "id": "4",
-              "title": "杜的空间",
-              "banner": "home/201810221831307565278.jpeg",
-              "status": "0",
-              "examine_status": "0"
-            }
-          ]
-        }
+        // res = {
+        //   "code": 200,
+        //   "msg": "请求成功",
+        //   "data": [
+        //     {
+        //       "id": "4",
+        //       "title": "杜的空间",
+        //       "banner": "home/201810221831307565278.jpeg",
+        //       "status": "0",
+        //       "examine_status": "0"
+        //     }
+        //   ]
+        // }
         this.setData({
           pubList: res.data
         })
