@@ -22,6 +22,6 @@
         <view class='t2'>{{info}} ></view>
       </view>
     </navigator>
-    <view class='nextBtn able'>完成</view>
+    <view bindtap='done' class='nextBtn able'>完成</view>
   </view>
 </view>

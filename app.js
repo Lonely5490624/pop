@@ -8,15 +8,11 @@ App({
   },
   
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let code = res.code
       }
     })
     // 获取用户信息
@@ -49,20 +45,18 @@ App({
   http: function (url, pramas) {
     let currentTime = Date.now()
     let member_id = null
-    var oldTime = wx.getStorageSync('key')
+    var oldTime = wx.getStorageSync('time')
     if (oldTime) {
-      if (oldTime > currentTime) {
+      if (currentTime > oldTime) {
         wx.removeStorageSync('time')
         wx.removeStorageSync('member_id')
         wx.removeStorageSync('member_type')
+        wx.redirectTo({
+          url: '/pages/login/login',
+        })
       } else {
         member_id = wx.getStorageSync('member_id')
       }
-    } else {
-      wx.redirectTo({
-        url: '/pages/login/register',
-      })
-      return;
     }
     let data = Object.assign({}, pramas, { member_id })
     data = ajaxData(data)
@@ -83,6 +77,11 @@ App({
               icon: 'none',
               duration: 2000
             })
+            if (!wx.getStorageSync('member_id')) {
+              wx.redirectTo({
+                url: '/pages/login/register',
+              })
+            }
             //console.log(res);
           }
         },

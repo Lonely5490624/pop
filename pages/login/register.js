@@ -49,6 +49,7 @@ Page({
     }
   },
   send: function() {
+    let that = this
     if (this.data.code.length==0) {
       wx.showToast({
         title: '验证码不能为空',
@@ -76,12 +77,8 @@ Page({
               duration: 2000
             })
           } else if (res.data.code == 400){
-            let time = Date.now() + 20000
-            wx.setStorageSync('time', time)
-            wx.setStorageSync('member_id', res.data.member_id)
-            wx.setStorageSync('member_type', res.data.member_type)
             wx.navigateTo({
-              url: `addPerMessage`
+              url: `addPerMessage?mobile=${that.data.mobile}&code=${that.data.code}`
             })
           } else if (res.data.code == 600) {
             wx.showToast({

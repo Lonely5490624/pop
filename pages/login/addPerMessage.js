@@ -1,20 +1,37 @@
 // pages/fd/data/index.js
 var app=getApp()
+
 Page({
   data: {
-    userInfo: {
-      avatarUrl: "",//用户头像
-      nickName: "",//用户昵称
-    },
-    info: ""
+    nick_name: "小龙人",
+    true_name: '大龙'
   },
   onLoad:function(options){
-    if (options!=''){
+    if (options){
       this.setData({
-        info: options.info,
-        nickName: options.nikeName
+        mobile: options.mobile,
+        code: options.code
       })
     }
-    
+  },
+  done () {
+    let params = {
+      mobile: this.data.mobile,
+      nick_name: this.data.nick_name,
+      true_name: this.data.true_name
+    }
+    wx.request({
+      url: app.data.requestUrl + '/member/register',
+      method: "POST",
+      data: params,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        wx.redirectTo({
+          url: 'login',
+        })
+      }
+    })
   }
 })

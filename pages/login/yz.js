@@ -89,7 +89,10 @@ Page({
         success: function(res) {
           console.log(res.data)
           if (res.data.code == 200) {
-            wx.setStorageSync('userData', res.data.data);
+            let time = Date.now() + 200000
+            wx.setStorageSync('time', time)
+            wx.setStorageSync('member_id', res.data.data.member_id)
+            wx.setStorageSync('member_type', res.data.data.member_type)
             wx.navigateTo({
               url: '../fk/index/index'
             })
