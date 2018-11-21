@@ -1,9 +1,19 @@
+var app = getApp();
 Page({
   data: {
     week_list: ['日', '一', '二', '三', '四', '五', '六'],
-    startDate: '2018-11-01',
-    endDate: '2018-11-25',
-    date_click: 0
+    startDate: '',
+    endDate: '',
+    date_click: 0,
+    spaceList: [],
+    imgUrl: '',
+    showXZnum: false,
+    xzNum: 0,
+    able: [], //可编辑日期（黑色）
+    unable: [], //已经出租日期（红色）
+    chooseDateArr: [],
+    chooseDateArrInfo: [],    
+    space_id:0
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -18,13 +28,12 @@ Page({
     // FirstDayOfMonth代表本月的第一天是星期几
     const FirstDayOfMonth = this.getFirstDayOfMonth(year, month);
     let emptyGrids = [];
-
     // 有空格的情况
     if (FirstDayOfMonth > 0) {
       for (let i = 0; i < FirstDayOfMonth; i++) {
         emptyGrids.push({
           'num': '',
-          'fullDate': 'x'  //x是我自己定义的一个值，代表没有日期
+          'fullDate': 'x' //x是我自己定义的一个值，代表没有日期
         });
       }
       // 将空格放入数组
@@ -38,12 +47,10 @@ Page({
   getDaysOfThisMonth(year, month) {
     let days = [];
     const AllDaysOfMonth = this.getAllDaysOfMonth(year, month);
-
     let fullMonth = month.toString().length === 1 ? `0${month}` : month;
     for (let i = 0; i < AllDaysOfMonth; i++) {
       let day = i + 1,
         fullDay = day;
-
       fullDay = fullDay.toString().length === 1 ? `0${day}` : fullDay;
       days.push({
         day,
@@ -61,15 +68,12 @@ Page({
       month = this.data.cur_month,
       fullMonth,
       canlendar_data = [];
-
     // 计算年月以及具体日历
     for (let i = this.data.cur_month; i < this.data.cur_month + n; i++) {
       let EmptyGrids = this.getEmptyGrids(year, month);
       let DaysOfThisMonth = this.getDaysOfThisMonth(year, month);
-
       // 把空格和具体日历合为一个数组
       let allDays = [...EmptyGrids, ...DaysOfThisMonth];
-
       // 对年份和月份的计算做一些判断
       if (month > 12) {
         year++;
@@ -91,16 +95,18 @@ Page({
           allDays
         });
         month++;
-
       }
-
     }
-
     this.setData({
       canlendar_data
     })
   },
   onLoad() {
+    var myDate = new Date();
+    myDate.toLocaleDateString(); //获取日期与时间
+    this.setData({
+      imgUrl: app.data.imgurl,
+    })
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;
@@ -111,55 +117,80 @@ Page({
       cur_month,
       cur_day
     })
-
     let month = this.data.cur_month.toString().length === 1 ? `0${this.data.cur_month}` : this.data.cur_month;
     let day = this.data.cur_day.toString().length === 1 ? `0${this.data.cur_day}` : this.data.cur_day;
     let nowDate = `${cur_year}-${month}-${day}`;
-
     this.setData({
       nowDate
     })
-
-    this.fillCalendar(6);
+    this.fillCalendar(12);
+    this.getSpaceList();
+  },
+  onShow:function(){
+    this.getSpaceList();
+    this.setData({
+      showXZnum: false,
+      xzNum: 0,
+      chooseDateArr: [],
+      chooseDateArrInfo: [], 
+    })    
+  },
+  //获取空间列表
+  getSpaceList: function() {
+    app.http('/space/getSpaceList')
+      .then(res => {
+        this.setData({
+          spaceList: res.data,
+          unable: res.data[0].calendar.unable,
+          able: res.data[0].calendar.able,
+        })
+      })
   },
   // 点击日期
   chooseDate(e) {
-    const year_click = e.currentTarget.dataset.year;
-    const month_click = e.currentTarget.dataset.month;
-    const day_click = e.currentTarget.dataset.day;
-    console.log('date', year_click, month_click, day_click);
-    // 如果是空格或者以前的日期就直接返回
-    if (day_click === '' || `${year_click}-${month_click}-${day_click}` < this.data.nowDate) {
-      return;
-    }
-
-    // 获取点击对象的id
-    let id = e.currentTarget.dataset.id;
-
-    // data_click为0代表选择的是入住日期，否则就是离店日期
-    if (this.data.date_click == 0) {
-      // 选择入住日期
+    if (e.currentTarget.dataset.unable == '') {
+      const year_click = e.currentTarget.dataset.year;
+      const month_click = e.currentTarget.dataset.month;
+      const day_click = e.currentTarget.dataset.day;
+      console.log('date', year_click, month_click, day_click);
+      //显示编辑框
       this.setData({
-        startDate: `${year_click}-${month_click}-${day_click}`,
-        date_click: 1
+        showXZnum: true
       })
-    } else {
-      let newDay = new Date(Date.parse(id));
-      let oldDay = new Date(Date.parse(this.data.startDate));
-
-      // 判断第二次点击的日期在第一次点击的日期前面还是后面
-      if (newDay > oldDay) {
-        this.setData({
-          endDate: `${year_click}-${month_click}-${day_click}`,
-          date_click: 2
-        })
-      } else {
-        this.setData({
-          startDate: `${year_click}-${month_click}-${day_click}`,
-          endDate: '',
-          date_click: 1
-        })
+      // 如果是空格或者以前的日期就直接返回
+      if (day_click === '' || `${year_click}-${month_click}-${day_click}` < this.data.nowDate) {
+        return;
       }
+      // 获取点击对象的id
+      let id = e.currentTarget.dataset.id;
+      //选择的日期添加到chooseDateArr选择日期数组中
+      if (this.data.chooseDateArrInfo.indexOf(`${year_click}-${month_click}-${day_click}`) == -1) {
+        this.data.chooseDateArr.push(`${month_click}月${day_click}`)
+        this.data.chooseDateArrInfo.push(`${year_click}-${month_click}-${day_click}`)
+      } else {
+        this.data.chooseDateArrInfo.remove(`${year_click}-${month_click}-${day_click}`)
+        this.data.chooseDateArr.remove(`${month_click}月${day_click}`)
+      }
+      console.log(this.data.chooseDateArrInfo)
+      this.setData({
+        xzNum: this.data.chooseDateArr.length
+      })
     }
+  },
+  //点击获取空间id
+  chooseSpace:function(e){
+    this.setData({
+      space_id: e.currentTarget.id
+    })
+  },
+  gotoEdit: function() {
+    if (this.data.space_id==0){
+      this.setData({
+        space_id: this.data.spaceList[0].id
+      })      
+    }
+    wx.navigateTo({
+      url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id
+    })
   }
 })

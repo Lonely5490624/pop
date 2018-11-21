@@ -1,28 +1,9 @@
+<wxs module="filter" src="../../../filter/height.wxs"></wxs>
 <view class='calendar-title'>日历</view>
 <scroll-view scroll-x class='space-list'>
-  <view class='space-item'>
-    <image class='image' src='/images/aaa.jpg'></image>
-    <view class='info'>这里是空间名称名称名称空间名称1名称</view>
-  </view>
-  <view class='space-item active'>
-    <image class='image' src='/images/aaa.jpg'></image>
-    <view class='info'>这里是空间名称名称名称空间名称1名称</view>
-  </view>
-  <view class='space-item'>
-    <image class='image' src='/images/aaa.jpg'></image>
-    <view class='info'>这里是空间名称名称名称空间名称1名称</view>
-  </view>
-  <view class='space-item'>
-    <image class='image' src='/images/aaa.jpg'></image>
-    <view class='info'>这里是空间名称名称名称空间名称1名称</view>
-  </view>
-  <view class='space-item'>
-    <image class='image' src='/images/aaa.jpg'></image>
-    <view class='info'>这里是空间名称名称名称空间名称1名称</view>
-  </view>
-  <view class='space-item'>
-    <image class='image' src='/images/aaa.jpg'></image>
-    <view class='info'>这里是空间名称名称名称空间名称1名称</view>
+  <view class='space-item' wx:for="{{spaceList}}">
+    <image class='image' bindtap="chooseSpace" id="{{item.id}}" src='{{imgUrl+item.banner}}'></image>
+    <view class='info'>{{item.title}}</view>
   </view>
 </scroll-view>
 <scroll-view scroll-y class='calendar-main'>
@@ -31,10 +12,23 @@
     <view class="week-title">
       <view class="week-item {{idx===0||idx===6?'relax':''}}" wx:for="{{week_list}}" wx:for-index="idx">{{item}}</view>
     </view>
+    <!-- {{item.fullDate===nowDate?'today':''}} -->
+    <!-- {{startDate===item.fullDate?'startActive':''}} -->
+    <!-- {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}} -->
+    <!-- {{endDate===item.fullDate?'endActive':''}} -->
+    <!-- {{chooseDate?'xz':''}} -->    
     <view class="month-content">
-      <view class="month-day {{item.fullDate<nowDate?'gray':''}} {{startDate===item.fullDate?'startActive':''}} {{endDate===item.fullDate?'endActive':''}} {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}}" bindtap="chooseDate" data-year="{{canlendar_item.year}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{item.fullDate}}" wx:for="{{canlendar_item.allDays}}">
+      <view class="month-day gray {{filter.hasEle(able,item.fullDate)?'able':''}} {{filter.hasEle(unable,item.fullDate)?'startActive':''}} {{filter.hasEle(chooseDateArrInfo,item.fullDate)?'xz':''}}" bindtap="chooseDate"
+        data-year="{{canlendar_item.year}}" data-unable="{{filter.hasEle(unable,item.fullDate)?'unable':''}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{item.fullDate}}" wx:for="{{canlendar_item.allDays}}">
         <view class='day-item'>{{item.day}}</view>
       </view>
     </view>
   </view>
 </scroll-view>
+<view class='bian-ji' wx:if="{{showXZnum}}">
+  <view class='yuan-nub'>{{xzNum}}</view>
+  <view class='xzeditbox' bindtap='gotoEdit'>
+    <text>编辑</text>
+    <text class="iconfont icon-icon_arrow_right"></text>
+  </view>
+</view>

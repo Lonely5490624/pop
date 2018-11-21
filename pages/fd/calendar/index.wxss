@@ -1,93 +1,166 @@
 /* pages/fd/calendar/index.wxss */
-.calendar-title{
+
+.calendar-title {
   font-size: 48rpx;
   color: #212121;
   padding: 48rpx 32rpx;
 }
-.space-list{
-  width: 100%;
+
+.space-list {
+  width: 92%;
+  height: auto;
+  margin-left: 4%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   white-space: nowrap;
 }
-.space-item{
+
+.space-item {
   width: 170rpx;
   display: inline-block;
   margin-right: 19rpx;
 }
-.space-item .image{
+
+.space-item .image {
   width: 170rpx;
   height: 113rpx;
-  opacity: .6;
+  opacity: 0.6;
 }
-.space-item .info{
-  font-size: 18rpx;
-  color: #9e9e9e;
+
+.space-item .info {
+  font-size: 24rpx;
+  color: #212121;
   white-space: pre-wrap;
   margin-top: 12rpx;
 }
-.space-item.active .image{
+
+.space-item.active .image {
   opacity: 1;
 }
-.space-item.active .info{
+
+.space-item.active .info {
   color: #212121;
 }
 
-.calendar-main{
+.calendar-main {
   height: calc(100% - 362rpx);
   position: absolute;
   bottom: 0;
   left: 0;
 }
-.month-block{
+
+.month-block {
   padding: 42rpx 0 24rpx;
   border-bottom: 1rpx solid #e0e0e0;
 }
-.month-title{
+
+.month-title {
   text-align: center;
   font-size: 24rpx;
   color: #9e9e9e;
   line-height: 34rpx;
 }
-.week-title{
+
+.week-title {
   display: flex;
   font-size: 24rpx;
   color: #212121;
   margin-top: 34rpx;
 }
-.week-item{
+
+.week-item {
   width: 14.28%;
   text-align: center;
 }
-.month-content{
+
+.month-content {
   display: flex;
   flex-wrap: wrap;
   font-size: 20rpx;
   color: #616161;
   margin-top: 36rpx;
 }
-.month-day{
+
+.month-day {
   width: 14.28%;
   text-align: center;
   vertical-align: middle;
   margin-top: 6rpx;
 }
-.month-day .day-item{
+
+.month-day .day-item {
   width: 60rpx;
   display: inline-block;
   border-radius: 50%;
   line-height: 60rpx;
 }
-.month-day.startActive .day-item{
-  background: #ff5555;
+
+.month-day.startActive .day-item {
+  background: #f55;
   color: #fff;
 }
-.month-day.midActive .day-item{
-  background: #ff9999;
+
+.month-day.midActive .day-item {
+  background: #f99;
   color: #fff;
 }
-.month-day.endActive .day-item{
-  background: #ff5555;
+
+.month-day.endActive .day-item {
+  background: #f55;
   color: #fff;
+}
+
+.bian-ji {
+  position: fixed;
+  bottom: 140rpx;
+  right: 32rpx;
+}
+
+.xzeditbox {
+  width: 180rpx;
+  height: 66rpx;
+  box-shadow: #000 0px 0px 8px 0px;
+  border-radius: 42rpx;
+  color: #212121;
+  font-size: 28rpx;
+  line-height: 66rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.yuan-nub {
+  clear: both;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #f55;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 40rpx;
+  text-align: center;
+  right: 40rpx;
+  top: 40rpx;
+}
+
+.gray {
+  color: #e0e0e0;
+  font-size: 20rpx;
+}
+
+.xz {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  background: #616161;
+  color: #fff;
+  font-size: 20rpx;
+}
+
+.able {
+  color: #616161;
+  font-size: 20rpx;
 }

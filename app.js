@@ -1,8 +1,8 @@
 //app.js
 App({
   data:{
-    imgurl: 'http://pop.aieye8.com/data/upload/',
-    requestUrl: 'http://pop.aieye8.com/index.php/home'
+    imgurl: 'http://www.letspopup.cn/data/upload/',
+    requestUrl: 'http://www.letspopup.cn/index.php/home'
   },
   
   ajaxData:function(data={}){

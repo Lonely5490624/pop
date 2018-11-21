@@ -1,14 +1,14 @@
-<view class="t1">9月1日 - 9月2日</view>
+<view class="t1">{{data}}</view>
 <view class="t2">可订状态</view>
 <view class='t3'>
   <view>可订状态</view>
-  <view></view>
+  <view><switch bindchange="switch1Change" color='#FF5555'/></view>
 </view>
 <view class="t2">定价</view>
 <view class='t3'>
   <view>每天价格</view>
-  <view></view>
+  <view><input type='number' placeholder="请输入价格" bindinput='getPrice'/></view>
 </view>
 <view class='t4'>建议定价在￥500 - ￥1000 之间</view>
 <view class='t5'>了解您的职责与义务</view>  
-<view class='save'>保存</view>
+<view class='save able' bindtap='save'>保存</view>

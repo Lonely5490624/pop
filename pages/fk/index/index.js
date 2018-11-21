@@ -6,7 +6,7 @@ Page({
     recommendData: [],
     storyData: [],
     imgUrl: '',
-    locateUrl:'/images/fa-img.jpg'
+    locateUrl: '/images/fa-img.jpg'
   },
   onLoad: function() {
     var that = this;
@@ -16,20 +16,22 @@ Page({
     })
 
     //热门商圈
-    app.http('/home/commercialCircleList', { type: '1'})
+    app.http('/home/commercialCircleList', {
+        type: '1'
+      })
       .then(res => {
         this.setData({
           shangq: res.data
         })
       })
-      //故事列表
+    //故事列表
     app.http('/home/storyList')
       .then(res => {
         this.setData({
           storyData: res.data
         })
       })
-      //热门推荐
+    //热门推荐
     app.http('/home/isRecommendSpaceList')
       .then(res => {
         this.setData({
@@ -37,19 +39,19 @@ Page({
         })
       })
   },
-  gotolist: function (e) {
+  gotolist: function(e) {
     wx.navigateTo({
       url: "../list/list?name=" + e.currentTarget.dataset.text
     })
   },
   //加收藏
-  addCl: function (e) {
+  addCl: function(e) {
     var that = this
-    if (that.data.userData==''){
+    if (that.data.userData == '') {
       wx.showModal({
         title: '请先登录',
         content: '现在去登陆？',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
             wx.navigateTo({
               url: '../../login/login'
@@ -59,8 +61,10 @@ Page({
           }
         }
       })
-    }else{
-      app.http('/collection/editCollection',{ space_id: e.currentTarget.id})
+    } else {
+      app.http('/collection/editCollection', {
+          space_id: e.currentTarget.id
+        })
         .then(res => {
           wx.showToast({
             title: res.data.msg,
@@ -74,13 +78,20 @@ Page({
                 recommendData: res.data
               })
               console.log(res.data)
-            })  
+            })
         })
-    }   
+    }
   },
   toSearch: function() {
     wx.navigateTo({
       url: 'search'
     })
   },
+  toNewP: function(e) {
+    if (e.currentTarget.dataset.text != '') {
+      wx.navigateTo({
+        url: 'newP?link_address=' + e.currentTarget.dataset.text
+      })
+    }
+  }
 })

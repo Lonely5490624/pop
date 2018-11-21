@@ -1,14 +1,12 @@
 {
   "pages": [
-    "pages/fk/index/index",
-    "pages/fd/calendar/edit",
     "pages/fd/calendar/index",
+    "pages/fk/index/index",
+    "pages/fk/index/newP",
     
-    
+    "pages/fd/calendar/index2",
+    "pages/fd/calendar/edit",
     "pages/news/news",
-    
-    
-    
     "pages/fd/data/data-view",
     "pages/fd/space/index",
     "pages/fk/trip/trip",
@@ -20,9 +18,6 @@
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fk/trip/tripInfo",
-    "pages/fd/calendar/index2",
-    
-    
     "pages/fd/space/add-5",
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",
@@ -37,7 +32,6 @@
     "pages/fk/search/search",
     "pages/fk/search/searchResult",
     "pages/mine/mine",
-   
     "pages/login/login",
     "pages/news/newsSearch",
     "pages/news/chat",
