@@ -19,28 +19,27 @@
       <view class="red" bindtap='accept'>写评价</view>
     </view>
   </view>
-  <view class='chatBox'>
+  <view class='chatBox' id="chatBox">
     <!-- <view class="date">星期一 10:41</view>
     <view class="date">咨询（进程）</view> -->
     <!-- 对方 -->
-    <view class='other' wx:for="{{wfnewsList}}" wx:for-item="itemdf">
+    <view class='other' wx:for="{{dfnewsListarr}}">
       <view class='tx'>
-        <image src='{{itemdf.other_head}}'></image>
+        <image src='{{item.other_head}}'></image>
       </view>
-      <view class='cont'>{{itemdf.content}}</view>
+      <view class='cont'>{{item.content}}</view>
     </view>
     <!-- 我方 -->
-    <view>11111{{wfnewsList.length}}</view>
-    <view class='our' wx:for="{{wfnewsList}}" wx:for-item="itemwf">
+    <view class='our' wx:for="{{wfnewsListarr}}">
       <view class='tx'>
-        <image src='{{member_head}}'></image>
+        <image src='{{item.member_head}}'></image>
       </view>
-      <view class='cont'>{{itemwf.content}}</view>
+      <view class='cont'>{{item.content}}</view>
     </view>
 
   </view>
   <view class="editBox">
-    <input bindinput='getNewContent'></input>
+    <input bindinput='getNewContent' value="{{value}}"></input>
     <view class='sendBtn' bindtap='send'>发送</view>
   </view>
 </view>
