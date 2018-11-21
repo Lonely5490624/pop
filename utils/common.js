@@ -7,10 +7,6 @@ import { hex_md5 } from 'md5'
 
 //签名token
 var auth_token = "alan_du";
-//请求url
-var api_url = "http://pop.aieye8.com";
-//图片请求url
-var img_url = "http://pop.aieye8.com/data/upload/";
 
 /**
  * ajax请求数据完善签名信息
