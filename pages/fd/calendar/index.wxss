@@ -156,8 +156,9 @@
   height: 60rpx;
   border-radius: 100%;
   background: #616161;
-  color: #fff;
-  font-size: 20rpx;
+  color: #fff !important;
+  font-size: 20rpx !important;
+  margin:0 23rpx;
 }
 
 .able {

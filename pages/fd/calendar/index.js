@@ -13,7 +13,8 @@ Page({
     unable: [], //已经出租日期（红色）
     chooseDateArr: [],
     chooseDateArrInfo: [],    
-    space_id:0
+    space_id:0,
+    currentTypes: [],
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -132,7 +133,7 @@ Page({
       showXZnum: false,
       xzNum: 0,
       chooseDateArr: [],
-      chooseDateArrInfo: [], 
+      //chooseDateArrInfo: [], 
     })    
   },
   //获取空间列表
@@ -148,6 +149,19 @@ Page({
   },
   // 点击日期
   chooseDate(e) {
+    //点击修改样式
+    let arr = this.data.currentTypes
+    let id = e.currentTarget.dataset.id
+    if (arr.indexOf(id) > -1) {
+      arr.remove(id)
+    } else {
+      arr.push(id)
+    }
+    this.setData({
+      currentTypes: arr
+    })
+
+
     if (e.currentTarget.dataset.unable == '') {
       const year_click = e.currentTarget.dataset.year;
       const month_click = e.currentTarget.dataset.month;
@@ -177,6 +191,7 @@ Page({
       })
     }
   },
+
   //点击获取空间id
   chooseSpace:function(e){
     this.setData({
