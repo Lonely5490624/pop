@@ -1,3 +1,5 @@
+import { ajaxData } from '../../utils/common'
+
 var app=getApp()
 Page({
   data: {
@@ -26,12 +28,14 @@ Page({
         duration: 2000
       })
     } else {
+      let data = {
+        mobile: parseInt(this.data.mobile)
+      }
+      data = ajaxData(data)
       wx.request({
-        url: app.data.requestUrl +'home/member/send_sms',
+        url: app.data.requestUrl +'/member/send_sms',
         method: "POST",
-        data: {
-          mobile: parseInt(this.data.mobile)
-        },
+        data,
         success: function(res) {
           console.log(res.data)          
           // page.this.setData({
@@ -49,13 +53,15 @@ Page({
         duration: 2000
       })
     } else {
+      let data = {
+        mobile: parseInt(this.data.mobile),
+        code: parseInt(this.data.code)
+      }
+      data = ajaxData(data)
       wx.request({
-        url: app.data.requestUrl +'home/member/login',
+        url: app.data.requestUrl +'/member/login',
         method: "POST",
-        data: {
-          mobile: parseInt(this.data.mobile),
-          code: parseInt(this.data.code)
-        },
+        data,
         success: function(res) {
           console.log(res.data)
           if (res.data.code==200){

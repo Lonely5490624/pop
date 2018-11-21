@@ -1,4 +1,6 @@
 // pages/fd/data/index.js
+import { ajaxData } from '../../utils/common'
+
 var app=getApp()
 Page({
   data: {
@@ -45,15 +47,17 @@ Page({
       })
     } else {
       var that = this;
+      let data = {
+        mobile: parseInt(that.data.mobile)
+      }
+      data = ajaxData(data)
       wx.request({
         url: app.data.requestUrl +'/member/send_sms',
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
-        data: {
-          mobile: parseInt(that.data.mobile),
-        },
+        data,
         success: function(res) {
           if (res.data.code == 200) {
             wx.navigateTo({
