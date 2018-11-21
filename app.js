@@ -47,6 +47,22 @@ App({
   },
   // 封装的网络请求
   http: function (url, pramas) {
+    let currentTime = Date.now()
+    let member_id = null
+    var oldTime = wx.getStorageSync('key')
+    if (oldTime) {
+      if (oldTime > currentTime) {
+        wx.removeStorageSync('time')
+        wx.removeStorageSync('member_id')
+        wx.removeStorageSync('member_type')
+      } else {
+        member_id = wx.getStorageSync('member_id')
+      }
+    } else {
+      wx.redirectTo({
+        url: '/pages/login/register',
+      })
+    }
     let data = Object.assign({}, pramas, { member_id: 11 })
     data = ajaxData(data)
     let promise = new Promise((resolve, reject) => {

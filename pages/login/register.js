@@ -35,6 +35,9 @@ Page({
       wx.request({
         url: app.data.requestUrl +'/member/send_sms',
         method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
         data,
         success: function(res) {
           console.log(res.data)          
@@ -61,9 +64,11 @@ Page({
       wx.request({
         url: app.data.requestUrl +'/member/login',
         method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
         data,
         success: function(res) {
-          console.log(res.data)
           if (res.data.code==200){
             wx.showToast({
               title: '此手机号码已被注册过',
@@ -71,11 +76,16 @@ Page({
               duration: 2000
             })
           } else if (res.data.code == 400){
-            wx.navigateTo({
-              url: 'addPerMessage'
+            let time = Date.now() + 20000
+            wx.setStorage({
+              time,
+              member_id: res.data.member_id,
+              member_type: res.data.member_type
             })
-          }
-          else if (res.data.code == 600) {
+            wx.navigateTo({
+              url: `addPerMessage?mobile=${this.data.mobile}&code=${this.data.code}`
+            })
+          } else if (res.data.code == 600) {
             wx.showToast({
               title: '验证码不正确',
               icon: 'none',
