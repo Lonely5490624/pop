@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/fd/calendar/index",
     "pages/fk/index/index",
+    "pages/fd/data/index",
+    "pages/fd/calendar/index",
     "pages/fk/index/newP",
-    
     "pages/fd/calendar/index2",
     "pages/fd/calendar/edit",
     "pages/news/news",
@@ -14,7 +14,6 @@
     "pages/fk/list/list",
     "pages/fk/detail/detail",
     "pages/fk/order/order-confirm",
-    "pages/fd/data/index",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fk/trip/tripInfo",

@@ -10,7 +10,7 @@ Page({
       latitude: 23.099994,
       longitude: 113.324520,
       width: 50,
-      height: 50,
+      height: 50
     }],
     polyline: [{
       points: points,
@@ -29,11 +29,7 @@ Page({
       },
       clickable: true
     }],
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
@@ -71,7 +67,8 @@ Page({
     this.setData({
       imgUrl: app.data.imgurl
     })
-    console.log(options)
+    // console.log(this.data.imgUrls)
+    // console.log(options)
     if (options != '') {
       this.setData({
         space_id: options.id
@@ -91,8 +88,10 @@ Page({
           }, {
             longitude: res.data.longitude,
             latitude: res.data.latitude
-          }]
+          }],
+          imgUrls:res.data.pics
         })
+        console.log(that.data.imgUrls)
         if (res.data.describe.length > 40) {
           that.setData({
             isShow1: true
