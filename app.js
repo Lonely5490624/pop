@@ -62,8 +62,9 @@ App({
       wx.redirectTo({
         url: '/pages/login/register',
       })
+      return;
     }
-    let data = Object.assign({}, pramas, { member_id: 11 })
+    let data = Object.assign({}, pramas, { member_id })
     data = ajaxData(data)
     let promise = new Promise((resolve, reject) => {
       wx.request({

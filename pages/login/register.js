@@ -77,13 +77,11 @@ Page({
             })
           } else if (res.data.code == 400){
             let time = Date.now() + 20000
-            wx.setStorage({
-              time,
-              member_id: res.data.member_id,
-              member_type: res.data.member_type
-            })
+            wx.setStorageSync('time', time)
+            wx.setStorageSync('member_id', res.data.member_id)
+            wx.setStorageSync('member_type', res.data.member_type)
             wx.navigateTo({
-              url: `addPerMessage?mobile=${this.data.mobile}&code=${this.data.code}`
+              url: `addPerMessage`
             })
           } else if (res.data.code == 600) {
             wx.showToast({
