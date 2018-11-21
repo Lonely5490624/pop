@@ -1,17 +1,12 @@
 //app.js
+import { ajaxData } from 'utils/common'
+
 App({
   data:{
     imgurl: 'http://www.letspopup.cn/data/upload/',
     requestUrl: 'http://www.letspopup.cn/index.php/home'
   },
   
-  ajaxData:function(data={}){
-    var timestamp = Date.parse(new Date());
-    data.t = timestamp / 1000;
-    data.r = '';
-    data.s = '';
-    return data;
-  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -52,7 +47,8 @@ App({
   },
   // 封装的网络请求
   http: function (url, pramas) {
-    let data = Object.assign({}, pramas, { member_id: 11,t:'',r:'',s:'' })
+    let data = Object.assign({}, pramas, { member_id: 11 })
+    data = ajaxData(data)
     let promise = new Promise((resolve, reject) => {
       wx.request({
         url: this.data.requestUrl + url,
