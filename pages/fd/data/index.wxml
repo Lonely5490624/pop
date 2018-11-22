@@ -50,7 +50,7 @@
       <view class='times-date'>拒单次数</view>
     </view>
     <view class='times'>
-      <view class='times-all'>{{dataInfo.reversion_rate}}</view>
+      <view class='times-all'>{{dataInfo.reversion_rate}}%</view>
       <view class='times-date'>回复率</view>
     </view>
   </view>

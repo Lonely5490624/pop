@@ -3,6 +3,7 @@
   padding: 0 32rpx;
   position: relative;
   background: #fff;
+  z-index: 9999;
 }
 .space .space-title{
   text-align: center;

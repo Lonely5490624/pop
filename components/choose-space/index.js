@@ -22,6 +22,15 @@ Component({
       this.setData({
         show: !this.data.show
       })
-    }
+    },
+    // getSpaceList(){
+    //   var data = {}
+    //   app.http('/message/index', data)
+    //     .then(res => {
+    //       this.setData({
+    //         newsList: res.data
+    //       })
+    //     })
+    // }
   }
 })

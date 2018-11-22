@@ -166,7 +166,7 @@ Page({
   },
   goToCalendar: function () {
     wx.redirectTo({
-      url: "../../fd/calendar/index2"
+      url: "../../fd/calendar/index"
     })
   }
 })
