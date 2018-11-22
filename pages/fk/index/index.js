@@ -19,21 +19,21 @@ Page({
     //热门商圈
     app.http('/home/commercialCircleList', {
         type: '1'
-      })
+      }, true)
       .then(res => {
         this.setData({
           shangq: res.data
         })
       })
     //故事列表
-    app.http('/home/storyList')
+    app.http('/home/storyList', {}, true)
       .then(res => {
         this.setData({
           storyData: res.data
         })
       })
     //热门推荐
-    app.http('/home/isRecommendSpaceList')
+    app.http('/home/isRecommendSpaceList', {}, true)
       .then(res => {
         this.setData({
           recommendData: res.data
@@ -65,7 +65,7 @@ Page({
     } else {
       app.http('/collection/editCollection', {
           space_id: e.currentTarget.id
-        })
+        }, true)
         .then(res => {
           wx.showToast({
             title: res.data.msg,
@@ -73,7 +73,7 @@ Page({
             duration: 2000
           })
           //热门推荐
-          app.http('/home/isRecommendSpaceList')
+          app.http('/home/isRecommendSpaceList', {}, true)
             .then(res => {
               that.setData({
                 recommendData: res.data

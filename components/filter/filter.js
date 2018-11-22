@@ -49,7 +49,7 @@ Component({
   methods: {
     // 获取品类
     getCategory() {
-      app.http('/home/categoryList')
+      app.http('/home/categoryList', {}, true)
         .then(res => {
           this.setData({
             categoryList: res.data
@@ -58,7 +58,7 @@ Component({
     },
     // 获取便利设施
     getconvenience() {
-      app.http('/home/convenienceList')
+      app.http('/home/convenienceList', {}, true)
         .then(res => {
           this.setData({
             getconvenienceList: res.data

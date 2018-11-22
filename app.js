@@ -43,7 +43,7 @@ App({
     member_type:1
   },
   // 封装的网络请求
-  http: function (url, pramas) {
+  http: function (url, pramas, notNeedLogin) {
     let currentTime = Date.now()
     let member_id = null
     var oldTime = wx.getStorageSync('time')
@@ -58,6 +58,12 @@ App({
       } else {
         member_id = wx.getStorageSync('member_id')
       }
+    }
+    if (!notNeedLogin && !member_id) {
+      wx.redirectTo({
+        url: '/pages/login/login',
+      })
+      return
     }
     let data = Object.assign({}, pramas, { member_id })
     data = ajaxData(data)
@@ -78,11 +84,6 @@ App({
               icon: 'none',
               duration: 2000
             })
-            if (!wx.getStorageSync('member_id')) {
-              wx.redirectTo({
-                url: '/pages/login/login',
-              })
-            }
             //console.log(res);
           }
         },

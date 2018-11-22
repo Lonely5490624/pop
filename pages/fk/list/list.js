@@ -39,7 +39,7 @@ Page({
     this.getCityList();
   },
   getCityList:function() {
-    app.http('/area/cityList')
+    app.http('/area/cityList', {}, true)
       .then(res => {
         this.setData({
           cityList: res.data
@@ -60,7 +60,7 @@ Page({
   },
   // 获取列表数据
   getList: function (params) {
-    app.http('/home/searchSpace', params)
+    app.http('/home/searchSpace', params, true)
       .then(res => {
         console.log(res)
         this.setData({
@@ -78,7 +78,7 @@ Page({
   addCl:function(e){
     
     var that=this
-    app.http('/collection/editCollection',{ space_id: e.currentTarget.id})
+    app.http('/collection/editCollection',{ space_id: e.currentTarget.id}, true)
       .then(res => {
         wx.showToast({
           title: res.msg,

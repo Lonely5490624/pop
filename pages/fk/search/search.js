@@ -14,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onShow:function(){
-    app.http('/home/historySearchList')
+    app.http('/home/historySearchList', {}, true)
       .then(res => {
         this.setData({
           historySearchList: res.data
@@ -26,7 +26,7 @@ Page({
     this.setData({
       userData: wx.getStorageSync('userData')
     })
-    app.http('/home/historySearchList')
+    app.http('/home/historySearchList', {}, true)
       .then(res => {
         this.setData({
           historySearchList: res.data
@@ -40,7 +40,7 @@ Page({
   },
   //获取热门商圈
   getCommercialCircleList:function(){
-    app.http('/home/commercialCircleList')
+    app.http('/home/commercialCircleList', {}, true)
       .then(res => {
         this.setData({
           commercialCircleList: res.data
@@ -48,13 +48,13 @@ Page({
       })
   },
   clear:function(){
-    app.http('/home/clearHistorySearch')
+    app.http('/home/clearHistorySearch', {}, true)
       .then(res => {
         this.onLoad();
       })
   },
   search:function(e){
-    app.http('/home/searchSpace', { search_content: e.detail.value})
+    app.http('/home/searchSpace', { search_content: e.detail.value}, true)
       .then(res => {
         console.log(res.data);
         if (res.code != 200) {

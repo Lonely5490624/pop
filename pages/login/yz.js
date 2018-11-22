@@ -83,7 +83,8 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         data: {
-          mobile: parseInt(that.data.mobile),
+          // mobile: parseInt(that.data.mobile),
+          mobile: 17623005222,
           code: parseInt(that.data.iptValue)
         },
         success: function(res) {
@@ -94,7 +95,7 @@ Page({
             //wx.setStorageSync('member_id', res.data.data.member_id)
             wx.setStorageSync('member_id',20)
             wx.setStorageSync('member_type', res.data.data.member_type)
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../fk/index/index'
             })
             
@@ -104,6 +105,11 @@ Page({
               icon: 'none',
               duration: 2000
             })
+            setTimeout(() => {
+              wx.redirectTo({
+                url: 'register'
+              })
+            }, 2000)
           }else {
             wx.showToast({
               title: res.data.msg,
