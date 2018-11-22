@@ -27,3 +27,40 @@
     <text class="iconfont icon-icon_arrow_right"></text>
   </view>
 </view>
+
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+  <view class="footer-li" bindtap='goToList' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-tubiao-"></text>
+    <text>搜索</text>
+  </view>
+  <view class="footer-li" bindtap='goToNews'>
+    <text class="iconfont icon-xiaoxi"></text>
+    <text>消息</text>
+  </view>
+  <view class="footer-li select" bindtap='goToCalendar' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-calendar"></text>
+    <text>日历</text>
+  </view>
+  <view class="footer-li" bindtap='goToSpace' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-home"></text>
+    <text>空间</text>
+  </view>
+  <view class="footer-li" bindtap='goToData' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-shuju"></text>
+    <text>数据</text>
+  </view>
+  <view class="footer-li" bindtap='goToTrip' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-hangcheng"></text>
+    <text>行程</text>
+  </view>
+  <view class="footer-li" bindtap='goToCollection' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-shoucang"></text>
+    <text>收藏</text>
+  </view>
+  <view class="footer-li" bindtap='goToMine'>
+    <text class="iconfont icon-wode"></text>
+    <text>我的</text>
+  </view>
+</view>

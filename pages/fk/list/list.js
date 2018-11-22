@@ -10,17 +10,21 @@ Page({
     cityList: [],
     index: 0,
     searchC:'输入您想要的城市、商圈',
-    member_type: 0
+    member_type: 0,
+    imgUrl: ''
   },
   opendate: function() {
     this.setData({
       opendate: true
     })
   },
-  onLoad: function(options) {  
-    this.setData({
+  onLoad: function(options) { 
+    var that = this;
+    that.setData({
+      imgUrl: app.data.imgurl,
+      userData: wx.getStorageSync('userData'),
       member_type: app.globalData.member_type
-    })   
+    }) 
     if (options.name != undefined){
       this.setData({
         searchC: options.name,
@@ -132,7 +136,7 @@ Page({
   },
   goToSpace: function () {
     wx.redirectTo({
-      url: "../../fk/space/index"
+      url: "../../fd/space/index"
     })
   },
   goToMine: function () {

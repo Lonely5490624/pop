@@ -15,6 +15,7 @@ Page({
     chooseDateArrInfo: [],    
     space_id:0,
     currentTypes: [],
+    member_type: 0
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -107,6 +108,7 @@ Page({
     myDate.toLocaleDateString(); //获取日期与时间
     this.setData({
       imgUrl: app.data.imgurl,
+      member_type: app.globalData.member_type
     })
     const date = new Date();
     const cur_year = date.getFullYear();
@@ -206,6 +208,46 @@ Page({
     }
     wx.navigateTo({
       url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id
+    })
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../../fd/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../../fd/calendar/index"
     })
   }
 })

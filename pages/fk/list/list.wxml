@@ -22,7 +22,7 @@
   <view class='space-list'>
     <view class='space-list space-item' wx:for='{{spaceData}}'>
       <navigator url='/pages/fk/detail/detail?id={{item.id}}'>
-        <image class='space-img' src='http://pop.aieye8.com/data/upload/{{item.banner}}'></image>
+        <image class='space-img' src='{{imgUrl+item.banner}}'></image>
       </navigator>
       <text class='space-renzheng' wx:if='{{item.official_certification==1}}'>官方认证</text>
       <text class='space-info'>{{item.categoryName}} . {{item.type}}</text>

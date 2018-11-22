@@ -9,7 +9,8 @@ Page({
   data: {
     activeId: 1,
     pubList: [],
-    unpubList: []
+    unpubList: [],
+    member_type: 0
   },
   choose: function(e) {
     let id = e.target.dataset.id
@@ -24,7 +25,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       imgUrl: app.data.imgurl,
-      userData: wx.getStorageSync('userData')
+      userData: wx.getStorageSync('userData'),
+      member_type: app.globalData.member_type
     })
     this.getPub()
     this.getUnpub()
@@ -124,5 +126,45 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../../fd/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../../fd/calendar/index"
+    })
   }
 })

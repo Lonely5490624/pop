@@ -66,7 +66,7 @@ Page({
   },
   goToSpace: function () {
     wx.redirectTo({
-      url: "../fk/space/index"
+      url: "../fd/space/index"
     })
   },
   goToMine: function () {
@@ -96,7 +96,7 @@ Page({
   },
   goToCalendar: function () {
     wx.redirectTo({
-      url: "../fd/calendar/index2"
+      url: "../fd/calendar/index"
     })
   }
 })

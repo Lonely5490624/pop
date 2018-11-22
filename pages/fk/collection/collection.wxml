@@ -56,11 +56,11 @@
     <text class="iconfont icon-shuju"></text>
     <text>数据</text>
   </view>
-  <view class="footer-li select" bindtap='goToTrip' wx:if="{{member_type==1}}">
+  <view class="footer-li" bindtap='goToTrip' wx:if="{{member_type==1}}">
     <text class="iconfont icon-hangcheng"></text>
     <text>行程</text>
   </view>
-  <view class="footer-li" bindtap='goToCollection' wx:if="{{member_type==1}}">
+  <view class="footer-li select" bindtap='goToCollection' wx:if="{{member_type==1}}">
     <text class="iconfont icon-shoucang"></text>
     <text>收藏</text>
   </view>

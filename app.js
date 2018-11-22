@@ -80,7 +80,7 @@ App({
             })
             if (!wx.getStorageSync('member_id')) {
               wx.redirectTo({
-                url: '/pages/login/register',
+                url: '/pages/login/login',
               })
             }
             //console.log(res);
