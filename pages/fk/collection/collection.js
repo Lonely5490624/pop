@@ -8,7 +8,8 @@ Page({
     shangq,
     shangq2,
     userData:[],
-    imgUrl:''
+    imgUrl:'',
+    member_type: 0
   },
   onShow:function(){
     app.http('/collection/getCollection')
@@ -23,7 +24,8 @@ Page({
     var that=this;
     that.setData({
       imgUrl: app.data.imgurl,
-      userData: wx.getStorageSync('userData')
+      userData: wx.getStorageSync('userData'),
+      member_type: app.globalData.member_type
     })   
     app.http('/collection/getCollection')
       .then(res => {
@@ -35,6 +37,46 @@ Page({
   gotoList:function(e){
     wx.navigateTo({
       url: 'collectionList?id=' + e.currentTarget.id
+    })
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../../fk/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../../fd/calendar/index2"
     })
   }
 })

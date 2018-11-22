@@ -5,14 +5,15 @@ Page({
     userData:[],
     userInfo:[],
     tx:'',
-    member_type:''
+    member_type:0
   },
   onLoad: function (options) {    
     var that=this
     that.setData({
       tx: wx.getStorageSync('wxUserData').avatarUrl,
       userData: wx.getStorageSync('userData'),
-      member_type: wx.getStorageSync('userData').member_type
+      // member_type: wx.getStorageSync('userData').member_type,
+      member_type: app.globalData.member_type
     })
     app.http('/my/index')
       .then(res => {
@@ -57,5 +58,45 @@ Page({
           duration: 2000
         })
       })
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../fk/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../fd/calendar/index2"
+    })
   }
 })

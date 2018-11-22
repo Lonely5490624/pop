@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    tripList: []
+    tripList: [],
+    member_type: 0
   },
   //事件处理函数
   toSearch: function() {
@@ -15,6 +16,7 @@ Page({
   onLoad: function () {
     this.setData({
       imgUrl: app.data.imgurl,
+      member_type: app.globalData.member_type,
       tripList: [{
         "id": "66",
         "member_id": "4",
@@ -52,6 +54,46 @@ Page({
         "city_name": "上海",
         "commercial_name": "静安寺"
       }]
+    })
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../../fk/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../../fd/calendar/index2"
     })
   }
 })

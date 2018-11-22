@@ -52,12 +52,13 @@
   font-size: 32rpx;
 }
 .footer-li:nth-child(1) .iconfont{
-  font-size:56rpx;
-margin-top:12rpx;
+  font-size:48rpx;
+margin-top:19rpx;
+
 
 }
 .footer-li:nth-child(1) text {
-  margin-top:-15rpx;
+  margin-top:-9rpx;
 }
 
 .pad32 {

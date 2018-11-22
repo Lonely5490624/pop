@@ -2,7 +2,8 @@ const app = getApp()
 Page({
   data: {
     userData: [],
-    newsList:[]
+    newsList:[],
+    member_type: 0
   },
   //事件处理函数
   toSearch: function() {
@@ -12,7 +13,8 @@ Page({
   },
   onLoad: function() {
     this.setData({
-      userData: wx.getStorageSync('userData')
+      userData: wx.getStorageSync('userData'),
+      member_type: app.globalData.member_type
     })
     app.http('/message/index', { member_type: this.data.userData.member_type})
       .then(res => {
@@ -21,4 +23,44 @@ Page({
         })        
       })
   },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../fk/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../fd/calendar/index2"
+    })
+  }
 })

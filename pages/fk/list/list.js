@@ -9,17 +9,22 @@ Page({
     userData:[],
     cityList: [],
     index: 0,
-    searchC:'输入您想要的城市、商圈'
+    searchC:'输入您想要的城市、商圈',
+    member_type: 0
   },
   opendate: function() {
     this.setData({
       opendate: true
     })
   },
-  onLoad: function(options) {     
+  onLoad: function(options) {  
+    this.setData({
+      member_type: app.globalData.member_type
+    })   
     if (options.name != undefined){
       this.setData({
-        searchC: options.name
+        searchC: options.name,
+        member_type: app.globalData.member_type
       }) 
       this.getList({ search_content: options.name})
     }else{
@@ -112,5 +117,52 @@ Page({
       console.log(params)
       this.getList(params)
     }
+  },
+  toNewP: function (e) {
+    if (e.currentTarget.dataset.text != '') {
+      wx.navigateTo({
+        url: 'newP?link_address=' + e.currentTarget.dataset.text
+      })
+    }
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../../fk/list/list"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../../fk/space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../../fk/collection/collection"
+    })
+  },
+  goToData: function () {
+    wx.redirectTo({
+      url: "../../fd/data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../../fd/calendar/index2"
+    })
   }
 })

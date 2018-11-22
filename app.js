@@ -39,7 +39,8 @@ App({
   globalData: {
     userInfo: null,
     xData: '123',
-    yData: ''
+    yData: '',
+    member_type:1
   },
   // 封装的网络请求
   http: function (url, pramas) {

@@ -127,34 +127,36 @@
 <!--底部-->
 <view class="footer-h"></view>
 <view class="footer">
-  <view class="footer-li">
-    <navigator url="/pages/fk/index/index">
-      <text class="iconfont icon-tubiao-"></text>
-      <text>搜索</text>
-    </navigator>
+  <view class="footer-li" bindtap='goToList' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-tubiao-"></text>
+    <text>搜索</text>
   </view>
-  <view class="footer-li">
-    <navigator url="/pages/news/news">
-      <text class="iconfont icon-xiaoxi"></text>
-      <text>消息</text>
-    </navigator>
+  <view class="footer-li" bindtap='goToNews'>
+    <text class="iconfont icon-xiaoxi"></text>
+    <text>消息</text>
   </view>
-  <view class="footer-li select">
-    <navigator url="/pages/fk/trip/trip">
-      <text class="iconfont icon-hangcheng"></text>
-      <text>行程</text>
-    </navigator>
+  <view class="footer-li" bindtap='goToCalendar' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-calendar"></text>
+    <text>日历</text>
   </view>
-  <view class="footer-li">
-    <navigator url="/pages/fk/collection/collection">
-      <text class="iconfont icon-shoucang"></text>
-      <text>收藏</text>
-    </navigator>
+  <view class="footer-li" bindtap='goToSpace' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-home"></text>
+    <text>空间</text>
   </view>
-  <view class="footer-li">
-    <navigator url="/pages/mine/mine">
-      <text class="iconfont icon-wode"></text>
-      <text>我的</text>
-    </navigator>
+  <view class="footer-li" bindtap='goToData' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-shuju"></text>
+    <text>数据</text>
+  </view>
+  <view class="footer-li select" bindtap='goToTrip' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-hangcheng"></text>
+    <text>行程</text>
+  </view>
+  <view class="footer-li" bindtap='goToCollection' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-shoucang"></text>
+    <text>收藏</text>
+  </view>
+  <view class="footer-li" bindtap='goToMine'>
+    <text class="iconfont icon-wode"></text>
+    <text>我的</text>
   </view>
 </view>
