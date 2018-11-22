@@ -24,7 +24,7 @@ Component({
   methods: {
     // 获取品类
     getCityList() {
-      app.http('/area/cityList')
+      app.http('/area/cityList', {}, true)
         .then(res => {
           this.setData({
             cityList: res.data
