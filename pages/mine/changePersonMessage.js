@@ -13,11 +13,14 @@ Page({
       userData: wx.getStorageSync('userData'),
       userInfo: JSON.parse(options.userInfo)
     })
-    this.setData({
-      'region[0]': this.data.userInfo.province,
-      'region[1]': this.data.userInfo.city,
-      'region[2]': this.data.userInfo.county
-    })
+    if (this.data.userInfo.province!=null){
+      this.setData({
+        'region[0]': this.data.userInfo.province,
+        'region[1]': this.data.userInfo.city,
+        'region[2]': this.data.userInfo.county
+      })
+    }
+    
   },
   // 选择省市区函数
   changeRegin(e) {

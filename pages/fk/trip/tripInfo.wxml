@@ -1,11 +1,11 @@
 <view class='page'>
   <view class='top pad32'>
     <view class='t1'>{{tripInfo.chinese_status}}</view>
-    <view class='t2'>订单编号{{tripInfo.order_no}}</view>
+    <view class='t2'>订单编号：{{tripInfo.order_no}}</view>
     <view class='t3'>
       <view class='t3_left'>
-      <!-- url -->
-        <image src='{{tripInfo.space_pic}}'></image>
+        <!-- url -->
+        <image src='{{imgUrl+tripInfo.space_pic}}'></image>
       </view>
       <view class='t3_right'>
         <view class='t3_r_l1'>{{tripInfo.space_title}}</view>
@@ -22,7 +22,15 @@
     <view class='box2_t1'>
       <view class='box2_t1_l'>
         <view>{{tripInfo.landlord_nick_name}}</view>
-        <view wx:if="{{tripInfo.comment_count==0}}">{{tripInfo.comment_count}}条评价</view>
+        <view wx:if="{{tripInfo.comment_count==0}}">
+          <view class='space-score' wx:for='{{tripInfo.service_avg}}'>
+            <text class='iconfont icon-wujiaoxing score-icon active'></text>
+          </view>
+          <view class='space-score' wx:for='{{5-tripInfo.service_avg}}'>
+            <text class='iconfont icon-wujiaoxing score-icon'></text>
+          </view>
+          <text style='margin-left:10rpx;'>{{tripInfo.comment_count}}条评价</text>
+        </view>
         <view wx:else>{{tripInfo.comment_count}}条评价 · 已验证</view>
       </view>
       <view class='box2_t1_2'>
@@ -31,12 +39,12 @@
     </view>
 
     <view class='box2_t2'>
-      <view class='box2_t2_1' style='border-right: 1px #E8E8E8 solid;'>
-        <text class="iconfont icon-dianhua"></text>
+      <view class='box2_t2_1' bindtap='toNews' style='border-right: 1px #E8E8E8 solid;'>
+        <text class="iconfont icon-xiaoxi" style='font-size:44rpx;'></text>
         <view>发送消息</view>
       </view>
-      <view class='box2_t2_1'>
-        <text class="iconfont icon-dianhua"></text>
+      <view class='box2_t2_1' bindtap='calling'>
+        <text class="iconfont icon-dianhua1" style='font-size:44rpx;'></text>
         <view>拨打电话</view>
       </view>
     </view>
@@ -59,7 +67,8 @@
       <view class='b3_list_r'>{{tripInfo.address}}</view>
     </view>
     <view class='b3_list2 pad32'>
-      <map id="map" longitude="{{tripInfo.longitude}}" latitude="{{tripInfo.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 400rpx;"></map>
+      <!-- <map id="map" longitude="{{tripInfo.longitude}}" latitude="{{tripInfo.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 400rpx;"></map> -->
+      <map id="map" longitude="{{tripInfo.longitude}}" latitude="{{tripInfo.latitude}}" scale="14"markers="{{markers}}" style="width: 100%; height: 400rpx;"></map>
     </view>
     <view class='b3_list'>
       <view class='b3_list_l'>总费用</view>
@@ -78,23 +87,17 @@
         <text style='margin-left:30rpx;' wx:if="{{tripInfo.unsubscribe_policy==1}}">￥{{tripInfo.balance}} 于入场前8天支付</text>
         <text style='margin-left:30rpx;' wx:else>￥{{tripInfo.balance}} 于入驻前10天内支付</text>
       </view>
-      <view class='b3_list_r gopayBtn' wx:if="{{tripInfo.status==2 && tripInfo.refund_status==0}}">去支付</view>
+      <view class='b3_list_r gopayBtn' wx:if="{{tripInfo.status==2 && tripInfo.refund_status==0}}" bindtap='toPay'>去支付</view>
     </view>
   </view>
-  <!-- if(data.status == 2 && data.refund_status == 0){
- $("#to_pay").html("<button onclick=\"location.href='../space/tetrun-meny.html?order_id="+data.order_id+"'\">去支付</button>");
-      if((data.status == 1 || data.status == 2 || data.status == 3) && data.refund_status == 0){
-     onclick="jump_cancel();">取消预订';-->
-
   <view class='box4'>
-    <view class='b4_list' wx:if="{{(tripInfo.status==1 || tripInfo.status==2 ||tripInfo.status==3) && tripInfo.refund_status==0}}">
+    <view class='b4_list' wx:if="{{(tripInfo.status==1 || tripInfo.status==2 ||tripInfo.status==3) && tripInfo.refund_status==0}}"  bindtap='cancle'>
       <view class="b4_list_l">取消预订</view>
-      <view class="b4_list_r"><text class="iconfont icon-icon1"></text></view>
+      <view class='con_list_r b4_list_r' style='float:right'>
+        <text class="iconfont icon-icon_arrow_right"></text>
+      </view>
     </view>
-    <view class='b4_list'>
-      <view class="b4_list_l">更改预订</view>
-      <view class="b4_list_r"><text class="iconfont icon-icon1"></text></view>
-    </view>
+
   </view>
 
 
