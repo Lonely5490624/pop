@@ -1,17 +1,18 @@
 <view class='page'>
   <view class='top pad32'>
-    <view class='t1'>订单状态</view>
-    <view class='t2'>订单编号 SKDHBDS45WBJ</view>
+    <view class='t1'>{{tripInfo.chinese_status}}</view>
+    <view class='t2'>订单编号{{tripInfo.order_no}}</view>
     <view class='t3'>
       <view class='t3_left'>
-        <image src='/images/aaa.jpg'></image>
+      <!-- url -->
+        <image src='{{tripInfo.space_pic}}'></image>
       </view>
       <view class='t3_right'>
-        <view class='t3_r_l1'>这是空间标题这里是空间标题…</view>
-        <view class='t3_r_l2'>独立空间·服饰销售</view>
+        <view class='t3_r_l1'>{{tripInfo.space_title}}</view>
+        <view class='t3_r_l2'>{{tripInfo.space_type}}·{{tripInfo.category_name}}</view>
         <view class='t3_r_l3'>
-          <text class='font-f5'>￥1800 </text>
-          <text> 共10天</text>
+          <text class='font-f5'>￥{{tripInfo.everyday_price}} </text>
+          <text> 共{{tripInfo.days}}天</text>
         </view>
       </view>
     </view>
@@ -20,11 +21,12 @@
   <view class='box2'>
     <view class='box2_t1'>
       <view class='box2_t1_l'>
-        <view>房东/运营者昵称</view>
-        <view>123条评价 · 已验证</view>
+        <view>{{tripInfo.landlord_nick_name}}</view>
+        <view wx:if="{{tripInfo.comment_count==0}}">{{tripInfo.comment_count}}条评价</view>
+        <view wx:else>{{tripInfo.comment_count}}条评价 · 已验证</view>
       </view>
       <view class='box2_t1_2'>
-        <image src='/images/fen-qq.jpg'></image>
+        <image src='{{tripInfo.landlord_head_img_url}}'></image>
       </view>
     </view>
 
@@ -42,44 +44,50 @@
   <view class='box3'>
     <view class='b3_list'>
       <view class='b3_list_l'>入住时间</view>
-      <view class='b3_list_r'>8月9日 周四 晚上21:00</view>
+      <view class='b3_list_r'>{{tripInfo.arrival_time}}</view>
     </view>
     <view class='b3_list'>
       <view class='b3_list_l'>离开时间</view>
-      <view class='b3_list_r'>8月19日 周四 早上06:00</view>
+      <view class='b3_list_r'>{{tripInfo.leave_time}}</view>
     </view>
     <view class='b3_list'>
       <view class='b3_list_l'>施工时间</view>
-      <view class='b3_list_r'>入住期间的每天 00:00 - 06:00</view>
+      <view class='b3_list_r'>{{tripInfo.construct_time}}</view>
     </view>
     <view class='b3_list'>
       <view class='b3_list_l'>地址</view>
-      <view class='b3_list_r'>上海市静安区大悦城</view>
+      <view class='b3_list_r'>{{tripInfo.address}}</view>
     </view>
     <view class='b3_list2 pad32'>
-      <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 400rpx;"></map>
+      <map id="map" longitude="{{tripInfo.longitude}}" latitude="{{tripInfo.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 400rpx;"></map>
     </view>
     <view class='b3_list'>
       <view class='b3_list_l'>总费用</view>
-      <view class='b3_list_r' style="color:#212121;">￥3000</view>
+      <view class='b3_list_r' style="color:#212121;">￥{{tripInfo.total_money}}</view>
     </view>
     <view class='b3_list3'>
       <view class='b3_list_l'>
-        <text>定金 10%</text>
+        <text>定金 {{tripInfo.deposit_rate}}%</text>
         <text style='margin-left:30rpx;'>￥300 已支付</text>
       </view>
       <view class='b3_list_r'></view>
     </view>
     <view class='b3_list4'>
       <view class='b3_list_l'>
-        <text>余款 90%</text>
-        <text style='margin-left:30rpx;'>￥2700 于入场前n天支付</text>
+        <text>余款 {{tripInfo.spare_rate}}%</text>
+        <text style='margin-left:30rpx;' wx:if="{{tripInfo.unsubscribe_policy==1}}">￥{{tripInfo.balance}} 于入场前8天支付</text>
+        <text style='margin-left:30rpx;' wx:else>￥{{tripInfo.balance}} 于入驻前10天内支付</text>
       </view>
-      <view class='b3_list_r gopayBtn'>去支付</view>
+      <view class='b3_list_r gopayBtn' wx:if="{{tripInfo.status==2 && tripInfo.refund_status==0}}">去支付</view>
     </view>
   </view>
+  <!-- if(data.status == 2 && data.refund_status == 0){
+ $("#to_pay").html("<button onclick=\"location.href='../space/tetrun-meny.html?order_id="+data.order_id+"'\">去支付</button>");
+      if((data.status == 1 || data.status == 2 || data.status == 3) && data.refund_status == 0){
+     onclick="jump_cancel();">取消预订';-->
+
   <view class='box4'>
-    <view class='b4_list'>
+    <view class='b4_list' wx:if="{{(tripInfo.status==1 || tripInfo.status==2 ||tripInfo.status==3) && tripInfo.refund_status==0}}">
       <view class="b4_list_l">取消预订</view>
       <view class="b4_list_r"><text class="iconfont icon-icon1"></text></view>
     </view>

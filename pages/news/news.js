@@ -15,14 +15,31 @@ Page({
     this.setData({
       userData: wx.getStorageSync('userData'),
       member_type: app.globalData.member_type
-    })
-    app.http('/message/index', { member_type: this.data.userData.member_type})
+    })    
+  },
+  onShow:function(){
+    //轮询执行
+    setInterval(() => {
+      this.getNews();
+    }, 1000)
+  },
+  getNews:function(){
+    app.http('/message/index', { member_type: this.data.member_type })
       .then(res => {
         this.setData({
           newsList: res.data
-        })        
+        })
+        // for (var i = 0; i < res.data.length;i++){
+        //   if (res.data[i].order_id == '') {
+        //     this.setData({
+        //       'newsList.order_status_info': '咨询中'
+        //     })
+        //   }
+        // }
+        
       })
   },
+
   goToList: function () {
     wx.redirectTo({
       url: "../fk/list/list"
