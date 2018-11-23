@@ -23,6 +23,18 @@ Component({
         show: !this.data.show
       })
     },
+    _submit: function () {
+      this.triggerEvent('myevent', {
+        fuc: "submit",
+        data: {
+          currentTypes: this.data.currentTypes,
+          currentCates: this.data.currentCates,
+          currentFacs: this.data.currentFacs,
+          low: this.data.low,
+          high: this.data.high
+        }
+      })
+    }
     // getSpaceList(){
     //   var data = {}
     //   app.http('/message/index', data)

@@ -25,7 +25,7 @@
       <view class='p1'>回复率</view>
       <view class='p2'>
         <view class='reply'>
-          <text class='t1'>{{dataInfo.reversion_rate}}</text>
+          <text class='t1'>{{dataInfo.reversion_rate}}%</text>
         </view>
         <view class='info'>{{dataInfo.reversion_content}}</view>
       </view>

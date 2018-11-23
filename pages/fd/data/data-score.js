@@ -6,20 +6,52 @@ Page({
     userData:[],
     isshowHf:false,
     isshowHfbtn:true,
-    hfCont:''
+    hfCont:'',
+    show: false,
+    spaceList: [],
+    chooseId: '-1',
+    title: '全部空间',
+    comment_list:[]
   },
   onLoad: function (options) {
     this.setData({
       userData: wx.getStorageSync('userData')
     })
-    console.log(this.data.userData)
-    app.http('/data/space_comment_data',{member_type:'2',space_id:''})
+    this.getspace_comment_data()
+  },
+  getspace_comment_data: function (space_id){
+    var data = {
+      member_type: '2'
+    }
+    if (space_id != undefined) {
+      data.space_id = space_id
+    }
+    app.http('/data/space_comment_data', data)
       .then(res => {
         this.setData({
-          score: res.data
+          score: res.data,
+          spaceList: res.data.space,
+          comment_list: res.data.comment_list
         })
-        console.log(res.data)
       })
+  },
+  chooseSpace: function (e) {
+    this.setData({
+      chooseId: e.target.id,
+      show: false,
+      title: e.currentTarget.dataset.name
+    })
+    if (e.target.id == -1) {
+      this.getspace_comment_data()
+    } else {
+      this.getspace_comment_data(this.data.chooseId)
+    }
+
+  },
+  toggleList() {
+    this.setData({
+      show: !this.data.show
+    })
   },
   openHf:function(){
     this.setData({

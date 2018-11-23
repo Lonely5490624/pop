@@ -2,6 +2,7 @@ import * as echarts from '../../../ec-canvas/echarts';
 const app = getApp();
 var xData = []
 var yData = []
+
 function initChart(canvas, width, height) {
   const chart = echarts.init(canvas, null, {
     width: width,
@@ -69,15 +70,24 @@ Page({
   },
   data: {
     viewInfo: [],
+    show: false,
+    spaceList: [],
+    chooseId: '-1',
+    title:'全部空间',
     ec: {
       onInit: initChart
     }
   },
 
   onLoad: function(options) {
+    this.getBrowsedata()
+  },
+  getBrowsedata: function(space_id) {
     var data = {
-      member_type: '2',
-      space_id: ''
+      member_type: '2'      
+    }
+    if (space_id != undefined) {
+      data.space_id = space_id
     }
     this.ecComponent = this.selectComponent('#mychart-dom-line')
     app.http('/data/browse_data', data)
@@ -85,19 +95,20 @@ Page({
         //xData = [18, 36, 65, 30, 78, 40, -1]
         //yData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
         xData = res.data.num_arr,
-        yData = res.data.month_arr,
-        this.ecComponent.init((canvas, width, height) => {
-          const chart = echarts.init(canvas, null, {
-            width: width,
-            height: height
+          yData = res.data.month_arr,
+          this.ecComponent.init((canvas, width, height) => {
+            const chart = echarts.init(canvas, null, {
+              width: width,
+              height: height
+            });
+            this.setOption(chart);
+            this.chart = chart;
+            return chart;
           });
-          this.setOption(chart);
-          this.chart = chart;
-          return chart;
-        });
 
         this.setData({
-          viewInfo: res.data
+          viewInfo: res.data,
+          spaceList: res.data.space
         })
         console.log(this.data.viewInfo)
         //getApp().globalData.xData = [18, 36, 65, 30, 78, 40, -1];
@@ -106,7 +117,7 @@ Page({
         //console.log(xData)
         //console.log(yData)
         //initChart(canvas, '500prx', '500rpx')
-        
+
       })
     // console.log(xData)
     //console.log(app.globalData.xData)
@@ -116,7 +127,25 @@ Page({
     //   }
     // })
   },
-  setOption (chart) {
+  chooseSpace: function(e) {
+    this.setData({
+      chooseId: e.target.id,
+      show: false,
+      title: e.currentTarget.dataset.name
+    })
+    if (e.target.id == -1) {
+      this.getBrowsedata()
+    } else {
+      this.getBrowsedata(this.data.chooseId)
+    }
+
+  },
+  toggleList() {
+    this.setData({
+      show: !this.data.show
+    })
+  },
+  setOption(chart) {
     const option = {
       title: {
         text: '',

@@ -1,6 +1,15 @@
 <!--pages/fd/data/data-income.wxml-->
 <wxs module="filter" src="../../../filter/height.wxs"></wxs>
-<choose-space></choose-space>
+<view class='space'>
+  <view bindtap='toggleList' class='space-title'>{{title}}
+    <text class='arrow iconfont icon-jiantou7' wx:if="{{show}}"></text>
+    <text class='arrow iconfont icon-icon_arrow_bottom' wx:else></text>
+  </view>
+  <view class='space-list {{show ? "active" : ""}}'>
+    <view class='space-item {{chooseId==-1?"active":""}}' data-name="全部空间" bindtap='chooseSpace' id="-1">全部空间</view>
+    <view class='space-item {{chooseId==item.id?"active":""}}' data-name="{{item.title}}" id="{{item.id}}" wx:for="{{spaceList}}" bindtap='chooseSpace'>{{item.title}}</view>
+  </view>
+</view>
 <view class='income'>
   <view class='income-title'>收入</view>
   <view class='chart'>
@@ -12,7 +21,7 @@
       <view class='chart-prev'><text class='iconfont icon-jiantouzuo'></text></view>
       <scroll-view scroll-x scroll-left='{{scrollLeft}}' class='chart-show'>
         <view wx:for='{{income}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseItem' class='chart-item {{item.date == currentMonth ? "active" : ""}}'>
-          <view class='item-date'>{{item.date}}月</view>
+          <view class='item-date'>{{item.date}}</view>
           <view class='item-yi' style='height: {{filter.getHeight(item.yi, maxHeight)}}rpx;'></view>
           <view class='item-ji' style='height: {{filter.getHeight(item.ji, maxHeight)}}rpx;'></view>
         </view>
@@ -20,8 +29,8 @@
       <view bindtap='nextTap' class='chart-next'><text class='iconfont icon-icon_arrow_right'></text></view>
     </view>
     <view class='chart-price'>
-      <view class='price-all'>￥17900.50</view>
-      <view class='price-info'>2018年8月收入 · 您已获得￥4754.50</view>
+      <view class='price-all'>￥{{dataIncome.current_income}}</view>
+      <view class='price-info'>2018年{{dataIncome.current_month}}月收入 · 您已获得￥{{dataIncome.transfer_arr[11]}}</view>
     </view>
   </view>
 </view>
@@ -31,83 +40,27 @@
     <view class='tab-item {{tabId == 2 ? "active" : ""}}' data-id='2' bindtap='changeTab'>即将转款</view>
   </view>
   <view class='content'>
-    <view class='content-item {{tabId == 1 ? "active" : ""}}'>
-      <view class='item-time'>8月9日</view>
-      <view class='item-box'>
+    <view class='content-item {{tabId == 1 ? "active" : ""}}' wx:for="{{transfer_order_info_list}}" wx:for-index='key'>
+      <view class='item-time'>{{key}}</view>
+      <view class='item-box' wx:for="{{item}}">
         <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+          <view class='title'>{{item.space_name}}</view>
+          <view class='sub'>{{item.nick_name}} · 2018年8月1日 - 8月20日 · 订单编号 {{item.order_no}}</view>
         </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-time'>8月9日</view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
+        <view class='price'>￥{{item.total_money}}</view>
+      </view>  
     </view>
-    <view class='content-item {{tabId == 2 ? "active" : ""}}'>
-      <view class='item-time'>8月7日</view>
-      <view class='item-box'>
+
+    <view class='content-item {{tabId == 2 ? "active" : ""}}' wx:for="{{no_transfer_order_info_list}}" wx:for-index='key'>
+      <view class='item-time'>{{key}}</view>
+      <view class='item-box' wx:for="{{item}}">
         <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
+          <view class='title'>{{item.space_name}}</view>
+          <view class='sub'>{{item.nick_name}} · 2018年8月1日 - 8月20日 · 订单编号 {{item.order_no}}</view>
         </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-time'>8月6日</view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
-      <view class='item-box'>
-        <view class='info'>
-          <view class='title'>这里是空间标题空间标题空间标题空间标题…</view>
-          <view class='sub'>用户昵称 · 2018年8月1日 - 8月20日 · 订单编号 SKDHSK235DF5J</view>
-        </view>
-        <view class='price'>￥1298</view>
-      </view>
+        <view class='price'>￥{{item.total_money}}</view>
+      </view>  
     </view>
+
   </view>
 </view>
