@@ -57,18 +57,19 @@ Page({
   },
   //事件处理函数
   previewImages: function() {
+    var that=this
+    var arr=[]
+    for (var i = 0; i < that.data.imgUrls.length;i++){
+      arr.push(that.data.imgUrl + that.data.imgUrls[i]);
+    }
     wx.previewImage({
-      urls: ['http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg',
-        'http://www.runoob.com/try/demo_source/paris.jpg', 'http://www.runoob.com/try/demo_source/paris.jpg'
-      ]
+      urls: arr
     })
   },
   onLoad: function(options) {
     this.setData({
       imgUrl: app.data.imgurl
     })
-    // console.log(this.data.imgUrls)
-    // console.log(options)
     if (options != '') {
       this.setData({
         space_id: options.id
@@ -79,7 +80,6 @@ Page({
         space_id: that.data.space_id
       })
       .then(res => {
-        console.log(res.data)
         that.setData({
           space_info: res.data,
           imgUrls: JSON.parse(res.data.pics),
@@ -92,7 +92,6 @@ Page({
           }],
           
         })
-        console.log(that.data.imgUrls)
         if (res.data.describe.length > 40) {
           that.setData({
             isShow1: true

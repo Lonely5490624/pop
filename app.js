@@ -4,7 +4,8 @@ import { ajaxData } from 'utils/common'
 App({
   data:{
     imgurl: 'http://www.letspopup.cn/data/upload/',
-    requestUrl: 'http://www.letspopup.cn/index.php/home'
+    requestUrl: 'http://www.letspopup.cn/index.php/home',
+    dgaccount:"28837XXXXXXXXXX"
   },
   
   onLaunch: function () {

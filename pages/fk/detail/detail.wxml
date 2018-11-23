@@ -1,7 +1,6 @@
 <view class='page'>
   <view class='banner' bindtap='previewImages'>
-    <!-- <image src='{{imgUrl+space_info.banner}}'></image> -->
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="#f55" autoplay="{{autoplay}}">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
           <image src="{{imgUrl+item}}" class="slide-image" width="355" height="150" />

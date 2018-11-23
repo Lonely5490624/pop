@@ -6,13 +6,14 @@ Page({
   data: {
     order_id: null,
     balance_time: '11月15日 00:00',
-    account: '28837XXXXXXXXXX',
+    account:'',
     img: null
   },
   //事件处理函数
   onLoad: function (options) {
     this.setData({
-      order_id: options.id
+      order_id: options.id,
+      account: app.data.dgaccount      
     })
   },
   copy () {
