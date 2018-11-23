@@ -82,6 +82,7 @@ Page({
         console.log(res.data)
         that.setData({
           space_info: res.data,
+          imgUrls: JSON.parse(res.data.pics),
           points: [{
             longitude: res.data.longitude,
             latitude: res.data.latitude
@@ -89,7 +90,7 @@ Page({
             longitude: res.data.longitude,
             latitude: res.data.latitude
           }],
-          imgUrls:res.data.pics
+          
         })
         console.log(that.data.imgUrls)
         if (res.data.describe.length > 40) {
