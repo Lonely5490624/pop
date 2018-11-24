@@ -10,7 +10,8 @@ Page({
     spaceId: null,
     mall_name: null,
     storey: null,
-    region: ["四川省", "成都市", "武侯区"],
+    cityArray: [],
+    ObjectCityArray: []
   },
 
   /**
@@ -27,6 +28,35 @@ Page({
           storey: res.data.storey
         })
       })
+    this.getCityList()
+  },
+  // 获取城市列表
+  getCityList () {
+    app.http('/area/province_list')
+      .then(res => {
+        console.log(res)
+        let arr = [[],[]],
+            objectArr = [],
+            objectArr2 = [];
+        res.data.area.forEach(item => {
+          if (item.childs.length > 0) {
+            item.childs.forEach(item2 => {
+              arr[1].push(item2.value)
+              // objectArr2.push({ id: item2.id, value: item2.value })
+            })
+          }
+          arr[0].push(item.value)
+          // objectArr.push(objectArr2)
+          // objectArr2=[]
+        })
+        this.setData({
+          cityArray: arr,
+          ObjectCityArray: objectArr
+        })
+      })
+  },
+  bindcolumnchange (e) {
+    console.log(e)
   },
   // 选择城市
   changeRegin (e) {

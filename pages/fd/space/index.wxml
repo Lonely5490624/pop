@@ -14,7 +14,7 @@
         </view>
         <view class='space-btns'>
           <view data-id='{{item.id}}' bindtap='handleDown' class='btn down'>下架</view>
-          <view data-id='{{item.id}}' bindtap='handleEdit' class='btn edit'>编辑</view>
+          <!-- <view data-id='{{item.id}}' bindtap='handleEdit' class='btn edit'>编辑</view> -->
         </view>
       </view>
     </view>
@@ -25,8 +25,10 @@
           <view class='title'>{{item.title}}</view>
         </view>
         <view class='space-btns'>
+          <view wx:if='{{item.examine_status == 0}}' data-id='{{item.id}}' class='btn down'>审核中</view>
+          <view wx:if='{{item.examine_status == 2}}' data-id='{{item.id}}' bindtap='handleEdit' class='btn edit'>审核未通过，点击编辑</view>
+
           <view data-id='{{item.id}}' bindtap='handleDel' class='btn down'>删除</view>
-          <view data-id='{{item.id}}' bindtap='handleEdit' class='btn edit'>继续编辑</view>
         </view>
       </view>
     </view>

@@ -30,24 +30,12 @@ Page({
     })
     this.getPub()
     this.getUnpub()
+    this.getUnpublished()
   },
   // 获取已发布空间
   getPub: function () {
     app.http('/space/published_list')
       .then(res => {
-        // res = {
-        //   "code": 200,
-        //   "msg": "请求成功",
-        //   "data": [
-        //     {
-        //       "id": "4",
-        //       "title": "杜的空间",
-        //       "banner": "home/201810221831307565278.jpeg",
-        //       "status": "0",
-        //       "examine_status": "0"
-        //     }
-        //   ]
-        // }
         this.setData({
           pubList: res.data
         })
@@ -65,12 +53,22 @@ Page({
   // 下架空间
   handleDown(e) {
     app.http('/space/lower_space', { space_id: e.currentTarget.dataset.id })
-      .then(res => {})
+      .then(res => {
+        wx.showToast({
+          title: '下架成功',
+          icon: 'none'
+        })
+      })
   },
   // 删除空间
   handleDel(e) {
     app.http('/space/del_space', { space_id: e.currentTarget.dataset.id })
-      .then(res => { })
+      .then(res => {
+        wx.showToast({
+          title: '删除成功',
+          icon: 'none'
+        })
+      })
   },
   // 继续编辑
   handleEdit(e) {

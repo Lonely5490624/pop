@@ -45,17 +45,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options && options.spaceId) {
+    // if (options && options.spaceId) {
       this.setData({
-        spaceId: options.spaceId
+        spaceId: options.spaceId || 0
       })
-      app.http('/space/unpublished', { space_id: options.spaceId })
+      app.http('/space/unpublished', { space_id: this.data.spaceId })
         .then(res => {
           this.setData({
-            spaceType: res.data.type
+            spaceType: res.data.type,
+            spaceId: res.data.id
           })
         })
-    }
+    // }
   },
 
   /**
