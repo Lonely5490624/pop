@@ -16,7 +16,7 @@ Page({
   },
   onLoad (options) {
     this.setData({
-      orderId: options.id
+      orderId: options.order_id
     })
   },
   toPay () {

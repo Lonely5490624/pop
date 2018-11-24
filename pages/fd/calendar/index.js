@@ -12,8 +12,8 @@ Page({
     able: [], //可编辑日期（黑色）
     unable: [], //已经出租日期（红色）
     chooseDateArr: [],
-    chooseDateArrInfo: [],    
-    space_id:0,
+    chooseDateArrInfo: [],
+    space_id: 0,
     currentTypes: [],
     member_type: 0
   },
@@ -129,23 +129,21 @@ Page({
     this.fillCalendar(12);
     this.getSpaceList();
   },
-  onShow:function(){
+  onShow: function() {
     this.getSpaceList();
     this.setData({
       showXZnum: false,
       xzNum: 0,
       chooseDateArr: [],
       //chooseDateArrInfo: [], 
-    })    
+    })
   },
   //获取空间列表
   getSpaceList: function() {
     app.http('/space/getSpaceList')
       .then(res => {
         this.setData({
-          spaceList: res.data,
-          unable: res.data[0].calendar.unable,
-          able: res.data[0].calendar.able,
+          spaceList: res.data
         })
       })
   },
@@ -188,64 +186,79 @@ Page({
         this.data.chooseDateArr.remove(`${month_click}月${day_click}`)
       }
       console.log(this.data.chooseDateArrInfo)
+      if (this.data.chooseDateArr.length == 0) {
+        this.setData({
+          showXZnum: false
+        })
+      }
       this.setData({
         xzNum: this.data.chooseDateArr.length
       })
+      
     }
   },
 
   //点击获取空间id
-  chooseSpace:function(e){
+  chooseSpace: function(e) {
     this.setData({
       space_id: e.currentTarget.id
     })
+    for (var i = 0; i < this.data.spaceList.length; i++) {
+      if (e.currentTarget.id == this.data.spaceList[i].id) {
+        this.setData({
+          unable: this.data.spaceList[i].calendar.unable,
+          able: this.data.spaceList[i].calendar.able,
+        })
+      }
+    }
+
   },
   gotoEdit: function() {
-    if (this.data.space_id==0){
+    if (this.data.space_id == 0) {
       this.setData({
         space_id: this.data.spaceList[0].id
-      })      
+      })
     }
     wx.navigateTo({
       url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id
     })
   },
-  goToList: function () {
+  goToList: function() {
     wx.redirectTo({
       url: "../../fk/list/list"
     })
   },
-  goToSpace: function () {
+  goToSpace: function() {
     wx.redirectTo({
       url: "../../fd/space/index"
     })
   },
-  goToMine: function () {
+  goToMine: function() {
     wx.redirectTo({
       url: "../../mine/mine"
     })
   },
-  goToNews: function () {
+  goToNews: function() {
     wx.redirectTo({
       url: "../../news/news"
     })
   },
-  goToTrip: function () {
+  goToTrip: function() {
     wx.redirectTo({
       url: "../../fk/trip/trip"
     })
   },
-  goToCollection: function () {
+  goToCollection: function() {
     wx.redirectTo({
       url: "../../fk/collection/collection"
     })
   },
-  goToData: function () {
+  goToData: function() {
     wx.redirectTo({
       url: "../../fd/data/index"
     })
   },
-  goToCalendar: function () {
+  goToCalendar: function() {
     wx.redirectTo({
       url: "../../fd/calendar/index"
     })

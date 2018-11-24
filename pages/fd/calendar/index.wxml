@@ -1,7 +1,7 @@
 <wxs module="filter" src="../../../filter/height.wxs"></wxs>
 <view class='calendar-title'>日历</view>
 <scroll-view scroll-x class='space-list'>
-  <view class='space-item' wx:for="{{spaceList}}">
+  <view class='space-item {{item.id==space_id?"active":""}}' wx:for="{{spaceList}}" >
     <image class='image' bindtap="chooseSpace" id="{{item.id}}" src='{{imgUrl+item.banner}}'></image>
     <view class='info'>{{item.title}}</view>
   </view>

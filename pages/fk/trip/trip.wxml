@@ -25,7 +25,7 @@
 
       <view wx:if='{{ (item.order_status>= 3 || item.order_status==99) && item.refund_status == 0}}'>
         <view wx:if='{{item.balance_status === 1}}' class='list3'>
-          <navigator url='selectPayWay?id={{item.id}}' class='list3'>
+          <navigator url='selectPayWay?order_id={{item.id}}' class='list3'>
             <view>
               请于{{item.balance_time}}前支付尾￥{{item.balance}}
             </view>

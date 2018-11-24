@@ -1,8 +1,19 @@
 <!--pages/fd/data/data-score.wxml-->
-<choose-space></choose-space>
+<view class='space'>
+  <view bindtap='toggleList' class='space-title'>{{title}}
+    <text class='arrow iconfont icon-jiantou7' wx:if="{{show}}"></text>
+    <text class='arrow iconfont icon-icon_arrow_bottom' wx:else></text>
+  </view>
+  <view class='space-list {{show ? "active" : ""}}'>
+    <view class='space-item {{chooseId==-1?"active":""}}' data-name="全部空间" bindtap='chooseSpace' id="-1">全部空间</view>
+    <view class='space-item {{chooseId==item.id?"active":""}}' data-name="{{item.title}}" id="{{item.id}}" wx:for="{{spaceList}}" bindtap='chooseSpace'>{{item.title}}</view>
+  </view>
+</view>
 <view class='score'>
-  <view class='score-title'>空间评分(29)</view>
-
+  <view class='score-title'>
+  <text>空间评分({{score.comment_count}})</text>
+  <text><text style='font-size:28rpx;color:#616161;'>总分 </text> {{score.round_space_comment}}</text>
+  </view>
   <view class='score-list'>
     <view class='score-item'>
       <image class='img' src='/images/5.png'></image>
@@ -29,28 +40,74 @@
       <progress class='progress' percent="{{score.five_rate}}" stroke-width='4' color="#ff5555" />
       <text class='percent'>{{score.five_rate}}</text>
     </view>
-  </view>  
+  </view>
 </view>
+<view class='score' wx:if="{{chooseId!=-1}}">
+  <view class='pingList'>
+    <view class='t2'>准确度</view>
+    <view class='xing'>
+      <text class='score'>{{score.accuracy}}</text>
+      <text class="iconfont icon-wujiaoxing active" wx:for="{{score.accuracy}}"></text>
+      <text class="iconfont icon-wujiaoxing " wx:for="{{5-score.accuracy}}"></text>
+    </view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>沟通性</view>
+    <view class='xing'>
+      <text class='score'>{{score.communicate}}</text>
+      <text class="iconfont icon-wujiaoxing active" wx:for="{{score.communicate}}"></text>
+      <text class="iconfont icon-wujiaoxing " wx:for="{{5-score.communicate}}"></text>
+    </view>
+  </view>
+  <view class='pingList'>
+    <view class='t2'>场景效果</view>
+    <view class='xing'>
+      <text class='score'>{{score.effect}}</text>
+      <text class="iconfont icon-wujiaoxing active" wx:for="{{score.effect}}"></text>
+      <text class="iconfont icon-wujiaoxing " wx:for="{{5-score.effect}}"></text>
+    </view>
+
+  </view>
+  <view class='pingList'>
+    <view class='t2'>运营能力</view>
+    <view class='xing'>
+      <text class='score'>{{score.operational_capacity}}</text>
+      <text class="iconfont icon-wujiaoxing active" wx:for="{{score.operational_capacity}}"></text>
+      <text class="iconfont icon-wujiaoxing " wx:for="{{5-score.operational_capacity}}"></text>
+    </view>
+
+  </view>
+  <view class='pingList'>
+    <view class='t2'>营销转化</view>
+    <view class='xing'>
+      <text class='score'>{{score.marketing}}</text>
+      <text class="iconfont icon-wujiaoxing active" wx:for="{{score.marketing}}"></text>
+      <text class="iconfont icon-wujiaoxing " wx:for="{{5-score.marketing}}"></text>
+    </view>
+
+  </view>
+</view>
+
 <view class='eval'>
   <view class='eval-title'>用户评价</view>
   <view class='eval-list'>
-    <view class='eval-item'>
+    <view class='eval-item' wx:for="{{comment_list}}">
       <view class='eval-detail'>
-        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
+        <view class='eval-avatar'>
+          <image src='{{item.head_img_url}}'></image>
+        </view>
         <view class='eval-info'>
           <view class='eval-top'>
-            <view class='username'>用户名</view>
-            <image src='/images/1.png' class='score'></image>
-            <view class='time'>2018-12-28 10:41</view>
+            <view class='username'>{{item.nick_name}}</view>
+            <image src='/images/1.png' class='score'>{{item.service}}</image>
+            <view class='time'>{{item.create_time}}</view>
           </view>
-          <view class='eval-bottom'>
-            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
-          </view>
+          <view class='eval-bottom'>{{item.landlord_content}}</view>
         </view>
       </view>
       <view class='eval-control'>
         <view class='eval-reply' bindtap='openHf' wx:if="{{isshowHfbtn}}">回复</view>
-        <view class='eval-report' wx:if="{{isshowHfbtn}}"  bindtap='report'>举报</view>
+        <view class='eval-report' wx:if="{{isshowHfbtn}}" bindtap='report'>举报</view>
       </view>
       <view class='eval-form' wx:if="{{isshowHf}}">
         <textarea placeholder="请输入您的回复，最多200字…" bindinput='getHfcont' placeholder-style="color: #e0e0e0;"></textarea>
@@ -62,65 +119,6 @@
           </view>
         </view>
       </view>
-      
-    </view>
-    <view class='eval-item'>
-      <view class='eval-detail'>
-        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
-        <view class='eval-info'>
-          <view class='eval-top'>
-            <view class='username'>用户名</view>
-            <image src='/images/1.png' class='score'></image>
-            <view class='time'>2018-12-28 10:41</view>
-          </view>
-          <view class='eval-bottom'>
-            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
-          </view>
-        </view>
-      </view>
-      <view class='eval-control'>
-        <view class='eval-reply'>回复</view>
-        <view class='eval-report'>举报</view>
-      </view>
-    </view>
-    <view class='eval-item'>
-      <view class='eval-detail'>
-        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
-        <view class='eval-info'>
-          <view class='eval-top'>
-            <view class='username'>用户名</view>
-            <image src='/images/1.png' class='score'></image>
-            <view class='time'>2018-12-28 10:41</view>
-          </view>
-          <view class='eval-bottom'>
-            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
-          </view>
-        </view>
-      </view>
-      <view class='eval-control'>
-        <view class='eval-reply'>回复</view>
-        <view class='eval-report'>举报</view>
-      </view>
-    </view>
-    <view class='eval-item'>
-      <view class='eval-detail'>
-        <view class='eval-avatar'><image src='/images/xing-iocn.jpg'></image></view>
-        <view class='eval-info'>
-          <view class='eval-top'>
-            <view class='username'>用户名</view>
-            <image src='/images/1.png' class='score'></image>
-            <view class='time'>2018-12-28 10:41</view>
-          </view>
-          <view class='eval-bottom'>
-            评价详情评价详情评价详情评价详情评价详情评价详情评价 评价详情评价详情评价价详情评价详情评价价详情评…
-          </view>
-        </view>
-      </view>
-      <view class='eval-control'>
-        <view class='eval-reply'>回复</view>
-        <view class='eval-report'>举报</view>
-      </view>
     </view>
   </view>
 </view>
-

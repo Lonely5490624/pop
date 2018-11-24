@@ -43,6 +43,9 @@ page {
   height: 120rpx;
 }
 
+.top .t3 .t3_right{
+  width: 67%;
+}
 .top .t3 .t3_right .t3_r_l1 {
   font-size: 32rpx;
   color: #212121;
@@ -76,7 +79,7 @@ page {
   height: 98rpx;
   overflow: hidden;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-between;
   align-items: center;
 }
 
@@ -102,15 +105,15 @@ page {
   align-items: center;
   color: #616161;
   font-size: 20rpx;
+  padding-top: 10rpx;
+  box-sizing: border-box;
 }
 
 .box2_t2_1 {
   width: 50%;
   height: 100%;
-}
-
-.box2_t2_1 {
   text-align: center;
+  line-height: 40rpx;
 }
 
 .box3 {
@@ -215,4 +218,11 @@ page {
 }
 .b4_list .b4_list_r{
   color:#E0E0E0
+}
+.active{
+  color: #FF5555;
+}
+.space-score {
+  float: left;
+  color: #E0E0E0;
 }

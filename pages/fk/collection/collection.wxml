@@ -17,7 +17,7 @@
 
         </scroll-view>
         <view class='info' wx:for="{{kj}}">
-          <view class='name'>{{item.city_name}} - {{item.commercial_name}}</view>
+          <view class='name'>{{item.city_name}} - {{item.commercial_name==null?'':item.commercial_name}}</view>
           <view class='num'>{{kj.length}}个空间</view>
         </view>
       </view>

@@ -23,6 +23,8 @@ Page({
     value: ''
   },
   onLoad: function(options) {
+    console.log(JSON.parse(options.info))
+   
     var that = this
     that.setData({
       userData: wx.getStorageSync('userData'),
