@@ -10,8 +10,9 @@ Page({
     spaceId: null,
     mall_name: null,
     storey: null,
-    cityArray: [],
-    ObjectCityArray: []
+    regionList: [],
+    regionArray: [],
+    regionIndex: [0, 0]
   },
 
   /**
@@ -35,28 +36,40 @@ Page({
     app.http('/area/province_list')
       .then(res => {
         console.log(res)
-        let arr = [[],[]],
-            objectArr = [],
-            objectArr2 = [];
+        this.setData({
+          regionList: res.data.area
+        })
+        let arr = [[], []]
         res.data.area.forEach(item => {
-          if (item.childs.length > 0) {
-            item.childs.forEach(item2 => {
-              arr[1].push(item2.value)
-              // objectArr2.push({ id: item2.id, value: item2.value })
-            })
-          }
           arr[0].push(item.value)
-          // objectArr.push(objectArr2)
-          // objectArr2=[]
+        })
+        res.data.area[0].childs.forEach(item => {
+          arr[1].push(item.value)
         })
         this.setData({
-          cityArray: arr,
-          ObjectCityArray: objectArr
+          regionArray: arr
         })
       })
   },
   bindcolumnchange (e) {
-    console.log(e)
+    let column = e.detail.column
+    let index = e.detail.value
+    let regionList = this.data.regionList
+    let regionArray = this.data.regionArray
+    let regionIndex = this.data.regionIndex
+    if (column == 0) {
+      regionArray[1] = []
+      regionList[index].childs.forEach(item => {
+        regionArray[1].push(item.value)
+      })
+      regionIndex = [index, 0]
+    } else if (column == 1) {
+      regionIndex[1] = e.detail.value
+    }
+    this.setData({
+      regionArray,
+      regionIndex
+    })
   },
   // 选择城市
   changeRegin (e) {
@@ -66,10 +79,16 @@ Page({
   },
   // 下一步
   pubStep2() {
+    let provinceItem = this.data.regionList.find(item => {
+      return item.value == this.data.regionArray[0][this.data.regionIndex[0]]
+    })
+    let cityItem = provinceItem.childs.find(item => {
+      return item.value == this.data.regionArray[1][this.data.regionIndex[1]]
+    })
     let params = {
       space_id: this.data.spaceId,
-      province: '',
-      city: '',
+      province: provinceItem.id,
+      city: cityItem.id,
       mall_name: this.data.mall_name,
       storey: this.data.storey
     }

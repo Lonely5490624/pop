@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/fd/space/index",
+    "pages/fd/space/add-2",
     "pages/fk/index/index",
     "pages/fd/data/index",
     "pages/fd/calendar/index",
@@ -51,7 +52,6 @@
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
     "pages/login/yzMessage",
-    "pages/fd/space/add-2",
     "pages/mine/changePersonMessage",
     "pages/mine/changeM",
     "pages/login/changeM",
