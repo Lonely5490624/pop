@@ -5,7 +5,7 @@
       <view class='top_l'>
         <view class='name'>头像</view>
       </view>
-      <view class='top_r'><image src='{{wxtx}}'></image>
+      <view class='top_r'><open-data type="userAvatarUrl"></open-data>
       </view>
     </view>
     <view class='con_list'>

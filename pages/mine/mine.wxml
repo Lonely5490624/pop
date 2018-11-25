@@ -6,7 +6,7 @@
       <view class='editbtn' bindtap='gotoEdit'>查看并编辑个人信息 ></view>
     </view>
     <view class='top_r'>
-      <image src='{{tx}}'></image>
+      <open-data type="userAvatarUrl"></open-data>
     </view>
   </view>
   <view class='content'>
