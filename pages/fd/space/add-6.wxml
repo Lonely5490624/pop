@@ -27,19 +27,19 @@
   <view class='item'>
     <view class='left'>每日价格</view>
     <view class='right'>
-      <input bindinput='inputEverydayPrice' value='{{everyday_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputEverydayPrice' value='{{everyday_price == -1 ? "" : everyday_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item'>
     <view class='left'>周末价格（非必填）</view>
     <view class='right' style='width: 300rpx;'>
-      <input bindinput='inputWeekPrice' value='{{week_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputWeekPrice' value='{{week_price == -1 ? "" : week_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item'>
     <view class='left'>xx费（每个订单一次性支付）</view>
     <view class='right' style='width: 300rpx;'>
-      <input bindinput='inputClearPrice' value='{{clear_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputClearPrice' value='{{clear_price == -1 ? "" : clear_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
 </view>
@@ -49,7 +49,7 @@
   <view class='item'>
     <view class='left'>提前预定天数</view>
     <view class='right'>
-      <input bindinput='inputSubscribe' value='{{min_subscribe_time}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputSubscribe' value='{{min_subscribe_time == -1 ? "" : min_subscribe_time}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item'>
@@ -66,13 +66,13 @@
   <view class='item'>
     <view class='left'>最少预定天数</view>
     <view class='right'>
-      <input bindinput='inputMinHireTime' value='{{min_hire_time}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputMinHireTime' value='{{min_hire_time == -1 ? "" : min_hire_time}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item'>
     <view class='left'>最多预定天数</view>
     <view class='right'>
-      <input bindinput='inputMaxHireTime' value='{{max_hire_time}}' type='text' placeholder='请输入,0代表不限' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputMaxHireTime' value='{{max_hire_time == -1 ? "" : max_hire_time}}' type='text' placeholder='请输入,0代表不限' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
 </view>
@@ -82,7 +82,7 @@
     <view class='left'>入驻开始时间</view>
     <view class='right'>
       <picker mode="time" value="{{arrival_start_time}}" bindchange="bindArrivalStartTime">
-        <view>{{arrival_start_time}}</view>
+        <view>{{arrival_start_time || "请选择"}}</view>
       </picker>
     </view>
   </view>
@@ -90,7 +90,7 @@
     <view class='left'>入驻结束时间</view>
     <view class='right'>
       <picker mode="time" value="{{arrival_end_time}}" bindchange="bindArrivalEndTime">
-        <view>{{arrival_end_time}}</view>
+        <view>{{arrival_end_time || "请选择"}}</view>
       </picker>
     </view>
   </view>
@@ -98,7 +98,7 @@
     <view class='left'>清场时间</view>
     <view class='right'>
       <picker mode="time" value="{{leave_time}}" bindchange="bindLeaveTime">
-        <view>{{leave_time}}</view>
+        <view>{{leave_time || "请选择"}}</view>
       </picker>
     </view>
   </view>
@@ -109,7 +109,7 @@
     <view class='left'>施工开始时间</view>
     <view class='right'>
       <picker mode="time" value="{{construct_start_time}}" bindchange="bindConstructStartTime">
-        <view>{{construct_start_time}}</view>
+        <view>{{construct_start_time || "请选择"}}</view>
       </picker>
     </view>
   </view>
@@ -117,7 +117,7 @@
     <view class='left'>施工结束时间</view>
     <view class='right'>
       <picker mode="time" value="{{construct_end_time}}" bindchange="bindConstructEndTime">
-        <view>{{construct_end_time}}</view>
+        <view>{{construct_end_time || "请选择"}}</view>
       </picker>
     </view>
   </view>

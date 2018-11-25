@@ -10,6 +10,7 @@ Page({
     spaceId: null,
     mall_name: null,
     storey: null,
+    region: null,
     regionList: [],
     regionArray: [],
     regionIndex: [0, 0]
@@ -19,23 +20,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // options.spaceId = 159
     this.setData({
       spaceId: options.spaceId
     })
-    app.http('/space/unpublished', { space_id: options.spaceId })
-      .then(res => {
-        this.setData({
-          mall_name: res.data.mall_name,
-          storey: res.data.storey
-        })
-      })
-    this.getCityList()
-  },
-  // 获取城市列表
-  getCityList () {
     app.http('/area/province_list')
       .then(res => {
-        console.log(res)
         this.setData({
           regionList: res.data.area
         })
@@ -43,13 +33,38 @@ Page({
         res.data.area.forEach(item => {
           arr[0].push(item.value)
         })
-        res.data.area[0].childs.forEach(item => {
-          arr[1].push(item.value)
-        })
-        this.setData({
-          regionArray: arr
-        })
+        app.http('/space/unpublished', { space_id: options.spaceId })
+          .then(res2 => {
+            let provinceId = res2.data.province
+            let cityId = res2.data.city
+            let provinceIndex = 0
+            let cityIndex = 0
+            this.data.regionList.forEach((item, index) => {
+              if (item.id == provinceId) {
+                provinceIndex = index
+              }
+            })
+            this.data.regionList[provinceIndex].childs.forEach((item, index) => {
+              if (item.id == cityId) {
+                cityIndex = index
+              }
+            })
+            this.data.regionList[provinceIndex].childs.forEach(item => {
+              arr[1].push(item.value)
+            })
+            
+            this.setData({
+              region: res2.data.province,
+              regionArray: arr,
+              regionIndex: [provinceIndex, cityIndex],
+              mall_name: res2.data.mall_name,
+              storey: res2.data.storey
+            })
+          })
       })
+  },
+  // 获取城市列表
+  getCityList () {
   },
   bindcolumnchange (e) {
     let column = e.detail.column

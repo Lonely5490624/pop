@@ -53,7 +53,7 @@
   <view class='item'>
     <view class='left'>店长介绍</view>
     <view class='right'>
-      <input bindinput='inputIntroduce' type='text' value='{{store_introduce}}' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
+      <input bindinput='inputIntroduce' type='text' value='{{store_introduce ? store_introduce : ""}}' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
   <view class='item-ver'>

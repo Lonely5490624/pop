@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = this.data.spaceId
+    // options.spaceId = 158
     this.setData({
       spaceId: options.spaceId
     })
@@ -35,7 +35,7 @@ Page({
   },
   // 上传图片
   uploadImg() {
-    let images = this.data.images
+    let images = this.data.images || []
     wx.chooseImage({
       success: (res) => {
         console.log(res)

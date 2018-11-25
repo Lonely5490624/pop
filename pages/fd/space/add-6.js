@@ -66,7 +66,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = this.data.spaceId
+    // options.spaceId = 158
     this.setData({
       spaceId: options.spaceId
     })
@@ -233,28 +233,28 @@ Page({
       })
       return
     }
-    if (!params.everyday_price) {
+    if (!params.everyday_price && params.everyday_price != -1) {
       wx.showToast({
         title: '请填写每日价格',
         icon: 'none'
       })
       return
     }
-    if (!params.clear_price) {
+    if (!params.clear_price && params.clear_price != -1) {
       wx.showToast({
         title: '请填写xx费',
         icon: 'none'
       })
       return
     }
-    if (!params.min_subscribe_time) {
+    if (!params.min_subscribe_time && params.min_subscribe_time != -1) {
       wx.showToast({
         title: '请填写提前预定天数',
         icon: 'none'
       })
       return
     }
-    if (!params.min_hire_time) {
+    if (!params.min_hire_time && params.min_hire_time != -1) {
       wx.showToast({
         title: '请填写最少预定天数',
         icon: 'none'
@@ -263,7 +263,7 @@ Page({
     }
     if (!params.max_hire_time) {
       wx.showToast({
-        title: '请填写最多预定天数',
+        title: '请选择最多预定天数',
         icon: 'none'
       })
       return

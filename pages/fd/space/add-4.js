@@ -70,7 +70,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = this.data.spaceId
+    // options.spaceId = 158
     this.setData({
       spaceId: options.spaceId
     })
@@ -111,7 +111,10 @@ Page({
           address: res.data.address,
           attributeIndex,
           store_introduce: res.data.store_introduce,
-          consumption_orientationIndex
+          consumption_orientationIndex,
+          category: res.data.category_id,
+          convenience: res.data.convenience_facilities_id,
+          craftsmanship: res.data.store_craftsmanship_id
         })
       })
   },
@@ -206,8 +209,9 @@ Page({
       category,
       convenience: this.data.convenience,
       store_introduce: this.data.store_introduce,
-      craftsmanship: this.data.skills
+      craftsmanship: this.data.craftsmanship
     }
+    console.log(params)
     if(!params.title) {
       wx.showToast({
         title: '请填写空间标题',
@@ -236,7 +240,7 @@ Page({
       })
       return
     }
-    if (params.convenience < 1) {
+    if (params.convenience.length < 1) {
       wx.showToast({
         title: '请选择店铺设施',
         icon: 'none'

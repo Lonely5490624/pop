@@ -30,7 +30,7 @@ Page({
     })
     this.getPub()
     this.getUnpub()
-    this.getUnpublished()
+    // this.getUnpublished()
   },
   // 获取已发布空间
   getPub: function () {
@@ -50,6 +50,13 @@ Page({
         })
       })
   },
+  // 获取未编辑完成的空间
+  getUnpublished() {
+    app.http('/space/unpublished')
+      .then(res => {
+        console.log(res)
+      })
+  },
   // 下架空间
   handleDown(e) {
     app.http('/space/lower_space', { space_id: e.currentTarget.dataset.id })
@@ -58,6 +65,8 @@ Page({
           title: '下架成功',
           icon: 'none'
         })
+        this.getUnpub()
+        this.getPub()
       })
   },
   // 删除空间
@@ -68,6 +77,7 @@ Page({
           title: '删除成功',
           icon: 'none'
         })
+        this.getUnpub()
       })
   },
   // 继续编辑
