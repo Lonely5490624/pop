@@ -35,7 +35,12 @@ Page({
       confirmColor: '#FF5555',//确定文字的颜色
       success: function (res) {
         if (res.confirm) {
-          console.log('退出登录')
+          wx.removeStorageSync('time')
+          wx.removeStorageSync('member_id')
+          wx.removeStorageSync('member_type')
+          wx.redirectTo({
+            url: '/pages/fk/index/index',
+          })
         } else {
           console.log('取消')
         }
