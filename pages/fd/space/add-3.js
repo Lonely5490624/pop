@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imageUrl: app.data.imgurl,
     spaceId: null,
     images: []
   },
@@ -21,24 +22,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = 158
+    options.spaceId = 165
     this.setData({
       spaceId: options.spaceId
     })
     app.http('/space/unpublished', { space_id: options.spaceId })
       .then(res => {
         let images = res.data.pics
-        this.setData({
-          images
-        })
+        if (images) {
+          this.setData({
+            images
+          })
+        }
       })
+  },
+  // 去上传
+  goUpload() {
+    wx.navigateTo({
+      url: 'uploadImg',
+    })
   },
   // 上传图片
   uploadImg() {
     let images = this.data.images || []
     wx.chooseImage({
       success: (res) => {
-        console.log(res)
+        console.log(this.wecropper)
+        this.wecropper.pushOrign(res.tempFilePaths[0])
         res.tempFilePaths.forEach(item => {
           images.push(item)
         })
