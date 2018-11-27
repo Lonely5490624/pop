@@ -1,4 +1,7 @@
 var app = getApp()
+// 引入SDK核心类
+var QQMapWX = require('../../../lib/script/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 Page({
   data: {
     shangq: [],
@@ -7,7 +10,10 @@ Page({
     storyData: [],
     imgUrl: '',
     locateUrl: '/images/fa-img.jpg',
-    member_type:0
+    member_type: 0,
+    cityList: [],
+    cityId: 0,
+    index: 0,
   },
   onLoad: function() {
     var that = this;
@@ -16,22 +22,45 @@ Page({
       userData: wx.getStorageSync('userData'),
       member_type: app.globalData.member_type
     })
-    //热门商圈
-    app.http('/home/commercialCircleList', {
-        type: '1'
-      }, true)
-      .then(res => {
-        this.setData({
-          shangq: res.data
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
+    });
+    //1、获取当前位置坐标
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: function (addressRes) {
+            var address = addressRes.result.formatted_addresses.recommend;
+            var index = address.indexOf("市")
+            var shi = address.substring(0, index)
+            for (var i = 0; i < that.data.cityList.length; i++) {
+              if (that.data.cityList[i].name === shi) {
+                that.setData({
+                  index: i,
+                  cityId: that.data.cityList[i].id
+                })
+              }
+            }
+            // that.getList({
+            //   search_content: that.data.searchC.name,
+            //   city: that.data.cityId
+            // })
+          }
         })
-      })
-    //故事列表
-    app.http('/home/storyList', {}, true)
-      .then(res => {
-        this.setData({
-          storyData: res.data
-        })
-      })
+      }
+    })    
+    this.getcommercialCircleList({})
+    this.getstoryList({})
+    this.getisRecommendSpaceList({})    
+  },
+  getisRecommendSpaceList: function (params){
     //热门推荐
     app.http('/home/isRecommendSpaceList', {}, true)
       .then(res => {
@@ -39,6 +68,41 @@ Page({
           recommendData: res.data
         })
       })
+  },
+  
+  getcommercialCircleList: function (params){
+    //热门商圈
+    app.http('/home/commercialCircleList', {
+      type: '1'
+    }, true)
+      .then(res => {
+        this.setData({
+          shangq: res.data
+        })
+      })
+  },
+  getstoryList: function (params){
+    //故事列表
+    app.http('/home/storyList', {}, true)
+      .then(res => {
+        this.setData({
+          storyData: res.data
+        })
+      })
+  },
+  getCityList: function () {
+    app.http('/area/cityList', {}, true)
+      .then(res => {
+        this.setData({
+          cityList: res.data
+        })
+      })
+  },
+  bindPickerChange: function (e) {
+    this.setData({
+      index: e.detail.value
+    })
+    //this.getList({ city: this.data.cityList[e.detail.value].id, search_content: this.data.searchC })
   },
   gotolist: function(e) {
     wx.navigateTo({
@@ -95,42 +159,42 @@ Page({
       })
     }
   },
-  goToList:function(){
+  goToList: function() {
     wx.redirectTo({
       url: "../../fk/list/list"
-    })  
+    })
   },
-  goToSpace: function () {
+  goToSpace: function() {
     wx.redirectTo({
       url: "../../fd/space/index"
     })
   },
-  goToMine: function () {
+  goToMine: function() {
     wx.redirectTo({
       url: "../../mine/mine"
     })
   },
-  goToNews: function () {
+  goToNews: function() {
     wx.redirectTo({
       url: "../../news/news"
     })
   },
-  goToTrip: function () {
+  goToTrip: function() {
     wx.redirectTo({
       url: "../../fk/trip/trip"
     })
   },
-  goToCollection: function () {
+  goToCollection: function() {
     wx.redirectTo({
       url: "../../fk/collection/collection"
     })
   },
-  goToData: function () {
+  goToData: function() {
     wx.redirectTo({
       url: "../../fd/data/index"
     })
   },
-  goToCalendar: function () {
+  goToCalendar: function() {
     wx.redirectTo({
       url: "../../fd/calendar/index"
     })

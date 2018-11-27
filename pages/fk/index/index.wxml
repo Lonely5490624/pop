@@ -1,6 +1,19 @@
 <view class='page'>
   <!-- 搜索条 -->
-  <space-search></space-search>
+  <!-- <space-search></space-search> -->
+  <view class="search">
+    <view class="locate">
+      <text class='iconfont icon-dingwei' style="color:#000000;"></text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range-key="name" range="{{cityList}}">
+        <view class="picker locate-text" id="{{cityList[index].id}}">{{cityList[index].name}}</view>
+      </picker>
+      <text class='iconfont icon-icon_arrow_bottom' style="color:#9E9E9E;"></text>
+    </view>
+    <view class='search-input' bindtap='toSearch'>
+      <text>{{searchC}}</text>
+      <text class='iconfont icon-sousuo search-icon'></text>
+    </view>
+  </view>
   <!-- 热门商圈 -->
   <view class="section shangq">
     <text class='title'>热门商圈</text>

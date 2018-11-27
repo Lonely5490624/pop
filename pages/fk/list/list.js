@@ -1,15 +1,19 @@
 // pages/fk/list/list.js
 const spaceData = []
-var app=getApp()
+var app = getApp()
+// 引入SDK核心类
+var QQMapWX = require('../../../lib/script/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 Page({
   data: {
     spaceData,
     opendate: false,
     openFilter: false,
-    userData:[],
+    userData: [],
     cityList: [],
+    cityId: 0,
     index: 0,
-    searchC:'输入您想要的城市、商圈',
+    searchC: '输入您想要的城市、商圈',
     member_type: 0,
     imgUrl: ''
   },
@@ -18,67 +22,110 @@ Page({
       opendate: true
     })
   },
-  onLoad: function(options) { 
+  onLoad: function(options) {
     var that = this;
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
+    });
+    //1、获取当前位置坐标
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: function(addressRes) {
+            var address = addressRes.result.formatted_addresses.recommend;
+            var index = address.indexOf("市")
+            var shi = address.substring(0, index)
+            for (var i = 0; i < that.data.cityList.length; i++) {
+              if (that.data.cityList[i].name === shi) {
+                that.setData({
+                  index: i,
+                  cityId: that.data.cityList[i].id
+                })
+              }
+            }
+            that.getList({
+              search_content: that.data.searchC.name,
+              city: that.data.cityId
+            })
+          }
+        })
+      }
+    })
     that.setData({
       imgUrl: app.data.imgurl,
       userData: wx.getStorageSync('userData'),
       member_type: app.globalData.member_type
-    }) 
-    if (options.name != undefined){
-      this.setData({
+    })
+    if (options.name != undefined) {
+      that.setData({
         searchC: options.name,
         member_type: app.globalData.member_type
-      }) 
-      this.getList({ search_content: options.name})
-    }else{
-      this.getList({})      
-    }
+      })      
+    } 
   },
-  onReady:function(){
+  onReady: function() {
     this.getCityList();
   },
-  getCityList:function() {
+  getCityList: function() {
     app.http('/area/cityList', {}, true)
       .then(res => {
         this.setData({
           cityList: res.data
         })
-        console.log(res.data);
       })
   },
-  toSearch: function () {
+  toSearch: function() {
     wx.navigateTo({
       url: '/pages/fk/search/search'
     })
   },
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
     })
+    this.getList({ city: this.data.cityList[e.detail.value].id, search_content: this.data.searchC})
   },
   // 获取列表数据
-  getList: function (params) {
-    app.http('/home/searchSpace', params, true)
-      .then(res => {
-        console.log(res)
-        this.setData({
-          spaceData: res.data.space_data
-        })
-        // for (var i = 0; i++; i <= res.data.length) {
-        //   res.data[i].avg_service = parseInt(res.data[i].avg_service)
-        // }
-        // that.setData({
-        //   spaceData: res.data
-        // })
-      })
+  getList: function(params) {
+    var that=this
+    wx.request({
+      url: app.data.requestUrl + "/home/searchSpace",
+      data: params,
+      method: 'POST',
+      header: {
+        "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          that.setData({
+            spaceData: res.data.data.space_data
+          })
+        } else {
+          that.setData({
+            spaceData: []
+          })
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
+    })
   },
   //加收藏
-  addCl:function(e){
-    
-    var that=this
-    app.http('/collection/editCollection',{ space_id: e.currentTarget.id}, true)
+  addCl: function(e) {
+    var that = this
+    app.http('/collection/editCollection', {
+        space_id: e.currentTarget.id
+      }, true)
       .then(res => {
         wx.showToast({
           title: res.msg,
@@ -96,13 +143,6 @@ Page({
   onFilter: function(e) {
     // 自定义组件触发事件时提供的detail对象
     let that = e.detail;
-    // this.setData({
-    //   start: util.datefuc('Y-m-d H:i:s', new Date(that.start).getTime() / 1000, true),
-    //   end: util.datefuc('Y-m-d H:i:s', new Date(that.end).getTime() / 1000, true),
-    //   starttime: util.datefuc('m月d日', new Date(that.start).getTime() / 1000, true),
-    //   endtime: util.datefuc('m月d日', new Date(that.end).getTime() / 1000, true),
-    //   compareday: util.compare(new Date(that.start).getTime(), new Date(that.end).getTime()),
-    // });
     if (that.fuc == "close") {
       this.setData({
         opendate: 0,
@@ -116,55 +156,56 @@ Page({
         end_price: that.data.high,
         space_type: that.data.currentTypes.join(','),
         category_ids: that.data.currentCates.join(','),
-        convenience_facilities_ids: that.data.currentFacs.join(',')
+        convenience_facilities_ids: that.data.currentFacs.join(','),
+        city: this.data.cityList[this.data.index].id, 
+        search_content: this.data.searchC
       }
-      console.log(params)
       this.getList(params)
     }
   },
-  toNewP: function (e) {
+  toNewP: function(e) {
     if (e.currentTarget.dataset.text != '') {
       wx.navigateTo({
         url: 'newP?link_address=' + e.currentTarget.dataset.text
       })
     }
   },
-  goToList: function () {
+  goToList: function() {
     wx.redirectTo({
       url: "../../fk/list/list"
     })
   },
-  goToSpace: function () {
+  goToSpace: function() {
     wx.redirectTo({
       url: "../../fd/space/index"
     })
   },
-  goToMine: function () {
+  goToMine: function() {
     wx.redirectTo({
       url: "../../mine/mine"
     })
   },
-  goToNews: function () {
+  goToNews: function() {
     wx.redirectTo({
       url: "../../news/news"
     })
   },
-  goToTrip: function () {
+  goToTrip: function() {
     wx.redirectTo({
       url: "../../fk/trip/trip"
     })
   },
-  goToCollection: function () {
+  goToCollection: function() {
     wx.redirectTo({
       url: "../../fk/collection/collection"
     })
   },
-  goToData: function () {
+  goToData: function() {
     wx.redirectTo({
       url: "../../fd/data/index"
     })
   },
-  goToCalendar: function () {
+  goToCalendar: function() {
     wx.redirectTo({
       url: "../../fd/calendar/index"
     })
