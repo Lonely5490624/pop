@@ -83,8 +83,8 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         data: {
-          // mobile: parseInt(that.data.mobile),
-          mobile: 17623005222,
+          mobile: parseInt(that.data.mobile),
+          //mobile: 17623005222,
           code: parseInt(that.data.iptValue)
         },
         success: function(res) {
