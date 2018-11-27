@@ -3,12 +3,12 @@
 <view class='title'>上传空间照片</view>
 <view class='main'>
   <view class='control'>
-    <view bindtap='uploadImg' class='add'>添加照片</view>
+    <view bindtap='goUpload' class='add'>添加照片</view>
     <view bindtap='clearImg' class='clear'>清空</view>
   </view>
   <view wx:if='{{images.length}}' class='list'>
     <view wx:for='{{images}}' wx:key='{{index}}' class='item'>
-      <image src='{{item}}' class='img'></image>
+      <image src='{{imageUrl + item}}' class='img'></image>
       <image bindtap='delImage' data-url='{{item}}' src='/images/cha.png' class='del'></image>
     </view>
   </view>
@@ -17,3 +17,6 @@
   </view>
 </view>
 <view bindtap='pubStep3' class='next'>下一步</view>
+<view class="cropper-wrapper" style='height: 300rpx;'>
+  <template is="we-cropper" data="{{...cropperOpt}}"/>
+</view>
