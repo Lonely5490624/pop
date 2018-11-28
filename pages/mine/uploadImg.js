@@ -1,5 +1,5 @@
 // pages/fd/space/uploadImg.js
-import WeCropper from '../../../we-cropper/dist/we-cropper.min.js'
+import WeCropper from '../../we-cropper/dist/we-cropper.min.js'
 const device = wx.getSystemInfoSync() // 获取设备信息
 const width = device.windowWidth // 示例为一个与屏幕等宽的正方形裁剪框
 const height = width
@@ -17,10 +17,10 @@ Page({
       scale: 2.5, // 最大缩放倍数
       zoom: 10, // 缩放系数
       cut: {
-        x: (width - 268) / 2, // 裁剪框x轴起点
-        y: (width - 150.75) / 2, // 裁剪框y轴期起点
-        width: 268, // 裁剪框宽度
-        height: 150.75 // 裁剪框高度
+        x: (width - 200) / 2, // 裁剪框x轴起点
+        y: (width - 200) / 2, // 裁剪框y轴期起点
+        width: 200, // 裁剪框宽度
+        height: 200 // 裁剪框高度
       }
     }
   },
@@ -49,7 +49,7 @@ Page({
         console.log(`picture loaded`)
         console.log(`current canvas context: ${ctx}`)
         wx.hideToast()
-      })   
+      })
   },
   touchStart(e) {
     this.wecropper.touchStart(e)
@@ -93,10 +93,8 @@ Page({
               .then(res => {
                 let pages = getCurrentPages()
                 let prevPage = pages[pages.length - 2]
-                let images = prevPage.data.images
-                images.push(res.data)
                 prevPage.setData({
-                  images
+                  head_img_url: res.data
                 })
                 wx.navigateBack({
                   alpha: 1

@@ -1,12 +1,15 @@
 <!--pages/fk/order/order-confirm-3.wxml-->
+<wxs module="filter" src="../../filter/height.wxs"></wxs>
 <view class='pages'>
   <view class='content'>
     <view class='con_list l1' style="padding-top: 80rpx;">
       <view class='top_l'>
         <view class='name'>头像</view>
       </view>
-      <view class='top_r'><open-data type="userAvatarUrl"></open-data>
-      </view>
+      <navigator url="uploadImg" class='top_r'>
+        <image wx:if='{{head_img_url}}' src='{{filter.hasHttp(head_img_url) ? head_img_url : imgurl + head_img_url}}'></image>
+        <open-data wx:else type="userAvatarUrl"></open-data>
+      </navigator>
     </view>
     <view class='con_list'>
       <navigator url="changeM?type=nm">
