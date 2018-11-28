@@ -25,7 +25,7 @@
     <!-- 对方 -->
     <view class="{{item.flag==true?'our':'other'}}" wx:for="{{newsList}}">
       <view class='tx'>
-        <image src='{{item.member_head}}' wx:if="{{item.flag==true}}"></image>
+        <open-data type="userAvatarUrl" wx:if="{{item.flag==true}}"></open-data>
         <image src='{{item.other_head}}' wx:if="{{item.flag==false}}"></image>
       </view>
       <view class='cont'>{{item.content}}</view>
