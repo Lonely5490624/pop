@@ -3,8 +3,9 @@
 const app = getApp()
 Page({
   data: {
-    userData: [],
     newsList: [],
+    member_type: '',
+    member_id: '',
     info_id: "",
     order_id: "",
     space_id: "",
@@ -13,30 +14,46 @@ Page({
     fkBtn: false,
     fdBtn: false,
     message_id: 0,
-    //sendMcont: '',
-    dfnewsList: [],
-    dfnewsListarr: [],
-    wfnewsList: [],
-    wfnewsListarr: [],
     lastId: 0,
     member_head: '',
     value: ''
   },
   onLoad: function(options) {
-    console.log(JSON.parse(options.info))
-   
     var that = this
     that.setData({
-      userData: wx.getStorageSync('userData'),
+      member_type: app.globalData.member_type,
       space_id: options.space_id,
+      info_id: options.info_id,
+      member_id: wx.getStorageSync('member_id')
     })
     that.getChatDetail();
+  },
+  onUnload: function() {
+    this.endSetInter()
+  },
+  onHide: function() {
+    this.endSetInter()
+  },
+  onShow: function() {
+    // 生命周期函数--监听页面显示
+    this.startSetInter()
+  },
+  startSetInter: function() {
+    var that = this;
+    that.data.setInter = setInterval(() => {
+      that.get_message(that.data.lastId);
+    }, 1000)
+  },
+  endSetInter: function() {
+    var that = this;
+    //清除计时器  即清除setInter
+    clearInterval(that.data.setInter)
   },
   //获取聊天详情
   getChatDetail: function() {
     var that = this
     var data = {
-      member_type: that.data.userData.member_type,
+      member_type: that.data.member_type,
       space_id: that.data.space_id
     }
     if (that.data.order_id != '') {
@@ -46,17 +63,18 @@ Page({
       data.info_id = that.data.info_id
     }
     app.http('/message/detail', data)
-      .then(res => {
-        that.setData({
-          newsDetail: res.data.info
-        })
+      .then(res => {        
         for (var i = 0; i < res.data.result.length; i++) {
-          if (that.data.userData.member_id == res.data.result[i].send_member_id) {
-            that.data.wfnewsList.push(res.data.result[i])
+          if (that.data.member_id == res.data.result[i].send_member_id) {
+            res.data.result[i].flag = true
           } else {
-            that.data.dfnewsList.push(res.data.result[i])
+            res.data.result[i].flag = false
           }
         }
+        that.setData({
+          newsDetail: res.data.info,
+          newsList: res.data.result
+        })
         if (res.data.result != '') {
           var len = res.data.result.length
           that.setData({
@@ -64,17 +82,6 @@ Page({
             lastId: res.data.result[len - 1].id
           })
         }
-        //轮询执行
-        setInterval(() => {
-          that.get_message(that.data.lastId);
-          this.setData({
-            wfnewsListarr: this.data.wfnewsList,
-            dfnewsListarr: this.data.dfnewsList
-          })
-          //this.pageScrollToBottom() 
-          //this.scr()
-        }, 1000)
-
         if (res.data.info.order_status == '') {
           that.setData({
             'newsDetail.order_status': '咨询中'
@@ -83,7 +90,7 @@ Page({
         //显示订单相关的信息
         if (res.data.order != '') {
           var order = res.data.order
-          if (that.data.userData.member_type == 2) {
+          if (that.data.member_type == 2) {
             //房东端
             if (rorder.status == 1 && rorder.refund_status == 0) {
               //显示是否接受按钮
@@ -104,6 +111,7 @@ Page({
 
       })
   },
+
   getNewContent: function(e) {
     this.setData({
       newsContent: e.detail.value
@@ -113,44 +121,50 @@ Page({
   get_message: function(last_id) {
     var that = this
     var data = {
-      member_type: that.data.userData.member_type,
+      member_type: that.data.member_type,
       space_id: that.data.space_id,
-      last_id: last_id
+      last_id: last_id,
+      info_id: that.data.info_id,
     }
     if (that.data.order_id != '') {
       data.order_id = that.data.order_id
     }
     app.http('/message/get_message', data)
-      .then(res => {
-        for (var i = 0; i < res.data.result.length; i++) {
-          if (res.data.result[i].send_member_id == that.data.userData.member_id) {
-            that.data.wfnewsList.push(res.data.result[i])
-          } else {
-            that.data.dfnewsList.push(res.data.result[i])
-          }
-          //显示订单相关的信息
-          if (res.data.order != '') {
-            var order = res.data.order
-            if (that.data.userData.member_type == 2) {
-              //房东端
-              if (rorder.status == 1 && rorder.refund_status == 0) {
-                //显示是否接受按钮
-                that.setData({
-                  fdBtn: true
-                })
-              }
+      .then(res => {       
+        console.log(res.data.result);
+        if (res.data.result.length > 0) {
+          that.data.newsList.push(res.data.result)
+          for (var i = 0; i < res.data.result.length; i++) {
+            if (that.data.member_id == res.data.result[i].send_member_id) {
+              that.data.newsList[i].flag = true
             } else {
-              //房客端
-              if (rorder.status == 4 && rorder.refund_status == 0) {
-                //显示评价按钮
-                that.setData({
-                  fkBtn: true
-                })
+              that.data.newsList[i].flag = false
+            }
+            //显示订单相关的信息
+            if (res.data.order != '') {
+              var order = res.data.order
+              if (that.data.member_type == 2) {
+                //房东端
+                if (rorder.status == 1 && rorder.refund_status == 0) {
+                  //显示是否接受按钮
+                  that.setData({
+                    fdBtn: true
+                  })
+                }
+              } else {
+                //房客端
+                if (rorder.status == 4 && rorder.refund_status == 0) {
+                  //显示评价按钮
+                  that.setData({
+                    fkBtn: true
+                  })
+                }
               }
             }
           }
         }
-
+        console.log(that.data.newsList);
+        console.log(that.data.newsList.length);
       })
   },
   //发消息
@@ -160,8 +174,8 @@ Page({
       value: ""
     })
     var data = {
-      member_type: that.data.userData.member_type,
-      info_id: that.data.lastId,
+      member_type: that.data.member_type,
+      info_id: that.data.info_id,
       order_id: that.data.order_id,
       space_id: that.data.space_id,
       content: that.data.newsContent
@@ -171,12 +185,11 @@ Page({
         this.setData({
           lastId: res.data.message_id
         })
-        var data = res.data
         data = {
-          content: that.data.newsContent
+          message_id: res.data.message_id
         }
-        that.data.wfnewsList.push(data)
-        //this.pageScrollToBottom()        
+        that.data.newsList.push(data)
+        that.getChatDetail();   
       })
 
   },
@@ -232,7 +245,7 @@ Page({
       }
     })
   },
-  scr:function(){
+  scr: function() {
     wx.pageScrollTo({
       scrollTop: 600,
       duration: 300
@@ -246,6 +259,6 @@ Page({
   //     })
   //   }).exec()
   // },
-  
+
 
 })

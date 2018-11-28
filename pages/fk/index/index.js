@@ -14,6 +14,7 @@ Page({
     cityList: [],
     cityId: 0,
     index: 0,
+    searchC: '输入您想要的城市、商圈',
   },
   onLoad: function() {
     var that = this;
@@ -37,44 +38,43 @@ Page({
             longitude: res.longitude
           },
           success: function (addressRes) {
-            var address = addressRes.result.formatted_addresses.recommend;
-            var index = address.indexOf("市")
-            var shi = address.substring(0, index)
+            var address = addressRes.result.address_component.city;
             for (var i = 0; i < that.data.cityList.length; i++) {
-              if (that.data.cityList[i].name === shi) {
+              if (address.indexOf(that.data.cityList[i].name)!=-1) {
                 that.setData({
                   index: i,
                   cityId: that.data.cityList[i].id
                 })
               }
             }
-            // that.getList({
-            //   search_content: that.data.searchC.name,
-            //   city: that.data.cityId
-            // })
+            that.getcommercialCircleList({ city: that.data.cityId })
+            that.getstoryList({ city: that.data.cityId })
+            that.getisRecommendSpaceList({ city: that.data.cityId }) 
           }
         })
       }
-    })    
-    this.getcommercialCircleList({})
-    this.getstoryList({})
-    this.getisRecommendSpaceList({})    
+    })          
+    this.getCityList()
   },
   getisRecommendSpaceList: function (params){
     //热门推荐
-    app.http('/home/isRecommendSpaceList', {}, true)
+    app.http('/home/isRecommendSpaceList', params, true)
       .then(res => {
-        this.setData({
-          recommendData: res.data
-        })
+        if (res.data.length>0){
+          this.setData({
+            recommendData: res.data
+          })
+        }        
       })
   },
   
   getcommercialCircleList: function (params){
     //热门商圈
-    app.http('/home/commercialCircleList', {
-      type: '1'
-    }, true)
+    var data = params
+    data={
+      type:'1'
+    }
+    app.http('/home/commercialCircleList', data, true)
       .then(res => {
         this.setData({
           shangq: res.data
@@ -83,7 +83,7 @@ Page({
   },
   getstoryList: function (params){
     //故事列表
-    app.http('/home/storyList', {}, true)
+    app.http('/home/storyList', params, true)
       .then(res => {
         this.setData({
           storyData: res.data
@@ -102,7 +102,9 @@ Page({
     this.setData({
       index: e.detail.value
     })
-    //this.getList({ city: this.data.cityList[e.detail.value].id, search_content: this.data.searchC })
+    this.getcommercialCircleList({ city: this.data.cityList[e.detail.value].id})
+    this.getstoryList({ city: this.data.cityList[e.detail.value].id})
+    this.getisRecommendSpaceList({ city: this.data.cityList[e.detail.value].id})
   },
   gotolist: function(e) {
     wx.navigateTo({
@@ -142,14 +144,13 @@ Page({
               that.setData({
                 recommendData: res.data
               })
-              console.log(res.data)
             })
         })
     }
   },
   toSearch: function() {
     wx.navigateTo({
-      url: 'search'
+      url: '../search/search'
     })
   },
   toNewP: function(e) {

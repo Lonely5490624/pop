@@ -49,6 +49,7 @@
         </view>
       </view>
     </view>
+    <view wx:if="{{recommendData.length==0}}" class='noList'>暂无推荐空间,请查看更多空间</view>
     <view class='recommend-more'>
       <navigator class='recommend-more-btn' url="/pages/fk/list/list">展开查看更多空间</navigator>
     </view>

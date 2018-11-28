@@ -305,6 +305,8 @@ Page({
     }
     app.http('/space/published_four', params)
       .then(res => {
+        wx.setStorageSync('member_type', 2)
+        getApp().globalData.member_type = wx.getStorageSync('member_type');  
         wx.navigateTo({
           url: `add-5`,
         })

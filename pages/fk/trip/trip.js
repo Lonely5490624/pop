@@ -30,7 +30,7 @@ Page({
   },
   goToList: function () {
     wx.redirectTo({
-      url: "../../fk/list/list"
+      url: "../../fk/index/index"
     })
   },
   goToSpace: function () {

@@ -7,9 +7,15 @@ App({
     requestUrl: 'http://shanpuapi.letspopup.cn/index.php/home',
     dgaccount:"28837XXXXXXXXXX"
   },
-  
+  globalData: {
+    userInfo: null,
+    xData: '123',
+    yData: '',
+    member_type: 1
+  },
   onLaunch: function () {
     // 登录
+    this.globalData.member_type = wx.getStorageSync('member_type') ;
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -37,12 +43,7 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: null,
-    xData: '123',
-    yData: '',
-    member_type:1
-  },
+  
   // 封装的网络请求
   http: function (url, pramas, notNeedLogin) {
     let currentTime = Date.now()
@@ -58,6 +59,7 @@ App({
         })
       } else {
         member_id = wx.getStorageSync('member_id')
+        //member_type = wx.getStorageSync('member_type')
       }
     }
     if (!notNeedLogin && !member_id) {
@@ -79,7 +81,7 @@ App({
         success: function (res) {
           if (res.data.code == 200) {
             resolve(res.data)
-          } else {
+          }else {
             wx.showToast({
               title: res.data.msg,
               icon: 'none',

@@ -32,8 +32,14 @@
         </view>
       </view>
     </navigator>
-    <view class='con_list' wx:if='{{member_type==2}}'>
-      <view class='con_list_l' bindtap='typeswitch'>切换至消费模式</view>
+    <view class='con_list' wx:if='{{member_type==2}}'  bindtap='typeswitch'>
+      <view class='con_list_l'>切换至消费模式</view>
+      <view class='con_list_r'>
+        <text class="iconfont icon-icon_arrow_right"></text>
+      </view>
+    </view>
+    <view class='con_list' wx:if='{{member_type==1 && flag}}'  bindtap='typeswitch'>
+      <view class='con_list_l'>切换至房东模式</view>
       <view class='con_list_r'>
         <text class="iconfont icon-icon_arrow_right"></text>
       </view>
@@ -48,7 +54,8 @@
     </navigator>
     <navigator url="/pages/fd/space/index">
       <view class='con_list'>
-        <view class='con_list_l'>我要发布空间</view>
+        <view class='con_list_l' wx:if="{{member_type==1}}">我要发布空间</view>
+        <view class='con_list_l' wx:if="{{member_type==2}}">发布新空间</view>
         <view class='con_list_r'>
           <text class="iconfont icon-icon_arrow_right"></text>
         </view>

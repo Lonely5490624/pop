@@ -39,21 +39,27 @@ Page({
             longitude: res.longitude
           },
           success: function(addressRes) {
-            var address = addressRes.result.formatted_addresses.recommend;
-            var index = address.indexOf("市")
-            var shi = address.substring(0, index)
+            var address = addressRes.result.address_component.city;
             for (var i = 0; i < that.data.cityList.length; i++) {
-              if (that.data.cityList[i].name === shi) {
+              if (address.indexOf(that.data.cityList[i].name) != -1) {
                 that.setData({
                   index: i,
                   cityId: that.data.cityList[i].id
                 })
               }
+            }           
+            if (that.data.searchC.name != undefined){
+              that.getList({
+                search_content: that.data.searchC.name,
+                city: that.data.cityId
+              })
+            }else{
+              that.getList({
+                search_content:"",
+                city: that.data.cityId
+              })
             }
-            that.getList({
-              search_content: that.data.searchC.name,
-              city: that.data.cityId
-            })
+            
           }
         })
       }

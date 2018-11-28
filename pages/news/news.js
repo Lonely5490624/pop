@@ -1,7 +1,6 @@
 const app = getApp()
 Page({
   data: {
-    userData: [],
     newsList:[],
     member_type: 0
   },
@@ -13,15 +12,28 @@ Page({
   },
   onLoad: function() {
     this.setData({
-      userData: wx.getStorageSync('userData'),
-      member_type: app.globalData.member_type
+      member_type: wx.getStorageSync('member_type')
     })    
   },
-  onShow:function(){
-    //轮询执行
-    setInterval(() => {
-      this.getNews();
+  onUnload: function () {
+    this.endSetInter()
+  },
+  onHide: function () {
+    this.endSetInter()
+  },
+  onShow: function () {
+    this.startSetInter()
+  },
+  startSetInter: function () {
+    var that = this;
+    that.data.setInter = setInterval(() => {
+      that.getNews();
     }, 1000)
+  },
+  endSetInter: function () {
+    var that = this;
+    //清除计时器  即清除setInter
+    clearInterval(that.data.setInter)
   },
   getNews:function(){
     app.http('/message/index', { member_type: this.data.member_type })
@@ -29,20 +41,11 @@ Page({
         this.setData({
           newsList: res.data
         })
-        // for (var i = 0; i < res.data.length;i++){
-        //   if (res.data[i].order_id == '') {
-        //     this.setData({
-        //       'newsList.order_status_info': '咨询中'
-        //     })
-        //   }
-        // }
-        
       })
   },
-
   goToList: function () {
     wx.redirectTo({
-      url: "../fk/list/list"
+      url: "../fk/index/index"
     })
   },
   goToSpace: function () {
