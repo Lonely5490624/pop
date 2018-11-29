@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fd/calendar/index2",
     "pages/fk/index/index",
     "pages/fd/space/add-3",
     "pages/mine/changePersonMessage",
@@ -10,7 +11,6 @@
     "pages/fd/data/index",
     "pages/fd/calendar/index",
     "pages/fk/index/newP",
-    "pages/fd/calendar/index2",
     "pages/fd/calendar/edit",
     "pages/news/news",
     "pages/fd/data/data-view",
