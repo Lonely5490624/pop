@@ -5,7 +5,8 @@ Page({
     userInfo: [],
     member_type: 0,
     member_id: 0,
-    flag: false
+    flag: false,
+    head_img_url: null
   },
   onLoad: function(options) {
     var that = this
@@ -17,7 +18,8 @@ Page({
     app.http('/my/index')
       .then(res => {
         that.setData({
-          userInfo: res.data
+          userInfo: res.data,
+          head_img_url: res.data.head_img_url
         })
       })
   },

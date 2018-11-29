@@ -6,7 +6,8 @@
       <view class='editbtn' bindtap='gotoEdit'>查看并编辑个人信息 ></view>
     </view>
     <view class='top_r'>
-      <open-data type="userAvatarUrl"></open-data>
+      <image wx:if='{{head_img_url}}' src='{{head_img_url}}'></image>
+      <open-data wx:else type="userAvatarUrl"></open-data>
     </view>
   </view>
   <view class='content'>

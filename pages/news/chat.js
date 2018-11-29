@@ -130,15 +130,17 @@ Page({
       data.order_id = that.data.order_id
     }
     app.http('/message/get_message', data)
-      .then(res => {       
-        console.log(res.data.result);
+      .then(res => {
+        let newsList = that.data.newsList
         if (res.data.result.length > 0) {
-          that.data.newsList.push(res.data.result)
+          that.setData({
+            lastId: res.data.result[0].id
+          })
           for (var i = 0; i < res.data.result.length; i++) {
             if (that.data.member_id == res.data.result[i].send_member_id) {
-              that.data.newsList[i].flag = true
+              res.data.result[i].flag = true
             } else {
-              that.data.newsList[i].flag = false
+              res.data.result[i].flag = false
             }
             //显示订单相关的信息
             if (res.data.order != '') {
@@ -162,9 +164,13 @@ Page({
               }
             }
           }
+          newsList.push(res.data.result[0])
         }
-        console.log(that.data.newsList);
-        console.log(that.data.newsList.length);
+        that.setData({
+          newsList
+        })
+        // console.log(that.data.newsList);
+        // console.log(that.data.newsList.length);
       })
   },
   //发消息

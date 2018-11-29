@@ -2,7 +2,7 @@
   "pages": [
     "pages/fk/index/index",
     "pages/fd/space/add-3",
-    
+    "pages/mine/changePersonMessage",
     "pages/fd/space/index",
     "pages/fd/space/add-2",
     "pages/fd/space/add-6",
@@ -53,12 +53,12 @@
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
     "pages/login/yzMessage",
-    "pages/mine/changePersonMessage",
     "pages/mine/changeM",
     "pages/login/changeM",
     "pages/login/changeM2",
     "pages/logs/logs",
-    "pages/fd/space/uploadImg"
+    "pages/fd/space/uploadImg",
+    "pages/mine/uploadImg"
   ],
   "window": {
     "backgroundTextStyle": "light",

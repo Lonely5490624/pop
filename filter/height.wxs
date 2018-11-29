@@ -7,10 +7,17 @@ var filter = {
       return true
     }
     return false
+  },
+  hasHttp: function (str) {
+    if(str.indexOf('http') > -1) {
+      return true
+    }
+    return false
   }
 }
 
 module.exports = {
   getHeight: filter.getHeight,
-  hasEle: filter.hasEle
+  hasEle: filter.hasEle,
+  hasHttp: filter.hasHttp
 }

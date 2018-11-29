@@ -1,11 +1,13 @@
 var app=getApp()
 Page({
   data: {
+    imgurl: app.data.imgurl,
     // 省市区三级联动初始化
     region: [],
     userInfo: [],
     userData:[],
-    wxtx:''
+    wxtx:'',
+    head_img_url: null
   },
   onLoad: function (options) {
     this.setData({
@@ -20,6 +22,12 @@ Page({
         'region[2]': this.data.userInfo.county
       })
     }
+    app.http('/my/index')
+      .then(res => {
+        this.setData({
+          head_img_url: res.data.head_img_url
+        })
+      })
     
   },
   // 选择省市区函数
@@ -37,7 +45,7 @@ Page({
       nick_name: this.data.userInfo.nick_name,
       synopsis: this.data.userInfo.synopsis,
       credentials_numbere: this.data.userInfo.credentials_numbere,
-      head_img_url: this.data.wxtx,
+      head_img_url: this.data.head_img_url,
       address: this.data.userInfo.province + ',' + this.data.userInfo.city + ',' + this.data.userInfo.county
   }
     app.http('/my/save', data)
