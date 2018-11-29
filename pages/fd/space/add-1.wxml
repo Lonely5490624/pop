@@ -6,14 +6,14 @@
     <view bindtap='chooseType' class='item {{spaceType == 1 ? "active" : ""}}' data-id='1'>
       <view class='left'>
         <view class='p1'>整个独立空间</view>
-        <view class='p2'>这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店</view>
+        <view class='p2'>该空间指整个商铺空间出租或者对店铺进行整块分割开来的商铺空间</view>
       </view>
       <view class='right'></view>
     </view>
     <view bindtap='chooseType' class='item {{spaceType == 2 ? "active" : ""}}' data-id='2'>
       <view class='left'>
         <view class='p1'>集合空间</view>
-        <view class='p2'>这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店这里解释什么是专营店</view>
+        <view class='p2'>该空间指集合或者独立商铺可提供小范围面积的出租空间</view>
       </view>
       <view class='right'></view>
     </view>

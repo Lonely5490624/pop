@@ -13,7 +13,7 @@
     <text class='all-right'>￥{{totalPrice}}</text>
   </view>
   <view class='order-detail'>
-    <text class='detail-left'>定金 {{depositRate}}%</text>
+    <text class='detail-left'>定金 {{depositRate}}%</text> 
     <text class='detail-right'>￥{{deposit}} 预定时支付</text>
   </view>
   <view class='order-detail'>
@@ -28,7 +28,7 @@
 <view class='order-zhengche'>
   <view class='zhengche-title'>退订政策：严格</view>
   <view class='zhengche-info'>
-    这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚 这里将如何支付尾款、若尾款未支付、若支付定金后违约、若尾款支付入住后提前退约等问题都说清楚
+    请认真查看您要预订的空间和时间信息，同时请查看【支付协议】和【退订政策说明】，确认预订后即表示您已阅读并同意该条款说明。
     <text class='zhengche-all'>查看全部</text>
   </view>
 </view>
