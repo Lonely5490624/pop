@@ -18,8 +18,11 @@ Page({
     imgUrl: ''
   },
   opendate: function() {
-    this.setData({
-      opendate: true
+    // this.setData({
+    //   opendate: true
+    // })
+    wx.navigateTo({
+      url: "../../fd/calendar/index2?nikeName=" + this.data.nikeName
     })
   },
   onLoad: function(options) {

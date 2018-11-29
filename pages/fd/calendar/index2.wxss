@@ -4,6 +4,7 @@
   height: 100rpx;
   padding: 0rpx 20rpx;
   display: flex;
+  justify-content:space-between;
   padding-top:20rpx;
   position: fixed;
   top: 0;
@@ -161,4 +162,8 @@
   position: fixed;
   left: 5%;
   bottom: 10rpx;
+}
+.gray {
+  color: #e0e0e0;
+  font-size: 20rpx;
 }

@@ -1,5 +1,5 @@
 const app = getApp()
-Date.prototype.format = function () {
+Date.prototype.format = function() {
   var s = '';
   var mouth = (this.getMonth() + 1) >= 10 ? (this.getMonth() + 1) : ('0' + (this.getMonth() + 1));
   var day = this.getDate() >= 10 ? this.getDate() : ('0' + this.getDate());
@@ -185,17 +185,17 @@ Page({
           dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`)
         })
       }
-    }      
+    }
   },
   _close() {
     wx.navigateBack({
-      
+
     })
   },
   // 获取所有日期数组
-  getDate (datestr) {
+  getDate(datestr) {
     let temp = datestr.split("-");
-    if(temp[1] === '01') {
+    if (temp[1] === '01') {
       temp[0] = parseInt(temp[0], 10) - 1;
       temp[1] = '12';
     } else {
@@ -204,7 +204,7 @@ Page({
     let date = new Date(temp[0], temp[1], temp[2]);
     return date;
   },
-  getAll (start, end) {
+  getAll(start, end) {
     let startTime = this.getDate(start);
     let endTime = this.getDate(end);
     let dateArr = [];
@@ -221,20 +221,33 @@ Page({
     let pages = getCurrentPages(); //当前页面
     let prevPage = pages[pages.length - 2]; //上一页面 
     let dateArray = this.getAll(this.data.startDate, this.data.endDate)
-    app.http('/space/getSpaceDayPrice', { date: dateArray, space_id: prevPage.data.space_info.id })
-      .then(res => {
-        prevPage.setData({
-          startDate: this.data.startDate,
-          dayNum: this.data.dayNum,
-          endDate: this.data.endDate,
-          dateArray: dateArray,
-          moneyAll: Number(res.data.price) + Number(prevPage.data.space_info.clear_price) + Number(prevPage.data.space_info.cash_pledge),
-          moneyY: res.data.price * prevPage.data.space_info.depositRate / 100,
-          moneyW: res.data.price * (100 - prevPage.data.space_info.depositRate) / 100
-        })
-        wx.navigateBack({ //返回
-          delta: 1
-        })
-      })
+    var data={
+      startDate: this.data.startDate,
+      dayNum: dateArray.length,
+      endDate: this.data.endDate,
+      dateArray: dateArray,
+      //moneyAll: Number(res.data.price) + Number(prevPage.data.space_info.clear_price) + Number(prevPage.data.space_info.cash_pledge),
+      //moneyY: res.data.price * prevPage.data.space_info.depositRate / 100,
+      //moneyW: res.data.price * (100 - prevPage.data.space_info.depositRate) / 100
+    }
+    // prevPage.setData({
+      
+    // })
+    console.log(data)
+    // app.http('/space/getSpaceDayPrice', { date: dateArray, space_id: prevPage.data.space_info.id })
+    //   .then(res => {
+    //     prevPage.setData({
+    //       startDate: this.data.startDate,
+    //       dayNum: this.data.dayNum,
+    //       endDate: this.data.endDate,
+    //       dateArray: dateArray,
+    //       moneyAll: Number(res.data.price) + Number(prevPage.data.space_info.clear_price) + Number(prevPage.data.space_info.cash_pledge),
+    //       moneyY: res.data.price * prevPage.data.space_info.depositRate / 100,
+    //       moneyW: res.data.price * (100 - prevPage.data.space_info.depositRate) / 100
+    //     })
+    //     wx.navigateBack({ //返回
+    //       delta: 1
+    //     })
+    //   })
   }
 })
