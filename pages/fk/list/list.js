@@ -14,13 +14,14 @@ Page({
     cityId: 0,
     index: 0,
     searchC: '输入您想要的城市、商圈',
+    startDate: '',
+    endDate: '',
     member_type: 0,
-    imgUrl: ''
+    imgUrl: '',
+    rcData: []
   },
   opendate: function() {
-    // this.setData({
-    //   opendate: true
-    // })
+
     wx.navigateTo({
       url: "../../fd/calendar/index2?nikeName=" + this.data.nikeName
     })
@@ -50,19 +51,13 @@ Page({
                   cityId: that.data.cityList[i].id
                 })
               }
-            }           
-            if (that.data.searchC.name != undefined){
-              that.getList({
-                search_content: that.data.searchC.name,
-                city: that.data.cityId
-              })
-            }else{
-              that.getList({
-                search_content:"",
-                city: that.data.cityId
-              })
             }
-            
+            that.data.rcData.city = that.data.cityId
+
+            if (that.data.searchC.name != undefined) {
+              that.data.rcData.search_content = that.data.searchC.name
+            }
+            that.getList()
           }
         })
       }
@@ -76,8 +71,15 @@ Page({
       that.setData({
         searchC: options.name,
         member_type: app.globalData.member_type
-      })      
-    } 
+      })
+    }
+  },
+  onShow: function() {
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    this.data.rcData.end_date = currPage.data.endDate
+    this.data.rcData.start_date = currPage.data.startDate
+    this.getList()
   },
   onReady: function() {
     this.getCityList();
@@ -99,14 +101,18 @@ Page({
     this.setData({
       index: e.detail.value
     })
-    this.getList({ city: this.data.cityList[e.detail.value].id, search_content: this.data.searchC})
+    this.data.rcData.city = this.data.cityList[e.detail.value].id
+    if (this.data.searchC != '输入您想要的城市、商圈') {
+      this.data.rcData.search_content = this.data.searchC
+    }
+    this.getList()
   },
   // 获取列表数据
-  getList: function(params) {
-    var that=this
+  getList: function() {
+    var that = this
     wx.request({
       url: app.data.requestUrl + "/home/searchSpace",
-      data: params,
+      data: this.data.rcData,
       method: 'POST',
       header: {
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -160,16 +166,17 @@ Page({
       this.setData({
         openFilter: 0,
       })
-      let params = {
-        start_price: that.data.low,
-        end_price: that.data.high,
-        space_type: that.data.currentTypes.join(','),
-        category_ids: that.data.currentCates.join(','),
-        convenience_facilities_ids: that.data.currentFacs.join(','),
-        city: this.data.cityList[this.data.index].id, 
-        search_content: this.data.searchC
-      }
-      this.getList(params)
+
+      this.data.rcData.start_price = that.data.low,
+        this.data.rcData.end_price = that.data.high,
+        this.data.rcData.space_type = that.data.currentTypes.join(','),
+        this.data.rcData.category_ids = that.data.currentCates.join(','),
+        this.data.rcData.convenience_facilities_ids = that.data.currentFacs.join(','),
+        this.data.rcData.city = this.data.cityList[this.data.index].id
+        if (this.data.searchC != '输入您想要的城市、商圈'){
+        this.data.rcData.search_content = this.data.searchC
+        }
+      this.getList()
     }
   },
   toNewP: function(e) {

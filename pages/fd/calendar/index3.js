@@ -16,7 +16,10 @@ Page({
     endDate: '',
     date_click: 0,
     dayNum: 0,
-    dateArry: []
+    dateArry: [],
+    able: [], //可编辑日期（黑色）
+    ablePrice: [], //可编辑日期价格
+    unable: [], //已经出租日期（红色）
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -50,19 +53,26 @@ Page({
   // 计算本月日历
   getDaysOfThisMonth(year, month) {
     let days = [];
-    const AllDaysOfMonth = this.getAllDaysOfMonth(year, month);
-
-    let fullMonth = month.toString().length === 1 ? `0${month}` : month;
+    const AllDaysOfMonth = this.getAllDaysOfMonth(year, month);    
+    let fullMonth = month.toString().length === 1 ? `${month}` : month;    
+    if (month > 12) {
+      year++;
+      month = 1;
+      fullMonth = '1'
+    } else {
+      fullMonth = month.toString().length === 1 ? `${month}` : month;
+    }
     for (let i = 0; i < AllDaysOfMonth; i++) {
       let day = i + 1,
         fullDay = day;
 
-      fullDay = fullDay.toString().length === 1 ? `0${day}` : fullDay;
+      fullDay = fullDay.toString().length === 1 ? `${day}` : fullDay;
       days.push({
         day,
         fullDay,
         'fullDate': `${year}-${fullMonth}-${fullDay}`
       });
+     
     }
     // 返回每个月的具体日期
     return days;
@@ -87,7 +97,7 @@ Page({
       if (month > 12) {
         year++;
         month = 1;
-        fullMonth = '01'
+        fullMonth = '1'
         canlendar_data.push({
           year,
           month,
@@ -96,7 +106,7 @@ Page({
         });
         month++;
       } else {
-        fullMonth = month.toString().length === 1 ? `0${month}` : month;
+        fullMonth = month.toString().length === 1 ? `${month}` : month;
         canlendar_data.push({
           year,
           month,
@@ -110,8 +120,29 @@ Page({
       canlendar_data
     })
   },
-  onLoad() {
+  //获取空间详情
+  getSpaceDetail: function () {
+    app.http('/space/getSpaceDetail', { space_id: this.data.space_id})
+      .then(res => {
+        if (res.data != '') {
+          this.setData({
+            unable: res.data.calendar.unable,
+            able: res.data.calendar.able,
+            ablePrice: res.data.calendar.price,
+            space_id: res.data.id
+          })
+        }
+      })
+  },
+  onLoad(options) {
 
+    console.log(new Date('2018-11-03').getTime())
+    //console.log('2018-11-03' > '2018-11-29' && '2018-11-03' < '2018-11-30')
+    //item.fullDate > startDate && item.fullDate < endDate
+
+
+    options.space_id = 93
+    
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;
@@ -120,11 +151,13 @@ Page({
       date,
       cur_year,
       cur_month,
-      cur_day
+      cur_day,
+      space_id: options.space_id
     })
+    this.getSpaceDetail()
 
-    let month = this.data.cur_month.toString().length === 1 ? `0${this.data.cur_month}` : this.data.cur_month;
-    let day = this.data.cur_day.toString().length === 1 ? `0${this.data.cur_day}` : this.data.cur_day;
+    let month = this.data.cur_month.toString().length === 1 ? `${this.data.cur_month}` : this.data.cur_month;
+    let day = this.data.cur_day.toString().length === 1 ? `${this.data.cur_day}` : this.data.cur_day;
     let nowDate = `${cur_year}-${month}-${day}`;
 
     this.setData({

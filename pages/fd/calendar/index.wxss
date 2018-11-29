@@ -90,13 +90,18 @@
   text-align: center;
   vertical-align: middle;
   margin-top: 6rpx;
+  align-items: center;
 }
 
 .month-day .day-item {
-  width: 60rpx;
+  width: 63rpx;
   display: inline-block;
   border-radius: 50%;
-  line-height: 60rpx;
+  line-height: 30rpx;
+}
+.dayPrice{
+  display: block;
+  font-size: 18rpx;
 }
 
 .month-day.startActive .day-item {
@@ -155,16 +160,17 @@
 }
 
 .xz {
-  width: 60rpx;
-  height: 60rpx;
+  width: 63rpx;
+  height: 63rpx;
   border-radius: 100%;
   background: #616161;
   color: #fff !important;
   font-size: 20rpx !important;
-  margin: 0 23rpx;
+  margin: 0 22rpx;
+  text-align: center;
 }
 
 .able {
   color: #616161;
-  font-size: 20rpx;
+  font-size: 26rpx;
 }

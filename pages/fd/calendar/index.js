@@ -10,6 +10,7 @@ Page({
     showXZnum: false,
     xzNum: 0,
     able: [], //可编辑日期（黑色）
+    ablePrice: [], //可编辑日期价格
     unable: [], //已经出租日期（红色）
     chooseDateArr: [],
     chooseDateArrInfo: [],
@@ -135,8 +136,9 @@ Page({
       showXZnum: false,
       xzNum: 0,
       chooseDateArr: [],
-      //chooseDateArrInfo: [], 
+      currentTypes:[]
     })
+    this.onLoad()
   },
   //获取空间列表
   getSpaceList: function() {
@@ -145,6 +147,14 @@ Page({
         this.setData({
           spaceList: res.data
         })
+        if (this.data.spaceList != '') {
+          this.setData({
+            unable: this.data.spaceList[0].calendar.unable,
+            able: this.data.spaceList[0].calendar.able,
+            ablePrice: this.data.spaceList[0].calendar.ablePrice,
+            space_id: this.data.spaceList[0].id
+          })
+        }
       })
   },
   // 点击日期
@@ -194,7 +204,7 @@ Page({
       this.setData({
         xzNum: this.data.chooseDateArr.length
       })
-      
+
     }
   },
 
@@ -208,6 +218,7 @@ Page({
         this.setData({
           unable: this.data.spaceList[i].calendar.unable,
           able: this.data.spaceList[i].calendar.able,
+          ablePrice: this.data.spaceList[i].calendar.ablePrice
         })
       }
     }

@@ -26,7 +26,7 @@ Page({
   },
   opendate: function() {
     wx.navigateTo({
-      url: "/pages/fd/calendar/index2"
+      url: "/pages/fd/calendar/index3?space_id=" + this.data.space_id
     })
   },
   onShow: function() {
@@ -41,6 +41,11 @@ Page({
     }
   },
   onLoad: function(options) {
+    
+    options.space_id=93
+
+
+
     var that = this
     that.setData({
       space_id: options.space_id,

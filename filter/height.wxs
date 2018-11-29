@@ -8,6 +8,18 @@ var filter = {
     }
     return false
   },
+  getIndex: function (arr, date) {
+    return arr.indexOf(date)
+  },
+  dateRe:function(date){
+
+  }, 
+  format: function (date) {
+    console.log(date)
+    //console.log(new Date(date).getTime())
+    //return new Date(date).getTime()
+    
+  },
   hasHttp: function (str) {
     if(str.indexOf('http') > -1) {
       return true
@@ -19,5 +31,6 @@ var filter = {
 module.exports = {
   getHeight: filter.getHeight,
   hasEle: filter.hasEle,
-  hasHttp: filter.hasHttp
+  hasHttp: filter.hasHttp,
+  getIndex: filter.getIndex
 }
