@@ -9,11 +9,13 @@ Page({
     member_type:0,
     phoneNumber:'',
     markers: [{
-      iconPath: "../../img/marker_red.png",
+      iconPath: "/images/location.png",
       id: 0,
-      latitude: 40.002607,
-      longitude: 116.487847,
-      }]
+      latitude: 31.2342,
+      longitude: 121.469042,
+      width: 50,
+      height: 50
+    }]      
   },
   onLoad: function(options) {
     this.setData({
@@ -31,16 +33,14 @@ Page({
       .then(res => {
         this.setData({
           tripInfo: res.data,
-          'markers.latitude': res.data.latitude,
-          'markers.longitude': res.data.longitude,
           phoneNumber: res.data.landlord_mobile
         })
-        // markers: [{
-        //   iconPath: "../../img/marker_red.png",
-        //   id: 0,
-        //   latitude: 40.002607,
-        //   longitude: 116.487847,
-        console.log(res.data)
+        if (res.data.longitude != null) {
+          this.setData({
+            'markers[0].latitude': res.data.latitude,
+            'markers[0].longitude': res.data.longitude
+          })
+        }
       })
   },
   calling: function () {
@@ -61,6 +61,7 @@ Page({
       order_id: this.data.tripInfo.order_id,
       space_id: this.data.tripInfo.space_id
     }
+    console.log(arr)
     var dd = JSON.stringify(arr)
     wx.navigateTo({
       url: "/pages/news/chat?info=" + dd
@@ -75,7 +76,7 @@ Page({
     var that=this
     wx.showModal({
       title: '确定要取消本次预定吗？',
-      content: '根据房东的退订政策，您此时取消，可获得退款￥0订单一旦取消后，将不可恢复',
+      content: '根据房东的退订政策，您此时取消，可获得退款￥' + that.data.tripInfo.deposit+'订单一旦取消后，将不可恢复',
       success: function (res) {
         if (res.confirm) {
           var data={

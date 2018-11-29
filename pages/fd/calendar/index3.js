@@ -134,15 +134,8 @@ Page({
         }
       })
   },
-  onLoad(options) {
-
-    console.log(new Date('2018-11-03').getTime())
-    //console.log('2018-11-03' > '2018-11-29' && '2018-11-03' < '2018-11-30')
-    //item.fullDate > startDate && item.fullDate < endDate
-
-
-    options.space_id = 93
-    
+  onLoad(options) {    
+    options.space_id=93
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;

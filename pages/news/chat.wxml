@@ -4,7 +4,9 @@
       <text class="iconfont icon-sousuo search-icon"></text>
     </view> -->
     <view class='text'>{{newsDetail.nick_name}}·{{newsDetail.order_status}}</view>
-    <view class="infoBtn" wx:if="{{fdBtn || fkBtn}}">详情</view>
+    <navigator url='/pages/fk/trip/tripInfo?id={{newsDetail.order_id}}'>
+    <view class="infoBtn" wx:if="{{detailBtn}}">详情</view>
+    </navigator>
   </view>
   <view class='middle' wx:if="{{fdBtn}}">
     <view class='btn'>房客发起预定，是否接受？</view>
@@ -25,7 +27,7 @@
     <!-- 对方 -->
     <view class="{{item.flag==true?'our':'other'}}" wx:for="{{newsList}}">
       <view class='tx'>
-        <open-data type="userAvatarUrl" wx:if="{{item.flag==true}}"></open-data>
+        <image src='{{item.member_head}}' wx:if="{{item.flag==true}}"></image>
         <image src='{{item.other_head}}' wx:if="{{item.flag==false}}"></image>
       </view>
       <view class='cont'>{{item.content}}</view>

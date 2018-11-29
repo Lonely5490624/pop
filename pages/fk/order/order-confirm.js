@@ -40,12 +40,7 @@ Page({
       });
     }
   },
-  onLoad: function(options) {
-    
-    options.space_id=93
-
-
-
+  onLoad: function(options) {    
     var that = this
     that.setData({
       space_id: options.space_id,

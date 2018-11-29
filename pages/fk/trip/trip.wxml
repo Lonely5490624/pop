@@ -43,10 +43,10 @@
           </view>
         </view>
         <view wx:elif='{{item.balance_status === 3}}' class='list3'>
-          <view class='font-green'>尾款已付清￥{{item.wbalance}}</view>
-          <view class='con_list_r'>
+          <view class='font-green'>尾款已付清￥{{item.balance}}</view>
+          <!-- <view class='con_list_r'>
             <text class="iconfont icon-icon_arrow_right"></text>
-          </view>
+          </view> -->
         </view>
         <view wx:elif='{{item.balance_status === 99}}' class='list3'>
           <view class='font-gray'>尾款逾期 · 订单已关闭</view>

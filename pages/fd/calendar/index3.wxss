@@ -130,8 +130,10 @@
 }
 
 .month-day {
-  width: 63rpx;
-  height: 63rpx;
+  width:14.28%;
+  height: auto;
+  display: block;
+  overflow: hidden;
   text-align: center;
   vertical-align: middle;
   margin-top: 6rpx;
@@ -139,11 +141,12 @@
 }
 
 .month-day .day-item {
-  width: 63rpx;
-  height: 63rpx;
+  width:58%;
+  height: 100%;
   display: inline-block;
   border-radius: 50%;
   line-height: 30rpx;
+  text-align: center
 }
 .dayPrice{
   display: block;

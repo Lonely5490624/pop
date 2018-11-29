@@ -13,6 +13,7 @@ Page({
     newsDetail: [],
     fkBtn: false,
     fdBtn: false,
+    detailBtn:false,
     message_id: 0,
     lastId: 0,
     member_head: '',
@@ -20,10 +21,22 @@ Page({
   },
   onLoad: function(options) {
     var that = this
+    if (options.info != undefined){
+      that.setData({
+        space_id: JSON.parse(options.info).space_id,
+        info_id: JSON.parse(options.info).info_id,
+        order_id: JSON.parse(options.info).order_id
+      })
+    }
+    if (options.info_id != undefined){
+      that.setData({
+        space_id: options.space_id,
+        info_id: options.info_id,
+        order_id: options.order_id
+      })
+    }
     that.setData({
       member_type: app.globalData.member_type,
-      space_id: options.space_id,
-      info_id: options.info_id,
       member_id: wx.getStorageSync('member_id')
     })
     that.getChatDetail();
@@ -89,10 +102,13 @@ Page({
         }
         //显示订单相关的信息
         if (res.data.order != '') {
+          that.setData({
+            detailBtn: true
+          })
           var order = res.data.order
           if (that.data.member_type == 2) {
             //房东端
-            if (rorder.status == 1 && rorder.refund_status == 0) {
+            if (order.status == 1 && order.refund_status == 0) {
               //显示是否接受按钮
               that.setData({
                 fdBtn: true
@@ -100,13 +116,17 @@ Page({
             }
           } else {
             //房客端
-            if (rorder.status == 4 && rorder.refund_status == 0) {
+            if (order.status == 4 && order.refund_status == 0) {
               //显示评价按钮
               that.setData({
                 fkBtn: true
               })
             }
           }
+        }else{          
+          that.setData({
+            detailBtn: false
+          })
         }
 
       })
@@ -144,10 +164,13 @@ Page({
             }
             //显示订单相关的信息
             if (res.data.order != '') {
+              that.setData({
+                detailBtn: true
+              })
               var order = res.data.order
               if (that.data.member_type == 2) {
                 //房东端
-                if (rorder.status == 1 && rorder.refund_status == 0) {
+                if (order.status == 1 && order.refund_status == 0) {
                   //显示是否接受按钮
                   that.setData({
                     fdBtn: true
@@ -155,13 +178,17 @@ Page({
                 }
               } else {
                 //房客端
-                if (rorder.status == 4 && rorder.refund_status == 0) {
+                if (order.status == 4 && order.refund_status == 0) {
                   //显示评价按钮
                   that.setData({
                     fkBtn: true
                   })
                 }
               }
+            }else{
+              that.setData({
+                detailBtn: false
+              })
             }
           }
           newsList.push(res.data.result[0])
@@ -203,20 +230,22 @@ Page({
   refuse: function(e) {
     wx.showModal({
       title: '确认拒绝吗',
-      content: '订单一旦拒绝，将不可恢复，您确定要拒绝xxx的订单吗？',
+      content: '订单一旦拒绝，将不可恢复，您确定要拒绝该的订单吗？',
       success: function(res) {
         if (res.confirm) {
           //拒绝
           var data = {
-            space_id: 0,
-            order_id: 0,
+            space_id: that.data.space_id,
+            order_id: that.data.order_id,
             type: 2 //1接收 2拒绝
           }
           app.http('/order/update_order', data)
             .then(res => {
-              // this.setData({
-              //   newsList: res.data
-              // })
+              wx.showToast({
+                title: '操作成功',
+                icon: 'none',
+                duration: 2000
+              })
             })
         } else {
           console.log('取消')
@@ -229,20 +258,22 @@ Page({
   accept: function(e) {
     wx.showModal({
       title: '',
-      content: '您确定接受xxx的订单吗？',
+      content: '您确定接受该订单吗？',
       success: function(res) {
         if (res.confirm) {
           //接受
           var data = {
-            space_id: 0,
-            order_id: 0,
+            space_id: that.data.space_id,
+            order_id: that.data.order_id,
             type: 1 // 1接收 2拒绝
           }
           app.http('/order/update_order', data)
             .then(res => {
-              // this.setData({
-              //   newsList: res.data
-              // })
+              wx.showToast({
+                title: '操作成功',
+                icon: 'none',
+                duration: 2000
+              })
             })
         } else {
           console.log('取消')

@@ -1,7 +1,12 @@
 {
   "pages": [
+    "pages/fd/calendar/index3",
     "pages/fk/index/index",
+    "pages/news/news",
+    "pages/fk/trip/trip",
+    
     "pages/fd/calendar/index2",
+    
     "pages/fd/space/add-3",
     "pages/mine/changePersonMessage",
     "pages/fd/space/index",
@@ -12,9 +17,9 @@
     "pages/fd/calendar/index",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
-    "pages/news/news",
+    
     "pages/fd/data/data-view",
-    "pages/fk/trip/trip",
+    
     "pages/fk/trip/finalPay",
     "pages/fk/list/list",
     "pages/fk/detail/detail",
