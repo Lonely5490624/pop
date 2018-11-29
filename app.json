@@ -56,7 +56,6 @@
     "pages/mine/changeM",
     "pages/login/changeM",
     "pages/login/changeM2",
-    "pages/logs/logs",
     "pages/fd/space/uploadImg",
     "pages/mine/uploadImg"
   ],
