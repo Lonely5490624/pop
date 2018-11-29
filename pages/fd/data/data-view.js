@@ -1,4 +1,4 @@
-import * as echarts from '../../../ec-canvas/echarts';
+import * as echarts from '../../../ec-canvas/echarts.min';
 const app = getApp();
 var xData = []
 var yData = []
