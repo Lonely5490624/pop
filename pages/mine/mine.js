@@ -5,13 +5,11 @@ Page({
     userInfo: [],
     member_type: 0,
     member_id: 0,
-    flag: false,
     head_img_url: null
   },
   onLoad: function(options) {
     var that = this
     that.setData({
-      flag: wx.getStorageSync('flag'),
       member_id: wx.getStorageSync('member_id'),
       member_type: wx.getStorageSync('member_type')
     })
@@ -33,7 +31,6 @@ Page({
         if (res.confirm) {
           wx.removeStorageSync('time')
           wx.removeStorageSync('member_id')
-          wx.removeStorageSync('flag')
           wx.removeStorageSync('member_type')
           wx.redirectTo({
             url: '/pages/fk/index/index',
@@ -56,7 +53,6 @@ Page({
         member_type: that.data.member_type
       })
       .then(res => {
-        wx.setStorageSync('flag', true)
         if (that.data.member_type == 1) {
           wx.setStorageSync('member_type', 2)
         } else {

@@ -38,8 +38,8 @@
       <view class='con_list_r'>
         <text class="iconfont icon-icon_arrow_right"></text>
       </view>
-    </view>
-    <view class='con_list' wx:if='{{member_type==1 && flag}}'  bindtap='typeswitch'>
+    </view>    
+    <view class='con_list' wx:if='{{member_type==1 && userInfo.have_space>=1}}'  bindtap='typeswitch'>
       <view class='con_list_l'>切换至房东模式</view>
       <view class='con_list_r'>
         <text class="iconfont icon-icon_arrow_right"></text>
