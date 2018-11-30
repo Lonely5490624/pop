@@ -71,34 +71,31 @@ Page({
       month = this.data.cur_month,
       fullMonth,
       canlendar_data = [];
+
     // 计算年月以及具体日历
     for (let i = this.data.cur_month; i < this.data.cur_month + n; i++) {
-      let EmptyGrids = this.getEmptyGrids(year, month);
-      let DaysOfThisMonth = this.getDaysOfThisMonth(year, month);
-      // 把空格和具体日历合为一个数组
-      let allDays = [...EmptyGrids, ...DaysOfThisMonth];
+      console.log('month', month)
+
       // 对年份和月份的计算做一些判断
       if (month > 12) {
         year++;
         month = 1;
         fullMonth = '01'
-        canlendar_data.push({
-          year,
-          month,
-          fullMonth,
-          allDays
-        });
-        month++;
       } else {
         fullMonth = month.toString().length === 1 ? `0${month}` : month;
-        canlendar_data.push({
-          year,
-          month,
-          fullMonth,
-          allDays
-        });
-        month++;
       }
+      let EmptyGrids = this.getEmptyGrids(year, month);
+      let DaysOfThisMonth = this.getDaysOfThisMonth(year, month);
+
+      // 把空格和具体日历合为一个数组
+      let allDays = [...EmptyGrids, ...DaysOfThisMonth];
+      canlendar_data.push({
+        year,
+        month,
+        fullMonth,
+        allDays
+      });
+      month++;
     }
     this.setData({
       canlendar_data
