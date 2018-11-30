@@ -1,12 +1,10 @@
 {
   "pages": [
-    "pages/evaluate/evaluateList",
-    "pages/fk/trip/trip",
-    "pages/fk/index/index",
+    "pages/fd/calendar/index",
     "pages/fd/calendar/index3",
-    
+    "pages/fk/index/index",
     "pages/news/news",
-    
+    "pages/fk/trip/trip",
     
     "pages/fd/calendar/index2",
     
@@ -17,7 +15,6 @@
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",
     "pages/fd/data/index",
-    "pages/fd/calendar/index",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
     
@@ -31,6 +28,7 @@
     "pages/fd/data/data-num",
     "pages/fk/trip/tripInfo",
     "pages/fd/space/add-5",
+    "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateMore",
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateSuccess",
