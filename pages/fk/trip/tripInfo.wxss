@@ -27,7 +27,8 @@ page {
 
 .top .t3 {
   width: 90%;
-  height: 174rpx;
+  height: auto;
+  overflow: hidden;
   background: #fff;
   border-radius: 8px;
   display: flex;
@@ -36,6 +37,7 @@ page {
   position: absolute;
   left: 5%;
   bottom: -30rpx;
+  padding-bottom: 20rpx;
 }
 
 .top .t3 .t3_left image {
@@ -225,4 +227,17 @@ page {
 .space-score {
   float: left;
   color: #E0E0E0;
+}
+.goPJ{
+  width: 90%;
+  margin-left: 5%;
+  height: 88rpx;
+  background-color: #FF5555;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 88rpx;
+  border-radius: 6rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
 }

@@ -1,8 +1,8 @@
 <!--pages/fd/data/index.wxml-->
 <view class='page'>
   <view class='top'>
-    <image src='/images/aaa.jpg'></image>
-    <view class='title'>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</view>
+    <image src='{{imgUrl+orderInfo.space_pic}}'></image>
+    <view class='title'>{{orderInfo.space_title}}</view>
   </view>
   <view class='t2'>评价本次服务</view>
   <view class='xing' style="display:flex;flex-direction:row;">

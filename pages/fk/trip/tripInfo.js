@@ -43,6 +43,11 @@ Page({
         }
       })
   },
+  goPJ:function(){
+    wx.navigateTo({
+      url: "../../evaluate/evaluate?order_id=" + this.data.tripInfo.order_id
+    })
+  },
   calling: function () {
     var that=this
     wx.makePhoneCall({

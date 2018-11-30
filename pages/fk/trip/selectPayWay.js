@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    array: ['微信', '支付宝', '公对公付款'],
+    array: ['微信', '公对公付款'],
     index: 0,
     orderId: null
   },

@@ -15,8 +15,10 @@ Page({
   onLoad: function(options) {
     this.setData({
       service: options.flag2,
-      landlord_content: options.pcount
+      landlord_content: options.pcount,
+      order_id: options.order_id
     })
+    console.log(options)
   },
   //准确度
   cAccuracy1: function() {
@@ -188,7 +190,7 @@ Page({
     app.http('/comment/save_comment',data)
       .then(res => {
         wx.navigateTo({
-          url: "evaluateSuccess?space_id=" + space_id
+          url: "evaluateSuccess?space_id=" + this.data.space_id
         })
       })
 

@@ -1,4 +1,5 @@
 // pages/fd/data/index.js
+var app=getApp()
 Page({
 
   data: {

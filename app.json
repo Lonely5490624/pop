@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/fd/calendar/index3",
-    "pages/fk/index/index",
-    "pages/news/news",
+    "pages/evaluate/evaluateList",
     "pages/fk/trip/trip",
+    "pages/fk/index/index",
+    "pages/fd/calendar/index3",
+    
+    "pages/news/news",
+    
     
     "pages/fd/calendar/index2",
     
@@ -28,7 +31,6 @@
     "pages/fd/data/data-num",
     "pages/fk/trip/tripInfo",
     "pages/fd/space/add-5",
-    "pages/evaluate/evaluateList",
     "pages/evaluate/evaluateMore",
     "pages/evaluate/evaluate",
     "pages/evaluate/evaluateSuccess",

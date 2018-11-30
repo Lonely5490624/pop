@@ -50,6 +50,7 @@
     </view>
   </view>
   <view class='box3'>
+    <view class="goPJ" bindtap='goPJ' wx:if="{{tripInfo.status==4&&tripInfo.refund_status==0}}">评价</view>
     <view class='b3_list'>
       <view class='b3_list_l'>入住时间</view>
       <view class='b3_list_r'>{{tripInfo.arrival_time}}</view>
