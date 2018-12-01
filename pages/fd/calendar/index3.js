@@ -54,19 +54,19 @@ Page({
   getDaysOfThisMonth(year, month) {
     let days = [];
     const AllDaysOfMonth = this.getAllDaysOfMonth(year, month);    
-    let fullMonth = month.toString().length === 1 ? `${month}` : month;    
+    let fullMonth = month.toString().length === 1 ? `0${month}` : month;    
     if (month > 12) {
       year++;
       month = 1;
       fullMonth = '1'
     } else {
-      fullMonth = month.toString().length === 1 ? `${month}` : month;
+      fullMonth = month.toString().length === 1 ? `0${month}` : month;
     }
     for (let i = 0; i < AllDaysOfMonth; i++) {
       let day = i + 1,
         fullDay = day;
 
-      fullDay = fullDay.toString().length === 1 ? `${day}` : fullDay;
+      fullDay = fullDay.toString().length === 1 ? `0${day}` : fullDay;
       days.push({
         day,
         fullDay,
@@ -85,36 +85,32 @@ Page({
       fullMonth,
       canlendar_data = [];
 
+
     // 计算年月以及具体日历
     for (let i = this.data.cur_month; i < this.data.cur_month + n; i++) {
-      let EmptyGrids = this.getEmptyGrids(year, month);
-      let DaysOfThisMonth = this.getDaysOfThisMonth(year, month);
-
-      // 把空格和具体日历合为一个数组
-      let allDays = [...EmptyGrids, ...DaysOfThisMonth];
+      console.log('month', month)
 
       // 对年份和月份的计算做一些判断
       if (month > 12) {
         year++;
         month = 1;
-        fullMonth = '1'
-        canlendar_data.push({
-          year,
-          month,
-          fullMonth,
-          allDays
-        });
-        month++;
+        fullMonth = '01'
       } else {
-        fullMonth = month.toString().length === 1 ? `${month}` : month;
-        canlendar_data.push({
-          year,
-          month,
-          fullMonth,
-          allDays
-        });
-        month++;
+        fullMonth = month.toString().length === 1 ? `0${month}` : month;
       }
+      console.log(fullMonth)
+      let EmptyGrids = this.getEmptyGrids(year, month);
+      let DaysOfThisMonth = this.getDaysOfThisMonth(year, month);
+
+      // 把空格和具体日历合为一个数组
+      let allDays = [...EmptyGrids, ...DaysOfThisMonth];
+      canlendar_data.push({
+        year,
+        month,
+        fullMonth,
+        allDays
+      });
+      month++;
     }
     this.setData({
       canlendar_data

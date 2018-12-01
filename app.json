@@ -1,15 +1,16 @@
 {
   "pages": [
+    "pages/fd/calendar/index",
+    "pages/fd/calendar/index2",
+    "pages/fd/calendar/index3",
+    "pages/fk/order/order-confirm",
     "pages/fk/index/index",
     "pages/fd/data/data-income",
     "pages/fd/data/data-view",
     "pages/fd/data/index",
-    "pages/fd/calendar/index3",
-    "pages/fd/calendar/index",
     "pages/news/news",
     "pages/fk/trip/trip",
     
-    "pages/fd/calendar/index2",
     
     "pages/fd/space/add-3",
     "pages/mine/changePersonMessage",
@@ -24,7 +25,6 @@
     "pages/fk/trip/finalPay",
     "pages/fk/list/list",
     "pages/fk/detail/detail",
-    "pages/fk/order/order-confirm",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fk/trip/tripInfo",

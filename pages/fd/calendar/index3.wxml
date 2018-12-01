@@ -21,7 +21,7 @@
     </view>
     <view class="month-content">
       <view class="month-day {{item.fullDate<nowDate?'gray':''}} {{startDate===item.fullDate?'startActive':''}} {{endDate===item.fullDate?'endActive':''}} {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}}" bindtap="chooseDate"
-        data-year="{{canlendar_item.year}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{canlendar_item.year}}-{{canlendar_item.month}}-{{item.day}}"                               data-fulldat="{{filter.format(2018-11-6)}}" wx:for="{{canlendar_item.allDays}}">
+        data-year="{{canlendar_item.year}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{item.fullDate}}"                               data-fulldat="{{item.fullDate}}" wx:for="{{canlendar_item.allDays}}">
         <view class='day-item'>{{item.day}}<text class='dayPrice' wx:if="{{filter.hasEle(able,item.fullDate)}}">￥{{ablePrice[filter.getIndex(able, item.fullDate)]}}</text></view>
         
       </view>
