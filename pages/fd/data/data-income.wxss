@@ -192,3 +192,14 @@
   color: #ff5555;
   line-height: 34rpx;
 }
+ec-canvas {
+  width: 100%;
+  height: 600rpx;
+  
+}
+
+.container {
+  width: 100%;
+  height: 600rpx;
+  
+}

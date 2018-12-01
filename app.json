@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/fd/calendar/index",
-    "pages/fd/calendar/index3",
     "pages/fk/index/index",
+    "pages/fd/data/data-income",
+    "pages/fd/data/data-view",
+    "pages/fd/data/index",
+    "pages/fd/calendar/index3",
+    "pages/fd/calendar/index",
     "pages/news/news",
     "pages/fk/trip/trip",
     
@@ -14,11 +17,9 @@
     "pages/fd/space/add-2",
     "pages/fd/space/add-6",
     "pages/fd/space/add-4",
-    "pages/fd/data/index",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
     
-    "pages/fd/data/data-view",
     
     "pages/fk/trip/finalPay",
     "pages/fk/list/list",
@@ -43,7 +44,6 @@
     "pages/news/chat",
     "pages/news/cancelOrde",
     "pages/fd/space/add-1",
-    "pages/fd/data/data-income",
     "pages/fk/collection/collection",
     "pages/fk/collection/collectionList",
     "pages/mine/paymentMethod",

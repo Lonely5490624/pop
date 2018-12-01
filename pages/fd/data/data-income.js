@@ -1,16 +1,52 @@
-// pages/fd/data/data-income.js
-var app=getApp();
-Array.prototype.max = function() {
-  var max = this[0]
-  this.forEach(item => {
-    if (item > max) {
-      max = item
-    }
-  })
-  return max
+import * as echarts from '../../../ec-canvas/echarts.min';
+
+var app = getApp();
+var yData = []
+var xData1 = []
+var xData2 = []
+
+function initChart(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+  var option = {
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['已转款', '即将转款']
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: yData
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value'
+      }
+    ],
+    series: [
+      {
+        name: '已转款',
+        type: 'bar',
+        data: xData1
+      },
+      {
+        name: '即将转款',
+        type: 'bar',
+        data: xData2
+      }
+    ]
+  };
+
+  chart.setOption(option);
+  return chart;
 }
 
-const currentMonth = new Date().getMonth() + 1
 
 Page({
 
@@ -18,19 +54,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentMonth,
     tabId: 1,
-    currentId: null,
-    scrollLeft: 0,
-    maxHeight: null,
     show: false,
     spaceList: [],
     chooseId: '-1',
     title: '全部空间',
-    dataIncome:[],
-    transfer_order_info_list:{},//已转款
-    no_transfer_order_info_list: {},//未转款
-    income: []
+    ec: {
+      onInit: initChart
+    },
+    transfer_order_info_list: [],
+    no_transfer_order_info_list: [],
+    current_income: 0,
+    current_month: 1
   },
   changeTab(e) {
     let id = e.currentTarget.dataset.id;
@@ -39,13 +74,6 @@ Page({
     })
   },
   onLoad: function(e) {
-    let arr = []
-    this.data.income.forEach(item => {
-      arr.push(parseInt(item.yi) + parseInt(item.ji))
-    })
-    this.setData({
-      maxHeight: arr.max()
-    })
     this.getincome_data()
   },
   getincome_data: function(space_id) {
@@ -55,34 +83,29 @@ Page({
     if (space_id != undefined) {
       data.space_id = space_id
     }
+    this.ecComponent = this.selectComponent('#mychart-dom-line')
     app.http('/data/income_data', data)
       .then(res => {
+        xData1 = res.data.transfer_arr
+        xData2 = res.data.no_transfer_arr
+        yData = res.data.month_arr
+        this.ecComponent.init((canvas, width, height) => {
+          const chart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          this.setOption(chart);
+          this.chart = chart;
+          return chart;
+        });
         this.setData({
-          dataIncome: res.data,
-          spaceList:res.data.space,
+          spaceList: res.data.space,
           transfer_order_info_list: res.data.transfer_order_info_list,
-          no_transfer_order_info_list:res.data.no_transfer_order_info_list
-        })
-        var arr=[]
-        for(var i=0;i<12;i++){
-          arr.push({
-            id:i,
-            date: res.data.month_arr[i],
-            yi: res.data.transfer_arr[i],
-            ji: res.data.no_transfer_arr[i],
-          })
-        }
-        this.setData({
-          income: arr
+          no_transfer_order_info_list: res.data.no_transfer_order_info_list,
+          current_income: res.data.current_income,
+          current_month: res.data.current_month
         })
       })
-  },
-  // 图表选中
-  chooseItem(e) {
-    console.log(e)
-    this.setData({
-      currentId: e.currentTarget.dataset.id
-    })
   },
   //选择空间
   chooseSpace: function(e) {
@@ -103,18 +126,38 @@ Page({
       show: !this.data.show
     })
   },
-  // 左侧点击
-  prevTap(e) {
-    if (this.data.scrollLeft > 0) {
-      this.setData({
-        scrollLeft: this.data.scrollLeft - 98
-      })
-    }
-  },
-  // 右侧点击
-  nextTap(e) {
-    this.setData({
-      scrollLeft: this.data.scrollLeft + 98
-    })
-  },
+  setOption(chart) {
+    var option = {
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['已转款', '即将转款']
+      },
+      xAxis: [
+        {
+          type: 'category',
+          data: yData
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value'
+        }
+      ],
+      series: [
+        {
+          name: '已转款',
+          type: 'bar',
+          data: xData1
+        },
+        {
+          name: '即将转款',
+          type: 'bar',
+          data: xData2
+        }
+      ]
+    };
+    chart.setOption(option)
+  }
 })

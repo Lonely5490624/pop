@@ -13,24 +13,12 @@
 <view class='income'>
   <view class='income-title'>收入</view>
   <view class='chart'>
-    <view class='chart-title'>
-      <text class='yi'>已转款</text>
-      <text class='ji'>即将转款</text>
-    </view>
-    <view class='chart-content'>
-      <view class='chart-prev'><text class='iconfont icon-jiantouzuo'></text></view>
-      <scroll-view scroll-x scroll-left='{{scrollLeft}}' class='chart-show'>
-        <view wx:for='{{income}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseItem' class='chart-item {{item.date == currentMonth ? "active" : ""}}'>
-          <view class='item-date'>{{item.date}}</view>
-          <view class='item-yi' style='height: {{filter.getHeight(item.yi, maxHeight)}}rpx;'></view>
-          <view class='item-ji' style='height: {{filter.getHeight(item.ji, maxHeight)}}rpx;'></view>
-        </view>
-      </scroll-view>
-      <view bindtap='nextTap' class='chart-next'><text class='iconfont icon-icon_arrow_right'></text></view>
+    <view class="container">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
     </view>
     <view class='chart-price'>
-      <view class='price-all'>￥{{dataIncome.current_income}}</view>
-      <view class='price-info'>2018年{{dataIncome.current_month}}月收入 · 您已获得￥{{dataIncome.transfer_arr[11]}}</view>
+      <view class='price-all'>￥{{current_income}}</view>
+      <view class='price-info'>2018年{{current_month}}月收入 · 您已获得￥{{current_income}}</view>
     </view>
   </view>
 </view>
