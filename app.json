@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/fk/index/index",
     "pages/fd/calendar/index",
     "pages/fd/calendar/index2",
     "pages/fd/calendar/index3",
     "pages/fk/order/order-confirm",
-    "pages/fk/index/index",
     "pages/fd/data/data-income",
     "pages/fd/data/data-view",
     "pages/fd/data/index",

@@ -69,9 +69,37 @@ Page({
     }
     app.http('/Order/subOrder', params)
       .then(res => {
-        wx.navigateTo({
-          url: 'order-confirm-3?money=' + this.data.deposit,
+        /**
+         * 接口地址要改
+         * 返回值：
+         * return_code： 此字段表示通信是否成功，非交易是否成功， 取值：SUCCESS、FAIL
+         * return_msg： 返回的信息
+         * result_code： 此字段表示交易是否成功！取值：SUCCESS、FAIL
+         * err_code： 请求错误代码，详见微信文档。
+         * err_code_des:  错误返回的信息描述
+         * trade_type: 交易类型，当return_code和result_code都为SUCCESS时才返回
+         * prepay_id：预支付ID，下一步要用到的，有效期2小时。如果用户在生成此id后取消支付，但是在2个小时内重新支付时可以复用该id。 当                   *            return_code和result_code都为SUCCESS时才返回。
+         */
+        // wx.navigateTo({
+        //   url: 'order-confirm-3?money=' + this.data.deposit,
+        // })
+        wx.requestPayment({
+          timeStamp: '1490840662',
+          nonceStr: '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
+          package: 'prepay_id=wx2017033010242291fcfe0db70013231072',
+          signType: 'MD5',
+          paySign: 'SLKFYHSOADYFASJDFYASDFHLKSD',
+          success: res => {
+            console.log('success:', res)
+          },
+          fail: err => {
+            console.log('fail:', err)
+          },
+          complete: res => {
+            console.log('complete', res)
+          }
         })
+
       })
   },
 
