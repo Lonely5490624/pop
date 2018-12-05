@@ -164,7 +164,7 @@ Page({
       let oldDay = new Date(Date.parse(this.data.startDate));
 
       // 判断第二次点击的日期在第一次点击的日期前面还是后面
-      if (newDay > oldDay) {
+      if (newDay >= oldDay) {
         this.setData({
           endDate: `${year_click}-${month_click}-${day_click}`,
           date_click: 2,

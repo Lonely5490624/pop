@@ -18,14 +18,16 @@ Page({
     space_id: null,
     payaway: 'wxchat',
     payEndTime: 0,
-    isContractorOpen:false
+    //isContractorOpen:false,
+    wxPayInfo:[],
+    depositRate: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options)
+  onLoad: function (options) {    
+    
     this.setData({
       img: app.data.imgurl + options.img,
       title: options.title,
@@ -36,26 +38,10 @@ Page({
       date: options.date,
       signid: options.signid,
       space_id: options.space_id,
-      payEndTime: options.payEndTime
+      payEndTime: options.payEndTime,      
+      depositRate: options.depositRate
     })
-  },
-  //打开支付方式选择
-  contractorOpen: function () {
-    this.setData({
-      isContractorOpen: true
-    })
-  },
-  // 选择支付方式
-  radioChange: function (e) {
-    this.setData({
-      payaway: e.detail.value
-    })
-  },
-  // 关闭支付方式选择
-  contractorClose: function () {
-    this.setData({
-      isContractorOpen: false
-    })
+    
   },
   // 确定预订
   orderConfirm () {
@@ -65,10 +51,36 @@ Page({
       space_id: this.data.space_id,
       totalPrice: this.data.totalPrice,
       deposit: this.data.deposit,
-      payaway: this.data.payaway
+      payaway: this.data.payaway,
+      final_payment_time: this.data.payEndTime,
+      
     }
     app.http('/Order/subOrder', params)
       .then(res => {
+        //获取微信支付参数  1：定金 2：尾款
+        app.http('/pay/index', { type: 1, order_id: res.data.order_id,})
+          .then(res => {
+            this.setData({
+              wxPayInfo: parseJSON(res.data)
+            })
+            //调微信支付
+            wx.requestPayment({
+              timeStamp: Date.parse(new Date()),
+              nonceStr: that.data.wxPayInfo.nonceStr,
+              package: that.data.wxPayInfo.package,
+              signType: that.data.wxPayInfo.signType,
+              paySign: that.data.wxPayInfo.paySign,
+              success: res => {
+                console.log('success:', res)
+              },
+              fail: err => {
+                console.log('fail:', err)
+              },
+              complete: res => {
+                console.log('complete', res)
+              }
+            })
+          })
         /**
          * 接口地址要改
          * 返回值：
@@ -83,72 +95,9 @@ Page({
         // wx.navigateTo({
         //   url: 'order-confirm-3?money=' + this.data.deposit,
         // })
-        wx.requestPayment({
-          timeStamp: '1490840662',
-          nonceStr: '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
-          package: 'prepay_id=wx2017033010242291fcfe0db70013231072',
-          signType: 'MD5',
-          paySign: 'SLKFYHSOADYFASJDFYASDFHLKSD',
-          success: res => {
-            console.log('success:', res)
-          },
-          fail: err => {
-            console.log('fail:', err)
-          },
-          complete: res => {
-            console.log('complete', res)
-          }
-        })
+        
 
       })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

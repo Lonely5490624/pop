@@ -14,12 +14,6 @@ var filter = {
   dateRe:function(date){
 
   }, 
-  format: function (date) {
-    console.log(date)
-    //console.log(new Date(date).getTime())
-    //return new Date(date).getTime()
-    
-  },
   hasHttp: function (str) {
     if(str.indexOf('http') > -1) {
       return true

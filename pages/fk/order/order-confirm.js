@@ -22,7 +22,7 @@ Page({
     moneyW: 0,
     dateArray: [],
     bg: false,
-    ischeck:false
+    ischeck:false,
   },
   opendate: function() {
     wx.navigateTo({
@@ -32,12 +32,19 @@ Page({
   onShow: function() {
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
-    if (currPage.data.info != undefined) {
+    let priced=0
+    if (currPage.data) {
+      let priceArr=currPage.data.priceArr 
+      for (var i = 0; i < priceArr.length;i++){
+        priced +=parseInt(priceArr[i])
+      }     
       this.setData({
         startDate: currPage.data.startDate,
         dayNum: currPage.data.dayNum,
-        endDate: currPage.data.endDate
+        endDate: currPage.data.endDate,   
+        moneyAll: parseInt(this.data.space_info.clear_price) + parseInt(this.data.space_info.cash_pledge) + parseInt(priced)
       });
+      console.log(priced)
     }
   },
   onLoad: function(options) {    
@@ -51,7 +58,7 @@ Page({
       })
       .then(res => {
         that.setData({
-          space_info: res.data
+          space_info: res.data          
         })
       }),
       this.getSignList()
@@ -129,7 +136,7 @@ Page({
   },  
   // 下一步
   confirmNext() {    
-    let params = `date=${this.data.dateArray}&signid=${this.data.contractorId}&space_id=${this.data.space_info.id}&title=${this.data.space_info.title}&img=${this.data.space_info.banner}&depositRate=${this.data.space_info.depositRate}&totalPrice=${this.data.moneyAll}&deposit=${this.data.moneyY}&balance=${this.data.moneyW}&payEndTime=${this.data.space_info.final_payment_time}`
+    let params = `date=${this.data.dateArray}&signid=${this.data.contractorId}&space_id=${this.data.space_info.id}&title=${this.data.space_info.title}&img=${this.data.space_info.banner}&depositRate=${this.data.space_info.depositRate}&totalPrice=${this.data.moneyAll}&deposit=${this.data.moneyAll * this.data.space_info.depositRate * 0.01}&balance=${this.data.moneyAll * (100 - this.data.space_info.depositRate) * 0.01}&payEndTime=${this.data.space_info.final_payment_time}&depositRate=${this.data.space_info.depositRate}`
     if (this.data.startDate != "请选择" && this.data.endDate != "请选择" && this.data.contractorName != null && this.data.ischeck) {
       wx.navigateTo({
         url: `order-confirm-2?${params}`,

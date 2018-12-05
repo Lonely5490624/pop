@@ -17,9 +17,10 @@ Page({
     date_click: 0,
     dayNum: 0,
     dateArry: [],
-    able: [], //可编辑日期（黑色）
+    s_able: [], //可编辑日期（黑色）
     ablePrice: [], //可编辑日期价格
     unable: [], //已经出租日期（红色）
+    final_payment_time: 0
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -53,8 +54,8 @@ Page({
   // 计算本月日历
   getDaysOfThisMonth(year, month) {
     let days = [];
-    const AllDaysOfMonth = this.getAllDaysOfMonth(year, month);    
-    let fullMonth = month.toString().length === 1 ? `0${month}` : month;    
+    const AllDaysOfMonth = this.getAllDaysOfMonth(year, month);
+    let fullMonth = month.toString().length === 1 ? `0${month}` : month;
     if (month > 12) {
       year++;
       month = 1;
@@ -72,7 +73,7 @@ Page({
         fullDay,
         'fullDate': `${year}-${fullMonth}-${fullDay}`
       });
-     
+
     }
     // 返回每个月的具体日期
     return days;
@@ -116,22 +117,9 @@ Page({
       canlendar_data
     })
   },
-  //获取空间详情
-  getSpaceDetail: function () {
-    app.http('/space/getSpaceDetail', { space_id: this.data.space_id})
-      .then(res => {
-        if (res.data != '') {
-          this.setData({
-            unable: res.data.calendar.unable,
-            able: res.data.calendar.able,
-            ablePrice: res.data.calendar.price,
-            space_id: res.data.id
-          })
-        }
-      })
-  },
-  onLoad(options) {    
-    options.space_id=93
+
+  onLoad(options) {
+    options.space_id = 93
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;
@@ -143,23 +131,33 @@ Page({
       cur_day,
       space_id: options.space_id
     })
-    this.getSpaceDetail()
-
-    let month = this.data.cur_month.toString().length === 1 ? `${this.data.cur_month}` : this.data.cur_month;
-    let day = this.data.cur_day.toString().length === 1 ? `${this.data.cur_day}` : this.data.cur_day;
-    let nowDate = `${cur_year}-${month}-${day}`;
-
-    this.setData({
-      nowDate
-    })
-
-    this.fillCalendar(12);
+    //获取空间详情
+    app.http('/space/getSpaceDetail', {
+        space_id: this.data.space_id
+      })
+      .then(res => {
+        if (res.data != '') {
+          this.setData({
+            unable: res.data.calendar.unable,
+            s_able: res.data.calendar.s_able,
+            ablePrice: res.data.calendar.price,
+            space_id: res.data.id,
+            final_payment_time: res.data.final_payment_time
+          })
+          let month = this.data.cur_month.toString().length === 1 ? `0${this.data.cur_month}` : this.data.cur_month;
+          let day = (parseInt(this.data.cur_day) + parseInt(this.data.final_payment_time)).toString().length === 1 ? `0${(parseInt(this.data.cur_day) + parseInt(this.data.final_payment_time))}` : (parseInt(this.data.cur_day) + parseInt(this.data.final_payment_time));
+          let nowDate = `${cur_year}-${month}-${day}`;
+          this.setData({
+            nowDate
+          })
+        }
+      })
+    this.fillCalendar(12);    
   },
   //日期相减
   dateMinus(startDate, endDate) {　　
     var endDate = new Date(endDate.replace(/-/g, "/"));
     var startDate = new Date(startDate.replace(/-/g, "/"));　　
-    // var now = new Date();　　
     var days = endDate.getTime() - startDate.getTime();　　
     var day = parseInt(days / (1000 * 60 * 60 * 24));　　
     return day;
@@ -169,9 +167,6 @@ Page({
     const year_click = e.currentTarget.dataset.year;
     const month_click = e.currentTarget.dataset.month;
     const day_click = e.currentTarget.dataset.day;
-    console.log('date', year_click, month_click, day_click);
-
-
     // 如果是空格或者以前的日期就直接返回
     if (day_click === '' || `${year_click}-${month_click}-${day_click}` < this.data.nowDate) {
       return;
@@ -192,11 +187,11 @@ Page({
       let oldDay = new Date(Date.parse(this.data.startDate));
 
       // 判断第二次点击的日期在第一次点击的日期前面还是后面
-      if (newDay > oldDay) {
+      if (newDay >= oldDay) {
         this.setData({
           endDate: `${year_click}-${month_click}-${day_click}`,
           date_click: 2,
-          dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`)+1
+          dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`) + 1
         })
 
       } else {
@@ -204,7 +199,7 @@ Page({
           startDate: `${year_click}-${month_click}-${day_click}`,
           endDate: '',
           date_click: 1,
-          dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`)+1
+          dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`) + 1
         })
       }
     }
@@ -243,11 +238,19 @@ Page({
     let pages = getCurrentPages(); //当前页面
     let prevPage = pages[pages.length - 2]; //上一页面 
     let dateArray = this.getAll(this.data.startDate, this.data.endDate)
-    var dataInfo={
+    //价格
+    var startPrice = this.data.s_able.indexOf(this.data.startDate)
+    var endPrice = this.data.s_able.indexOf(this.data.endDate)
+    let priceArr = []
+    for (var i = startPrice; i <= endPrice; i++) {
+      priceArr.push(this.data.ablePrice[i])
+    }
+    var dataInfo = {
       startDate: this.data.startDate,
       dayNum: dateArray.length,
       endDate: this.data.endDate,
-      dateArray: dateArray,      
+      dateArray: dateArray,
+      priceArr: priceArr
     }
     prevPage.setData(dataInfo)
     wx.navigateBack({ //返回
