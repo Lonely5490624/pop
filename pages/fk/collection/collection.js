@@ -11,14 +11,6 @@ Page({
     imgUrl:'',
     member_type: 0
   },
-  onShow:function(){
-    app.http('/collection/getCollection')
-      .then(res => {
-        this.setData({
-          shangq: res.data
-        })
-      })
-  },
   //事件处理函数
   onLoad: function () {
     var that=this;
@@ -26,11 +18,11 @@ Page({
       imgUrl: app.data.imgurl,
       userData: wx.getStorageSync('userData'),
       member_type: app.globalData.member_type
-    })   
+    })
+    wx.showLoading({
+      title: '加载中',
+    })
     app.http('/collection/getCollection')
-      wx.showLoading({
-        title: '加载中',
-      })
       .then(res => {
         this.setData({
           shangq: res.data

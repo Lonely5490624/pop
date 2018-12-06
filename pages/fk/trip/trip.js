@@ -19,11 +19,11 @@ Page({
       member_type: app.globalData.member_type,
       tripList: []
     })
+    wx.showLoading({
+      title: '加载中',
+    })
 
     app.http('/order/orderList')
-      wx.showLoading({
-        title: '加载中',
-      })
       .then(res => {
         this.setData({
           tripList: res.data
