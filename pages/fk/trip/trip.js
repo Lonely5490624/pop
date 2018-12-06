@@ -21,11 +21,15 @@ Page({
     })
 
     app.http('/order/orderList')
+      wx.showLoading({
+        title: '加载中',
+      })
       .then(res => {
         this.setData({
           tripList: res.data
         })
         console.log(res.data)
+        wx.hideLoading()
       })
   },
   goToList: function () {

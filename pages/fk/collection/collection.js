@@ -28,10 +28,14 @@ Page({
       member_type: app.globalData.member_type
     })   
     app.http('/collection/getCollection')
+      wx.showLoading({
+        title: '加载中',
+      })
       .then(res => {
         this.setData({
           shangq: res.data
         })
+        wx.hideLoading()
       })
   },
   gotoList:function(e){

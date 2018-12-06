@@ -108,7 +108,10 @@ Page({
     this.getList()
   },
   // 获取列表数据
-  getList: function() {
+  getList: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this
     wx.request({
       url: app.data.requestUrl + "/home/searchSpace",
@@ -132,7 +135,11 @@ Page({
             duration: 2000
           })
         }
+        wx.hideLoading()
       },
+      fail: function(err) {
+        wx.hideLoading()
+      }
     })
   },
   //加收藏

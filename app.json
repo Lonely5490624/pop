@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/fk/list/list",
     "pages/fd/calendar/index",
     "pages/fd/calendar/index2",
     "pages/fd/calendar/index3",
@@ -23,7 +24,6 @@
     
     
     "pages/fk/trip/finalPay",
-    "pages/fk/list/list",
     "pages/fk/detail/detail",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
