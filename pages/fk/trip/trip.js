@@ -19,6 +19,9 @@ Page({
       member_type: app.globalData.member_type,
       tripList: []
     })
+    wx.showLoading({
+      title: '加载中',
+    })
 
     app.http('/order/orderList')
       .then(res => {
@@ -26,6 +29,7 @@ Page({
           tripList: res.data
         })
         console.log(res.data)
+        wx.hideLoading()
       })
   },
   goToList: function () {

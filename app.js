@@ -63,6 +63,7 @@ App({
               duration: 2000
             })
           }
+          wx.hideLoading()
         },
         fail: function (err) {
           wx.showToast({
@@ -70,6 +71,7 @@ App({
             icon: 'none',
             duration: 2000
           })
+          wx.hideLoading()
         }
       })
     })

@@ -131,6 +131,9 @@ Page({
       space_id: options.space_id
     })
     //获取空间详情
+    wx.showLoading({
+      title: '加载中',
+    })
     app.http('/space/getSpaceDetail', {
         space_id: this.data.space_id
       })
@@ -149,6 +152,7 @@ Page({
           this.setData({
             nowDate
           })
+          wx.hideLoading()
         }
       })
     this.fillCalendar(12);    

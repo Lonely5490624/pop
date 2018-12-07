@@ -138,7 +138,10 @@ Page({
     this.onLoad()
   },
   //获取空间列表
-  getSpaceList: function() {
+  getSpaceList: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
     app.http('/space/getSpaceList')
       .then(res => {
         this.setData({
@@ -152,6 +155,7 @@ Page({
             space_id: this.data.spaceList[0].id
           })
         }
+        wx.hideLoading()
       })
   },
   // 点击日期

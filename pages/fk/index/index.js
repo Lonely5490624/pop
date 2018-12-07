@@ -58,12 +58,16 @@ Page({
   },
   getisRecommendSpaceList: function (params){
     //热门推荐
+    wx.showLoading({
+      title: '加载中',
+    })
     app.http('/home/isRecommendSpaceList', params, true)
       .then(res => {
         if (res.data.length>0){
           this.setData({
             recommendData: res.data
           })
+          wx.hideLoading()
         }        
       })
   },
