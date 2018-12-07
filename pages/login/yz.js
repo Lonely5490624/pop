@@ -13,7 +13,6 @@ Page({
     mobile: ''
   },
   onLoad: function(options) {
-    console.log(options)
     this.setData({
       mobile: options.mobile
     })
@@ -59,7 +58,6 @@ Page({
       },
       success: function(res) {
         that.getTime();
-        console.log(res.data)
       }
     })
   },
@@ -70,7 +68,6 @@ Page({
     });
   },
   setValue: function(e) {
-    console.log(e.detail.value);
     var that = this;
     that.setData({
       iptValue: e.detail.value
@@ -84,11 +81,10 @@ Page({
         },
         data: {
           mobile: parseInt(that.data.mobile),
-          //mobile: 17623005222,
           code: parseInt(that.data.iptValue)
         },
         success: function(res) {
-          console.log(res.data)
+          
           if (res.data.code == 200) {
             let time = Date.now() + 86400000
             wx.setStorageSync('time', time)

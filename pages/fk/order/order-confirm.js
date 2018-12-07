@@ -33,7 +33,8 @@ Page({
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
     let priced=0
-    if (currPage.data) {
+    console.log(currPage.data)
+    if (currPage.data.priceArr != undefined) {
       let priceArr=currPage.data.priceArr 
       for (var i = 0; i < priceArr.length;i++){
         priced +=parseInt(priceArr[i])

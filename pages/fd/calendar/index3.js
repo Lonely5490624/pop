@@ -119,7 +119,6 @@ Page({
   },
 
   onLoad(options) {
-    options.space_id = 93
     const date = new Date();
     const cur_year = date.getFullYear();
     const cur_month = date.getMonth() + 1;

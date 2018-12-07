@@ -17,22 +17,18 @@ Page({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         let code = res.code
-        console.log(res.code)//033xzpMC0XsKcj22WONC0kk7MC0xzpM3
         wx.request({
-          url: app.data.requestUrl + "/member/test",
+          url: app.data.requestUrl + "/member/getOpenId",
           data: {code: res.code},
           method: 'POST',
           header: {
             "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
           },
           success: function (res) {
-            console.log(res.data)
+            wx.setStorageSync('openid', res.data.data.openid);
+            wx.setStorageSync('session_key', res.data.data.session_key);
           }
         })
-        // app.http('/member/test', {code: res.code})
-        //   .then(res => {
-        //     console.log(res.data)
-        //   })
       }
     })
     // 查看是否授权
@@ -42,7 +38,6 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (res) {
-              console.log(res.userInfo)
               wx.setStorageSync('wxUserData', res.userInfo);
               that.setData({
                 userData: res.userInfo
@@ -89,7 +84,6 @@ Page({
               url: 'yz?mobile=' + that.data.mobile
             })
           }
-          console.log(res.data)
         }
       })
     }

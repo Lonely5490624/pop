@@ -22,12 +22,10 @@ Page({
     wxPayInfo:[],
     depositRate: 0
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {    
-    
+  onLoad: function (options) {       
     this.setData({
       img: app.data.imgurl + options.img,
       title: options.title,
@@ -45,31 +43,32 @@ Page({
   },
   // 确定预订
   orderConfirm () {
+    var that=this
     let params = {
       date: this.data.date,
       signid: this.data.signid,
       space_id: this.data.space_id,
       totalPrice: this.data.totalPrice,
       deposit: this.data.deposit,
-      payaway: this.data.payaway,
-      final_payment_time: this.data.payEndTime,
-      
+      payway: this.data.payaway,
+      final_payment_time: this.data.payEndTime,      
     }
     app.http('/Order/subOrder', params)
       .then(res => {
         //获取微信支付参数  1：定金 2：尾款
         app.http('/pay/index', { type: 1, order_id: res.data.order_id,})
           .then(res => {
-            this.setData({
-              wxPayInfo: parseJSON(res.data)
+            that.setData({
+              wxPayInfo: JSON.parse(res.data)
             })
             //调微信支付
             wx.requestPayment({
-              timeStamp: Date.parse(new Date()),
+              timeStamp: Date.parse(new Date())+"",
               nonceStr: that.data.wxPayInfo.nonceStr,
               package: that.data.wxPayInfo.package,
               signType: that.data.wxPayInfo.signType,
               paySign: that.data.wxPayInfo.paySign,
+              openid: wx.getStorageSync('openid'),
               success: res => {
                 console.log('success:', res)
               },
