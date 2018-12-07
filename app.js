@@ -3,7 +3,7 @@ import { ajaxData } from 'utils/common'
 
 App({
   data:{
-    imgurl: 'http://shanpuapi.letspopup.cn/data/upload/',
+    imgurl: 'http://pjb282159.bkt.clouddn.com/',
     requestUrl: 'http://shanpuapi.letspopup.cn/index.php/home',
     dgaccount:"28837XXXXXXXXXX"
   },

@@ -7,15 +7,21 @@ Page({
     member_type: 0
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     this.setData({
       member_type: app.globalData.member_type
     })
     app.http('/data/index', { member_type:'2'})
       .then(res => {
-        console.log(res.data);
-        this.setData({
-          dataInfo: res.data
-        })
+        if (res.data.length > 0) {
+          this.setData({
+            dataInfo: res.data
+          })
+          wx.hideLoading()
+        }
+        
       })
   },
   goToList: function () {

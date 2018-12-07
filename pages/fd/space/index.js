@@ -22,7 +22,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       imgUrl: app.data.imgurl,
       userData: wx.getStorageSync('userData'),
@@ -33,16 +33,22 @@ Page({
     // this.getUnpublished()
   },
   // 获取已发布空间
-  getPub: function () {
+  getPub: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
     app.http('/space/published_list')
       .then(res => {
-        this.setData({
-          pubList: res.data
-        })
+        if (res.data.length > 0) {
+          this.setData({
+            pubList: res.data
+          })
+          wx.hideLoading()
+        }
       })
   },
   // 获取未发布空间列表
-  getUnpub: function () {
+  getUnpub: function() {
     app.http('/space/unpublished_list')
       .then(res => {
         this.setData({
@@ -59,7 +65,9 @@ Page({
   },
   // 下架空间
   handleDown(e) {
-    app.http('/space/lower_space', { space_id: e.currentTarget.dataset.id })
+    app.http('/space/lower_space', {
+        space_id: e.currentTarget.dataset.id
+      })
       .then(res => {
         wx.showToast({
           title: '下架成功',
@@ -71,7 +79,9 @@ Page({
   },
   // 删除空间
   handleDel(e) {
-    app.http('/space/del_space', { space_id: e.currentTarget.dataset.id })
+    app.http('/space/del_space', {
+        space_id: e.currentTarget.dataset.id
+      })
       .then(res => {
         wx.showToast({
           title: '删除成功',
@@ -90,87 +100,87 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
-  goToList: function () {
+  goToList: function() {
     wx.redirectTo({
       url: "../../fk/list/list"
     })
   },
-  goToSpace: function () {
+  goToSpace: function() {
     wx.redirectTo({
       url: "../../fd/space/index"
     })
   },
-  goToMine: function () {
+  goToMine: function() {
     wx.redirectTo({
       url: "../../mine/mine"
     })
   },
-  goToNews: function () {
+  goToNews: function() {
     wx.redirectTo({
       url: "../../news/news"
     })
   },
-  goToTrip: function () {
+  goToTrip: function() {
     wx.redirectTo({
       url: "../../fk/trip/trip"
     })
   },
-  goToCollection: function () {
+  goToCollection: function() {
     wx.redirectTo({
       url: "../../fk/collection/collection"
     })
   },
-  goToData: function () {
+  goToData: function() {
     wx.redirectTo({
       url: "../../fd/data/index"
     })
   },
-  goToCalendar: function () {
+  goToCalendar: function() {
     wx.redirectTo({
       url: "../../fd/calendar/index"
     })
