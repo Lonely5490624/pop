@@ -26,6 +26,7 @@ Page({
     isShow2: false,
     imgUrl: '',
     member_type: 0,
+    openTuiding: false
   },
   //查看更多
   openMore: function() {
@@ -85,6 +86,17 @@ Page({
           })
         }
       })
+  },
+  // 查看退订政策
+  bindTuiding () {
+    this.setData({
+      openTuiding: true
+    })
+  },
+  closeTuiding() {
+    this.setData({
+      openTuiding: false
+    })
   },
 
   onShareAppMessage: function() {
