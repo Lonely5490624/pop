@@ -308,3 +308,18 @@
   overflow: hidden;
   width: 100%;
 }
+.recommend-collect {
+  width: 32rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 22rpx;
+  top: 20rpx;
+  z-index: 9;
+}
+
+.recommend-collect.collect {
+  color: #f55;
+}
+.recommend-collect.nocollect {
+  color: #fff;
+}

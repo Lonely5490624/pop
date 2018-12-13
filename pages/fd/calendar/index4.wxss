@@ -1,0 +1,184 @@
+/* pages/fd/calendar/index.wxss */
+
+.dateTop {
+  height: 100rpx;
+  padding: 0rpx 20rpx;
+  display: flex;
+  justify-content:space-between;
+  padding-top:20rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.close{
+  padding-left: 40rpx;
+
+}
+.close image{
+  width: 28rpx;
+  height: 28rpx;
+}
+/* .dateTop .cell, .dateTop .xie {
+  flex: 1;
+  flex-direction: row;
+} */
+.dateTo{
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  align-items: center;
+  padding: 0 100rpx;
+  box-sizing: border-box;
+}
+.dateTop .cell {
+  text-align: center;
+}
+
+.dateTop .cell .t {
+  font-size: 24rpx;
+  display: block;
+  color: #9E9E9E;
+}
+
+.dateTop .cell .b {
+  display: block;
+  margin-top: 10rpx;
+  color: #000000;
+  font-size: 32rpx;
+}
+
+.dateTop .xie {
+  color: #000000;
+  font-size: 24rpx;
+  text-align: center;
+  width: 100rpx;
+  border-bottom: 1px #E8E8E8 solid;
+  height: 50rpx;
+  line-height: 40rpx;
+  margin:0 60rpx;
+}
+.calendar-title{
+  font-size: 48rpx;
+  color: #212121;
+  padding: 48rpx 32rpx;
+}
+.space-list{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+.space-item{
+  width: 170rpx;
+  display: inline-block;
+  margin-right: 19rpx;
+}
+.space-item .image{
+  width: 170rpx;
+  height: 113rpx;
+  opacity: .6;
+}
+.space-item .info{
+  font-size: 18rpx;
+  color: #9e9e9e;
+  white-space: pre-wrap;
+  margin-top: 12rpx;
+}
+.space-item.active .image{
+  opacity: 1;
+}
+.space-item.active .info{
+  color: #212121;
+}
+
+.calendar-main{
+  height: calc(100% - 70rpx);
+  position: absolute;
+  bottom:40rpx;
+  left: 0;
+}
+.month-block{
+  padding: 42rpx 0 24rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+.month-title{
+  text-align: center;
+  font-size: 24rpx;
+  color: #9e9e9e;
+  line-height: 34rpx;
+}
+.week-title{
+  display: flex;
+  font-size: 24rpx;
+  color: #212121;
+  margin-top: 34rpx;
+}
+.week-item{
+  width: 14.28%;
+  text-align: center;
+}
+
+.month-content {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 26rpx;
+  color: #616161;
+  margin-top: 36rpx;
+}
+
+.month-day {
+  width:14.28%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 6rpx;
+  align-items: center;
+}
+
+.month-day .day-item {
+  width:58%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 30rpx;
+  text-align: center
+}
+.dayPrice{
+  display: block;
+  font-size: 18rpx;
+}
+
+
+.month-day.startActive .day-item{
+  background: #ff5555;
+  color: #fff;
+}
+.month-day.midActive .day-item{
+  background: #ff9999;
+  color: #fff;
+}
+.month-day.endActive .day-item{
+  background: #ff5555;
+  color: #fff;
+}
+.btn {
+  width: 90%;
+  height: 100rpx;
+  border-radius: 6rpx;
+  margin: 50rpx auto 0;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  background: #FF5555;
+  position: fixed;
+  left: 5%;
+  bottom: 10rpx;
+}
+.gray {
+  color: #e0e0e0;
+  font-size: 20rpx;
+}

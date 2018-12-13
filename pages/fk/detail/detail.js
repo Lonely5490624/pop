@@ -24,7 +24,8 @@ Page({
     ssHeight: false,
     isShow1: false,
     isShow2: false,
-    imgUrl: ''
+    imgUrl: '',
+    member_type: 0,
   },
   //查看更多
   openMore: function() {
@@ -47,23 +48,27 @@ Page({
   },
   onLoad: function(options) {
     this.setData({
-      imgUrl: app.data.imgurl
+      imgUrl: app.data.imgurl,
+      member_type: app.globalData.member_type
     })
     if (options != '') {
       this.setData({
         space_id: options.id
       })
     }
+    this.getDetail(this.data.space_id)
+  },
+  getDetail: function (space_id){
     var that = this
     app.http('/home/spaceDetail', {
-        space_id: that.data.space_id
-      })
+      space_id: space_id
+    })
       .then(res => {
         that.setData({
           space_info: res.data,
           imgUrls: JSON.parse(res.data.pics),
         })
-         if (res.data.longitude != null) {
+        if (res.data.longitude != null) {
           this.setData({
             'markers[0].latitude': res.data.latitude,
             'markers[0].longitude': res.data.longitude
@@ -97,6 +102,42 @@ Page({
   gochat: function() {
     wx.navigateTo({
       url: "/pages/news/chat?space_id=" + this.data.space_id
+    })
+  },
+  //加收藏
+  addCl: function () {
+    var that = this
+    if (that.data.member_type == '') {
+      wx.showModal({
+        title: '请先登录',
+        content: '现在去登陆？',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../../login/login'
+            })
+          } else {
+            // console.log('取消')
+          }
+        }
+      })
+    } else {
+      app.http('/collection/editCollection', {
+        space_id: that.data.space_info.id
+      }, true)
+        .then(res => {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000
+          })
+          this.getDetail(this.data.space_id)
+        })
+    }
+  },
+  gotorlIndex4:function(){
+    wx.redirectTo({
+      url: "../../fd/calendar/index4?space_id=" + this.data.space_id
     })
   }
 })

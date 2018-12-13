@@ -36,7 +36,7 @@
           </navigator>
           <text class='recommend-official' wx:if='{{item.official_certification==1}}'>官方认证</text>
           <!-- 收藏 -->
-          <text class='iconfont #icon-02 space-collect recommend-collect' id='{{item.id}}' bindtap='addCl' wx:if='{{item.isFavorite==0}}'></text>
+          <text class='iconfont #icon-aixin space-collect recommend-collect noactive' id='{{item.id}}' bindtap='addCl' wx:if='{{item.isFavorite==0}}'></text>
           <text class='iconfont #icon-aixin space-collect recommend-collect active' id='{{item.id}}' bindtap='addCl' wx:else='{{item.isFavorite==1}}'></text>
         </view>
         <view class='recommend-info'>

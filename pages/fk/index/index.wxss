@@ -140,8 +140,12 @@
   right: 22rpx;
   top: 20rpx;
   z-index: 9;
+  
 }
 
+.recommend .recommend-item .recommend-box .recommend-collect.noactive {
+  color: #fff;
+}
 .recommend .recommend-item .recommend-box .recommend-collect.collect {
   color: #f55;
 }

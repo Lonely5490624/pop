@@ -1,14 +1,22 @@
 <view class="t1">{{data}}</view>
 <view class="t2">可订状态</view>
-<view class='t3'>
-  <view>可订状态</view>
-  <view><switch bindchange="switch1Change" color='#FF5555'/></view>
-</view>
+<radio-group class="radio-group" bindchange="radioChange">
+  <view class='t3'>
+    <view>可订</view>
+    <radio class="radio" checked='true' value="0" color='#FF5555'></radio>
+  </view>
+  <view class='t3'>
+    <view>不可订</view>
+    <radio class="radio" value="1" color='#FF5555'></radio>
+  </view>
+</radio-group>
 <view class="t2">定价</view>
 <view class='t3'>
   <view>每天价格</view>
-  <view><input type='number' placeholder="请输入价格" bindinput='getPrice'/></view>
+  <view>
+    <input type='number' placeholder="{{dayPrice?dayPrice:'请输入价格'}}" bindinput='getPrice' />
+  </view>
 </view>
 <view class='t4'>建议定价在￥500 - ￥1000 之间</view>
-<view class='t5'>了解您的职责与义务</view>  
+<view class='t5'>了解您的职责与义务</view>
 <view class='save able' bindtap='save'>保存</view>

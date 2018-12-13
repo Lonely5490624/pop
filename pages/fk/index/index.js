@@ -5,7 +5,6 @@ var qqmapsdk;
 Page({
   data: {
     shangq: [],
-    userData: [],
     recommendData: [],
     storyData: [],
     imgUrl: '',
@@ -20,7 +19,6 @@ Page({
     var that = this;
     that.setData({
       imgUrl: app.data.imgurl,
-      userData: wx.getStorageSync('userData'),
       member_type: app.globalData.member_type
     })
     // 实例化API核心类
@@ -55,6 +53,16 @@ Page({
       }
     })          
     this.getCityList()
+  },
+  onShow:function(){
+    //热门推荐
+    var that=this
+    app.http('/home/isRecommendSpaceList', {}, true)
+      .then(res => {
+        that.setData({
+          recommendData: res.data
+        })
+      })
   },
   getisRecommendSpaceList: function (params){
     //热门推荐
@@ -118,7 +126,7 @@ Page({
   //加收藏
   addCl: function(e) {
     var that = this
-    if (that.data.userData == '') {
+    if (that.data.member_type == '') {
       wx.showModal({
         title: '请先登录',
         content: '现在去登陆？',
@@ -138,7 +146,7 @@ Page({
         }, true)
         .then(res => {
           wx.showToast({
-            title: res.data.msg,
+            title: res.msg,
             icon: 'none',
             duration: 2000
           })

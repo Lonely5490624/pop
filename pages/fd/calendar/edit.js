@@ -5,26 +5,26 @@ Page({
     chooseDateArrInfo: '',
     price: 0,
     status: 1,
-    space_id: 0
+    space_id: 0,
+    dayPrice:''
   },
   onLoad: function(options) {
+    if (options.dayPrice!=undefined){
+      this.setData({
+        dayPrice: options.dayPrice
+      })
+   }
     this.setData({
       data: options.data,
       chooseDateArrInfo: options.chooseDateArrInfo,
       space_id: options.space_id
     })
   },
-  switch1Change: function(e) {
+  radioChange: function(e) {
     // 可定状态 0：可预订 1：不可预订
-    if (e.detail.value) {
-      this.setData({
-        status: 0
-      })
-    } else {
-      this.setData({
-        status: 1
-      })
-    }
+    this.setData({
+      status: e.detail.value
+    })
   },
   //获取价格
   getPrice: function(e) {

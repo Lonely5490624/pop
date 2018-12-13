@@ -1,9 +1,12 @@
 <view class='page'>
-  <view class='banner' bindtap='previewImages'>
+  <view class='banner'>
+    <text class='iconfont #icon-aixin space-collect recommend-collect nocollect' bindtap='addCl' wx:if='{{space_info.isFavorite==0}}'></text>
+    <text class='iconfont #icon-aixin space-collect recommend-collect collect' bindtap='addCl' wx:if='{{space_info.isFavorite==1}}'></text>
     <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="#f55" autoplay="{{autoplay}}">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image src="{{imgUrl+item}}" class="slide-image" width="355" height="150" />
+          <image src="{{imgUrl+item}}" class="slide-image" width="355" height="150" bindtap='previewImages' />
+
         </swiper-item>
       </block>
     </swiper>
@@ -23,7 +26,7 @@
     <view class='bt3_list'>
       <image src='/images/xiang-01.jpg'></image>
       <view class='bt3_r'>
-        <view class='t1'>{{space_info.type}}</view>        
+        <view class='t1'>{{space_info.type}}</view>
         <view class='t2' wx:if="{{space_info.type=='集合空间'}}">您可以在租赁区域内展示和销售商品</view>
         <view class='t2' wx:else>您可以使用{{space_info.type}}进行您的商品销售活动</view>
       </view>
@@ -149,7 +152,8 @@
   <view class='box1 box2'>
     <view class='b2_title'>位置</view>
     <view class='b2_info'>
-      <map id="map" longitude="{{space_info.longitude==null?'121.469042':space_info.longitude}}" latitude="{{space_info.latitude==null?'31.2342':space_info.latitude}}" scale="14" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}" show-location style="width: 100%; height: 300px;"></map>
+      <map id="map" longitude="{{space_info.longitude==null?'121.469042':space_info.longitude}}" latitude="{{space_info.latitude==null?'31.2342':space_info.latitude}}" scale="14" controls="{{controls}}" markers="{{markers}}" polyline="{{polyline}}" show-location
+        style="width: 100%; height: 300px;"></map>
     </view>
     <view class='map_b'>{{space_info.address==null?'上海市':space_info.address}}</view>
   </view>
@@ -179,7 +183,7 @@
   <view class='bottom_box'>
     <view class='bb_l' bindtap='gochat'>联系房东</view>
     <view class='bb_r'>
-      <view class='price'>
+      <view class='price' bindtap='gotorlIndex4'>
         <text class='t1'>￥{{space_info.everyday_price}}/每天</text>
         <text class='t2'>最少预定{{space_info.min_hire_time}}天</text>
       </view>

@@ -23,6 +23,7 @@
   width: 100%;
   height: 88rpx;
   line-height: 88rpx;
+  clear: both;
   color: #212121;
   font-size: 28rpx;
   padding: 0 32rpx;

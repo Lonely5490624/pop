@@ -16,7 +16,8 @@ Page({
     chooseDateArrInfo: [],
     space_id: 0,
     currentTypes: [],
-    member_type: 0
+    member_type: 0,
+    dayPrice: '' //获取价格
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -74,8 +75,6 @@ Page({
 
     // 计算年月以及具体日历
     for (let i = this.data.cur_month; i < this.data.cur_month + n; i++) {
-      console.log('month', month)
-
       // 对年份和月份的计算做一些判断
       if (month > 12) {
         year++;
@@ -133,12 +132,13 @@ Page({
       showXZnum: false,
       xzNum: 0,
       chooseDateArr: [],
-      currentTypes:[]
+      currentTypes: [],
+      chooseDateArrInfo: []
     })
     this.onLoad()
   },
   //获取空间列表
-  getSpaceList: function () {
+  getSpaceList: function() {
     wx.showLoading({
       title: '加载中',
     })
@@ -163,6 +163,10 @@ Page({
     //点击修改样式
     let arr = this.data.currentTypes
     let id = e.currentTarget.dataset.id
+    this.setData({
+      dayPrice: e.currentTarget.dataset.dayprice
+    })
+
     if (arr.indexOf(id) > -1) {
       arr.remove(id)
     } else {
@@ -171,21 +175,14 @@ Page({
     this.setData({
       currentTypes: arr
     })
-
-
     if (e.currentTarget.dataset.unable == '') {
       const year_click = e.currentTarget.dataset.year;
       const month_click = e.currentTarget.dataset.month;
       const day_click = e.currentTarget.dataset.day;
-      console.log('date', year_click, month_click, day_click);
       //显示编辑框
       this.setData({
         showXZnum: true
       })
-      // 如果是空格或者以前的日期就直接返回
-      if (day_click === '' || `${year_click}-${month_click}-${day_click}` < this.data.nowDate) {
-        return;
-      }
       // 获取点击对象的id
       let id = e.currentTarget.dataset.id;
       //选择的日期添加到chooseDateArr选择日期数组中
@@ -196,7 +193,6 @@ Page({
         this.data.chooseDateArrInfo.remove(`${year_click}-${month_click}-${day_click}`)
         this.data.chooseDateArr.remove(`${month_click}月${day_click}`)
       }
-      console.log(this.data.chooseDateArrInfo)
       if (this.data.chooseDateArr.length == 0) {
         this.setData({
           showXZnum: false
@@ -231,9 +227,17 @@ Page({
         space_id: this.data.spaceList[0].id
       })
     }
-    wx.navigateTo({
-      url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id
-    })
+    if (this.data.xzNum==1){
+      wx.navigateTo({
+        url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id + "&dayPrice=" + this.data.dayPrice
+      })
+    }else{
+      wx.navigateTo({
+        url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id
+      })
+    }
+
+    
   },
   goToList: function() {
     wx.redirectTo({
