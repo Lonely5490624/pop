@@ -1,7 +1,7 @@
 <!--pages/fd/space/add-4.wxml-->
 <wxs module="filter" src="../../../filter/height.wxs"></wxs>
 <progress percent="100" stroke-width='2' activeColor='#ff5555' backgroundColor='#fff' />
-<view class='title'>预定</view>
+<view class='title'>预订</view>
 <view class='list'>
   <view class='item-ver'>
     <view class='p1'>对租客的要求</view>

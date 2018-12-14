@@ -13,7 +13,7 @@
     <text class='all-right'>￥{{totalPrice}}</text>
   </view>
   <view class='order-detail'>
-    <text class='detail-left'>定金 {{depositRate}}%</text> 
+    <text class='detail-left'>订金 {{depositRate}}%</text> 
     <text class='detail-right'>￥{{deposit}} 预定时支付</text>
   </view>
   <view class='order-detail'>

@@ -76,7 +76,7 @@
     </view>
     <view class='b3_list3'>
       <view class='b3_list_l'>
-        <text>定金 {{tripInfo.deposit_rate}}%</text>
+        <text>订金 {{tripInfo.deposit_rate}}%</text>
         <text style='margin-left:30rpx;'>￥{{tripInfo.deposit}} 已支付</text>
       </view>
       <view class='b3_list_r'></view>

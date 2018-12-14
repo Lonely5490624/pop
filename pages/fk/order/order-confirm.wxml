@@ -26,7 +26,7 @@
       <text class='right'>￥{{moneyAll}}</text>
     </view>
     <view class='detail'>
-      <text class='left'>定金 {{space_info.depositRate}}%</text>
+      <text class='left'>订金 {{space_info.depositRate}}%</text>
       <text class='right'>￥{{moneyAll*space_info.depositRate*0.01}} 预定时支付</text>
     </view>
     <view class='detail'>
