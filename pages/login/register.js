@@ -8,6 +8,8 @@ Page({
     code: '',
     nextBtn:false,
     btnCont:"获取短信验证码",
+    openTuiding:false,
+    openTuiding1: false,
   },
   getMoblie: function(e) {
     this.setData({
@@ -96,5 +98,25 @@ Page({
         }
       })
     }
-  }
+  },
+  bindTuiding() {
+    this.setData({
+      openTuiding: true
+    })
+  },
+  closeTuiding() {
+    this.setData({
+      openTuiding: false
+    })
+  },
+  bindTuiding1() {
+    this.setData({
+      openTuiding1: true
+    })
+  },
+  closeTuiding1() {
+    this.setData({
+      openTuiding1: false
+    })
+  },
 })

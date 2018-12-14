@@ -18,5 +18,19 @@
       <view class='right'></view>
     </view>
   </view>
+  <view class="agreen">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox value="1" checked="true" color="#f55" />
+      </label>
+    </checkbox-group>
+    <view>
+      <text> 我已阅读并同意</text>
+      <text class='font-f5' bindtap='bindTuiding'>《商铺上传标准规则》</text> 及
+      <text class='font-f5' bindtap='bindTuiding1'>《房东须知》</text>
+    </view>
+  </view>
 </view>
 <view bindtap='pubStep1' class='next'>下一步</view>
+<scgz class='tuiding {{openTuiding ? "showTuiding" : ""}}' onmyevent="closeTuiding"></scgz>
+<fdxz class='tuiding {{openTuiding1 ? "showTuiding" : ""}}' onmyevent="closeTuiding1"></fdxz>

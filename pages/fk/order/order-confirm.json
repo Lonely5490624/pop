@@ -4,6 +4,8 @@
     "space-contractor": "/components/contractor/contractor",
     "my-date": "/components/date/date",
     "space-search": "/components/search/search",
-    "space-filter": "/components/filter/filter"
+    "space-filter": "/components/filter/filter",
+    "kjsz": "/components/kjsz/index",
+    "fkxy": "/components/fkxy/index"
   }
 }

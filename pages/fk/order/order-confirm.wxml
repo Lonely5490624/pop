@@ -40,7 +40,7 @@
     <checkbox id='rule' value="同意" color="#616161" />
   </checkbox-group>
   <label for='rule'>我已阅读并同意</label>
-  <navigator url=''>空间守则</navigator>
+  <label bindtap='bindTuiding1' class='font-f5'> 房客协议 </label>及<label bindtap='bindTuiding' class='font-f5'> 空间守则 </label>
 </view>
 <view class='order-bottom'>
   <view class='price'>
@@ -75,3 +75,5 @@
 <view class="title"></view>
 <view class='content'></view>
 </view>
+<kjsz class='tuiding {{openTuiding ? "showTuiding" : ""}}' onmyevent="closeTuiding"></kjsz>
+<fkxy class='tuiding {{openTuiding1 ? "showTuiding" : ""}}' onmyevent="closeTuiding1"></fkxy>

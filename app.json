@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/fd/space/add-1",
+    "pages/login/register",
     "pages/fd/calendar/index",
-    
     "pages/fk/list/list",
-    
     "pages/fd/calendar/index2",
     "pages/fd/calendar/index3",
     "pages/fd/calendar/index4",
@@ -14,8 +14,6 @@
     "pages/fd/data/index",
     "pages/news/news",
     "pages/fk/trip/trip",
-    
-    
     "pages/fd/space/add-3",
     "pages/mine/changePersonMessage",
     "pages/fd/space/index",
@@ -24,8 +22,6 @@
     "pages/fd/space/add-4",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
-    
-    
     "pages/fk/trip/finalPay",
     "pages/fk/detail/detail",
     "pages/fd/data/data-score",
@@ -46,7 +42,6 @@
     "pages/news/newsSearch",
     "pages/news/chat",
     "pages/news/cancelOrde",
-    "pages/fd/space/add-1",
     "pages/fk/collection/collection",
     "pages/fk/collection/collectionList",
     "pages/mine/paymentMethod",
@@ -57,7 +52,6 @@
     "pages/mine/setUp",
     "pages/mine/help",
     "pages/login/yz",
-    "pages/login/register",
     "pages/login/addPerMessage",
     "pages/fk/trip/selectPayWay",
     "pages/login/yzMessage",

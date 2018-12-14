@@ -45,6 +45,7 @@
   font-size: 20rpx;
   padding: 0 32rpx;
   box-sizing: border-box;
+  margin-top: 10rpx;
 }
 
 .t5 {

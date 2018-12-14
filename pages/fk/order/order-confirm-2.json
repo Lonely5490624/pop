@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "确认订单"
+  "navigationBarTitleText": "确认订单",  
+  "usingComponents": {
+    "tuiding": "/components/tuiding/index",
+    "zfxy": "/components/zfxy/index"
+  }
 }

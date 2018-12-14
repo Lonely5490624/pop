@@ -20,7 +20,9 @@ Page({
     payEndTime: 0,
     //isContractorOpen:false,
     wxPayInfo:[],
-    depositRate: 0
+    depositRate: 0,
+    openTuiding:false,
+    openTuiding1: false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -97,6 +99,26 @@ Page({
         
 
       })
+  },
+  bindTuiding() {
+    this.setData({
+      openTuiding: true
+    })
+  },
+  closeTuiding() {
+    this.setData({
+      openTuiding: false
+    })
+  },
+  bindTuiding1() {
+    this.setData({
+      openTuiding1: true
+    })
+  },
+  closeTuiding1() {
+    this.setData({
+      openTuiding1: false
+    })
   },
 
 })

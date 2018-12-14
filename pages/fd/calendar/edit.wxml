@@ -18,5 +18,4 @@
   </view>
 </view>
 <view class='t4'>建议定价在￥500 - ￥1000 之间</view>
-<view class='t5'>了解您的职责与义务</view>
 <view class='save able' bindtap='save'>保存</view>

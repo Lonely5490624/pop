@@ -4,14 +4,16 @@
   <view class='box'>
     <view class='list'>
       <view style='width:20%;' class='qh'>+86</view>
-      <input style='width:78%;' bindinput="getMoblie" placeholder='请输入手机号码' type="number" maxlength='11' value='{{mobile}}'></input>
+      <input wx:if="{{openTuiding1==false && openTuiding==false}}" style='width:78%;' bindinput="getMoblie" placeholder='请输入手机号码' type="number" maxlength='11' value='{{mobile}}'></input>
     </view>
     <view class='list'>
-      <input style='width:65%;' placeholder='请输入验证码' bindinput="getYzcode" type="number" maxlength='6' value='{{code}}'></input>
+      <input wx:if="{{openTuiding1==false && openTuiding==false}}" style='width:65%;' placeholder='请输入验证码' bindinput="getYzcode" type="number" maxlength='6' value='{{code}}'></input>
       <view style='width:35%;' class='getBtn' bindtap='yzPhoneNum'>{{btnCont}}</view>
     </view>
     <view class="nextBtn {{nextBtn?'able':'unable'}}"  bindtap='send'>下一步</view>
     <view class='tip' style="margin-top:600rpx;">您可通过微信或者手机号验证登录，登陆后将会自动建立闪铺账号</view>
-    <view class='tip'>注册登陆即表示同意<text style="color:#0085FF;">《用户隐私与安全协议》</text></view>
+    <view class='tip'>注册登陆即表示同意<text style="color:#0085FF;" bindtap='bindTuiding'> 《用户隐私与安全协议》 </text>及<text style="color:#0085FF;" bindtap='bindTuiding1'> 《服务条款》 </text></view>
   </view>
 </view>
+<yhysxy class='tuiding {{openTuiding ? "showTuiding" : ""}}' onmyevent="closeTuiding"></yhysxy>
+<fwtk class='tuiding {{openTuiding1 ? "showTuiding" : ""}}' onmyevent="closeTuiding1"></fwtk>

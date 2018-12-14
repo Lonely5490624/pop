@@ -23,6 +23,8 @@ Page({
     dateArray: [],
     bg: false,
     ischeck:false,
+    openTuiding:false,
+    openTuiding1: false
   },
   opendate: function() {
     wx.navigateTo({
@@ -150,5 +152,25 @@ Page({
       })
     }
 
-  }
+  },
+  bindTuiding() {
+    this.setData({
+      openTuiding: true
+    })
+  },
+  closeTuiding() {
+    this.setData({
+      openTuiding: false
+    })
+  },
+  bindTuiding1() {
+    this.setData({
+      openTuiding1: true
+    })
+  },
+  closeTuiding1() {
+    this.setData({
+      openTuiding1: false
+    })
+  },
 })

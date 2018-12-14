@@ -28,11 +28,13 @@
 <view class='order-zhengche'>
   <view class='zhengche-title'>退订政策：{{depositRate==3?'灵活' : '轻松'}}</view>
   <view class='zhengche-info'>
-    请认真查看您要预订的空间和时间信息，同时请查看<text class="font-f5">【支付协议】</text>和<text  class="font-f5">【退订政策说明】</text>，确认预订后即表示您已阅读并同意该条款说明。
-    <text class='zhengche-all'>查看全部</text>
+    请认真查看您要预订的空间和时间信息，同时请查看<text class="font-f5" bindtap='bindTuiding1'>【支付协议】</text>和<text  class="font-f5" bindtap='bindTuiding'>【退订政策说明】</text>，确认预订后即表示您已阅读并同意该条款说明。
+    <!-- <text class='zhengche-all'>查看全部</text> -->
   </view>
 </view>
 <view class='order-bottom'>
   <view class='bottom-left'>本次支付定金￥{{deposit}}</view>
   <view bindtap='orderConfirm' class='bottom-right'>确认预定</view>
 </view>
+<tuiding class='tuiding {{openTuiding ? "showTuiding" : ""}}' onmyevent="closeTuiding"></tuiding>
+<zfxy class='tuiding {{openTuiding1 ? "showTuiding" : ""}}' onmyevent="closeTuiding1"></zfxy>

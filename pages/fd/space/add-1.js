@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceType: null
+    spaceType: null,
+    flag:true,
+    openTuiding:false,
+    openTuiding1:false
   },
   // 选择空间类型
   chooseType (e) {
@@ -17,12 +20,20 @@ Page({
   },
   // 下一步
   pubStep1 () {
+    
     let params = {
       type: this.data.spaceType
     }
     if (!params.type) {
       wx.showToast({
         title: '请选择空间类型',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.flag) {
+      wx.showToast({
+        title: '请阅读并同意上传规则',
         icon: 'none'
       })
       return
@@ -58,53 +69,37 @@ Page({
         })
     // }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  checkboxChange:function(e){
+    
+    if (e.detail.value!="1"){
+      this.setData({
+        flag:false
+      })
+    }else{
+      this.setData({
+        flag: true
+      })
+    }
+  },
+  bindTuiding() {
+    this.setData({
+      openTuiding: true
+    })
+  },
+  closeTuiding() {
+    this.setData({
+      openTuiding: false
+    })
+  },
+  bindTuiding1() {
+    this.setData({
+      openTuiding1: true
+    })
+  },
+  closeTuiding1() {
+    this.setData({
+      openTuiding1: false
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

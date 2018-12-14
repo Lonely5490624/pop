@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents": {
+    "fdxz": "/components/fdxz/index",
+    "scgz": "/components/scgz/index"
+  }
+}
