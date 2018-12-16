@@ -1,8 +1,12 @@
 /* component/zyslider.wxss */
 .container {
     /*height: 100%;*/
-    width: 100%;
+    width: calc(100% - 8rpx);
     position: relative;
+}
+.price{
+  font-size: 24rpx;
+  margin-top: 39rpx;
 }
 
 .slider-body {

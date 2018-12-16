@@ -250,7 +250,8 @@
 }
 
 .index-adv image {
-  width: 100%;
+  width: 750rpx;
+  height: 384rpx;
   vertical-align: middle;
 }
 

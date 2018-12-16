@@ -22,7 +22,7 @@ Page({
     moneyW: 0,
     dateArray: [],
     bg: false,
-    ischeck:false,
+    ischeck:true,
     openTuiding:false,
     openTuiding1: false
   },

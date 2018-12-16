@@ -129,6 +129,8 @@
 }
 .month-day{
   width: 14.28%;
+  height: 108rpx;
+  line-height: 108rpx;
   text-align: center;
   vertical-align: middle;
   margin-top: 6rpx;
@@ -139,17 +141,33 @@
   border-radius: 50%;
   line-height: 60rpx;
 }
+.month-day.startActive{
+  background: url('http://www.letspopup.cn/images/left-ceng.png') center no-repeat;
+  background-size: 100%;
+}
 .month-day.startActive .day-item{
-  background: #ff5555;
+  /* background: #ff5555; */
   color: #fff;
+}
+.month-day.midActive{
+  background: url('http://www.letspopup.cn/images/cet.png') center no-repeat;
+  background-size: 100%;
 }
 .month-day.midActive .day-item{
-  background: #ff9999;
+  /* background: #ff9999; */
   color: #fff;
 }
+.month-day.endActive{
+  background: url('http://www.letspopup.cn/images/right-ceng.png') center no-repeat;
+  background-size: 100%;
+}
 .month-day.endActive .day-item{
-  background: #ff5555;
+  /* background: #ff5555; */
   color: #fff;
+}
+.month-day.startActive.endActive{
+  background: url('http://www.letspopup.cn/images/left-yuan.png') center no-repeat;
+  background-size: 100%;
 }
 .btn {
   width: 90%;

@@ -168,10 +168,11 @@ Page({
     if (that.fuc == "close") {
       this.setData({
         opendate: 0,
+        openFilter: false,
       })
     } else if (that.fuc == 'submit') {
       this.setData({
-        openFilter: 0,
+        openFilter: false,
       })
 
       this.data.rcData.start_price = that.data.low,

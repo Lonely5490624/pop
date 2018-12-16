@@ -181,7 +181,7 @@
     </view>
   </view>
   <view class='bottom_box'>
-    <view class='bb_l' bindtap='gochat'>联系房东</view>
+    <view class='bb_l' bindtap='gochat'><text class='iconfont icon-xiaoxi'></text>联系房东</view>
     <view class='bb_r'>
       <view class='price' bindtap='gotorlIndex4'>
         <text class='t1'>￥{{space_info.everyday_price}}/每天</text>

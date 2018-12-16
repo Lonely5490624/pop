@@ -2,7 +2,7 @@
 <wxs module="filter" src="../../filter/height.wxs"></wxs>
 <view class='filter-view'>
   <view class='filter-title'>
-    <text class='iconfont icon-wujiaoxing filter-close'></text>
+    <text bindtap='_close' class='iconfont icon-guanbi filter-close'></text>
     <text class='filter-header'>编辑筛选条件</text>
     <text bindtap='reset' class='filter-reset'>重置</text>
   </view>

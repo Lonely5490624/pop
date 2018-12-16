@@ -338,3 +338,6 @@
 .showTuiding{
   transform: translateY(0)
 }
+swiper{
+  height: 480rpx;
+}

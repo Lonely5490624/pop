@@ -234,4 +234,28 @@ color: #616161;
 }
 checkbox-group{
   display: inline;
+  vertical-align: 2rpx;
+}
+
+checkbox .wx-checkbox-input{
+  border-radius:50%;
+  width:24rpx;
+  height:24rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border-color:#F0302F !important;
+  background:#F0302F !important;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius:50%;
+  width:24rpx;
+  height:24rpx;
+  line-height:24rpx;
+  vertical-align: middle;
+  text-align:center;
+  font-size:15px;
+  color:#fff;
+  background:transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
 }

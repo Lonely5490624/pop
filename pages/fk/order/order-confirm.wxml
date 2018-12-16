@@ -37,7 +37,7 @@
 </view>
 <view class='order-rule'>
   <checkbox-group bindchange="checkboxChange" >
-    <checkbox id='rule' value="同意" color="#616161" />
+    <checkbox id='rule' value="同意" color="#616161" checked='{{ischeck}}' />
   </checkbox-group>
   <label for='rule'>我已阅读并同意</label>
   <label bindtap='bindTuiding1' class='font-f5'> 房客协议 </label>及<label bindtap='bindTuiding' class='font-f5'> 空间守则 </label>
