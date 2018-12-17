@@ -212,6 +212,14 @@ Page({
     return dateArr;
   },
   sure() {
+    if (this.data.endDate==''){
+      wx.showToast({
+        title: '请选择结束日期',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     let pages = getCurrentPages(); //当前页面
     let prevPage = pages[pages.length - 2]; //上一页面 
     let dateArray = this.getAll(this.data.startDate, this.data.endDate)

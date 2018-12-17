@@ -1,26 +1,30 @@
 /* pages/fk/list/list.wxss */
 
-.search{
+.search {
   display: flex;
   justify-content: space-between;
 }
-.locate{
+
+.locate {
   line-height: 80rpx;
   width: 20%;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
-.locate-img{
+
+.locate-img {
   width: 24rpx;
   height: 30rpx;
   vertical-align: middle;
 }
-.locate-text{
+
+.locate-text {
   font-size: 28rpx;
   line-height: 40rpx;
 }
-.search-input{
+
+.search-input {
   width: 520rpx;
   font-size: 24rpx;
   border-bottom: 1rpx solid #e0e0e0;
@@ -29,42 +33,66 @@
   background-size: 30rpx;
   position: relative;
 }
-.search-icon{
+
+.search-icon {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
   font-size: 30rpx;
 }
-.navigator-hover{
+
+.navigator-hover {
   background: none;
 }
-.space-coms{
+
+.space-coms {
   padding-bottom: 18rpx;
   margin-top: 28rpx;
+  display: flex;
+  align-items: center;
 }
-.space-coms .space-com{
+
+.space-coms .space-com {
   border: 2rpx solid #9e9e9e;
   border-radius: 4rpx;
   color: #616161;
   font-size: 28rpx;
   line-height: 40rpx;
-  padding: 4rpx 28rpx;
+  padding: 4rpx 10rpx;
   margin-right: 18rpx;
+  max-width: 140rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.space-list{
+
+.space-coms .space-com.space-date {
+  max-width: 360rpx;
+}
+
+.space-coms .space-com.active {
+  border-color: #f55;
+  color: #f55;
+}
+
+.space-list {
   width: 100%;
 }
-.space-list .space-item{
+
+.space-list .space-item {
   position: relative;
   padding-bottom: 40rpx;
   margin-top: 20rpx;
 }
-.space-list .space-item .space-img{
+
+.space-list .space-item .space-img {
   width: 100%;
   height: 320rpx;
 }
-.space-list .space-item .space-renzheng{
+
+.space-list .space-item .space-renzheng {
   position: absolute;
   top: 0;
   left: 0;
@@ -76,61 +104,71 @@
   font-size: 20rpx;
   text-align: center;
 }
-.space-list .space-item .space-collect{
+
+.space-list .space-item .space-collect {
   position: absolute;
   top: 342rpx;
   right: 0;
   color: #9e9e9e;
 }
-.space-list .space-item .space-collect.active{
-  color: #ff5555;
+
+.space-list .space-item .space-collect.active {
+  color: #f55;
 }
-.space-list .space-item .space-info{
+
+.space-list .space-item .space-info {
   font-size: 24rpx;
   margin-top: 22rpx;
   display: block;
   width: calc(100% - 32rpx);
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
   color: #9e9e9e;
 }
-.space-list .space-item .space-title{
+
+.space-list .space-item .space-title {
   font-size: 32rpx;
   color: #212121;
   display: block;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
   margin-top: 12rpx;
-  font-weight: bold
+  font-weight: bold;
 }
-.space-list .space-item .space-bottom{
+
+.space-list .space-item .space-bottom {
   margin-top: 20rpx;
   line-height: 36rpx;
+}
 
-}
-.space-list .space-item .space-bottom .space-price{
+.space-list .space-item .space-bottom .space-price {
   font-size: 32rpx;
-  color: #ff5555;
+  color: #f55;
 }
-.space-list .space-item .space-bottom .space-zhengche{
+
+.space-list .space-item .space-bottom .space-zhengche {
   font-size: 24rpx;
   color: #616161;
   margin-left: 10rpx;
 }
-.space-list .space-item .space-bottom .space-score{
+
+.space-list .space-item .space-bottom .space-score {
   float: right;
 }
-.space-list .space-item .space-bottom .space-score .score-icon{
+
+.space-list .space-item .space-bottom .space-score .score-icon {
   color: #9e9e9e;
   font-size: 20rpx;
 }
-.space-list .space-item .space-bottom .space-score .score-icon.active{
-  color: #ff5555;
+
+.space-list .space-item .space-bottom .space-score .score-icon.active {
+  color: #f55;
 }
 
 /* 日期组件 */
+
 .datepage {
   position: fixed;
   width: 100%;
@@ -138,24 +176,27 @@
   z-index: 1000000;
   top: 0;
   left: 0;
-  background: #FFFFFF;
+  background: #fff;
   transform: translateY(-100%);
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-.datepage.show{
+
+.datepage.show {
   transform: translateY(0);
 }
-.filter{
+
+.filter {
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: 1000000;
   top: 0;
   left: 0;
-  background: #FFFFFF;
+  background: #fff;
   transform: translateY(-100%);
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-.filter.show{
+
+.filter.show {
   transform: translateY(0);
 }

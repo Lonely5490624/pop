@@ -14,8 +14,8 @@
     </view>
   </view>
   <view class='space-coms'>
-    <text class='space-com space-date' bindtap='opendate'>日期</text>
-    <text class='space-com space-condition' bindtap='openFilter'>筛选条件</text>
+    <text class="space-com space-date {{dataText?'active':''}}" bindtap='opendate'>{{dataText?dataText:'日期'}}</text>
+    <text class="space-com space-condition {{Stext?'active':''}}" bindtap='openFilter'>{{Stext?Stext:'筛选条件'}}</text>
   </view>
   <!-- 空间列表 -->
   <view class='space-list'>

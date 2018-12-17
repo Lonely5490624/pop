@@ -2,7 +2,9 @@
   <view class='title pad32'>
     <view class='text'>消息</view>
     <view class='icon'>
-      <text class="iconfont icon-sousuo search-icon"></text>
+    <navigator url="newsSearch">
+      <text class="iconfont icon-tubiao-" style='font-size:80rpx;'></text>
+      </navigator>
     </view>
   </view>
   <view class='cont'>

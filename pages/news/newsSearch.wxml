@@ -1,82 +1,29 @@
 <view class='page'>
   <view class='title pad32'>
-    <input></input>
+    <input placeholder='请输入搜索信息' bindinput='search'></input>
   </view>
   <view class='cont'>
-    <view class='list pad32'>
-      <view class='list_l'></view>
-      <view class='list_r'>
-        <view class='text1'>
-          <text class='t1'>用户昵称·订单状态</text>
-          <text class='t3'></text>
-          <text class='t2'>上午 10:41</text>
+    <view class="text4" wx:if="{{newsList.length==0}}">没有搜索到相关结果哦</view>
+    <view wx:for="{{newsList}}">
+      <navigator url='chat?info_id={{item.info_id}}&space_id={{item.space_id}}&order_id={{item.order_id}}'>
+        <view class='list pad32'>
+          <view class='list_l'>
+            <image src='{{item.head_img_url}}'></image>
+          </view>
+          <view class='list_r' style='width:83%;'>
+            <view class='text1'>
+              <text class='t1'>{{item.nick_name}}·{{item.order_status_info==undefined?'咨询中':item.order_status_info}}</text>
+              <text class='t3' wx:if="{{item.status==1}}"></text>
+              <text class='t2'>{{item.time}}</text>
+            </view>
+            <view class='text2'>{{item.content}}</view>
+            <view class='text3'>{{item.title}}</view>
+            <view class='text3' wx:if="{{item.order_id!=''}}">{{item.arrival_start_time}}-{{item.arrival_end_time}}</view>
+          </view>
         </view>
-        <view class='text2'>具录天天记录具体聊具体聊天记录具体聊天记录…</view>
-        <view class='text3'>上海大悦城独立空间</view>
-        <view class='text3'>2018年9月9日-2018年9月21日</view>
-      </view>
+      </navigator>
     </view>
-    <view class='list pad32'>
-      <view class='list_l'></view>
-      <view class='list_r'>
-        <view class='text1'>
-          <text class='t1'>用户昵称·订单状态</text>
-          <text class='t3'></text>
-          <text class='t2'>上午 10:41</text>
-        </view>
-        <view class='text2'>具录天天记录具体聊具体聊天记录具体聊天记录…</view>
-        <view class='text3'>上海大悦城独立空间</view>
-        <view class='text3'>2018年9月9日-2018年9月21日</view>
-      </view>
-    </view>
-    <view class='list pad32'>
-      <view class='list_l'></view>
-      <view class='list_r'>
-        <view class='text1'>
-          <text class='t1'>用户昵称·订单状态</text>
-          <!-- <text class='t3'></text> -->
-          <text class='t2'>上午 10:41</text>
-        </view>
-        <view class='text2'>具录天天记录具体聊具体聊天记录具体聊天记录…</view>
-        <view class='text3'>上海大悦城独立空间</view>
-        <view class='text3'>2018年9月9日-2018年9月21日</view>
-      </view>
-    </view>
-
 
 
   </view>
-</view>
-
-<!--底部-->
-<view class="footer-h"></view>
-<view class="footer">
-	<view class="footer-li">
-		<text class="iconfont icon-zhuye"></text>
-		<text>搜索</text>
-	</view>
-	<view class="footer-li select">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-dingdan"></text>
-			<text>消息</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/order/order">
-			<text class="iconfont icon-zhuye"></text>
-			<text>行程</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/collection/collection">
-			<text class="iconfont icon-dingdan"></text>
-			<text>收藏</text>
-		</navigator>
-	</view>
-	<view class="footer-li">
-		<navigator url="/pages/fk/mine/mine">
-		<text class="iconfont icon-geren"></text>
-		<text>我的</text>
-		</navigator>
-	</view>
 </view>

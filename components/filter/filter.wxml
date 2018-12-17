@@ -10,7 +10,7 @@
     <view class='filter-content-item'>
       <view class='filter-content-title'>空间类型</view>
       <view class='filter-content-con'>
-        <view wx:for='{{spaceTypeList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseType' class='filter-item {{filter.hasEle(currentTypes, item.id) ? "active" : ""}}'>{{item.name}}</view>
+        <view wx:for='{{spaceTypeList}}' wx:key='{{item.id}}' data-id='{{item.id}}' data-text='{{item.name}}' bindtap='chooseType' class='filter-item {{filter.hasEle(currentTypes, item.id) ? "active" : ""}}'>{{item.name}}</view>
       </view>
     </view>
     <view class='filter-content-item'>
@@ -22,13 +22,13 @@
     <view class='filter-content-item'>
       <view class='filter-content-title'>适用品类</view>
       <view class='filter-content-con'>
-        <view wx:for='{{categoryList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseCate' class='filter-item {{filter.hasEle(currentCates, item.id) ? "active" : ""}}'>{{item.name}}</view>
+        <view wx:for='{{categoryList}}' wx:key='{{item.id}}' data-id='{{item.id}}'  data-text='{{item.name}}'bindtap='chooseCate' class='filter-item {{filter.hasEle(currentCates, item.id) ? "active" : ""}}'>{{item.name}}</view>
       </view>
     </view>
     <view class='filter-content-item'>
       <view class='filter-content-title'>便利设施</view>
       <view class='filter-content-con'>
-        <view wx:for='{{getconvenienceList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseFac' class='filter-item {{filter.hasEle(currentFacs, item.id) ? "active" : ""}}'>{{item.name}}</view>
+        <view wx:for='{{getconvenienceList}}' wx:key='{{item.id}}' data-id='{{item.id}}' data-text='{{item.name}}'bindtap='chooseFac' class='filter-item {{filter.hasEle(currentFacs, item.id) ? "active" : ""}}'>{{item.name}}</view>
       </view>
     </view>
   </scroll-view>

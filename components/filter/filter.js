@@ -7,6 +7,7 @@ Array.prototype.remove = function (val) {
 };
 
 var app = getApp()
+var textArr = []
 const spaceTypeList = [{
   id: 1,
   name: '独立空间'
@@ -36,6 +37,8 @@ Component({
     currentTypes: [],
     currentCates: [],
     currentFacs: [],
+    flag1:false,
+    flag2: false,
   },
 
   ready: function () {
@@ -69,24 +72,32 @@ Component({
     chooseType (e) {
       let arr = this.data.currentTypes
       let id = e.currentTarget.dataset.id
+      let text = e.currentTarget.dataset.text
       if (arr.indexOf(id) > -1) {
         arr.remove(id)
+        textArr.remove(text)
       } else {
         arr.push(id)
+        textArr.push(text)
       }
+
       this.setData({
         currentTypes: arr
       })
     },
     // 选择品类
     chooseCate(e) {
-      let arr = this.data.currentCates
+      let arr = this.data.currentCates      
       let id = e.currentTarget.dataset.id
+      let text = e.currentTarget.dataset.text
       if (arr.indexOf(id) > -1) {
         arr.remove(id)
+        textArr.remove(text)
       } else {
         arr.push(id)
+        textArr.push(text)
       }
+
       this.setData({
         currentCates: arr
       })
@@ -95,10 +106,13 @@ Component({
     chooseFac(e) {
       let arr = this.data.currentFacs
       let id = e.currentTarget.dataset.id
+      let text = e.currentTarget.dataset.text
       if (arr.indexOf(id) > -1) {
         arr.remove(id)
+        textArr.remove(text)
       } else {
         arr.push(id)
+        textArr.push(text)
       }
       this.setData({
         currentFacs: arr
@@ -111,20 +125,26 @@ Component({
         high: this.data.max,
         currentTypes: [],
         currentCates: [],
-        currentFacs: []
+        currentFacs: [],
+        flag2:false,
+        flag1:false
       })
+      textArr=[]
     },
 
     lowValueChangeAction: function (e) {
       this.setData({
-        low: e.detail.lowValue
+        low: e.detail.lowValue,
+        flag1:true
       })
+
     },
 
     highValueChangeAction: function (e) {
       this.setData({
-        high: e.detail.highValue
-      })
+        high: e.detail.highValue,
+        flag2: true
+      })      
     },
 
     _close: function() {
@@ -133,14 +153,18 @@ Component({
       })
     },
     _submit: function() {
+      if (this.data.flag1 || this.data.flag2){
+        textArr.push(this.data.low + '-' + this.data.high)
+      }
       this.triggerEvent('myevent', {
         fuc: "submit",
         data: {
           currentTypes: this.data.currentTypes,
-          currentCates: this.data.currentCates,
+          currentCates: this.data.currentCates,          
           currentFacs: this.data.currentFacs,
           low: this.data.low,
-          high: this.data.high
+          high: this.data.high,
+          textArr: textArr
         }
       })
     }

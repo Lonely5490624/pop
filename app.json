@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/fk/index/index",
-    "pages/fk/order/order-confirm",
     "pages/fk/list/list",
+    "pages/news/news",
+    "pages/news/newSearch",
+    "pages/fk/order/order-confirm",
     "pages/fd/space/add-1",
     "pages/login/register",
     "pages/fd/calendar/index",
@@ -12,7 +14,6 @@
     "pages/fd/data/data-income",
     "pages/fd/data/data-view",
     "pages/fd/data/index",
-    "pages/news/news",
     "pages/fk/trip/trip",
     "pages/fd/space/add-3",
     "pages/mine/changePersonMessage",
