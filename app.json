@@ -3,7 +3,6 @@
     "pages/fk/index/index",
     "pages/fk/list/list",
     "pages/news/news",
-    "pages/news/newSearch",
     "pages/fk/order/order-confirm",
     "pages/fd/space/add-1",
     "pages/login/register",
