@@ -1,1 +1,1 @@
-<web-view src="{{link_address}}"></web-view>
+<web-view src="http://www.letspopup.cn/story/story_detail.html?id={{id}}"></web-view>

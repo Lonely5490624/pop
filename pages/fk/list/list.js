@@ -162,7 +162,9 @@ Page({
           icon: 'none',
           duration: 2000
         })
-        this.getList();
+        setTimeout(() => {
+          this.getList();
+        }, 2000)
       })
   },
   openFilter: function () {

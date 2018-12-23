@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/fd/evaluate/evaluate",
     "pages/fk/list/list",
     "pages/news/news",
     "pages/news/newSearch",
     "pages/fk/order/order-confirm",
     "pages/fd/space/add-1",
     "pages/login/register",
-    "pages/fd/calendar/index",
     "pages/fd/calendar/index2",
     "pages/fd/calendar/index3",
     "pages/fd/calendar/index4",

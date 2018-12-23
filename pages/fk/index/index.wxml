@@ -58,11 +58,11 @@
   <view class='section story'>
     <view class='title'>故事</view>
     <scroll-view class='story-scroll' scroll-x>
-      <view class='story-scroll-item' wx:for='{{storyData}}'>
+      <navigator url='./newP?id={{item.id}}' class='story-scroll-item' wx:for='{{storyData}}'>
         <image class='story-img' data-text="{{item.link_address}}" src='{{imgUrl+item.pic}}' bindtap='toNewP'></image>
         <text class='story-title'>{{item.title}}</text>
         <text class='story-info'>{{item.synopsis}}</text>
-      </view>
+      </navigator>
     </scroll-view>
   </view>
 </view>

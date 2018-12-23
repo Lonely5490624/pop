@@ -1,0 +1,20 @@
+<!--pages/fd/Evaluate/evaluate.wxml-->
+<view class='space-title'>
+  <image src=''></image>
+  <text>这里是空间标题这里是空间标题这里是空间标题这里是空间标题</text>
+</view>
+<view class='evaluate'>
+  <view class='p1'>评价本次服务</view>
+  <view class='icon'>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=1? 'active': ''}}" data-score='1' bindtap="cAccuracy"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=2? 'active': ''}}" data-score='2' bindtap="cAccuracy"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=3? 'active': ''}}" data-score='3' bindtap="cAccuracy"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=4? 'active': ''}}" data-score='4' bindtap="cAccuracy"></text>
+      <text class="iconfont icon-wujiaoxing {{accuracy>=5? 'active': ''}}" data-score='5' bindtap="cAccuracy"></text>
+  </view>
+</view>
+<view class='textarea'>
+  <textarea value='{{evaluate}}' bindinput='evaluateChange' maxlength='100' placeholder="请输入评价..." />
+  <text class='count'>{{evaluate.length}}/100</text>
+</view>
+<view class="nextBtn able" bindtap='next'>下一步</view>
