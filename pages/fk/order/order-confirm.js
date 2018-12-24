@@ -22,8 +22,8 @@ Page({
     moneyW: 0,
     dateArray: [],
     bg: false,
-    ischeck:true,
-    openTuiding:false,
+    ischeck: true,
+    openTuiding: false,
     openTuiding1: false
   },
   opendate: function() {
@@ -34,23 +34,23 @@ Page({
   onShow: function() {
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
-    let priced=0
+    let priced = 0
     console.log(currPage.data)
     if (currPage.data.priceArr != undefined) {
-      let priceArr=currPage.data.priceArr 
-      for (var i = 0; i < priceArr.length;i++){
-        priced +=parseInt(priceArr[i])
-      }     
+      let priceArr = currPage.data.priceArr
+      for (var i = 0; i < priceArr.length; i++) {
+        priced += parseInt(priceArr[i])
+      }
       this.setData({
         startDate: currPage.data.startDate,
         dayNum: currPage.data.dayNum,
-        endDate: currPage.data.endDate,   
+        endDate: currPage.data.endDate,
         moneyAll: parseInt(this.data.space_info.clear_price) + parseInt(this.data.space_info.cash_pledge) + parseInt(priced)
       });
       console.log(priced)
     }
   },
-  onLoad: function(options) {    
+  onLoad: function(options) {
     var that = this
     that.setData({
       space_id: options.space_id,
@@ -61,7 +61,7 @@ Page({
       })
       .then(res => {
         that.setData({
-          space_info: res.data          
+          space_info: res.data
         })
       }),
       this.getSignList()
@@ -94,23 +94,16 @@ Page({
       contractorId: e.currentTarget.dataset.id,
       contractorName: e.currentTarget.dataset.name
     })
-    
-    if (this.data.startDate != "请选择" && this.data.endDate != "请选择" && this.data.contractorName != null && this.data.ischeck){
+
+    if (this.data.startDate != "请选择" && this.data.endDate != "请选择" && this.data.contractorName != null && this.data.ischeck) {
       this.setData({
-        bg:true
+        bg: true
       })
     }
   },
   onFilter: function(e) {
     // 自定义组件触发事件时提供的detail对象
     let that = e.detail;
-    // this.setData({
-    //   start: util.datefuc('Y-m-d H:i:s', new Date(that.start).getTime() / 1000, true),
-    //   end: util.datefuc('Y-m-d H:i:s', new Date(that.end).getTime() / 1000, true),
-    //   starttime: util.datefuc('m月d日', new Date(that.start).getTime() / 1000, true),
-    //   endtime: util.datefuc('m月d日', new Date(that.end).getTime() / 1000, true),
-    //   compareday: util.compare(new Date(that.start).getTime(), new Date(that.end).getTime()),
-    // });
     if (that.fuc == "close") {
       this.setData({
         opendate: 0,
@@ -130,27 +123,27 @@ Page({
     }
   },
   //同意守则
-  checkboxChange:function(e){
+  checkboxChange: function(e) {
     if (e.detail.value == '同意') {
       this.setData({
-        ischeck:true,
+        ischeck: true,
         bg: true
-      })      
-    }else {
+      })
+    } else {
       this.setData({
         ischeck: false,
         bg: false
       })
     }
-  },  
+  },
   // 下一步
-  confirmNext() {    
+  confirmNext() {
     let params = `date=${this.data.dateArray}&signid=${this.data.contractorId}&space_id=${this.data.space_info.id}&title=${this.data.space_info.title}&img=${this.data.space_info.banner}&depositRate=${this.data.space_info.depositRate}&totalPrice=${this.data.moneyAll}&deposit=${this.data.moneyAll * this.data.space_info.depositRate * 0.01}&balance=${this.data.moneyAll * (100 - this.data.space_info.depositRate) * 0.01}&payEndTime=${this.data.space_info.final_payment_time}&depositRate=${this.data.space_info.depositRate}`
     if (this.data.startDate != "请选择" && this.data.endDate != "请选择" && this.data.contractorName != null && this.data.ischeck) {
       wx.navigateTo({
         url: `order-confirm-2?${params}`,
       })
-    }else{
+    } else {
       wx.showToast({
         title: '请选择相关信息',
         icon: 'none',

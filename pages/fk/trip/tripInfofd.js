@@ -8,14 +8,7 @@ Page({
     imgUrl: '',
     member_type:0,
     phoneNumber:'',
-    markers: [{
-      iconPath: "/images/location.png",
-      id: 0,
-      latitude: 31.2342,
-      longitude: 121.469042,
-      width: 50,
-      height: 50
-    }]      
+        
   },
   onLoad: function(options) {
     this.setData({
@@ -35,17 +28,12 @@ Page({
           tripInfo: res.data,
           phoneNumber: res.data.landlord_mobile
         })
-        if (res.data.longitude != null) {
-          this.setData({
-            'markers[0].latitude': res.data.latitude,
-            'markers[0].longitude': res.data.longitude
-          })
-        }
+        
       })
   },
   goPJ:function(){
     wx.navigateTo({
-      url: "../../evaluate/evaluate?order_id=" + this.data.tripInfo.order_id
+      url: "../../evaluate/evaluatefd?order_id=" + this.data.tripInfo.order_id
     })
   },
   calling: function () {
@@ -66,7 +54,6 @@ Page({
       order_id: this.data.tripInfo.order_id,
       space_id: this.data.tripInfo.space_id
     }
-    console.log(arr)
     var dd = JSON.stringify(arr)
     wx.navigateTo({
       url: "/pages/news/chat?info=" + dd
@@ -79,7 +66,7 @@ Page({
   },
   gotoMyindex:function(){
     wx.navigateTo({
-      url: "../fk_mine/fkMine?space_id=" + this.data.tripInfo.space_id
+      url: "../../fd/fd_mine/fdMine?order_id=" + this.data.tripInfo.order_id + '&member_id=' + this.data.tripInfo.member_id
     })
   },
   cancle: function() {

@@ -2,8 +2,8 @@
   <view class='title pad32'>
     <view class='text'>消息</view>
     <view class='icon'>
-    <navigator url="newsSearch">
-      <text class="iconfont icon-tubiao-" style='font-size:80rpx;'></text>
+      <navigator url="newsSearch">
+        <text class="iconfont icon-tubiao-" style='font-size:80rpx;'></text>
       </navigator>
     </view>
   </view>
@@ -23,6 +23,12 @@
             <view class='text2'>{{item.content}}</view>
             <view class='text3'>{{item.title}}</view>
             <view class='text3' wx:if="{{item.order_id!=''}}">{{item.arrival_start_time}}-{{item.arrival_end_time}}</view>
+            <view wx:if="{{member_type==2}}">
+              <view wx:if="{{(item.order_status==4 || item.order_status==5) && item.refund_status==0 && item.landlord_comment_status==0}}" class='btn-xie' bindtap='gontoPj'>写评价</view>
+            </view>
+            <view wx:else>
+              <view wx:if="{{item.order_status==4 && item.refund_status==0}}" class='btn-xie' bindtap='gontoPj'>写评价</view>
+            </view>
           </view>
         </view>
       </navigator>

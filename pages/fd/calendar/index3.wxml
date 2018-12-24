@@ -21,10 +21,10 @@
       <view class="week-item {{idx===0||idx===6?'relax':''}}" wx:for="{{week_list}}" wx:for-index="idx">{{item}}</view>
     </view>
     <view class="month-content">
-      <view class="month-day {{item.fullDate<nowDate?'gray':''}} {{startDate===item.fullDate?'startActive':''}} {{endDate===item.fullDate?'endActive':''}} {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}}" bindtap="chooseDate"
+      <view class="month-day {{item.fullDate<nowDate || filter.hasEle(unable,item.fullDate)?'gray':''}} {{startDate===item.fullDate?'startActive':''}} {{endDate===item.fullDate?'endActive':''}} {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}}" bindtap="chooseDate"
         data-year="{{canlendar_item.year}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{item.fullDate}}" wx:for="{{canlendar_item.allDays}}">
         <view class='day-item'>{{item.day}}
-          <text class='dayPrice' wx:if="{{filter.hasEle(s_able,item.fullDate) && item.fullDate>=nowDate}}">{{ablePrice[filter.getIndex(s_able, item.fullDate)]}}</text>
+          <text class='dayPrice' wx:if="{{filter.hasEle(s_able,item.fullDate) && item.fullDate>=nowDate}}">￥{{ablePrice[filter.getIndex(s_able, item.fullDate)]}}</text>
         </view>
 
       </view>

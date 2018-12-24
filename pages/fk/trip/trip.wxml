@@ -12,7 +12,7 @@
       </view>
       <view class='list3'>
         <navigator url="tripInfo?id={{item.id}}" class='list3'>
-          <view>{{item.arrival_descr}}</view>
+          <view>{{item.status}}</view>
           <view>
             <text>{{item.arrival_start_time}}-{{item.arrival_end_time}}</text>
             <text class="iconfont icon_arrow_right"></text>
@@ -35,24 +35,67 @@
           </navigator>
         </view>
         <view wx:elif='{{item.balance_status === 2}}' class='list3'>
-          <navigator url='selectPayWay?id={{item.id}}' class='font-f5 list3'>
+          <navigator url='selectPayWay?id={{item.id}}' class='color21 list3'>
             <view>请于{{item.balance_pay_time}}小时内完成尾款支付，逾期订单将自动关闭</view>
           </navigator>
           <view class='con_list_r'>
             <text class="iconfont icon-icon_arrow_right"></text>
           </view>
         </view>
-        <view wx:elif='{{item.balance_status === 3}}' class='list3'>
-          <view class='font-green'>尾款已付清￥{{item.balance}}</view>
-          <!-- <view class='con_list_r'>
-            <text class="iconfont icon-icon_arrow_right"></text>
-          </view> -->
+        <view wx:elif='{{item.balance_status === 3}}'>
+          <view wx:if='{{item.balance_status === 1}}' class='list3'>
+            <navigator url='selectPayWay?order_id={{item.id}}' class='color21 list3'>
+              <view>
+                请于{{item.balance_time}}前支付尾￥{{item.balance}}
+              </view>
+              <view class='con_list_r'>
+                <text class="iconfont icon-icon_arrow_right"></text>
+              </view>
+            </navigator>
+          </view>
+          <view wx:elif='{{item.balance_status === 2}}' class='list3'>
+            <navigator url='selectPayWay?id={{item.id}}' class='font-f5 list3'>
+              <view>请于{{item.balance_pay_time}}小时内完成尾款支付，逾期订单将自动关闭</view>
+            </navigator>
+            <view class='con_list_r'>
+              <text class="iconfont icon-icon_arrow_right"></text>
+            </view>
+          </view>
         </view>
         <view wx:elif='{{item.balance_status === 99}}' class='list3'>
-          <view class='font-gray'>尾款逾期 · 订单已关闭</view>
+          <navigator url='selectPayWay?id={{item.id}}' class='color9B list3'>
+            <view>尾款已逾期,订单已关闭</view>
+          </navigator>
           <view class='font-f5'>详情</view>
         </view>
+
       </view>
+      <view wx:if='{{item.order_status == 1 || item.order_status == 2 }}' class='list3'>
+        <view class='color21'>尾款已付清￥{{item.balance}}</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 3}}' class='list3'>
+        <view class='color02'>尾款已付清￥{{item.balance}}</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 4}}' class='list3'>
+        <view class='color02'>订单完成待评价</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 5}}' class='list3'>
+        <view class='color02'>订单已完成</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 100}}' class='list3'>
+        <view class='color9B'>您已取消订单</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 101 || item.order_status  === 102}}' class='list3'>
+        <view class='color9B'>房东拒绝了您的订单</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 103}}' class='list3'>
+        <view class='color9B'>24小时内房东未处理您的订单，已关闭</view>
+      </view>
+      <view wx:elif='{{item.order_status  === 99}}' class='list3'>
+        <view class='color9B'>尾款逾期 · 订单已关闭</view>
+      </view>
+
+
     </view>
   </view>
 

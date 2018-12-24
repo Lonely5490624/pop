@@ -71,8 +71,10 @@ Page({
               signType: that.data.wxPayInfo.signType,
               paySign: that.data.wxPayInfo.paySign,
               openid: wx.getStorageSync('openid'),
-              success: res => {
-                console.log('success:', res)
+              success: res => {                
+                wx.navigateTo({
+                  url: "order-confirm-3?deposit=" + this.data.deposit,
+                })
               },
               fail: err => {
                 console.log('fail:', err)
@@ -82,22 +84,6 @@ Page({
               }
             })
           })
-        /**
-         * 接口地址要改
-         * 返回值：
-         * return_code： 此字段表示通信是否成功，非交易是否成功， 取值：SUCCESS、FAIL
-         * return_msg： 返回的信息
-         * result_code： 此字段表示交易是否成功！取值：SUCCESS、FAIL
-         * err_code： 请求错误代码，详见微信文档。
-         * err_code_des:  错误返回的信息描述
-         * trade_type: 交易类型，当return_code和result_code都为SUCCESS时才返回
-         * prepay_id：预支付ID，下一步要用到的，有效期2小时。如果用户在生成此id后取消支付，但是在2个小时内重新支付时可以复用该id。 当                   *            return_code和result_code都为SUCCESS时才返回。
-         */
-        // wx.navigateTo({
-        //   url: 'order-confirm-3?money=' + this.data.deposit,
-        // })
-        
-
       })
   },
   bindTuiding() {

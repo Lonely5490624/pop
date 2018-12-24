@@ -232,6 +232,18 @@ Page({
       })
 
   },
+  gotoDetail:function(){
+    if (this.data.member_type==1){
+      wx.navigateTo({
+        url: "/pages/fk/trip/tripInfo?id=" + this.data.order_id
+      })
+    }else{
+      wx.navigateTo({
+        url: "/pages/fk/trip/tripInfofd?id=" + this.data.order_id
+      })
+    }
+    
+  },
   //拒绝订单
   refuse: function(e) {
     wx.showModal({

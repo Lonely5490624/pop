@@ -4,7 +4,6 @@
     <view class='t2'>订单编号：{{tripInfo.order_no}}</view>
     <view class='t3'>
       <view class='t3_left'>
-        <!-- url -->
         <image src='{{imgUrl+tripInfo.space_pic}}'></image>
       </view>
       <view class='t3_right'>
@@ -22,7 +21,7 @@
     <view class='box2_t1'>
       <view class='box2_t1_l'>
         <view>{{tripInfo.landlord_nick_name}}</view>
-        <view wx:if="{{tripInfo.comment_count==0}}">
+        <view wx:if="{{tripInfo.comment_count!=0}}">
           <view class='space-score' wx:for='{{tripInfo.service_avg}}'>
             <text class='iconfont icon-wujiaoxing score-icon active'></text>
           </view>
@@ -34,7 +33,7 @@
         <view wx:else>{{tripInfo.comment_count}}条评价 · 已验证</view>
       </view>
       <view class='box2_t1_2'>
-        <image src='{{tripInfo.landlord_head_img_url}}'></image>
+        <image bindtap='gotoMyindex' src='{{tripInfo.landlord_head_img_url}}'></image>
       </view>
     </view>
 

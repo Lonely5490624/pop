@@ -5,11 +5,6 @@ Page({
     member_type: 0
   },
   //事件处理函数
-  toSearch: function() {
-    wx.navigateTo({
-      url: '../../logs/logs'
-    })
-  },
   onLoad: function() {
     this.setData({
       member_type: wx.getStorageSync('member_type')
@@ -42,6 +37,17 @@ Page({
           newsList: res.data
         })
       })
+  },
+  gontoPj:function(){
+    if (this.data.member_type==2){
+      wx.navigateTo({
+        url: '../../evaluate/evaluatefd?order_id=' + order_id
+      })
+    }else{
+      wx.navigateTo({
+        url: '../../evaluate/evaluate?order_id=' + order_id
+      })
+    }
   },
   goToList: function () {
     wx.redirectTo({

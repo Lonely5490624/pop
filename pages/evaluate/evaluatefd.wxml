@@ -1,0 +1,21 @@
+<!--pages/fd/data/index.wxml-->
+<view class='page'>
+  <view class='top'>
+    <image src='{{imgUrl+orderInfo.space_pic}}'></image>
+    <view class='title'>{{orderInfo.space_title}}</view>
+  </view>
+  <view class='t2'>评价本次服务</view>
+  <view class='xing' style="display:flex;flex-direction:row;">
+    <text class="iconfont icon-wujiaoxing {{flag2>=1? 'active': ''}}" bindtap="changeColor11"></text>
+    <text class="iconfont icon-wujiaoxing {{flag2>=2? 'active': ''}}" bindtap="changeColor12"></text>
+    <text class="iconfont icon-wujiaoxing {{flag2>=3? 'active': ''}}" bindtap="changeColor13"></text>
+    <text class="iconfont icon-wujiaoxing {{flag2>=4? 'active': ''}}" bindtap="changeColor14"></text>
+    <text class="iconfont icon-wujiaoxing {{flag2>=5? 'active': ''}}" bindtap="changeColor15"></text>
+  </view>
+  <view class="score" wx:if="{{flag2>=1}}">{{flag2}}.0</view>
+  <view class='t3'>
+    <textarea placeholder='请输入评价…' bindinput='getCount'></textarea>
+  </view>
+  <view class="nextBtn {{bg?'able':'unable'}} " bindtap='next'>提交评价</view>
+
+</view>

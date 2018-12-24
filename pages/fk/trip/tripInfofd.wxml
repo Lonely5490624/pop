@@ -1,0 +1,64 @@
+<view class='page'>
+  <view class='top pad32'>
+    <view class='t1'>{{tripInfo.chinese_status}}</view>
+    <view class='t2'>订单编号：{{tripInfo.order_no}}</view>
+    <view class='t3'>
+      <view class='t3_left'>
+        <image src='{{imgUrl+tripInfo.space_pic}}'></image>
+      </view>
+      <view class='t3_right'>
+        <view class='t3_r_l1'>{{tripInfo.space_title}}</view>
+        <view class='t3_r_l2'>{{tripInfo.space_type}}·{{tripInfo.category_name}}</view>
+        <view class='t3_r_l3'>
+          <text class='font-f5'>￥{{tripInfo.everyday_price}} </text>
+          <text> 共{{tripInfo.days}}天</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='box2'>
+    <view class='box2_t1'>
+      <view class='box2_t1_l'>
+        <view>{{tripInfo.consumer_nick_name}}</view>
+        <view class='space-score' wx:for='{{tripInfo.service_avg}}'>
+          <text class='iconfont icon-wujiaoxing score-icon active'></text>
+        </view>
+        <view class='space-score' wx:for='{{5-tripInfo.service_avg}}'>
+          <text class='iconfont icon-wujiaoxing score-icon'></text>
+        </view>
+        <text style='margin-left:10rpx;'>{{tripInfo.member_comment_count}}条评价 · 已验证</text>
+      </view>
+      <view class='box2_t1_2'>
+        <image bindtap='gotoMyindex' src='{{tripInfo.consumer_head_img_url}}'></image>
+      </view>
+    </view>
+
+    <view class='box2_t2'>
+      <view class='box2_t2_1' bindtap='toNews' style='border-right: 1px #E8E8E8 solid;'>
+        <text class="iconfont icon-xiaoxi" style='font-size:44rpx;'></text>
+        <view>发送消息</view>
+      </view>
+      <view class='box2_t2_1' bindtap='calling'>
+        <text class="iconfont icon-dianhua1" style='font-size:44rpx;'></text>
+        <view>拨打电话</view>
+      </view>
+    </view>
+  </view>
+  <view class='box3'>
+
+    <view class='b3_list'>
+      <view class='b3_list_l'>入住时间</view>
+      <view class='b3_list_r'>{{tripInfo.arrival_time}}</view>
+    </view>
+    <view class='b3_list'>
+      <view class='b3_list_l'>离开时间</view>
+      <view class='b3_list_r'>{{tripInfo.leave_time}}</view>
+    </view>
+    <view class='b3_list'>
+      <view class='b3_list_l'>总收款</view>
+      <view class='b3_list_r' style="color:#212121;">￥{{tripInfo.total_money}}</view>
+    </view>
+    <view class="goPJ" bindtap='goPJ' wx:if="{{(tripInfo.status == 4 || tripInfo.status == 5) && tripInfo.refund_status == 0 && tripInfo.landlord_comment_status == 0}}">去评价</view>
+  </view>
+</view>

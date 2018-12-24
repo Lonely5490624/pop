@@ -1,0 +1,33 @@
+<!--pages/fd/data/index.wxml-->
+<view class='page'>
+  <view class='top'>
+    <view class='name'>{{myInfo.nick_name}}</view>
+    <view class='tx'>
+      <image src="{{myInfo.head_img_url}}"></image>
+    </view>
+  </view>
+  <view class='perInfo'>{{myInfo.synopsis}}</view>
+  <view class='title' wx:if="{{pList.length==0}}">暂无评价</view>
+  <view class='title' wx:else>{{pList.length}}条评价</view>
+  <view class='list' wx:for="{{pList}}">
+    <view class='list_l'>
+      <image src="{{item.head_img_url}}"></image>
+    </view>
+    <view class='list_r'>
+      <view class='list_r_l1'>
+        <view class='name'>{{item.nick_name}}</view>
+        <view class='xing' style="display:flex;flex-direction:row;margin-left:20rpx;">
+          <view class='space-score' wx:for='{{item.service}}'>
+            <text class='iconfont icon-wujiaoxing score-icon active'></text>
+          </view>
+          <view class='space-score' wx:for='{{5-item.service}}'>
+            <text class='iconfont icon-wujiaoxing score-icon'></text>
+          </view>
+        </view>
+      </view>
+      <view class='date' style="float:right;">{{item.create_time}}</view>
+      <view class='list_r_l2'>{{item.landlord_content}}</view>
+      <view class='font-f5 hf'>房东回复：{{item.reply_content}}</view>
+    </view>
+  </view>
+</view>

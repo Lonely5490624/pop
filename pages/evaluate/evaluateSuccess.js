@@ -10,7 +10,7 @@ Page({
   },
   next:function(){
     wx.navigateTo({
-      url: "evaluateList?space_id=" + this.data.space_id
+      url: "../fk/fk_mine/fkMine?space_id=" + this.data.space_id
     })
   }
 })

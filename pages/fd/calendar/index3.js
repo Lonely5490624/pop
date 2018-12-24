@@ -140,7 +140,7 @@ Page({
       .then(res => {
         if (res.data != '') {
           this.setData({
-            unable: res.data.calendar.unable,
+            unable: res.data.calendar.s_unable,
             s_able: res.data.calendar.s_able,
             ablePrice: res.data.calendar.price,
             space_id: res.data.id,
