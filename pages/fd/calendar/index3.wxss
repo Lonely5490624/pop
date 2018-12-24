@@ -2,13 +2,16 @@
 
 .dateTop {
   height: 100rpx;
+  width:600rpx;
+  margin: 0 auto;
+  text-align: center;
   padding: 0rpx 20rpx;
   display: flex;
-  justify-content:space-between;
+  justify-content:center;
   padding-top:20rpx;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50rpx;
 }
 .close{
   padding-left: 40rpx;
@@ -18,10 +21,6 @@
   width: 28rpx;
   height: 28rpx;
 }
-/* .dateTop .cell, .dateTop .xie {
-  flex: 1;
-  flex-direction: row;
-} */
 .dateTo{
   display: flex;
   justify-content:space-between;
@@ -46,7 +45,7 @@
   display: block;
   margin-top: 10rpx;
   color: #000000;
-  font-size: 32rpx;
+  font-size: 30rpx;
 }
 
 .dateTop .xie {

@@ -28,6 +28,11 @@ Page({
         order_id: JSON.parse(options.info).order_id
       })
     }
+    if (options.space_id != undefined) {
+      that.setData({
+        space_id: options.space_id,
+      })
+    }
     if (options.info_id != undefined){
       that.setData({
         space_id: options.space_id,
@@ -35,6 +40,7 @@ Page({
         order_id: options.order_id
       })
     }
+
     that.setData({
       member_type: app.globalData.member_type,
       member_id: wx.getStorageSync('member_id')

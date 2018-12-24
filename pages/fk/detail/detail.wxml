@@ -152,7 +152,7 @@
   <view class='box1 box2'>
     <view class='b2_title'>位置</view>
     <view class='b2_info'>
-      <map id="map" longitude="{{space_info.longitude==null?'121.469042':space_info.longitude}}" latitude="{{space_info.latitude==null?'31.2342':space_info.latitude}}" scale="14" controls="{{controls}}" markers="{{markers}}" polyline="{{polyline}}" show-location
+      <map id="map" longitude="{{space_info.longitude==null?'121.469042':space_info.longitude}}" latitude="{{space_info.latitude==null?'31.2342':space_info.latitude}}" scale="14" controls="{{controls}}" markers="{{markers}}" polyline="{{polyline}}" show-location wx:if="{{openTuiding==false}}"
         style="width: 100%; height: 300px;"></map>
     </view>
     <view class='map_b'>{{space_info.address==null?'上海市':space_info.address}}</view>

@@ -89,7 +89,6 @@ Page({
             let time = Date.now() + 86400000
             wx.setStorageSync('time', time)
             wx.setStorageSync('member_id', res.data.data.member_id)
-            // wx.setStorageSync('member_id',20)
             wx.setStorageSync('member_type', res.data.data.member_type)
             wx.redirectTo({
               url: '../fk/index/index'

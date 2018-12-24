@@ -1,11 +1,8 @@
 <view class='page'>
   <view class='title pad32'>
-    <!-- <view class='icon'>
-      <text class="iconfont icon-sousuo search-icon"></text>
-    </view> -->
     <view class='text'>{{newsDetail.nick_name}}·{{newsDetail.order_status}}</view>
-    <navigator url='/pages/fk/trip/tripInfo?id={{newsDetail.order_id}}'>
-    <view class="infoBtn" wx:if="{{detailBtn}}">详情</view>
+    <navigator  class="infoBtn" url='/pages/fk/trip/tripInfo?id={{newsDetail.order_id}}'>
+      <view wx:if="{{detailBtn}}">详情</view>
     </navigator>
   </view>
   <view class='middle' wx:if="{{fdBtn}}">

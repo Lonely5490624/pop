@@ -200,3 +200,15 @@
 .filter.show {
   transform: translateY(0);
 }
+.recommend-collect {
+  width: 32rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 22rpx;
+  top: 20rpx;
+  z-index: 9;
+  
+}
+.recommend-collect.active {
+  color: #f55 !important;
+}

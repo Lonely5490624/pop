@@ -10,10 +10,9 @@
   height: 120rpx;
   line-height: 120rpx;
   overflow: hidden;
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
   align-items: center;
-  position: fixed;
+  position:fixed;
   top: 0;
   left: 0;
   background: #fff;
@@ -29,8 +28,14 @@
 }
 
 .title .infoBtn {
-  font-size: 28rpx;
-  color: #f55;
+  font-size:28rpx;
+color:#f55;
+position:absolute;
+right:0;
+top:0;
+width:94rpx;
+height:30rpx;
+
 }
 
 .middle {

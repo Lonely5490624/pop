@@ -1,0 +1,30 @@
+/* pages/fd/data/index.wxss */
+
+.data {
+  padding: 0 88rpx;
+}
+
+.data-title {
+  font-size: 48rpx;
+  color: #212121;
+}
+.t1{
+  color: #9E9E9E;
+  font-size: 20rpx;
+  margin: 15rpx 0;
+}
+.t2{
+  color: #212121;
+  font-size: 20rpx;
+}
+.t3{
+  margin: 60rpx auto;
+}
+.t3 input{
+  border-bottom: 1px #CFCFCF solid;
+}
+.t4{
+  color: #9E9E9E;
+  font-size: 28rpx;
+  text-align: center;
+}

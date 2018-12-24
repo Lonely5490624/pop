@@ -29,6 +29,18 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    that.setData({
+      imgUrl: app.data.imgurl,
+      userData: wx.getStorageSync('userData'),
+      member_type: app.globalData.member_type
+    })
+    if (options.name != undefined) {
+      this.data.rcData.search_content = options.name
+      that.setData({
+        searchC: options.name,
+        member_type: app.globalData.member_type
+      })
+    }
     // 实例化API核心类
     qqmapsdk = new QQMapWX({
       key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
@@ -63,17 +75,7 @@ Page({
         })
       }
     })
-    that.setData({
-      imgUrl: app.data.imgurl,
-      userData: wx.getStorageSync('userData'),
-      member_type: app.globalData.member_type
-    })
-    if (options.name != undefined) {
-      that.setData({
-        searchC: options.name,
-        member_type: app.globalData.member_type
-      })
-    }
+    
   },
   onShow: function () {
     let pages = getCurrentPages();
@@ -121,6 +123,7 @@ Page({
       title: '加载中',
     })
     var that = this
+    this.data.rcData.member_id = wx.getStorageSync('member_id')
     wx.request({
       url: app.data.requestUrl + "/home/searchSpace",
       data: this.data.rcData,

@@ -94,6 +94,12 @@ Page({
       contractorId: e.currentTarget.dataset.id,
       contractorName: e.currentTarget.dataset.name
     })
+    
+    if (this.data.startDate != "请选择" && this.data.endDate != "请选择" && this.data.contractorName != null && this.data.ischeck){
+      this.setData({
+        bg:true
+      })
+    }
   },
   onFilter: function(e) {
     // 自定义组件触发事件时提供的detail对象

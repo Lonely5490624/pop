@@ -36,7 +36,6 @@ Page({
             longitude: res.longitude
           },
           success: function (addressRes) {
-            console.log(addressRes)
             var address = addressRes.result.address_component.city;
             for (var i = 0; i < that.data.cityList.length; i++) {
               if (address.indexOf(that.data.cityList[i].name)!=-1) {
@@ -44,11 +43,17 @@ Page({
                   index: i,
                   cityId: that.data.cityList[i].id
                 })
+              }else{
+                wx.showToast({
+                  title: "当前城市不存在，默认上海",
+                  icon: 'none',
+                  duration: 2000
+                })
               }
             }
-            that.getcommercialCircleList({ city: that.data.cityId })
+            that.getcommercialCircleList({ city: that.data.cityId, type: '1'})
             that.getstoryList({ city: that.data.cityId })
-            that.getisRecommendSpaceList({ city: that.data.cityId }) 
+            that.getisRecommendSpaceList({city: that.data.cityId}) 
           }
         })
       }
@@ -83,11 +88,7 @@ Page({
   
   getcommercialCircleList: function (params){
     //热门商圈
-    var data = params
-    data={
-      type:'1'
-    }
-    app.http('/home/commercialCircleList', data, true)
+    app.http('/home/commercialCircleList', params, true)
       .then(res => {
         this.setData({
           shangq: res.data
@@ -115,7 +116,7 @@ Page({
     this.setData({
       index: e.detail.value
     })
-    this.getcommercialCircleList({ city: this.data.cityList[e.detail.value].id})
+    this.getcommercialCircleList({ city: this.data.cityList[e.detail.value].id, type: '1'})
     this.getstoryList({ city: this.data.cityList[e.detail.value].id})
     this.getisRecommendSpaceList({ city: this.data.cityList[e.detail.value].id})
   },

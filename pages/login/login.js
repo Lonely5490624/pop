@@ -80,7 +80,7 @@ Page({
         data,
         success: function(res) {
           if (res.data.code == 200) {
-            wx.navigateTo({
+            wx.redirectTo({
               url: 'yz?mobile=' + that.data.mobile
             })
           }

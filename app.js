@@ -3,7 +3,8 @@ import { ajaxData } from 'utils/common'
 
 App({
   data:{
-    imgurl: 'http://pjb282159.bkt.clouddn.com/',
+    imgurl: 'http://image-qn-test.letspopup.cn/',
+    requestUrl: 'http://shanpuapi.aieye8.com/index.php/home',
     dgaccount:"28837XXXXXXXXXX"
   },
   globalData: {
