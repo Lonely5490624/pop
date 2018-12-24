@@ -58,14 +58,14 @@ Page({
     app.http('/Order/subOrder', params)
       .then(res => {
         //获取微信支付参数  1：定金 2：尾款
-        app.http('/pay/index', { type: 1, order_id: res.data.order_id,})
+        app.http('/pay/wx_pay', { type: 1, order_id: res.data.order_id, openid: wx.getStorageSync('openid')})
           .then(res => {
             that.setData({
               wxPayInfo: JSON.parse(res.data)
             })
             //调微信支付
             wx.requestPayment({
-              timeStamp: Date.parse(new Date())+"",
+              timeStamp: that.data.wxPayInfo.timeStamp,
               nonceStr: that.data.wxPayInfo.nonceStr,
               package: that.data.wxPayInfo.package,
               signType: that.data.wxPayInfo.signType,
