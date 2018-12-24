@@ -4,7 +4,6 @@ import { ajaxData } from 'utils/common'
 App({
   data:{
     imgurl: 'http://pjb282159.bkt.clouddn.com/',
-    requestUrl: 'http://popup.aieye8.com/index.php/home',
     dgaccount:"28837XXXXXXXXXX"
   },
   globalData: {

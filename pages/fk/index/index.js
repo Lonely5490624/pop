@@ -36,6 +36,7 @@ Page({
             longitude: res.longitude
           },
           success: function (addressRes) {
+            console.log(addressRes)
             var address = addressRes.result.address_component.city;
             for (var i = 0; i < that.data.cityList.length; i++) {
               if (address.indexOf(that.data.cityList[i].name)!=-1) {
@@ -54,16 +55,16 @@ Page({
     })          
     this.getCityList()
   },
-  onShow:function(){
-    //热门推荐
-    var that=this
-    app.http('/home/isRecommendSpaceList', {}, true)
-      .then(res => {
-        that.setData({
-          recommendData: res.data
-        })
-      })
-  },
+  // onShow:function(){
+  //   //热门推荐
+  //   var that=this
+  //   app.http('/home/isRecommendSpaceList', {}, true)
+  //     .then(res => {
+  //       that.setData({
+  //         recommendData: res.data.slice(0, 8)
+  //       })
+  //     })
+  // },
   getisRecommendSpaceList: function (params){
     //热门推荐
     wx.showLoading({
@@ -73,7 +74,7 @@ Page({
       .then(res => {
         if (res.data.length>0){
           this.setData({
-            recommendData: res.data
+            recommendData: res.data.slice(0, 8)
           })
           wx.hideLoading()
         }        
