@@ -20,7 +20,8 @@ Page({
     s_able: [], //可编辑日期（黑色）
     ablePrice: [], //可编辑日期价格
     unable: [], //已经出租日期（红色）
-    final_payment_time: 0
+    final_payment_time: 0,
+    disabled: true
   },
   // 获取每月总天数
   getAllDaysOfMonth(year, month) {
@@ -89,8 +90,6 @@ Page({
 
     // 计算年月以及具体日历
     for (let i = this.data.cur_month; i < this.data.cur_month + n; i++) {
-      console.log('month', month)
-
       // 对年份和月份的计算做一些判断
       if (month > 12) {
         year++;
@@ -99,7 +98,6 @@ Page({
       } else {
         fullMonth = month.toString().length === 1 ? `0${month}` : month;
       }
-      console.log(fullMonth)
       let EmptyGrids = this.getEmptyGrids(year, month);
       let DaysOfThisMonth = this.getDaysOfThisMonth(year, month);
 
@@ -155,7 +153,7 @@ Page({
           wx.hideLoading()
         }
       })
-    this.fillCalendar(12);    
+    this.fillCalendar(12);
   },
   //日期相减
   dateMinus(startDate, endDate) {　　
@@ -178,38 +176,42 @@ Page({
     // 获取点击对象的id
     let id = e.currentTarget.dataset.id;
 
-    // data_click为0代表选择的是入住日期，否则就是离店日期
-    if (this.data.date_click == 0) {
-      // 选择入住日期
+    let newDay = new Date(Date.parse(id));
+    let startDay = new Date(Date.parse(this.data.startDate));
+    let endDay = new Date(Date.parse(this.data.endDate));
+
+    if (startDay == "Invalid Date" || startDay > newDay){  
       this.setData({
         startDate: `${year_click}-${month_click}-${day_click}`,
-        date_click: 1
+        dayNum: 0,
+        disabled: true
       })
-    } else {
-      let newDay = new Date(Date.parse(id));
-      let oldDay = new Date(Date.parse(this.data.startDate));
+    } else if (startDay < newDay && endDay == "Invalid Date" || newDay > endDay){
+      this.setData({
+        endDate: `${year_click}-${month_click}-${day_click}`,
+        dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`) + 1,
+        disabled: false
+      })
+    } else if (startDay.getTime() == newDay.getTime() || endDay.getTime() == newDay.getTime()) {
+      this.setData({
+        startDate: `${year_click}-${month_click}-${day_click}`,
+        dayNum: 1,
+        endDate: `${year_click}-${month_click}-${day_click}`,
+        disabled: false
+      })
+    } else if (startDay < newDay && newDay < endDay){
+      this.setData({
+        startDate: `${year_click}-${month_click}-${day_click}`,
+        dayNum: 0,
+        endDate:'',
+        disabled: true
+      })
+    } 
 
-      // 判断第二次点击的日期在第一次点击的日期前面还是后面
-      if (newDay >= oldDay) {
-        this.setData({
-          endDate: `${year_click}-${month_click}-${day_click}`,
-          date_click: 2,
-          dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`) + 1
-        })
-
-      } else {
-        this.setData({
-          startDate: `${year_click}-${month_click}-${day_click}`,
-          endDate: '',
-          date_click: 1,
-          dayNum: this.dateMinus(this.data.startDate, `${year_click}-${month_click}-${day_click}`) + 1
-        })
-      }
-    }
   },
-  _close() {
-    wx.navigateBack({
-
+  close: function() {
+    wx.navigateBack({ //返回
+      delta: 1
     })
   },
   // 获取所有日期数组

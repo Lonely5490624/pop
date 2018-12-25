@@ -1,9 +1,6 @@
 // pages/fk/list/list.js
 const spaceData = []
 var app = getApp()
-// 引入SDK核心类
-var QQMapWX = require('../../../lib/script/qqmap-wx-jssdk.min.js');
-var qqmapsdk;
 Page({
   data: {
     spaceData,
@@ -23,7 +20,7 @@ Page({
     dataText: '',
     pageNum: 1,
     total_page: 0,
-    dx:false
+    dx: false
   },
   opendate: function() {
     wx.navigateTo({
@@ -35,57 +32,37 @@ Page({
     that.setData({
       imgUrl: app.data.imgurl,
       userData: wx.getStorageSync('userData'),
-      member_type: app.globalData.member_type
+      member_type: app.globalData.member_type,
+      cityId: wx.getStorageSync('cityId')
     })
-    if (options.name != undefined) {
+    app.http('/area/cityList', {}, true)
+      .then(res => {
+        this.setData({
+          cityList: res.data
+        })
+        for (var i = 0; i < res.data.length; i++) {
+          if (res.data[i].id == wx.getStorageSync('cityId')) {
+            that.setData({
+              index: i
+            })
+          }
+        }
+      })
+    if (options.name != "undefined") {
       this.data.rcData.search_content = options.name
       that.setData({
         searchC: options.name,
         member_type: app.globalData.member_type
       })
     }
-    // 实例化API核心类
-    qqmapsdk = new QQMapWX({
-      key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
-    });
-    //1、获取当前位置坐标
-    wx.getLocation({
-      type: 'wgs84',
-      success: function(res) {
-        //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
-        qqmapsdk.reverseGeocoder({
-          location: {
-            latitude: res.latitude,
-            longitude: res.longitude
-          },
-          success: function(addressRes) {
-            var address = addressRes.result.address_component.city;
-            for (var i = 0; i < that.data.cityList.length; i++) {
-              if (address.indexOf(that.data.cityList[i].name) != -1) {
-                that.setData({
-                  index: i,
-                  cityId: that.data.cityList[i].id
-                })
-              }
-            }
-            that.data.rcData.city = that.data.cityId
-
-            if (that.data.searchC.name != undefined) {
-              that.data.rcData.search_content = that.data.searchC.name
-            }
-            that.getList()
-          }
-        })
-      }
-    })
-
+    that.data.rcData.city = that.data.cityId
+    that.getList()
   },
   onShow: function() {
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
     this.data.rcData.end_date = currPage.data.endDate
     this.data.rcData.start_date = currPage.data.startDate
-    console.log(currPage.data.endDate)
     if (currPage.data.endDate != '') {
       this.setData({
         dataText: currPage.data.startDate + '至' + currPage.data.endDate
@@ -93,18 +70,6 @@ Page({
     }
 
     this.getList()
-  },
-  onReady: function() {
-    this.getCityList();
-  },
-
-  getCityList: function() {
-    app.http('/area/cityList', {}, true)
-      .then(res => {
-        this.setData({
-          cityList: res.data
-        })
-      })
   },
   toSearch: function() {
     wx.navigateTo({
@@ -120,18 +85,19 @@ Page({
       this.data.rcData.search_content = this.data.searchC
     }
     this.getList()
+    wx.setStorageSync('cityId', this.data.cityList[e.detail.value].id)
   },
-  onReachBottom: function() {    
+  onReachBottom: function() {
     this.data.rcData.page = this.data.pageNum
-    if (this.data.total_page == Number(this.data.pageNum)-1) {
+    if (this.data.total_page == Number(this.data.pageNum) - 1) {
       this.setData({
         dx: true
       })
-    }else{      
+    } else {
       app.http('/home/searchSpace', this.data.rcData, true)
         .then(res => {
           this.setData({
-            pageNum: Number(res.data.current_page)+1,
+            pageNum: Number(res.data.current_page) + 1,
             spaceData: this.data.spaceData.concat(res.data.space_data),
             dx: false
           })

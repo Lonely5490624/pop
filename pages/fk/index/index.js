@@ -42,8 +42,11 @@ Page({
                 that.setData({
                   index: i,
                   cityId: that.data.cityList[i].id
+                })                
+              }else{                
+                that.setData({
+                  cityId: 869
                 })
-              }else{
                 wx.showToast({
                   title: "当前城市不存在，默认上海",
                   icon: 'none',
@@ -59,17 +62,23 @@ Page({
       }
     })          
     this.getCityList()
+    
   },
-  // onShow:function(){
-  //   //热门推荐
-  //   var that=this
-  //   app.http('/home/isRecommendSpaceList', {}, true)
-  //     .then(res => {
-  //       that.setData({
-  //         recommendData: res.data.slice(0, 8)
-  //       })
-  //     })
-  // },
+  onShow:function(){
+    this.setData({
+      cityId: wx.getStorageSync('cityId')
+    })   
+    for (var i = 0; i < this.data.cityList.length; i++) {
+      if (this.data.cityList[i].id == wx.getStorageSync('cityId')) {
+        this.setData({
+          index: i
+        })
+      }
+    }
+    this.getcommercialCircleList({ city: wx.getStorageSync('cityId'), type: '1' })
+    this.getstoryList({ city: wx.getStorageSync('cityId') })
+    this.getisRecommendSpaceList({ city: wx.getStorageSync('cityId') })
+  },
   getisRecommendSpaceList: function (params){
     //热门推荐
     wx.showLoading({
@@ -114,16 +123,12 @@ Page({
   },
   bindPickerChange: function (e) {
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      cityId: this.data.cityList[e.detail.value].id
     })
     this.getcommercialCircleList({ city: this.data.cityList[e.detail.value].id, type: '1'})
     this.getstoryList({ city: this.data.cityList[e.detail.value].id})
     this.getisRecommendSpaceList({ city: this.data.cityList[e.detail.value].id})
-  },
-  gotolist: function(e) {
-    wx.navigateTo({
-      url: "../list/list?name=" + e.currentTarget.dataset.text
-    })
   },
   //加收藏
   addCl: function(e) {
@@ -174,10 +179,11 @@ Page({
       })
     }
   },
-  goToList: function() {
-    wx.redirectTo({
-      url: "../../fk/list/list"
+  goToList: function(e) {
+    wx.navigateTo({
+      url: "../list/list?name=" + e.currentTarget.dataset.text
     })
+    wx.setStorageSync('cityId', this.data.cityId)
   },
   goToSpace: function() {
     wx.redirectTo({

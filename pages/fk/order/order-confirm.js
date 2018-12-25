@@ -35,7 +35,6 @@ Page({
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
     let priced = 0
-    console.log(currPage.data)
     if (currPage.data.priceArr != undefined) {
       let priceArr = currPage.data.priceArr
       for (var i = 0; i < priceArr.length; i++) {
@@ -47,8 +46,11 @@ Page({
         endDate: currPage.data.endDate,
         moneyAll: parseInt(this.data.space_info.clear_price) + parseInt(this.data.space_info.cash_pledge) + parseInt(priced)
       });
-      console.log(priced)
     }
+    this.getSignList()
+    this.setData({
+      isContractorOpen: false
+    })
   },
   onLoad: function(options) {
     var that = this

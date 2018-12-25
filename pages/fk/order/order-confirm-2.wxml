@@ -18,10 +18,10 @@
   </view>
   <view class='order-detail'>
     <text class='detail-left'>余款 {{100 - depositRate}}%</text>
-    <text class='detail-right'>￥{{totalPrice - deposit}} 于入场前{{payEndTime}}天支付</text>
+    <text class='detail-right'>￥{{totalPrice - deposit}} 于入驻{{payEndTime}}天前支付</text>
   </view>
   <view class='order-deposit'>
-    <text class='deposit-left'>本次支付定金</text>
+    <text class='deposit-left'>本次支付订金</text>
     <text class='deposit-right'>￥{{deposit}}</text>
   </view>
 </view>
@@ -33,7 +33,7 @@
   </view>
 </view>
 <view class='order-bottom'>
-  <view class='bottom-left'>本次支付定金￥{{deposit}}</view>
+  <view class='bottom-left'>本次支付订金￥{{deposit}}</view>
   <view bindtap='orderConfirm' class='bottom-right'>确认预定</view>
 </view>
 <tuiding class='tuiding {{openTuiding ? "showTuiding" : ""}}' onmyevent="closeTuiding"></tuiding>

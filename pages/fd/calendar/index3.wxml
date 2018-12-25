@@ -1,5 +1,5 @@
 <wxs module="filter" src="../../../filter/height.wxs"></wxs>
-<view bindtap='_close' class='close'>
+<view bindtap='close' class='close'>
   <image src='/images/guan.png'></image>
 </view>
 <view class="dateTop">
@@ -31,4 +31,4 @@
     </view>
   </view>
 </scroll-view>
-<button class="{{starttime&&endtime?'btn-main':''}} btn" bindtap="sure">确定</button>
+<button class="{{starttime&&endtime?'btn-main':''}} btn" disabled="{{disabled}}" bindtap="sure">确定</button>

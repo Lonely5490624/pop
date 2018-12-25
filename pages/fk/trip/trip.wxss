@@ -68,3 +68,6 @@
 .color21 {
     color: #212121; 
 }
+.color02 {
+    color: #02BB00;
+}

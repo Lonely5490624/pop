@@ -5,13 +5,11 @@
   width:600rpx;
   margin: 0 auto;
   text-align: center;
-  padding: 0rpx 20rpx;
   display: flex;
   justify-content:center;
-  padding-top:20rpx;
   position: fixed;
   top: 0;
-  left: 50rpx;
+  left: 76rpx;
 }
 .close{
   padding-left: 40rpx;
