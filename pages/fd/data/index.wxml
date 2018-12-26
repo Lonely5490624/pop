@@ -7,7 +7,7 @@
       <view class='income-all'>￥{{dataInfo.income}}</view>
       <view class='income-date'>{{dataInfo.current_month}}月收入</view>
     </view>
-    <text class='iconfont icon-icon1'></text>
+    <text class='iconfont icon-icon_arrow_right'></text>
   </navigator>
   <navigator url='data-view' class='data-views'>
     <view class='views'>
@@ -18,7 +18,7 @@
       <view class='views-all'>{{dataInfo.quantity}}</view>
       <view class='views-date'>30天预定量</view>
     </view>
-    <text class='iconfont icon-icon1'></text>
+    <text class='iconfont icon-icon_arrow_right'></text>
   </navigator>
   <navigator url='data-score' class='data-views'>
     <view class='views'>
@@ -29,7 +29,7 @@
       <view class='views-all'>{{dataInfo.comment_count}}</view>
       <view class='views-date'>评价数</view>
     </view>
-    <text class='iconfont icon-icon1'></text>
+    <text class='iconfont icon-icon_arrow_right'></text>
   </navigator>
   <view class='data-score'>
     <view class='score'>
@@ -42,7 +42,7 @@
       <view class='num-all'>{{dataInfo.round_space_comment}} <text>/5.0</text></view>
       <view class='num-date'>总体评分</view>
     </view>
-    <text class='iconfont icon-icon1'></text>
+    <text class='iconfont icon-icon_arrow_right'></text>
   </navigator>
   <view class='data-times'>
     <view class='times'>

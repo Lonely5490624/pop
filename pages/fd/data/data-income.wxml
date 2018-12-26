@@ -18,7 +18,8 @@
     </view>
     <view class='chart-price'>
       <view class='price-all'>￥{{current_income}}</view>
-      <view class='price-info'>2018年{{current_month}}月收入 · 您已获得￥{{current_income}}</view>
+      <view wx:if='{{tabId == 1}}' class='price-info'>2018年{{current_month}}月收入 · 您已获得转款￥{{transfer_order_income}}</view>
+      <view wx:if='{{tabId == 2}}' class='price-info'>2018年{{current_month}}月收入 · 您即将获得转款￥{{no_transfer_order_income}}</view>
     </view>
   </view>
 </view>

@@ -50,5 +50,5 @@
       <view class='right'>{{lt}} 3次</view>
     </view>
   </view>
-  <view class='claim-tip'>若您未达到基本要求时，将会被下架所有场景<text class='more'>了解更多</text></view>
+  <view class='claim-tip'>若您未达到基本要求时，您的空间排名将会下降，严重时您的空间将会被强制下架！</view>
 </view>

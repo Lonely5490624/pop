@@ -65,7 +65,9 @@ Page({
     transfer_order_info_list: [],
     no_transfer_order_info_list: [],
     current_income: 0,
-    current_month: 1
+    current_month: 1,
+    transfer_order_income: 0,
+    no_transfer_order_income: 0
   },
   changeTab(e) {
     let id = e.currentTarget.dataset.id;
@@ -103,7 +105,9 @@ Page({
           transfer_order_info_list: res.data.transfer_order_info_list,
           no_transfer_order_info_list: res.data.no_transfer_order_info_list,
           current_income: res.data.current_income,
-          current_month: res.data.current_month
+          current_month: res.data.current_month,
+          transfer_order_income: res.data.transfer_order_income,
+          no_transfer_order_income: res.data.no_transfer_order_income
         })
       })
   },
