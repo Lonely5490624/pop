@@ -43,9 +43,12 @@
       <image src='/images/xiang-03.jpg'></image>
       <view class='bt3_r'>
         <view class='t1'>
-        <text wx:for="{{space_info.category}}"><text>{{item.name}}</text>/</text>
+        <text wx:for="{{space_info.category}}" wx:for-index="idx">
+        <text>{{item.name}}</text>
+        <text wx:if="{{space_info.category.length-1 > idx}}">/</text>
+        </text>
         </view>
-        <view class='t2'>该空间适合进行以上类销售</view>
+        <view class='t2'>该空间适合进行以上品类销售</view>
       </view>
     </view>
     <view class='bt3_list'>
@@ -145,7 +148,7 @@
             </view>
             <view class='date'>{{item.create_time}}</view>
           </view>
-          <view class='list_r_l2'>{{item.space_content}}</view>
+          <view class='list_r_l2'>{{item.landlord_content}}</view>
           <view class='reply' wx:if="{{item.reply_content!=''}}">房东回复：{{item.reply_content}}</view>
         </view>
       </view>

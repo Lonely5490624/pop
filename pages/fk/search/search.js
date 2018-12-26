@@ -40,7 +40,7 @@ Page({
   },
   //获取热门商圈
   getCommercialCircleList:function(){
-    app.http('/home/commercialCircleList', {}, true)
+    app.http('/home/commercialCircleList', { city: wx.getStorageSync('cityId')})
       .then(res => {
         this.setData({
           commercialCircleList: res.data

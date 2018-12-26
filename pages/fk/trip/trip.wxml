@@ -3,7 +3,7 @@
   <view class="section">
     <text class='title'>行程</text>
     <view wx:for='{{tripList}}' wx:key='{{item.id}}' data-id='{{item.id}}' class='box'>
-      <view class='list1'>{{item.city_name}} - {{item.commercial_name}}</view>
+      <view class='list1'>{{item.city_name}}{{item.commercial_name}}</view>
       <view class='list2'>
         <view class='img'>
           <image src='{{imgUrl + item.space_image}}'></image>
@@ -21,44 +21,6 @@
             </view>
           </view>
         </navigator>
-      </view>
-
-
-
-
-      <view wx:if='{{ (item.order_status>= 3 || item.order_status==99) && item.refund_status == 0}}'>
-        <view wx:if='{{item.balance_status == 1}}' class='list3'>
-          <navigator url='selectPayWay?order_id={{item.id}}' class='list3'>
-            <view>
-              请于{{item.balance_time}}前支付尾款￥{{item.balance}}
-            </view>
-            <view class='con_list_r'>
-              <text class="iconfont icon-icon_arrow_right"></text>
-            </view>
-          </navigator>
-        </view>
-        <view wx:elif='{{item.balance_status == 2}}' class='list3'>
-          <navigator url='selectPayWay?id={{item.id}}' class='color21 list3'>
-            <view>请于{{item.balance_pay_time}}小时内完成尾款支付，逾期订单将自动关闭</view>
-          </navigator>
-          <view class='con_list_r'>
-            <text class="iconfont icon-icon_arrow_right"></text>
-          </view>
-        </view>
-        <view wx:elif='{{item.balance_status == 3}}' class='list3'>
-          <navigator url='selectPayWay?id={{item.id}}' class='font-f5 list3'>
-            <view>尾款已付清￥{{item.balance}}</view>
-          </navigator>
-          <view class='con_list_r'>
-            <text class="iconfont icon-icon_arrow_right"></text>
-          </view>
-        </view>
-        <view wx:elif='{{item.balance_status == 99}}' class='list3'>
-          <navigator url='selectPayWay?id={{item.id}}' class='color9B list3'>
-            <view>尾款已逾期,订单已关闭</view>
-          </navigator>
-          <view class='font-f5'>详情</view>
-        </view>
       </view>
 
       <view wx:if='{{item.order_status == 1 || item.order_status == 2 }}' class='list3'>

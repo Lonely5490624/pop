@@ -125,7 +125,8 @@ Page({
     this.setData({
       index: e.detail.value,
       cityId: this.data.cityList[e.detail.value].id
-    })
+    });
+    wx.setStorageSync('cityId', this.data.cityList[e.detail.value].id);
     this.getcommercialCircleList({ city: this.data.cityList[e.detail.value].id, type: '1'})
     this.getstoryList({ city: this.data.cityList[e.detail.value].id})
     this.getisRecommendSpaceList({ city: this.data.cityList[e.detail.value].id})
@@ -181,9 +182,10 @@ Page({
   },
   goToList: function(e) {
     wx.navigateTo({
-      url: "../list/list?name=" + e.currentTarget.dataset.text
+      // url: "../list/list?name=" + e.currentTarget.dataset.text
+      url: "../index/index"
     })
-    wx.setStorageSync('cityId', this.data.cityId)
+    //wx.setStorageSync('cityId', this.data.cityId)
   },
   goToSpace: function() {
     wx.redirectTo({

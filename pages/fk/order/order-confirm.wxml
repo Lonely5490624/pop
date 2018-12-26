@@ -31,7 +31,7 @@
     </view>
     <view class='detail'>
       <text class='left'>余款 {{100-space_info.depositRate}}%</text>
-      <text class='right'>￥{{moneyAll*(100-space_info.depositRate)*0.01}} 于入场前{{space_info.final_payment_time}}天支付</text>
+      <text class='right'>￥{{moneyAll*(100-space_info.depositRate)*0.01}} 于入驻{{space_info.final_payment_time}}天前支付</text>
     </view>
   </view>
 </view>
@@ -45,7 +45,7 @@
 <view class='order-bottom'>
   <view class='price'>
     <text class='t1'>本次支付订金￥{{moneyAll*space_info.depositRate*0.01}}</text>
-    <text class='t2'>订单总￥{{moneyAll}} 共{{dayNum}}天，尾款￥{{moneyAll*(100-space_info.depositRate)*0.01}}</text>
+    <text class='t2'>订单总额￥{{moneyAll}} 共{{dayNum}}天，尾款￥{{moneyAll*(100-space_info.depositRate)*0.01}}</text>
   </view>
   <view bindtap='confirmNext' class='next {{bg?"able":"unable"}}'>下一步</view>
 </view>
