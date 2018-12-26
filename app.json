@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/fd/space/add-6",
     "pages/news/news",
     "pages/fk/trip/trip",
     "pages/fk/fk_mine/fkMine",
@@ -21,7 +22,6 @@
     "pages/mine/changePersonMessage",
     "pages/fd/space/index",
     "pages/fd/space/add-2",
-    "pages/fd/space/add-6",
     "pages/fd/space/add-4",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
