@@ -67,7 +67,7 @@
       <text class='iconfont icon-icon_arrow_right'style='color: #e0e0e0;'></text>
     </view>
   </view>
-  <view class='box6'>
+  <view wx:if="{{tripInfo.status == 1}}" class='box6'>
     <view bindtap='refuse' class='btn refuse'>
       拒绝
     </view>
