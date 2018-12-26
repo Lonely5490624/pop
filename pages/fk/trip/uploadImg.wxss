@@ -1,0 +1,18 @@
+/* pages/fd/space/uploadImg.wxss */
+page{
+  background-color: #494a5f;
+}
+.cropper-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  margin-top: 40rpx;
+}
+.cropper-buttons .cro-btn{
+  width: 160rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  text-align: center;
+  background: #ff5555;
+  color: #fff;
+}

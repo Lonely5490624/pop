@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/fk/trip/finalPay",
     "pages/fd/space/add-6",
     "pages/news/news",
     "pages/fk/trip/trip",
@@ -25,7 +26,6 @@
     "pages/fd/space/add-4",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
-    "pages/fk/trip/finalPay",
     "pages/fk/detail/detail",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
@@ -63,7 +63,8 @@
     "pages/login/changeM",
     "pages/login/changeM2",
     "pages/fd/space/uploadImg",
-    "pages/mine/uploadImg"
+    "pages/mine/uploadImg",
+    "pages/fk/trip/uploadImg"
   ],
   "window": {
     "backgroundTextStyle": "light",

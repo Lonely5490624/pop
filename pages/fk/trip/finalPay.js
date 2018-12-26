@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    imageUrl: app.data.imgurl,
     order_id: null,
     balance_time: '11月15日 00:00',
     account:'',
@@ -52,7 +53,7 @@ Page({
   },
   uploadImg () {
     wx.navigateTo({
-      url: "../../mine/uploadImg",
+      url: "uploadImg",
     })
     // wx.chooseImage({
     //   count: 1,
