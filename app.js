@@ -5,7 +5,7 @@ App({
   data:{
     imgurl: 'http://image-qn-test.letspopup.cn/',
     requestUrl: 'http://shanpuapi.aieye8.com/index.php/home',
-    dgaccount:"28837XXXXXXXXXX"
+    dgaccount:"201000206691118"
   },
   globalData: {
     userInfo: null,

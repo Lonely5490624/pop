@@ -6,14 +6,26 @@ Page({
   data: {
     order_id: null,
     balance_time: '11月15日 00:00',
-    account:'',
-    img: null
+    account:'201000206691118',
+    img: null,
+    order_info : null
   },
   //事件处理函数
   onLoad: function (options) {
     this.setData({
       order_id: options.id,
-      account: app.data.dgaccount      
+      account: app.data.dgaccount,
+    })
+    this.detail(options.id)
+  },
+  detail : function(id){
+    var that = this
+    app.http('/order/order_detail', { member_id: wx.getStorageSync('member_id') ,order_id : id})
+    .then(res => {
+      that.setData({
+        order_info: res.data,
+        balance_time: res.data.final_m+'月'+res.data.final_d+'日 '+res.data.final_h
+      })
     })
   },
   copy () {
