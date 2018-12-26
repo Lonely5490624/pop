@@ -95,6 +95,64 @@ Page({
 
       }
     })
-  }
+  },
+  //拒绝订单
+  refuse: function (e) {
+    let that = this;
+    wx.showModal({
+      title: '确认拒绝吗',
+      content: '订单一旦拒绝，将不可恢复，您确定要拒绝该的订单吗？',
+      success: function (res) {
+        if (res.confirm) {
+          //拒绝
+          var data = {
+            space_id: that.data.tripInfo.space_id,
+            order_id: that.data.tripInfo.order_id,
+            type: 2 //1接收 2拒绝
+          }
+          app.http('/order/update_order', data)
+            .then(res => {
+              wx.showToast({
+                title: '操作成功',
+                icon: 'none',
+                duration: 2000
+              })
+            })
+        } else {
+          console.log('取消')
+        }
+
+      }
+    })
+  },
+  //接受订单
+  accept: function (e) {
+    let that = this;
+    wx.showModal({
+      title: '',
+      content: '您确定接受该订单吗？',
+      success: function (res) {
+        if (res.confirm) {
+          //接受
+          var data = {
+            space_id: that.data.tripInfo.space_id,
+            order_id: that.data.tripInfo.order_id,
+            type: 1 // 1接收 2拒绝
+          }
+          app.http('/order/update_order', data)
+            .then(res => {
+              wx.showToast({
+                title: '操作成功',
+                icon: 'none',
+                duration: 2000
+              })
+            })
+        } else {
+          console.log('取消')
+        }
+
+      }
+    })
+  },
 
 })

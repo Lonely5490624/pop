@@ -61,10 +61,18 @@
     </view>
     <view class="goPJ" bindtap='goPJ' wx:if="{{(tripInfo.status == 4 || tripInfo.status == 5) && tripInfo.refund_status == 0 && tripInfo.landlord_comment_status == 0}}">评价</view>
   </view>
-  <view class='box3'>
+  <view wx:if="{{(tripInfo.status == 2 || tripInfo.status == 3) && tripInfo.refund_status == 0}}" class='box3'>
     <view bindtap='cancle' class='b3_list'>
       <view class='b3_list_l'>取消预订</view>
       <text class='iconfont icon-icon_arrow_right'style='color: #e0e0e0;'></text>
+    </view>
+  </view>
+  <view class='box6'>
+    <view bindtap='refuse' class='btn refuse'>
+      拒绝
+    </view>
+    <view bindtap='accept' class='btn accept'>
+      接受预订
     </view>
   </view>
 </view>

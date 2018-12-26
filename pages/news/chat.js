@@ -246,6 +246,7 @@ Page({
   },
   //拒绝订单
   refuse: function(e) {
+    let that = this;
     wx.showModal({
       title: '确认拒绝吗',
       content: '订单一旦拒绝，将不可恢复，您确定要拒绝该的订单吗？',
@@ -273,7 +274,8 @@ Page({
     })
   },
   //接受订单
-  accept: function(e) {
+  accept: function (e) {
+    let that = this;
     wx.showModal({
       title: '',
       content: '您确定接受该订单吗？',
