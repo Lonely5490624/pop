@@ -21,48 +21,51 @@ Page({
       imgUrl: app.data.imgurl,
       member_type: app.globalData.member_type
     })
-    // 实例化API核心类
-    qqmapsdk = new QQMapWX({
-      key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
-    });
-    //1、获取当前位置坐标
-    wx.getLocation({
-      type: 'wgs84',
-      success: function (res) {
-        //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
-        qqmapsdk.reverseGeocoder({
-          location: {
-            latitude: res.latitude,
-            longitude: res.longitude
-          },
-          success: function (addressRes) {
-            var address = addressRes.result.address_component.city;
-            for (var i = 0; i < that.data.cityList.length; i++) {
-              if (address.indexOf(that.data.cityList[i].name)!=-1) {
-                that.setData({
-                  index: i,
-                  cityId: that.data.cityList[i].id
-                })                
-              }else{                
-                that.setData({
-                  cityId: 869
-                })
-                wx.showToast({
-                  title: "当前城市不存在，默认上海",
-                  icon: 'none',
-                  duration: 2000
-                })
+    if (!wx.getStorageSync('cityId')){
+      // 实例化API核心类
+      qqmapsdk = new QQMapWX({
+        key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
+      });
+      //1、获取当前位置坐标
+      wx.getLocation({
+        type: 'wgs84',
+        success: function (res) {
+          //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
+          qqmapsdk.reverseGeocoder({
+            location: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            },
+            success: function (addressRes) {
+              var address = addressRes.result.address_component.city;
+              for (var i = 0; i < that.data.cityList.length; i++) {
+                if (address.indexOf(that.data.cityList[i].name) != -1) {
+                  that.setData({
+                    index: i,
+                    cityId: that.data.cityList[i].id
+                  })
+                  
+                } else {
+                  that.setData({
+                    cityId: 869
+                  })
+                  wx.showToast({
+                    title: "当前城市不存在，默认上海",
+                    icon: 'none',
+                    duration: 2000
+                  })
+                }
               }
+              wx.setStorageSync('cityId', that.data.cityId);
+              that.getcommercialCircleList({ city: that.data.cityId, type: '1' })
+              that.getstoryList({ city: that.data.cityId })
+              that.getisRecommendSpaceList({ city: that.data.cityId })
             }
-            that.getcommercialCircleList({ city: that.data.cityId, type: '1'})
-            that.getstoryList({ city: that.data.cityId })
-            that.getisRecommendSpaceList({city: that.data.cityId}) 
-          }
-        })
-      }
-    })          
-    this.getCityList()
-    
+          })
+        }
+      })  
+    }     
+    this.getCityList()    
   },
   onShow:function(){
     this.setData({
@@ -182,10 +185,8 @@ Page({
   },
   goToList: function(e) {
     wx.navigateTo({
-      // url: "../list/list?name=" + e.currentTarget.dataset.text
       url: "../index/index"
     })
-    //wx.setStorageSync('cityId', this.data.cityId)
   },
   goToSpace: function() {
     wx.redirectTo({

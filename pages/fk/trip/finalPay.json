@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "space-search": "/components/search/search"
+    "space-search": "/components/search/search",
+    "tuiding": "/components/tuiding/index"
   }
 }

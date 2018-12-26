@@ -6,9 +6,10 @@ Page({
   data: {
     order_id: null,
     balance_time: '11月15日 00:00',
-    account:'201000206691118',
+    account:'',
     img: null,
-    order_info : null
+    order_info : null,
+    openTuiding: false
   },
   //事件处理函数
   onLoad: function (options) {
@@ -28,30 +29,46 @@ Page({
       })
     })
   },
+  // 查看退订政策
+  bindTuiding() {
+    this.setData({
+      openTuiding: true
+    })
+  },
+  closeTuiding() {
+    this.setData({
+      openTuiding: false
+    })
+  },
   copy () {
     wx.setClipboardData({
       data: this.data.account,
       success: res => {
-
+        wx.navigateTo({
+          url: "../order/order-confirm-3",
+        })
       }
     })
   },
   uploadImg () {
-    wx.chooseImage({
-      count: 1,
-      success: res => {
-        console.log(res)
-        this.setData({
-          img: res.tempFiles[0].path
-        })
-        app.http('/order/upload_voucher', { order_id: this.data.order_id, file: this.data.img})
-          .then(res => {
-            wx.showToast({
-              title: res.msg,
-              duration: 2000
-            })
-          })
-      }
+    wx.navigateTo({
+      url: "../../mine/uploadImg",
     })
+    // wx.chooseImage({
+    //   count: 1,
+    //   success: res => {
+    //     console.log(res)
+    //     this.setData({
+    //       img: res.tempFiles[0].path
+    //     })
+    //     app.http('/order/upload_voucher', { order_id: this.data.order_id, file: this.data.img})
+    //       .then(res => {
+    //         wx.showToast({
+    //           title: res.msg,
+    //           duration: 2000
+    //         })
+    //       })
+    //   }
+    // })
   }
 })

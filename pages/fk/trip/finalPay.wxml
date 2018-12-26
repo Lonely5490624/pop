@@ -25,7 +25,8 @@
   <view class='box2'>
     <view class='t1'>如有疑问请致电：400-6535877</view>
     <view class='t2'>查看协议
-      <text style="color:#0085FF;">《退订政策说明》</text>
+      <text style="color:#0085FF;" bindtap='bindTuiding'>《退订政策说明》</text>
     </view>
   </view>
 </view>
+<tuiding class='tuiding {{openTuiding ? "showTuiding" : ""}}' onmyevent="closeTuiding"></tuiding>
