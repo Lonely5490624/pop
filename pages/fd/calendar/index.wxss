@@ -100,7 +100,7 @@
   line-height: 31rpx;
 }
 .month-day .day-item.lineheight30 {
-  line-height: 63rpx;
+  height: 63rpx;
 }
 .dayPrice{
   display: block;
