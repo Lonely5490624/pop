@@ -3,7 +3,7 @@ var app=getApp()
 Page({
 
   data: {
-    dataInfo:[],
+    dataInfo: {},
     member_type: 0
   },
   onLoad: function (options) {
@@ -15,13 +15,10 @@ Page({
     })
     app.http('/data/index', { member_type:'2'})
       .then(res => {
-        if (res.data.length > 0) {
-          this.setData({
-            dataInfo: res.data
-          })
-          wx.hideLoading()
-        }
-        
+        this.setData({
+          dataInfo: res.data
+        })
+        wx.hideLoading()
       })
   },
   goToList: function () {

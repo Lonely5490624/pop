@@ -27,7 +27,7 @@
       </view>
       <view class='date' style="float:right;">{{item.create_time}}</view>
       <view class='list_r_l2'>{{item.landlord_content}}</view>
-      <view class='font-f5 hf'>房东回复：{{item.reply_content}}</view>
+      <view wx:if='{{item.reply_content}}' class='font-f5 hf'>房东回复：{{item.reply_content}}</view>
     </view>
   </view>
 </view>

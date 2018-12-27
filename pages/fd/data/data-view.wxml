@@ -29,10 +29,4 @@
       <view class='p2'>2018年{{viewInfo.current_month}}月预定率</view>
     </view>
   </view>
-  <view class='view-bottom'>
-    <view class='item'>提高预订率的方法一</view>
-    <view class='item br-0'>提高预订率的方法一</view>
-    <view class='item'>提高预订率的方法一</view>
-    <view class='item br-0'>提高预订率的方法一</view>
-  </view>
 </view>

@@ -97,7 +97,10 @@
   width: 63rpx;
   display: inline-block;
   border-radius: 50%;
-  line-height: 30rpx;
+  line-height: 31rpx;
+}
+.month-day .day-item.lineheight30 {
+  line-height: 63rpx;
 }
 .dayPrice{
   display: block;
@@ -165,8 +168,8 @@
   border-radius: 100%;
   background: #616161;
   color: #fff !important;
-  font-size: 20rpx !important;
-  margin: 0 22rpx;
+  margin-left: 22rpx;
+  margin-right: 22rpx;
   text-align: center;
 }
 

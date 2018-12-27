@@ -37,8 +37,8 @@
     </view>
   </view>
   <view class='item'>
-    <view class='left'>xx费（每个订单一次性支付）</view>
-    <view class='right' style='width: 300rpx;'>
+    <view class='left'>清洁费（每个订单一次性支付）</view>
+    <view class='right' style='width: 200rpx;'>
       <input bindinput='inputClearPrice' value='{{clear_price == -1 ? "" : clear_price}}' type='text' placeholder='请输入' placeholder-style='color: #e0e0e0;'></input>
     </view>
   </view>
@@ -76,10 +76,10 @@
     </view>
   </view>
 </view>
-<view class='title'>入驻和清场时间</view>
+<view class='title'>经营和清场时间</view>
 <view class='list'>
   <view class='item'>
-    <view class='left'>入驻开始时间</view>
+    <view class='left'>营业时间</view>
     <view class='right'>
       <picker mode="time" value="{{arrival_start_time}}" bindchange="bindArrivalStartTime">
         <view>{{arrival_start_time || "请选择"}}</view>
@@ -87,18 +87,10 @@
     </view>
   </view>
   <view class='item'>
-    <view class='left'>入驻结束时间</view>
+    <view class='left'>歇业时间</view>
     <view class='right'>
       <picker mode="time" value="{{arrival_end_time}}" bindchange="bindArrivalEndTime">
         <view>{{arrival_end_time || "请选择"}}</view>
-      </picker>
-    </view>
-  </view>
-  <view class='item'>
-    <view class='left'>清场时间</view>
-    <view class='right'>
-      <picker mode="time" value="{{leave_time}}" bindchange="bindLeaveTime">
-        <view>{{leave_time || "请选择"}}</view>
       </picker>
     </view>
   </view>

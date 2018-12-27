@@ -53,7 +53,7 @@
         </view>
       </view>
     </navigator>
-    <navigator url="/pages/fd/space/index">
+    <navigator url="/pages/fd/space/add-1">
       <view class='con_list'>
         <view class='con_list_l' wx:if="{{member_type==1}}">我要发布空间</view>
         <view class='con_list_l' wx:if="{{member_type==2}}">发布新空间</view>

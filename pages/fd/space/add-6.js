@@ -9,10 +9,10 @@ Array.prototype.remove = function (val) {
 
 const unsubscribeArray = [{
   id: 1,
-  name: '灵活：入驻前5天取消可退全款'
+  name: '灵活'
 }, {
   id: 2,
-  name: '中等：入驻前7天取消可退全款'
+  name: '轻松'
 }]
 const subscribeTimeArray = [{
   id: 1,
@@ -40,7 +40,7 @@ Page({
     spaceId: null,
     demand: [],
     demandList: [],
-    unsubscribes: ['灵活：入驻前5天取消可退全款', '中等：入驻前7天取消可退全款'],
+    unsubscribes: ['灵活', '轻松'],
     unsubscribeArray,
     unsubscribeIndex: 0,
     rules: '',
@@ -66,7 +66,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // options.spaceId = 158
+    // options.spaceId = 189
     this.setData({
       spaceId: options.spaceId
     })
@@ -91,13 +91,13 @@ Page({
           unsubscribeIndex,
           rules: res.data.rules,
           demand: res.data.demand,
-          everyday_price: res.data.everyday_price,
-          week_price: res.data.week_price,
-          clear_price: res.data.clear_price,
-          min_subscribe_time: res.data.min_subscribe_time,
+          everyday_price: res.data.everyday_price == -1 ? '' : res.data.everyday_price,
+          week_price: res.data.week_price == -1 ? '' : res.data.week_price,
+          clear_price: res.data.clear_price == -1 ? '' : res.data.clear_price,
+          min_subscribe_time: res.data.min_subscribe_time == -1 ? '' : res.data.min_subscribe_time,
           subscribeTimeIndex,
-          min_hire_time: res.data.min_hire_time,
-          max_hire_time: res.data.max_hire_time,
+          min_hire_time: res.data.min_hire_time == -1 ? '' : res.data.min_hire_time,
+          max_hire_time: res.data.max_hire_time == -1 ? '' : res.data.max_hire_time,
           arrival_start_time: res.data.arrival_start_time,
           arrival_end_time: res.data.arrival_end_time,
           leave_time: res.data.leave_time,
@@ -240,13 +240,6 @@ Page({
       })
       return
     }
-    if (!params.clear_price && params.clear_price != -1) {
-      wx.showToast({
-        title: '请填写xx费',
-        icon: 'none'
-      })
-      return
-    }
     if (!params.min_subscribe_time && params.min_subscribe_time != -1) {
       wx.showToast({
         title: '请填写提前预定天数',
@@ -270,21 +263,14 @@ Page({
     }
     if (!params.arrival_start_time) {
       wx.showToast({
-        title: '请选择入驻开始时间',
+        title: '请选择营业时间',
         icon: 'none'
       })
       return
     }
     if (!params.arrival_end_time) {
       wx.showToast({
-        title: '请选择入驻结束时间',
-        icon: 'none'
-      })
-      return
-    }
-    if (!params.leave_time) {
-      wx.showToast({
-        title: '请选择清场',
+        title: '请选择歇业时间',
         icon: 'none'
       })
       return

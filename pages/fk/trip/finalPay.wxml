@@ -17,7 +17,7 @@
       </view>
       <view class='b1_t1' style='margin-top:50rpx;'>上传支付凭证，可以是邮件截图，扣款截图等</view>
       <view bindtap='uploadImg' class='b_iamge_up'>
-        <image wx:if='{{img}}' src='{{img}}' class='upload-img'></image>
+        <image wx:if='{{img}}' src='{{imageUrl + img}}' class='upload-img'></image>
       </view>
       <view class='b1_t1' style='margin-top:30rpx;'>等待平台方验证支付信息</view>
     </view>
