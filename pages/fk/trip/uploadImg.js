@@ -93,12 +93,15 @@ Page({
               .then(res => {
                 let pages = getCurrentPages()
                 let prevPage = pages[pages.length - 2]
-                prevPage.setData({
-                  img: res.data
-                })
-                wx.navigateBack({
-                  alpha: 1
-                })
+                app.http('/order/upload_voucher', { order_id: prevPage.data.order_id, file: res.data })
+                  .then(res => {
+                    prevPage.setData({
+                      img: res.data
+                    })
+                    wx.navigateBack({
+                      alpha: 1
+                    })
+                  })
               })
           }
         })
