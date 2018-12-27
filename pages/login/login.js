@@ -9,7 +9,7 @@ Page({
     btnBg: false,
     mobile: "",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    userData: []
+    userData: null
   },
   onLoad: function() {
     var that = this
@@ -48,8 +48,7 @@ Page({
           }
         })
       }
-    })
-  ,
+    }),
     // 查看是否授权
     wx.getSetting({
       success(res) {
@@ -66,10 +65,12 @@ Page({
         }
       }
     })
-    
   },
   bindGetUserInfo(e) {
-    console.log(e.detail.userInfo)
+    this.setData({
+      userData: e.detail.userInfo
+    })
+    // console.log(e.detail.userInfo)
   },
   getMoblie: function(e) {
     this.setData({

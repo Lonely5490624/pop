@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/fk/detail/detail",
     "pages/fk/index/index",
+    "pages/fk/detail/detail",
     "pages/fk/trip/finalPay",
     "pages/news/news",
     "pages/fk/trip/trip",
