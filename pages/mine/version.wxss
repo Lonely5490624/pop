@@ -1,6 +1,6 @@
 /* pages/fk/order/order-confirm-3.wxss */
 .pages{
-padding: 0 140rpx;
+padding: 0 50rpx;
 box-sizing: border-box;
 }
 .content {

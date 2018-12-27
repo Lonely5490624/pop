@@ -46,6 +46,7 @@ Page({
     })
   },
   getCode: function() {
+    console.log(app.globalData.userInfo)
     var that = this;
     wx.request({
       url: app.data.requestUrl+'/member/send_sms',
@@ -81,7 +82,9 @@ Page({
         },
         data: {
           mobile: parseInt(that.data.mobile),
-          code: parseInt(that.data.iptValue)
+          code: parseInt(that.data.iptValue),
+          unionid : wx.getStorageSync('unionid'),
+          openid: wx.getStorageSync('openid')
         },
         success: function(res) {
           

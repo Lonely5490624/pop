@@ -9,11 +9,11 @@
       <view wx:for='{{demandList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='chooseDem' data-id='{{item.id}}' class='con-item {{filter.hasEle(demand, item.id) ? "active" : ""}}'>{{item.name}}</view>
     </view>
   </view>
-  <view class='item arrow'>
+  <view class='item'>
     <view class='left'>退订政策</view>
     <view class='right' style='width: 500rpx;'>
       <picker bindchange="changeUnsubscribe" range='{{unsubscribes}}' mode="selector" value="{{unsubscribeIndex}}">
-        <view>{{unsubscribeArray[unsubscribeIndex].name}}</view>
+        <view>{{unsubscribeArray[unsubscribeIndex].name}} <text class='iconfont icon-icon_arrow_right'></text></view>
       </picker>
     </view>
   </view>

@@ -99,7 +99,7 @@ Page({
                 title: '取消成功！',
                 icon: 'none',
                 duration: 2000
-              })
+              });
               that.order_detail();
             })
         } else {

@@ -40,6 +40,10 @@
         <view class='con_list_r'>{{userInfo.credentials_numbere}}></view>
       </navigator>
     </view>
+    <view class='con_list' bindtap="clearWx" wx:if="{{is_bind_wx == 1}}">
+        <view class='con_list_l'>已绑定微信</view>
+        <view class='con_list_r'>解除微信绑定></view>
+    </view>
     <view class='saveBtn' bindtap='saveInfo'>保存</view>
   </view>
 </view>

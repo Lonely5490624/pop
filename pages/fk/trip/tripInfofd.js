@@ -116,7 +116,8 @@ Page({
                 title: '操作成功',
                 icon: 'none',
                 duration: 2000
-              })
+              });
+              that.order_detail();
             })
         } else {
           console.log('取消')
@@ -145,7 +146,8 @@ Page({
                 title: '操作成功',
                 icon: 'none',
                 duration: 2000
-              })
+              });
+              that.order_detail();
             })
         } else {
           console.log('取消')

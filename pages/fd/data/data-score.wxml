@@ -99,13 +99,14 @@
         <view class='eval-info'>
           <view class='eval-top'>
             <view class='username'>{{item.nick_name}}</view>
-            <image src='/images/1.png' class='score'>{{item.service}}</image>
+            <image src='/images/{{item.service}}.png' class='score'>{{item.service}}</image>
             <view class='time'>{{item.create_time}}</view>
           </view>
           <view class='eval-bottom'>{{item.landlord_content}}</view>
+          <view class='reply' wx:if="{{item.reply_content!=''}}">房东回复：{{item.reply_content}}</view>
         </view>
       </view>
-      <view class='eval-control'>
+      <view class='eval-control' wx:if="{{item.reply_content ==''}}">
         <view class='eval-reply' bindtap='openHf' wx:if="{{isshowHfbtn}}">回复</view>
         <view class='eval-report' wx:if="{{isshowHfbtn}}" bindtap='report'>举报</view>
       </view>

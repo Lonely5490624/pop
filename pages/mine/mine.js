@@ -18,7 +18,8 @@ Page({
         that.setData({
           userInfo: res.data,
           head_img_url: res.data.head_img_url
-        })
+        });
+        wx.setStorageSync('user_data', res.data)
       })
   },
   signOut: function() {

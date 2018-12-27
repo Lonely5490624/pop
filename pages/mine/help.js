@@ -5,7 +5,7 @@ Page({
     qalist: []
   },
   onLoad: function() {
-    app.http('/my/get_help')
+    app.http('/my/get_help',{member_type : wx.getStorageSync('member_type')})
       .then(res => {
         this.setData({
           qalist: res.data

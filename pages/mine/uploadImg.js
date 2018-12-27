@@ -48,10 +48,14 @@ Page({
       })
   },
   touchStart(e) {
-    this.wecropper.touchStart(e)
+    this.wecropper.touchStart({
+      touches: e.touches.filter(i => i.x !== undefined)
+    })
   },
   touchMove(e) {
-    this.wecropper.touchMove(e)
+    this.wecropper.touchMove({
+      touches: e.touches.filter(i => i.x !== undefined)
+    })
   },
   touchEnd(e) {
     this.wecropper.touchEnd(e)

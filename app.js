@@ -4,7 +4,7 @@ import { ajaxData } from 'utils/common'
 App({
   data:{
     imgurl: 'http://image-qn-test.letspopup.cn/',
-    requestUrl: 'http://shanpuapi.letspopup.cn/index.php/home',
+    requestUrl: 'http://shanpuapi-test.letspopup.cn/index.php/home',
     dgaccount:"201000206691118"
   },
   globalData: {

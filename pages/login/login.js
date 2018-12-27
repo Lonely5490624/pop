@@ -15,8 +15,15 @@ Page({
     var that = this
     wx.login({
       success: res => {
+        wx.getUserInfo({
+          withCredentials: true,
+          lang: 'zh_CN',
+          success: function (ress) {
+            console.log(ress.userInfo)
+          }
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        let code = res.code
+        let code = res.code;
         wx.request({
           url: app.data.requestUrl + "/member/getOpenId",
           data: {code: res.code},
@@ -27,10 +34,22 @@ Page({
           success: function (res) {
             wx.setStorageSync('openid', res.data.data.openid);
             wx.setStorageSync('session_key', res.data.data.session_key);
+            wx.setStorageSync('is_bind_wx', res.data.data.is_bind_wx);
+            if(res.data.data.member_id){
+              let time = Date.now() + 86400000
+              wx.setStorageSync('time', time)
+              wx.setStorageSync('member_id', res.data.data.member_id)
+              wx.setStorageSync('member_type', res.data.data.member_type)
+              wx.redirectTo({
+                url: '../fk/index/index'
+              })
+            }
+            
           }
         })
       }
     })
+  ,
     // 查看是否授权
     wx.getSetting({
       success(res) {

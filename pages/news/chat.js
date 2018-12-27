@@ -147,7 +147,7 @@ Page({
   get_message: function(last_id) {
     var that = this
     var data = {
-      member_type: that.data.member_type,
+      member_type: wx.getStorageSync('member_type'),
       space_id: that.data.space_id,
       last_id: last_id,
       info_id: that.data.info_id,
@@ -264,6 +264,10 @@ Page({
                 title: '操作成功',
                 icon: 'none',
                 duration: 2000
+              });
+              //显示是否接受按钮
+              that.setData({
+                fdBtn: false
               })
             })
         } else {
@@ -293,6 +297,10 @@ Page({
                 title: '操作成功',
                 icon: 'none',
                 duration: 2000
+              });
+              //显示是否接受按钮
+              that.setData({
+                fdBtn: false
               })
             })
         } else {

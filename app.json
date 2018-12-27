@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/news/news",
+    "pages/fk/detail/detail",
     "pages/fk/index/index",
-    "pages/fk/trip/trip",
     "pages/fk/trip/finalPay",
+    "pages/news/news",
+    "pages/fk/trip/trip",
     "pages/fk/fk_mine/fkMine",
     "pages/fd/fd_mine/fdMine",
     "pages/evaluate/evaluatefd",
@@ -23,9 +24,9 @@
     "pages/fd/space/index",
     "pages/fd/space/add-2",
     "pages/fd/space/add-4",
+    "pages/fd/space/add-6",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
-    "pages/fk/detail/detail",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
     "pages/fk/trip/tripInfo",
@@ -64,6 +65,7 @@
     "pages/fd/space/uploadImg",
     "pages/mine/uploadImg",
     "pages/fk/trip/uploadImg"
+ 
   ],
   "window": {
     "backgroundTextStyle": "light",

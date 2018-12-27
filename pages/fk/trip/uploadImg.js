@@ -15,12 +15,12 @@ Page({
       width,  // 画布宽度
       height, // 画布高度
       scale: 2.5, // 最大缩放倍数
-      zoom: 10, // 缩放系数
+      zoom: 8, // 缩放系数
       cut: {
-        x: (width - 268) / 2, // 裁剪框x轴起点
-        y: (width - 150.75) / 2, // 裁剪框y轴期起点
-        width: 268, // 裁剪框宽度
-        height: 150.75 // 裁剪框高度
+        x: (width - 200) / 2, // 裁剪框x轴起点
+        y: (width - 200) / 2, // 裁剪框y轴期起点
+        width: 200, // 裁剪框宽度
+        height: 200 // 裁剪框高度
       }
     }
   },
@@ -52,10 +52,14 @@ Page({
       })
   },
   touchStart(e) {
-    this.wecropper.touchStart(e)
+    this.wecropper.touchStart({
+      touches: e.touches.filter(i => i.x !== undefined)
+    })
   },
   touchMove(e) {
-    this.wecropper.touchMove(e)
+    this.wecropper.touchMove({
+      touches: e.touches.filter(i => i.x !== undefined)
+    })
   },
   touchEnd(e) {
     this.wecropper.touchEnd(e)

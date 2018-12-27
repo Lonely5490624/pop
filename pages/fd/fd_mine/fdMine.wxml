@@ -17,7 +17,7 @@
       <view class='list_r_l1'>
         <view class='name'>{{item.nick_name}}</view>
         <view class='xing' style="display:flex;flex-direction:row;margin-left:20rpx;">
-          <view class='space-score' wx:for='{{item.service}}'>
+          <view class='space-score' wx:for='{{item.service*1}}'>
             <text class='iconfont icon-wujiaoxing score-icon active'></text>
           </view>
           <view class='space-score' wx:for='{{5-item.service}}'>
@@ -29,5 +29,42 @@
       <view class='list_r_l2'>{{item.landlord_content}}</view>
       <view wx:if='{{item.reply_content}}' class='font-f5 hf'>房东回复：{{item.reply_content}}</view>
     </view>
+  </view>
+</view>
+
+<!--底部-->
+<view class="footer-h"></view>
+<view class="footer">
+  <view class="footer-li" bindtap='goToList' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-tubiao-"></text>
+    <text>搜索</text>
+  </view>
+  <view class="footer-li select" bindtap='goToNews'>
+    <text class="iconfont icon-xiaoxi"></text>
+    <text>消息</text>
+  </view>
+  <view class="footer-li" bindtap='goToCalendar' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-calendar"></text>
+    <text>日历</text>
+  </view>
+  <view class="footer-li" bindtap='goToSpace' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-home"></text>
+    <text>空间</text>
+  </view>
+  <view class="footer-li" bindtap='goToData' wx:if="{{member_type==2}}">
+    <text class="iconfont icon-shuju"></text>
+    <text>数据</text>
+  </view>
+  <view class="footer-li" bindtap='goToTrip' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-hangcheng"></text>
+    <text>行程</text>
+  </view>
+  <view class="footer-li" bindtap='goToCollection' wx:if="{{member_type==1}}">
+    <text class="iconfont icon-shoucang"></text>
+    <text>收藏</text>
+  </view>
+  <view class="footer-li" bindtap='goToMine'>
+    <text class="iconfont icon-wode"></text>
+    <text>我的</text>
   </view>
 </view>

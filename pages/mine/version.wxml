@@ -4,7 +4,7 @@
     <view class='img'>
       <image src='/images/Group 8@1x.png'></image>
     </view>
-    <view class='t1'>v 1.0.2</view>
-    <view class='t2'>版本介绍版本介绍版本介绍版本介绍版本介绍版本介绍版本介绍版本介绍</view>
+    <view class='t1'>v 1.0.0</view>
+    <view class='t2'>闪铺是一个为商铺使用者及出租者提供交易保障的平台，闪铺APP为您提供各个商业中心的共享商铺，改变商业结构去除商业同质化，在降低商铺的使用成本的基础上，为商铺提供多元化的选择，增强商铺的活性。</view>
   </view>
 </view>
