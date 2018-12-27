@@ -44,6 +44,7 @@ Page({
               })
             },
             fail: err => {
+          
               console.log('fail:', err)
             },
             complete: res => {

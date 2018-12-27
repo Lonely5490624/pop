@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    spaceType: null,
+    spaceType: 1,
     flag:true,
     openTuiding:false,
     openTuiding1:false

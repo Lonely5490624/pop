@@ -31,6 +31,9 @@
   line-height: 44rpx;
   text-align: right;
 }
+.con_list_r{
+  color: #666
+}
 .next{
   width: calc(100% - 64rpx);
   line-height: 46rpx;

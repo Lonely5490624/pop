@@ -7,13 +7,16 @@ Page({
     userInfo: [],
     userData:[],
     wxtx:'',
-    head_img_url: null
+    head_img_url: null,
+    is_bind_wx: 0
   },
   onLoad: function (options) {
+
     this.setData({
       wxtx: wx.getStorageSync('wxUserData').avatarUrl,
       userData: wx.getStorageSync('userData'),
-      userInfo: JSON.parse(options.userInfo)
+      userInfo: JSON.parse(options.userInfo),
+      is_bind_wx: wx.getStorageSync('is_bind_wx')
     })
     if (this.data.userInfo.province!=null){
       this.setData({
@@ -38,6 +41,19 @@ Page({
       'userInfo.city': e.detail.value[1],
       'userInfo.county': e.detail.value[2],
     });
+  },
+  clearWx : function(){
+    app.http('/my/remove_openid')
+      .then(res => {
+        if (res.code == 200) {
+          wx.removeStorageSync('time')
+          wx.removeStorageSync('member_id')
+          wx.removeStorageSync('member_type')
+          wx.navigateTo({
+            url: '../fk/index/index'
+          })
+        }
+      })
   },
   //保存
   saveInfo: function() {

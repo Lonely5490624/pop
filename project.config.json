@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wxe7a2a19adfcb7bf8",
-	"projectname": "pop1",
+	"projectname": "popup",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

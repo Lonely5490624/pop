@@ -10,12 +10,15 @@
       </picker>
     </view>
   </view> -->
-  <view class='item arrow'>
+  <view class='item'>
     <view class='left'>城市</view>
     <view class='right'>
       <picker bindchange="changeRegin" bindcolumnchange="bindcolumnchange" mode="multiSelector" range='{{regionArray}}' value='{{regionIndex}}'>
         <view wx:if='{{region}}' class="con_list_r">{{regionArray[0][regionIndex[0]]}} - {{regionArray[1][regionIndex[1]]}}</view>
-        <view wx:else class='con_list_r'>请选择</view>
+        <view wx:else class='con_list_r'>
+        请选择 <text class='iconfont icon-icon_arrow_right'></text>
+        </view>
+        
       </picker>
     </view>
   </view>

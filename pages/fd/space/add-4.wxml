@@ -13,17 +13,17 @@
     <view class='p1'>空间描述</view>
     <textarea bindinput='inputDescribe' value='{{describe}}' placeholder='请输入…'></textarea>
   </view>
-  <view class='item arrow'>
+  <view class='item'>
     <view class='left'>空间位置</view>
     <view class='right'>
-      <view bindtap='openMap'>{{address}}</view>
+      <view bindtap='openMap'>{{address}}  <text class='iconfont icon-icon_arrow_right'></text></view> 
     </view>
   </view>
-  <view class='item arrow'>
+  <view class='item'>
     <view class='left'>空间类型</view>
     <view class='right'>
       <picker bindchange="changeAttribute" range='{{attributes}}' mode="selector" value="{{attributeIndex}}">
-        <view>{{attributesArrar[attributeIndex].name}}</view>
+        <view>{{attributesArrar[attributeIndex].name}}  <text class='iconfont icon-icon_arrow_right'></text></view>
       </picker>
     </view>
   </view>
@@ -33,11 +33,11 @@
       <view wx:for='{{categoryList}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='choosePin' data-id='{{item.id}}' class='con-item {{filter.hasEle(category, item.id) ? "active" : ""}}'>{{item.name}}</view>
     </view>
   </view>
-  <view class='item arrow'>
+  <view class='item'>
     <view class='left'>消费定位</view>
     <view class='right'>
       <picker bindchange="changeCon" range='{{consumption_orientations}}' mode="selector" value="{{consumption_orientationIndex}}">
-        <view>{{consumption_orientationsArray[consumption_orientationIndex].name}}</view>
+        <view>{{consumption_orientationsArray[consumption_orientationIndex].name}}  <text class='iconfont icon-icon_arrow_right'></text></view>
       </picker>
     </view>
   </view>

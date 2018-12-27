@@ -17,6 +17,7 @@ Page({
       'region[1]': this.data.userInfo.city,
       'region[2]': this.data.userInfo.county
     })
+ 
   },
   // 选择省市区函数
   changeRegin(e) {

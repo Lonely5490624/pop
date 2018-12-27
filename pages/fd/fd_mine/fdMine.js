@@ -4,9 +4,13 @@ Page({
 
   data: {
     myInfo: [],
-    pList: []
+    pList: [],
+    member_type : 2
   },
   onLoad: function(options) {
+    this.setData({
+       member_type : wx.getStorageSync('member_type') 
+    });
     var that=this
     wx.request({
         url: app.data.requestUrl + "/my/index",
@@ -50,5 +54,46 @@ Page({
           wx.hideLoading()
         }
       })      
+  },
+  goToList: function () {
+    wx.redirectTo({
+      url: "../../fk/index/index"
+    })
+  },
+  goToSpace: function () {
+    wx.redirectTo({
+      url: "../space/index"
+    })
+  },
+  goToMine: function () {
+    wx.redirectTo({
+      url: "../../mine/mine"
+    })
+  },
+  goToNews: function () {
+    wx.redirectTo({
+      url: "../../news/news"
+    })
+  },
+  goToTrip: function () {
+    wx.redirectTo({
+      url: "../../fk/trip/trip"
+    })
+  },
+  goToCollection: function () {
+    wx.redirectTo({
+      url: "../../fk/collection/collection"
+    })
+  },
+
+  goToData: function () {
+    wx.redirectTo({
+      url: "../data/index"
+    })
+  },
+  goToCalendar: function () {
+    wx.redirectTo({
+      url: "../calendar/index"
+    })
   }
 })
