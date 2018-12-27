@@ -66,7 +66,6 @@ Page({
       order_id: this.data.tripInfo.order_id,
       space_id: this.data.tripInfo.space_id
     }
-    console.log(arr)
     var dd = JSON.stringify(arr)
     wx.navigateTo({
       url: "/pages/news/chat?info=" + dd
@@ -79,7 +78,7 @@ Page({
   },
   gotoMyindex:function(){
     wx.navigateTo({
-      url: "../fk_mine/fkMine?space_id=" + this.data.tripInfo.space_id
+      url: "../../fd/fd_mine/fdMine?member_id=" + this.data.tripInfo.space_member_id + "&space_id=" + this.data.tripInfo.space_id
     })
   },
   cancle: function() {

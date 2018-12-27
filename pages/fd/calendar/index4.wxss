@@ -11,8 +11,12 @@
   left: 0;
 }
 .close{
-  padding-left: 40rpx;
-
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  left: 40rpx;
+  top: 0;
+  z-index: 99;
 }
 .close image{
   width: 28rpx;

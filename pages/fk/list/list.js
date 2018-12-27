@@ -1,4 +1,5 @@
 // pages/fk/list/list.js
+import { ajaxData } from '../../../utils/common.js'
 const spaceData = []
 var app = getApp()
 Page({
@@ -114,9 +115,11 @@ Page({
     this.data.rcData.member_id = wx.getStorageSync('member_id')
     this.data.rcData.page = this.data.pageNum
     this.data.rcData.page_num = 10
+    let data = this.data.rcData
+    data = ajaxData(data)
     wx.request({
       url: app.data.requestUrl + "/home/searchSpace",
-      data: this.data.rcData,
+      data: data,
       method: 'POST',
       header: {
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
