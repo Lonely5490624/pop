@@ -53,7 +53,8 @@ Page({
     })
     if (options != '') {
       this.setData({
-        space_id: options.id
+        // space_id: options.id
+        space_id: 33
       })
     }
     this.getDetail(this.data.space_id)
@@ -147,7 +148,7 @@ Page({
     }
   },
   gotorlIndex4:function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: "../../fd/calendar/index4?space_id=" + this.data.space_id
     })
   }

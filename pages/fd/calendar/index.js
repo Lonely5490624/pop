@@ -163,6 +163,15 @@ Page({
     //点击修改样式
     let arr = this.data.currentTypes
     let id = e.currentTarget.dataset.id
+    let nowDate = this.data.able[0];
+    if (id < nowDate) {
+      wx.showToast({
+        title: '已过期时间无法再编辑！！',
+        icon: 'none'
+      })
+      return
+    }
+    if (id < new Date())
     this.setData({
       dayPrice: e.currentTarget.dataset.dayprice
     })

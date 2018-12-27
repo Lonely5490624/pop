@@ -5,7 +5,7 @@ const app = getApp()
 Page({
   data: {
     imageUrl: app.data.imgurl,
-    order_id: null,
+    order_id: 53,
     balance_time: '11月15日 00:00',
     account:'',
     img: null,

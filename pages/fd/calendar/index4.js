@@ -159,6 +159,7 @@ Page({
   },
 
   close: function () {
+    console.log(123)
     wx.navigateBack({ //返回
       delta: 1
     })

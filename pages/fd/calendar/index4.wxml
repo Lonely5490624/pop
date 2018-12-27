@@ -1,7 +1,7 @@
 <wxs module="filter" src="../../../filter/height.wxs"></wxs>
-<view bindtap='close' class='close'>
+<!-- <view bindtap='close' class='close'>
   <image src='/images/guan.png'></image>
-</view>
+</view> -->
 <scroll-view scroll-y class='calendar-main'>
   <view class="month-block" wx:for="{{canlendar_data}}" wx:for-item="canlendar_item">
     <view class="month-title">{{canlendar_item.year}}年{{canlendar_item.month}}月</view>
@@ -11,7 +11,13 @@
     <view class="month-content">
       <view class="month-day {{item.fullDate<nowDate?'gray':''}} {{startDate===item.fullDate?'startActive':''}} {{endDate===item.fullDate?'endActive':''}} {{item.fullDate>startDate&&item.fullDate<endDate&&startDate!==''&&endDate!==''?'midActive':''}}" bindtap="chooseDate"
         data-year="{{canlendar_item.year}}" data-month="{{canlendar_item.fullMonth}}" data-day="{{item.fullDay}}" data-id="{{item.fullDate}}" wx:for="{{canlendar_item.allDays}}">
-        <view class='day-item'>{{item.day}}<text class='dayPrice' wx:if="{{filter.hasEle(s_able,item.fullDate) && item.fullDate>=nowDate}}">{{ablePrice[filter.getIndex(s_able, item.fullDate)]}}</text></view>
+        <!-- <view class='day-item'>{{item.day}}<text class='dayPrice' wx:if="{{filter.hasEle(s_able,item.fullDate) && item.fullDate>=nowDate}}">{{ablePrice[filter.getIndex(s_able, item.fullDate)]}}</text></view> -->
+        <view wx:if="{{filter.hasEle(s_able,item.fullDate)}}" class='day-item'>{{item.day}}
+          <text class='dayPrice'>￥{{ablePrice[filter.getIndex(s_able, item.fullDate)]}}</text>
+        </view>
+        <view wx:else class='day-item lineheight30'>{{item.day}}
+          <text class='dayPrice'></text>
+        </view>
         
       </view>
     </view>
