@@ -3,6 +3,7 @@
     "pages/fk/index/index",
     "pages/news/news",
     "pages/fk/trip/trip",
+    "pages/fk/trip/finalPay",
     "pages/fk/fk_mine/fkMine",
     "pages/fd/fd_mine/fdMine",
     "pages/evaluate/evaluatefd",

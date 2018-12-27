@@ -21,7 +21,20 @@ Page({
       imgUrl: app.data.imgurl,
       member_type: app.globalData.member_type
     })
-    if (!wx.getStorageSync('cityId')){
+    app.http('/area/cityList', {}, true)
+      .then(res => {
+        this.setData({
+          cityList: res.data
+        })
+        for (var i = 0; i < res.data.length; i++) {
+          if (res.data[i].id == wx.getStorageSync('cityId')) {
+            that.setData({
+              index: i
+            })
+          }
+        }
+      })
+    if (!wx.getStorageSync('cityId')) {
       // 实例化API核心类
       qqmapsdk = new QQMapWX({
         key: 'VY3BZ-HYDL6-RGYSX-MXXQU-4VDPO-ZZFQR'
@@ -29,14 +42,14 @@ Page({
       //1、获取当前位置坐标
       wx.getLocation({
         type: 'wgs84',
-        success: function (res) {
+        success: function(res) {
           //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
           qqmapsdk.reverseGeocoder({
             location: {
               latitude: res.latitude,
               longitude: res.longitude
             },
-            success: function (addressRes) {
+            success: function(addressRes) {
               var address = addressRes.result.address_component.city;
               for (var i = 0; i < that.data.cityList.length; i++) {
                 if (address.indexOf(that.data.cityList[i].name) != -1) {
@@ -44,7 +57,7 @@ Page({
                     index: i,
                     cityId: that.data.cityList[i].id
                   })
-                  
+
                 } else {
                   that.setData({
                     cityId: 869
@@ -57,20 +70,26 @@ Page({
                 }
               }
               wx.setStorageSync('cityId', that.data.cityId);
-              that.getcommercialCircleList({ city: that.data.cityId, type: '1' })
-              that.getstoryList({ city: that.data.cityId })
-              that.getisRecommendSpaceList({ city: that.data.cityId })
+              that.getcommercialCircleList({
+                city: that.data.cityId,
+                type: '1'
+              })
+              that.getstoryList({
+                city: that.data.cityId
+              })
+              that.getisRecommendSpaceList({
+                city: that.data.cityId
+              })
             }
           })
         }
-      })  
-    }     
-    this.getCityList()    
+      })
+    }
   },
-  onShow:function(){
+  onShow: function() {
     this.setData({
       cityId: wx.getStorageSync('cityId')
-    })   
+    })
     for (var i = 0; i < this.data.cityList.length; i++) {
       if (this.data.cityList[i].id == wx.getStorageSync('cityId')) {
         this.setData({
@@ -78,27 +97,34 @@ Page({
         })
       }
     }
-    this.getcommercialCircleList({ city: wx.getStorageSync('cityId'), type: '1' })
-    this.getstoryList({ city: wx.getStorageSync('cityId') })
-    this.getisRecommendSpaceList({ city: wx.getStorageSync('cityId') })
+    this.getcommercialCircleList({
+      city: wx.getStorageSync('cityId'),
+      type: '1'
+    })
+    this.getstoryList({
+      city: wx.getStorageSync('cityId')
+    })
+    this.getisRecommendSpaceList({
+      city: wx.getStorageSync('cityId')
+    })
   },
-  getisRecommendSpaceList: function (params){
+  getisRecommendSpaceList: function(params) {
     //热门推荐
     wx.showLoading({
       title: '加载中',
     })
     app.http('/home/isRecommendSpaceList', params, true)
       .then(res => {
-        if (res.data.length>0){
+        if (res.data.length > 0) {
           this.setData({
             recommendData: res.data.slice(0, 8)
           })
           wx.hideLoading()
-        }        
+        }
       })
   },
-  
-  getcommercialCircleList: function (params){
+
+  getcommercialCircleList: function(params) {
     //热门商圈
     app.http('/home/commercialCircleList', params, true)
       .then(res => {
@@ -107,7 +133,7 @@ Page({
         })
       })
   },
-  getstoryList: function (params){
+  getstoryList: function(params) {
     //故事列表
     app.http('/home/storyList', params, true)
       .then(res => {
@@ -116,23 +142,22 @@ Page({
         })
       })
   },
-  getCityList: function () {
-    app.http('/area/cityList', {}, true)
-      .then(res => {
-        this.setData({
-          cityList: res.data
-        })
-      })
-  },
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value,
       cityId: this.data.cityList[e.detail.value].id
     });
     wx.setStorageSync('cityId', this.data.cityList[e.detail.value].id);
-    this.getcommercialCircleList({ city: this.data.cityList[e.detail.value].id, type: '1'})
-    this.getstoryList({ city: this.data.cityList[e.detail.value].id})
-    this.getisRecommendSpaceList({ city: this.data.cityList[e.detail.value].id})
+    this.getcommercialCircleList({
+      city: this.data.cityList[e.detail.value].id,
+      type: '1'
+    })
+    this.getstoryList({
+      city: this.data.cityList[e.detail.value].id
+    })
+    this.getisRecommendSpaceList({
+      city: this.data.cityList[e.detail.value].id
+    })
   },
   //加收藏
   addCl: function(e) {
@@ -184,9 +209,16 @@ Page({
     }
   },
   goToList: function(e) {
-    wx.navigateTo({
-      url: "../index/index"
-    })
+    if (e.currentTarget.dataset.text != undefined) {
+      wx.navigateTo({
+        url: "../list/list?name=" + e.currentTarget.dataset.text
+      })
+    } else {
+      wx.navigateTo({
+        url: "../list/list"
+      })
+    }
+
   },
   goToSpace: function() {
     wx.redirectTo({

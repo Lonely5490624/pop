@@ -48,7 +48,7 @@ Page({
           }
         }
       })
-    if (options.name != "undefined") {
+    if (options.name != undefined) {
       this.data.rcData.search_content = options.name
       that.setData({
         searchC: options.name,
