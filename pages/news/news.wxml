@@ -9,12 +9,13 @@
   </view>
   <view class='cont'>
     <view wx:for="{{newsList}}">
-      <navigator url='chat?info_id={{item.info_id}}&space_id={{item.space_id}}&order_id={{item.order_id}}'>
-        <view class='list pad32'>
-          <view class='list_l'>
-            <image src='{{item.head_img_url}}'></image>
-          </view>
-          <view class='list_r' style='width:83%;'>
+
+      <view class='list pad32'>
+        <view class='list_l'>
+          <image src='{{item.head_img_url}}'></image>
+        </view>
+        <view class='list_r' style='width:83%;'>
+          <navigator url='chat?info_id={{item.info_id}}&space_id={{item.space_id}}&order_id={{item.order_id}}'>
             <view class='text1'>
               <text class='t1'>{{item.nick_name}}·{{item.order_status_info==undefined?'咨询中':item.order_status_info}}</text>
               <text class='t3' wx:if="{{item.status==1}}"></text>
@@ -23,15 +24,16 @@
             <view class='text2'>{{item.content}}</view>
             <view class='text3'>{{item.title}}</view>
             <view class='text3' wx:if="{{item.order_id!=''}}">{{item.arrival_start_time}}-{{item.arrival_end_time}}</view>
-            <view wx:if="{{member_type==2}}">
-              <view wx:if="{{(item.order_status==4 || item.order_status==5) && item.refund_status==0 && item.landlord_comment_status==0}}" class='btn-xie' bindtap='gontoPj'>写评价</view>
+          </navigator>
+          <view wx:if="{{member_type==2}}">
+              <view wx:if="{{(item.order_status==4 || item.order_status==5) && item.refund_status==0 && item.landlord_comment_status==0}}" class='btn-xie' bindtap='gontoPj' data-text="{{item.order_id}}">写评价</view>
             </view>
             <view wx:else>
-              <view wx:if="{{item.order_status==4 && item.refund_status==0}}" class='btn-xie' bindtap='gontoPj'>写评价</view>
+              <view wx:if="{{item.order_status==4 && item.refund_status==0}}" class='btn-xie' data-text="{{item.order_id}}"bindtap='gontoPj'>写评价</view>
             </view>
-          </view>
         </view>
-      </navigator>
+      </view>
+
     </view>
   </view>
 </view>

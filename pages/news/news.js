@@ -38,14 +38,14 @@ Page({
         })
       })
   },
-  gontoPj:function(){
+  gontoPj:function(e){
     if (this.data.member_type==2){
       wx.navigateTo({
-        url: '../../evaluate/evaluatefd?order_id=' + order_id
+        url: '../evaluate/evaluatefd?order_id=' + e.currentTarget.dataset.text
       })
     }else{
       wx.navigateTo({
-        url: '../../evaluate/evaluate?order_id=' + order_id
+        url: '../evaluate/evaluate?order_id=' + e.currentTarget.dataset.text
       })
     }
   },

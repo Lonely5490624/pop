@@ -9,8 +9,14 @@ Page({
     })
   },
   next:function(){
-    wx.navigateTo({
-      url: "../fk/fk_mine/fkMine?space_id=" + this.data.space_id
-    })
+    if (wx.getStorageSync('member_id') == 1) {
+      wx.navigateTo({
+        url: "../fk/fk_mine/fkMine?space_id=" + this.data.space_id
+      })
+    }else{
+      wx.navigateTo({
+        url: "../fd/fd_mine/fdMine?space_id=" + this.data.space_id
+      })
+    }    
   }
 })

@@ -66,7 +66,7 @@ Page({
   },
   gotoMyindex:function(){
     wx.navigateTo({
-      url: "../../fd/fd_mine/fdMine?order_id=" + this.data.tripInfo.order_id + '&member_id=' + this.data.tripInfo.member_id
+      url: "../fk_mine/fkMine?order_id=" + this.data.tripInfo.order_id + '&member_id=' + this.data.tripInfo.member_id
     })
   },
   cancle: function() {
