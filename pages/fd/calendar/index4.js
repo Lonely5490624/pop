@@ -158,9 +158,9 @@ Page({
     this.fillCalendar(12);    
   },
 
-  _close() {
-    wx.navigateBack({
-
+  close: function () {
+    wx.navigateBack({ //返回
+      delta: 1
     })
   },
   // 获取所有日期数组

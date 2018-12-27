@@ -195,20 +195,20 @@
 }
 
 .bottom_box .bb_l {
-  width: 240rpx;
+  width: 144rpx;
   height: 100%;
   background: #fff;
   color: #212121;
   font-size: 28rpx;
   text-align: center;
-  line-height: 96rpx;
+  line-height: 45rpx;
   float: left;
 }
 
 .bottom_box .bb_r {
   color: #fff;
   float: right;
-  width: 510rpx;
+  width: 460rpx;
 }
 .active{
   color: #FF5555;
