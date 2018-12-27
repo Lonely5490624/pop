@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/fk/trip/finalPay",
     "pages/news/news",
     "pages/fk/trip/trip",
     "pages/fk/fk_mine/fkMine",
@@ -25,7 +26,6 @@
     "pages/fd/space/add-4",
     "pages/fk/index/newP",
     "pages/fd/calendar/edit",
-    "pages/fk/trip/finalPay",
     "pages/fk/detail/detail",
     "pages/fd/data/data-score",
     "pages/fd/data/data-num",
