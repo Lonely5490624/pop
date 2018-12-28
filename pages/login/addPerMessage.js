@@ -3,8 +3,10 @@ var app=getApp()
 
 Page({
   data: {
-    nick_name: "小龙人",
-    true_name: '大龙'
+    nick_name: "",
+    avatarUrl: '',
+    head_img_url: '',
+    synopsis: ''
   },
   onLoad:function(options){
     if (options){
@@ -13,6 +15,19 @@ Page({
         code: options.code
       })
     }
+    wx.getUserInfo({
+      success: (res) => {
+        this.setData({
+          avatarUrl: res.userInfo.avatarUrl,
+          nick_name: res.userInfo.nickName
+        })
+      }
+    })
+  },
+  changeAvatar () {
+    wx.navigateTo({
+      url: 'uploadImg',
+    })
   },
   done () {
     let params = {
@@ -28,9 +43,9 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        wx.redirectTo({
-          url: 'login',
-        })
+        // wx.redirectTo({
+        //   url: 'login',
+        // })
       }
     })
   }

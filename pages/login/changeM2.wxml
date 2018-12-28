@@ -12,7 +12,7 @@
     <view class='tipText'>好的昵称可以让你更受欢迎哦~</view>
   </view> -->
   <view class='cont pad32 border-b'>
-    <textarea placeholder='简介可以让老板更好地了解你~' bindinput="bindWordLimit" maxlength='100'></textarea>
+    <textarea placeholder='简介可以让老板更好地了解你~' bindinput="bindWordLimit" maxlength='100' value="{{info}}"></textarea>
     <view class="wordLimit">{{limitNoteLen}}</view> 
   </view>
   <view class="saveBtn  {{nextBtn?'able':'unable'}}" bindtap='save'>保存</view>

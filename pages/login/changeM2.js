@@ -8,6 +8,7 @@ Page({
 
   onLoad: function (options) {
     this.setData({
+      info: options.info || '',
       limitNoteLen: 100 //剩余字数
     });
   },
@@ -22,9 +23,14 @@ Page({
       limitNoteLen: this.data.noteMaxLen - len //剩余字数
     });
   },
-  save:function(){
-    wx.navigateTo({
-      url: "addPerMessage?info=" + this.data.info
+  save: function () {
+    let pages = getCurrentPages()
+    let prevPage = pages[pages.length - 2]
+    prevPage.setData({
+      synopsis: this.data.info
+    })
+    wx.navigateBack({
+      alpha: 1
     })
   } 
 })

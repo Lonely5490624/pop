@@ -7,7 +7,7 @@
     <view class='title_r'>保存</view>
   </view> -->
   <view class='cont pad32'>
-    <input placeholder='请输入...' bindinput="getinput"></input>
+    <input placeholder='请输入...' bindinput="getinput" value="{{nickName}}"></input>
     <view class='tipText'>好的昵称可以让你更受欢迎哦~</view>
   </view>
   <!-- <view class='cont pad32 border-b'>

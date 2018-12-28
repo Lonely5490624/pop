@@ -2,18 +2,23 @@
 Page({
   data: {
     nextBtn:false,
-    nikeName:""
+    nickName:""
   },
   
   getinput: function (e) {
     this.setData({
-      nikeName: e.detail.value,
+      nickName: e.detail.value,
       nextBtn:true,
     });
   },
-  save:function(){
-    wx.navigateTo({
-      url: "addPerMessage?nikeName=" + this.data.nikeName
+  save: function () {
+    let pages = getCurrentPages()
+    let prevPage = pages[pages.length - 2]
+    prevPage.setData({
+      nick_name: this.data.nickName
+    })
+    wx.navigateBack({
+      alpha: 1
     })
   } 
 })
