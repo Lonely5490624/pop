@@ -268,7 +268,8 @@ Page({
               //显示是否接受按钮
               that.setData({
                 fdBtn: false
-              })
+              });
+              that.getChatDetail();
             })
         } else {
           console.log('取消')
@@ -301,7 +302,8 @@ Page({
               //显示是否接受按钮
               that.setData({
                 fdBtn: false
-              })
+              });
+              that.getChatDetail();
             })
         } else {
           console.log('取消')

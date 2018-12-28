@@ -1,0 +1,2 @@
+<!--pages/mine/serveDetail.wxml-->
+<web-view src="http://www.letspopup.cn/member/serve_detail.html?id={{id}}"></web-view>

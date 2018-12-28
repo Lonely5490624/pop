@@ -17,7 +17,7 @@
         </view>
       </view>
     </navigator> -->
-    <navigator url="">
+    <navigator url="serve">
       <view class='con_list'>
         <view class='con_list_l'>服务条款</view>
         <view class='con_list_r'>

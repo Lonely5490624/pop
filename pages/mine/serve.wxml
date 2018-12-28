@@ -1,0 +1,9 @@
+<!--pages/mine/serve.wxml-->
+<view class='pages'>
+  <view class='list' wx:for="{{list}}">
+  <navigator url='./serveDetail?id={{item.id}}'>
+    <view class='redC'></view>
+    <view class='t1'>{{item.question}}</view>
+    </navigator>
+  </view>
+</view>

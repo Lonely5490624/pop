@@ -53,8 +53,7 @@ Page({
     })
     if (options != '') {
       this.setData({
-        // space_id: options.id
-        space_id: 33
+         space_id: options.id
       })
     }
     this.getDetail(this.data.space_id)

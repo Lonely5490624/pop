@@ -64,8 +64,10 @@
     "pages/login/changeM2",
     "pages/fd/space/uploadImg",
     "pages/mine/uploadImg",
-    "pages/fk/trip/uploadImg"
- 
+    "pages/fk/trip/uploadImg",
+    "pages/mine/serve",
+    "pages/mine/serveDetail",
+    "pages/login/auth"
   ],
   "window": {
     "backgroundTextStyle": "light",

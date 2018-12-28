@@ -1,8 +1,8 @@
 <!--pages/fd/data/index.wxml-->
 <view class='data'>  
   <view class='box'>
-  <view class='tx'><open-data type="userAvatarUrl"></open-data></view>
-  <button wx:if="{{!userData}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <view class='tx'><image src='{{head_img}}'></image></view>
+ 
     <view class='list'>
       <view style='width:20%;' class='qh'>+86</view>
       <input style='width:78%;' placeholder='请输入手机号码' maxlength='11' type="number" bindinput='getMoblie'></input>

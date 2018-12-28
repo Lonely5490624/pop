@@ -1,0 +1,7 @@
+<!--pages/login/auth.wxml-->
+<view class='data'>  
+  <view class='box'>
+  <view class='tx'><open-data type="userAvatarUrl"></open-data></view>
+  <button wx:if="{{!userData}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  </view>
+</view>

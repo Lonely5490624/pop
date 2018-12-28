@@ -4,7 +4,7 @@ Page({
   data: {
     bg:false,
     pcount:'',
-    flag2: 0,
+    flag2: 5,
     order_id:'',
     orderInfo:[],
     imgUrl:''
@@ -23,8 +23,9 @@ Page({
 
   },
   getCount:function(e){
+    var bg = e.detail.value ? true : false;
     this.setData({
-      bg:true,
+      bg : bg,
       pcount: e.detail.value
     })
   },
@@ -59,6 +60,13 @@ Page({
     });
   },
   next:function(){
+    if(!this.data.bg){
+      wx.showToast({
+        title: '写点什么吧....',
+        icon: 'none',
+      });
+      return 0;
+    }
     var data={
       order_id: this.data.order_id,
       service: this.data.flag2,
@@ -67,7 +75,7 @@ Page({
     app.http('/comment/save_landlord_comment', data)
       .then(res => {
         wx.navigateTo({
-          url: "evaluateSuccess?space_id=" + this.data.space_id
+          url: "evaluateSuccess?order_id=" + this.data.order_id+"&member_id="+this.data.orderInfo.member_id
         })
       })
   }

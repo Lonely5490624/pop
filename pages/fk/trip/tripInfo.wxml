@@ -83,8 +83,8 @@
     <view class='b3_list4'>
       <view class='b3_list_l'>
         <text>余款 {{tripInfo.spare_rate}}%</text>
-        <text style='margin-left:30rpx;' wx:if="{{tripInfo.unsubscribe_policy==1}}">￥{{tripInfo.balance}} 于入场前8天内支付</text>
-        <text style='margin-left:30rpx;' wx:else>￥{{tripInfo.balance}} 于入驻前10天内支付</text>
+        <text style='margin-left:30rpx;' wx:if="{{tripInfo.unsubscribe_policy==1}}">￥{{tripInfo.balance}} 于入驻前6天支付</text>
+        <text style='margin-left:30rpx;' wx:else>￥{{tripInfo.balance}} 于入驻前8天支付</text>
       </view>
       <view class='b3_list_r gopayBtn' wx:if="{{tripInfo.status==2 && tripInfo.refund_status==0}}" bindtap='toPay'>去支付</view>
     </view>

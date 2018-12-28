@@ -1,21 +1,24 @@
 // pages/fd/data/index.js
 Page({
   data: {
-    space_id:''
+    order_id:'',
+    member_id : ''
   },
   onLoad:function(options){
     this.setData({
-      space_id: options.space_id
+      order_id: options.order_id,
+      member_id : options.member_id,
+      space_id : options.space_id
     })
   },
   next:function(){
-    if (wx.getStorageSync('member_id') == 1) {
+    if (wx.getStorageSync('member_type') == 2) {
       wx.navigateTo({
-        url: "../fk/fk_mine/fkMine?space_id=" + this.data.space_id
+        url: "../fk/fk_mine/fkMine?order_id=" + this.data.order_id + "&member_id=" + this.data.member_id
       })
     }else{
       wx.navigateTo({
-        url: "../fd/fd_mine/fdMine?space_id=" + this.data.space_id
+        url: "../fd/fd_mine/fdMine?order_id=" + this.data.order_id + "&member_id=" + this.data.member_id+"&space_id="+this.data.space_id
       })
     }    
   }

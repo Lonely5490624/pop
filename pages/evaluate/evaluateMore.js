@@ -10,13 +10,16 @@ Page({
     accuracy: 0,
     service: 0,
     landlord_content: '',
-    order_id: 0
+    order_id: 0,
+    member_id : 0
   },
   onLoad: function(options) {
     this.setData({
       service: options.flag2,
       landlord_content: options.pcount,
-      order_id: options.order_id
+      order_id: options.order_id,
+      member_id : options.member_id,
+      space_id : options.space_id
     })
     console.log(options)
   },
@@ -190,7 +193,7 @@ Page({
     app.http('/comment/save_comment',data)
       .then(res => {
         wx.navigateTo({
-          url: "evaluateSuccess?space_id=" + this.data.space_id
+          url: "evaluateSuccess?space_id=" + this.data.space_id+"&member_id="+this.data.member_id
         })
       })
 

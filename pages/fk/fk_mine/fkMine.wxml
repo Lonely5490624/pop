@@ -16,7 +16,7 @@
       <view class='list_r_l1'>
         <view class='name'>{{item.nick_name}}</view>
         <view class='xing' style="display:flex;flex-direction:row;margin-left:20rpx;">
-          <view class='space-score' wx:for='{{item.service}}'>
+          <view class='space-score' wx:for='{{item.service*1}}'>
             <text class='iconfont icon-wujiaoxing score-icon active'></text>
           </view>
           <view class='space-score' wx:for='{{5-item.service}}'>

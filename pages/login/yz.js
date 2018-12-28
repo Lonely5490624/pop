@@ -1,4 +1,7 @@
 // pages/fd/data/index.js
+import {
+  ajaxData
+} from '../../utils/common'
 var interval = null //倒计时函数
 var app=getApp()
 Page({
@@ -74,18 +77,23 @@ Page({
       iptValue: e.detail.value
     });
     if (that.data.iptValue.length == 6) {
+      let data = ajaxData({
+        mobile: parseInt(that.data.mobile),
+        code: parseInt(that.data.iptValue),
+        unionid: wx.getStorageSync('unionid'),
+        openid: wx.getStorageSync('openid'),
+        headimgurl: app.globalData.userData.avatarUrl,
+        nickname: app.globalData.userData.nickName,
+        is_wx_small: 1
+      });
       wx.request({
         url: app.data.requestUrl +'/member/login',
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
-        data: {
-          mobile: parseInt(that.data.mobile),
-          code: parseInt(that.data.iptValue),
-          unionid : wx.getStorageSync('unionid'),
-          openid: wx.getStorageSync('openid')
-        },
+        data,
+        
         success: function(res) {
           
           if (res.data.code == 200) {

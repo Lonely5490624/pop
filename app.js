@@ -39,7 +39,7 @@ App({
     }
     if (!notNeedLogin && !member_id) {
       wx.redirectTo({
-        url: '/pages/login/login',
+        url: '/pages/login/auth',
       })
       return
     }
