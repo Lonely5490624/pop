@@ -160,56 +160,68 @@ Page({
   },
   // 点击日期
   chooseDate(e) {
-    //点击修改样式
+   
+
+    if (e.currentTarget.dataset.unable == '') {
+       //点击修改样式
     let arr = this.data.currentTypes
     let id = e.currentTarget.dataset.id
     let nowDate = this.data.able[0];
-    if (id < nowDate) {
-      wx.showToast({
-        title: '已过期时间无法再编辑！！',
-        icon: 'none'
-      })
-      return
-    }
-    if (id < new Date())
-    this.setData({
-      dayPrice: e.currentTarget.dataset.dayprice
-    })
-
-    if (arr.indexOf(id) > -1) {
-      arr.remove(id)
-    } else {
-      arr.push(id)
-    }
-    this.setData({
-      currentTypes: arr
-    })
-    if (e.currentTarget.dataset.unable == '') {
       const year_click = e.currentTarget.dataset.year;
       const month_click = e.currentTarget.dataset.month;
       const day_click = e.currentTarget.dataset.day;
-      //显示编辑框
-      this.setData({
-        showXZnum: true
-      })
-      // 获取点击对象的id
-      let id = e.currentTarget.dataset.id;
-      //选择的日期添加到chooseDateArr选择日期数组中
-      if (this.data.chooseDateArrInfo.indexOf(`${year_click}-${month_click}-${day_click}`) == -1) {
-        this.data.chooseDateArr.push(`${month_click}月${day_click}`)
-        this.data.chooseDateArrInfo.push(`${year_click}-${month_click}-${day_click}`)
-      } else {
-        this.data.chooseDateArrInfo.remove(`${year_click}-${month_click}-${day_click}`)
-        this.data.chooseDateArr.remove(`${month_click}月${day_click}`)
-      }
-      if (this.data.chooseDateArr.length == 0) {
+      // 如果是空格或者以前的日期就直接返回
+
+      let clickDate = new Date(Date.parse(`${year_click}-${month_click}-${day_click}`))
+      let nowd = new Date(Date.parse(this.data.nowDate))
+      if (day_click == '' || clickDate.getTime() < nowd.getTime()) {
+        return false;
+      } else { 
+console.log(1)
+        if (id < nowDate) {
+          wx.showToast({
+            title: '已过期时间无法再编辑！！',
+            icon: 'none'
+          })
+          return
+        }
+        if (id < new Date())
+          this.setData({
+            dayPrice: e.currentTarget.dataset.dayprice
+          })
+
+        if (arr.indexOf(id) > -1) {
+          arr.remove(id)
+        } else {
+          arr.push(id)
+        }
         this.setData({
-          showXZnum: false
+          currentTypes: arr
+        })
+        //显示编辑框
+        this.setData({
+          showXZnum: true
+        })
+        // 获取点击对象的id
+        let id = e.currentTarget.dataset.id;
+        //选择的日期添加到chooseDateArr选择日期数组中
+        if (this.data.chooseDateArrInfo.indexOf(`${year_click}-${month_click}-${day_click}`) == -1) {
+          this.data.chooseDateArr.push(`${month_click}月${day_click}`)
+          this.data.chooseDateArrInfo.push(`${year_click}-${month_click}-${day_click}`)
+        } else {
+          this.data.chooseDateArrInfo.remove(`${year_click}-${month_click}-${day_click}`)
+          this.data.chooseDateArr.remove(`${month_click}月${day_click}`)
+        }
+        if (this.data.chooseDateArr.length == 0) {
+          this.setData({
+            showXZnum: false
+          })
+        }
+        this.setData({
+          xzNum: this.data.chooseDateArr.length
         })
       }
-      this.setData({
-        xzNum: this.data.chooseDateArr.length
-      })
+
 
     }
   },
@@ -237,17 +249,17 @@ Page({
         space_id: this.data.spaceList[0].id
       })
     }
-    if (this.data.xzNum==1){
+    if (this.data.xzNum == 1) {
       wx.navigateTo({
         url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id + "&dayPrice=" + this.data.dayPrice
       })
-    }else{
+    } else {
       wx.navigateTo({
         url: "edit?data=" + this.data.chooseDateArr + "&chooseDateArrInfo=" + this.data.chooseDateArrInfo + "&space_id=" + this.data.space_id
       })
     }
 
-    
+
   },
   goToList: function() {
     wx.redirectTo({
