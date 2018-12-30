@@ -217,7 +217,8 @@ Page({
   //点击获取空间id
   chooseSpace: function(e) {
     this.setData({
-      space_id: e.currentTarget.id
+      space_id: e.currentTarget.id,
+      chooseDateArr: []
     })
     for (var i = 0; i < this.data.spaceList.length; i++) {
       if (e.currentTarget.id == this.data.spaceList[i].id) {

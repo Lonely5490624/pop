@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/fk/index/index",
+    "pages/login/register",
     "pages/login/addPerMessage",
+    "pages/login/registerYz",
     "pages/login/uploadImg",
     "pages/fk/detail/detail",
     "pages/fk/trip/finalPay",
@@ -13,7 +15,6 @@
     "pages/fk/list/list",
     "pages/fk/order/order-confirm",
     "pages/fd/space/add-1",
-    "pages/login/register",
     "pages/fd/calendar/index",
     "pages/fd/calendar/index2",
     "pages/fd/calendar/index3",

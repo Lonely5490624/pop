@@ -87,7 +87,7 @@ Page({
           encoding: "base64",
           success: function (data) {
             let img = 'data:image/jpeg;base64,' + data.data
-            app.http('/space/upload_img', { data_img: img })
+            app.http('/space/upload_img', { data_img: img }, true)
               .then(res => {
                 let pages = getCurrentPages()
                 let prevPage = pages[pages.length - 2]

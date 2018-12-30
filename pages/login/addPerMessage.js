@@ -3,6 +3,7 @@ var app=getApp()
 
 Page({
   data: {
+    mobile: '',
     nick_name: "",
     avatarUrl: '',
     head_img_url: '',
@@ -19,6 +20,7 @@ Page({
       success: (res) => {
         this.setData({
           avatarUrl: res.userInfo.avatarUrl,
+          head_img_url: res.userInfo.head_img_url,
           nick_name: res.userInfo.nickName
         })
       }
@@ -30,23 +32,9 @@ Page({
     })
   },
   done () {
-    let params = {
-      mobile: this.data.mobile,
-      nick_name: this.data.nick_name,
-      true_name: this.data.true_name
-    }
-    wx.request({
-      url: app.data.requestUrl + '/member/register',
-      method: "POST",
-      data: params,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        // wx.redirectTo({
-        //   url: 'login',
-        // })
-      }
+    let { mobile, nick_name, head_img_url, synopsis } = this.data
+    wx.navigateTo({
+      url: `registerYz?mobile=${mobile}&nick_name=${nick_name}&head_img_url=${head_img_url}&synopsis=${synopsis || ''}`,
     })
   }
 })
